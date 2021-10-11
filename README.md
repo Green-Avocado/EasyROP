@@ -1,11 +1,21 @@
-# My Personal Project
+# EasyROP
 
-## A subtitle
+## Description
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+*EasyROP* is an exploit development tool targeted at stack buffer overflow vulnerabilities in Linux executables.
+This tool supports i386 and amd64 architectures and techniques such as Return-Oriented Programming and Ret2Libc.
+Exploit scripts created by this program are intended for use with [pwntools](https://github.com/Gallopsled/pwntools).
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+Features include:
+
+- Adding padding to payloads to overflow stack buffers.
+- Modifying current padding.
+- Adding return addresses to a payload.
+- Modifying current return addresses.
+- Displaying the current payload.
+
+*EasyROP* is primarily intended for new CTF players learning the basics of binary exploitation.
+It can be used to teach fundamentals behind techniques such as Return-Oriented Programming, as reduces the learning curve of writing an exploit.
+This project is of interest to me as a member of the UBC CTF team, [Maple Bacon](https://ubcctf.github.io/), because of the influx of new members recently.
+Many of our newer members would like to learn concepts such as stack buffer overflows, but find them very complex and difficult to pick up.
+I wish to simplify the learning process my making it easier to start developing exploits without extensive experience in more complex tools.
