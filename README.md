@@ -22,11 +22,9 @@ I wish to simplify the learning process my making it easier to start developing 
 
 ## User Stories
 
-- As a user, I want to be able to add a ROP gadget to a payload using an address, list of instructions, or string.
-- As a user, I want to be able to select a ROP gadget and change whether it uses an address, list of instructions, or string.
-- As a user, I want to be able to select a ROP gadget and change its address.
-- As a user, I want to be able to select a ROP gadget and change what instructions it searches for.
-- As a user, I want to be able to select a ROP gadget and change what string it searches for.
+- As a user, I want to be able to add a ROP gadget to a payload using an address, symbol, list of instructions, or string.
+- As a user, I want to be able to select a ROP gadget and replace it with a different ROP gadget.
+- As a user, I want to be able to select and change the contents of a ROP gadget.
 - As a user, I want to be able to remove a ROP gadget from a payload.
 - As a user, I want to be able to visualise padding and ROPchain of a payload.
 - As a user, I want to be able to output an exploit script using a payload.
