@@ -1,4 +1,4 @@
 package model;
 
-public class Gadget {
+public interface Gadget {
 }
