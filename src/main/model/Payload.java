@@ -38,4 +38,8 @@ public class Payload {
     public static void setIsAmd64(boolean isAmd64) {
         Payload.isAmd64 = isAmd64;
     }
+
+    public static boolean getIsAmd64() {
+        return isAmd64;
+    }
 }
