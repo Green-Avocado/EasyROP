@@ -3,6 +3,7 @@ package model;
 import java.util.LinkedList;
 
 public class RopChain {
+    private int padding = 0;
     private final LinkedList<Gadget> gadgetList;
 
     public RopChain() {
