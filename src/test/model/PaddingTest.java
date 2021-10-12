@@ -15,9 +15,20 @@ class PaddingTest {
 
     @Test
     void getScriptTest() {
+        String string = "";
+
+        for(int i = 0; i <= 16; i++) {
+            padding.setLength(i);
+            assertEquals(string, padding.getScript());
+            string = string.concat("a");
+        }
     }
 
     @Test
     void setLengthTest() {
+        for(int i = 0; i <= 16; i++) {
+            padding.setLength(i);
+            assertEquals(i, padding.getLength());
+        }
     }
 }
