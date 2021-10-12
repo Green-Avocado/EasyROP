@@ -1,8 +1,6 @@
 package model;
 
-import java.util.ArrayList;
-
-public class Padding implements Gadget {
+public class Padding implements ExploitElement {
     private int length;
 
     public Padding() {

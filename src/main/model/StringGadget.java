@@ -1,6 +1,6 @@
 package model;
 
-public class StringGadget implements Gadget {
+public class StringGadget implements ExploitElement {
     private String base;
     private String string;
 

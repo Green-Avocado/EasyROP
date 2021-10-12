@@ -90,7 +90,7 @@ class PayloadTest {
 
     @Test
     void getScriptTest() {
-        ArrayList<Gadget> gadgetList = new ArrayList<>();
+        ArrayList<ExploitElement> gadgetList = new ArrayList<>();
         ArrayList<String> scriptList = new ArrayList<>();
 
         Padding padding = new Padding();
@@ -122,7 +122,7 @@ class PayloadTest {
         symbolGadget.setType("got");
         gadgetList.add(symbolGadget);
 
-        for (Gadget gadget : gadgetList) {
+        for (ExploitElement gadget : gadgetList) {
             RopChain ropChain = new RopChain();
             ropChain.add(gadget, 0);
             payload.add(ropChain, payload.getLength());

@@ -3,19 +3,19 @@ package model;
 import java.util.LinkedList;
 
 public abstract class GadgetCollection {
-    private final LinkedList<Gadget> payloadElementList;
+    private final LinkedList<ExploitElement> exploitElementList;
 
-    // EFFECTS: creates a new GadgetCollection with an empty list of gadgets
+    // EFFECTS: creates a new GadgetCollection with an empty list of ExploitElements
     public GadgetCollection() {
-        payloadElementList = new LinkedList<>();
+        exploitElementList = new LinkedList<>();
     }
 
     // REQUIRES index >= 0
     // MODIFIES: this
-    // EFFECTS: adds gadget to the gadget list at the specified index, returns true if successful
-    public boolean add(Gadget gadget, int index) {
-        if (index <= payloadElementList.size()) {
-            payloadElementList.add(index, gadget);
+    // EFFECTS: adds ExploitElement to the ExploitElementList at the specified index, returns true if successful
+    public boolean add(ExploitElement exploitElement, int index) {
+        if (index <= exploitElementList.size()) {
+            exploitElementList.add(index, exploitElement);
             return true;
         } else {
             return false;
@@ -24,10 +24,11 @@ public abstract class GadgetCollection {
 
     // REQUIRES index >= 0
     // MODIFIES: this
-    // EFFECTS: replaces the Gadget at the specified index with the specified gadget, returns true if successful
-    public boolean set(Gadget gadget, int index) {
-        if (index < payloadElementList.size()) {
-            payloadElementList.set(index, gadget);
+    // EFFECTS: replaces the ExploitElement at the specified index with the specified ExploitElement,
+    //          returns true if successful, otherwise returns false
+    public boolean set(ExploitElement exploitElement, int index) {
+        if (index < exploitElementList.size()) {
+            exploitElementList.set(index, exploitElement);
             return true;
         } else {
             return false;
@@ -36,10 +37,10 @@ public abstract class GadgetCollection {
 
     // REQUIRES: index >= 0
     // MODIFIES: this
-    // EFFECTS: removes the Gadget at specified index, returns true if successful
+    // EFFECTS: removes the ExploitElement at specified index, returns true if successful, otherwise returns false
     public boolean remove(int index) {
-        if (index < payloadElementList.size()) {
-            payloadElementList.remove(index);
+        if (index < exploitElementList.size()) {
+            exploitElementList.remove(index);
             return true;
         } else {
             return false;
@@ -50,15 +51,15 @@ public abstract class GadgetCollection {
     public String getScript() {
         String script = "";
 
-        for (Gadget gadget : payloadElementList) {
-            String gadgetScript = gadget.getScript();
+        for (ExploitElement element : exploitElementList) {
+            String s = element.getScript();
 
-            if (!gadgetScript.isEmpty()) {
+            if (!s.isEmpty()) {
                 if (!script.isEmpty()) {
                     script = script.concat("\n");
                 }
 
-                script = script.concat(gadgetScript);
+                script = script.concat(s);
             }
         }
 
@@ -66,22 +67,22 @@ public abstract class GadgetCollection {
     }
 
     // REQUIRES index >= 0
-    // EFFECTS: returns the gadget at the specified index or null if no such Gadget exists
-    public Gadget get(int index) {
-        if (index < payloadElementList.size()) {
-            return payloadElementList.get(index);
+    // EFFECTS: returns the ExploitElement at the specified index or null if no such object exists
+    public ExploitElement get(int index) {
+        if (index < exploitElementList.size()) {
+            return exploitElementList.get(index);
         } else {
             return null;
         }
     }
 
-    // EFFECTS: returns the list of Gadgets
-    public LinkedList<Gadget> getList() {
-        return payloadElementList;
+    // EFFECTS: returns the list of ExploitElements
+    public LinkedList<ExploitElement> getList() {
+        return exploitElementList;
     }
 
-    // EFFECTS: returns the number of Gadgets in the list
+    // EFFECTS: returns the number of elements in the exploitElementList
     public int getLength() {
-        return payloadElementList.size();
+        return exploitElementList.size();
     }
 }

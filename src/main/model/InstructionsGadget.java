@@ -2,7 +2,7 @@ package model;
 
 import java.util.LinkedList;
 
-public class InstructionsGadget implements Gadget {
+public class InstructionsGadget implements ExploitElement {
     private String base;
     private LinkedList<String> instructions;
 

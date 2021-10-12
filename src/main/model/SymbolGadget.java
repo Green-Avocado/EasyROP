@@ -1,6 +1,6 @@
 package model;
 
-public class SymbolGadget implements Gadget {
+public class SymbolGadget implements ExploitElement {
     private String base;
     private String symbol;
     private String symbolType;

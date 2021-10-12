@@ -1,6 +1,6 @@
 package model;
 
-public class Payload extends GadgetCollection implements Gadget {
+public class Payload extends GadgetCollection implements ExploitElement {
     private static boolean isAmd64 = true;
 
     // EFFECTS: creates a new Payload with an empty list of RopChains

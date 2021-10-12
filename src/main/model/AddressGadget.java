@@ -1,6 +1,6 @@
 package model;
 
-public class AddressGadget implements Gadget {
+public class AddressGadget implements ExploitElement {
     private String base;
     private int address;
 
