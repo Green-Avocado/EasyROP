@@ -11,7 +11,7 @@ public class SymbolGadget extends Gadget implements ExploitElement {
 
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
-        return "dummy script"; //TODO: STUB
+        return "pack(" + getBase() + "." + type + "['" + symbol + "'])";
     }
 
     // MODIFIES: this
