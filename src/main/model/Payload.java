@@ -5,18 +5,22 @@ import java.util.LinkedList;
 public class Payload {
     private static boolean isAmd64 = true;
 
-    private final LinkedList<Gadget> gadgetChain;
+    private final LinkedList<RopChain> ropList;
 
     public Payload() {
-        gadgetChain = new LinkedList<>();
+        ropList = new LinkedList<>();
     }
 
-    public void addGadget(Gadget gadget) {
+    public void addRopChain(RopChain ropChain, int index) {
         //TODO: STUB
     }
 
-    public void removeGadget(int index) {
+    public void removeRopChain(int index) {
         //TODO: STUB
+    }
+
+    public RopChain getRopChain(int index) {
+        return null; //TODO: STUB
     }
 
     public LinkedList<Gadget> viewPayload() {
@@ -25,6 +29,10 @@ public class Payload {
 
     public String outputScript() {
         return null; //TODO: STUB
+    }
+
+    public int getPayloadLength() {
+        return ropList.size(); //TODO: STUB
     }
 
     public static void setIsAmd64(boolean isAmd64) {
