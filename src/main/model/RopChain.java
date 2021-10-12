@@ -10,24 +10,28 @@ public class RopChain {
         gadgetList = new LinkedList<>();
     }
 
+    // REQUIRES index >= 0
     // MODIFIES: this
     // EFFECTS: adds gadget to the gadget list at the specified index, returns true if successful
     public boolean addGadget(Gadget gadget, int index) {
         return false; //TODO: STUB
     }
 
+    // REQUIRES: index >= 0
     // MODIFIES: this
     // EFFECTS: removes gadget from specified index, returns true if successful
     public boolean removeGadget(int index) {
         return false; //TODO: STUB
     }
 
+    // REQUIRES index >= 0
     // MODIFIES: this
     // EFFECTS: replaces gadget at the specified index with the specified gadget, returns true if successful
     public boolean replaceGadget(Gadget gadget, int index) {
         return false; //TODO: STUB
     }
 
+    // REQUIRES index >= 0
     // EFFECTS: returns the gadget at the specified index or null if no such Gadget exists
     public Gadget getGadget(int index) {
         return null; //TODO: STUB
