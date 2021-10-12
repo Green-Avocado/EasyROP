@@ -8,11 +8,11 @@ public class Padding implements Gadget {
     public Padding() {
     }
 
-    public String outputScript() {
+    public String gadgetScript() {
         return null; //TODO: STUB
     }
 
-    public boolean setLength() {
+    public boolean setLength(int length) {
         return false; //TODO: STUB
     }
 

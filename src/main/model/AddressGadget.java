@@ -1,14 +1,25 @@
 package model;
 
 public class AddressGadget implements Gadget {
+    private String base;
+    private int address;
+
     public AddressGadget() {
     }
 
-    public String outputScript() {
+    public String gadgetScript() {
         return null; //TODO: STUB
     }
 
-    public boolean setBase() {
+    public boolean setAddress(int address) {
+        return false; //TODO: STUB
+    }
+
+    public int getAddress() {
+        return 0; //TODO: STUB
+    }
+
+    public boolean setBase(String base) {
         return false; //TODO: STUB
     }
 

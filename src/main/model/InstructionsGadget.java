@@ -1,14 +1,35 @@
 package model;
 
+import java.util.LinkedList;
+
 public class InstructionsGadget implements Gadget {
+    private String base;
+    private LinkedList<String> instructions;
+
     public InstructionsGadget() {
     }
 
-    public String outputScript() {
+    public String gadgetScript() {
         return null; //TODO: STUB
     }
 
-    public boolean setBase() {
+    public boolean addInstruction(String instruction, int index) {
+        return false; //TODO: STUB
+    }
+
+    public boolean setInstruction(String instruction, int index) {
+        return false; //TODO: STUB
+    }
+
+    public boolean removeInstruction(int index) {
+        return false; //TODO: STUB
+    }
+
+    public LinkedList<String> getInstructions() {
+        return null; //TODO: STUB
+    }
+
+    public boolean setBase(String base) {
         return false; //TODO: STUB
     }
 
