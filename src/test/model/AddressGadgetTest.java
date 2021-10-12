@@ -18,6 +18,10 @@ class AddressGadgetTest {
         gadget.setBase("exe");
         gadget.setAddress("0xdeadbeef");
         assertEquals("pack(exe.address + 0xdeadbeef)", gadget.getScript());
+
+        gadget.setBase("libc");
+        gadget.setAddress("0xcafebabe");
+        assertEquals("pack(libc.address + 0xcafebabe)", gadget.getScript());
     }
 
     @Test
