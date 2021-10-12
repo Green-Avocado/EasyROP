@@ -3,9 +3,11 @@ package model;
 public class Padding implements ExploitElement {
     private int length;
 
+    // EFFECTS: creates a new padding element
     public Padding() {
     }
 
+    // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
         String paddingString = "";
 
@@ -16,12 +18,14 @@ public class Padding implements ExploitElement {
         return paddingString;
     }
 
-    public boolean setLength(int length) {
+    // REQUIRES: length >= 0
+    // EFFECTS: sets the length of padding
+    public void setLength(int length) {
         this.length = length;
-        return true;
     }
 
+    // EFFECTS: returns the length of padding
     public int getLength() {
-        return 0; //TODO: STUB
+        return length;
     }
 }
