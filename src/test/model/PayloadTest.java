@@ -195,10 +195,7 @@ class PayloadTest {
             i++;
         }
 
-        assertEquals(
-                String.join("\n", scriptList),
-                payload.getScript()
-        );
+        assertEquals(String.join("\n", scriptList), payload.getScript());
 
         RopChain ropChain = new RopChain();
         payload = new Payload();
