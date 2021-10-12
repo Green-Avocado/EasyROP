@@ -1,38 +1,37 @@
 package model;
 
-public class SymbolGadget implements ExploitElement {
-    private String base;
+public class SymbolGadget extends Gadget implements ExploitElement {
     private String symbol;
-    private String symbolType;
+    private String type;
 
+    // EFFECTS: creates a new SymbolGadget
     public SymbolGadget() {
+        super();
     }
 
+    // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
         return "dummy script"; //TODO: STUB
     }
 
-    public boolean setSymbol(String symbol) {
-        return false; //TODO: STUB
+    // MODIFIES: this
+    // EFFECTS: sets the value of the symbol
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
+    // EFFECTS: returns the value of the symbol
     public String getSymbol() {
-        return null; //TODO: STUB
+        return symbol;
     }
 
-    public boolean setType(String type) {
-        return false; //TODO: STUB
+    // MODIFIES: this
+    public void setType(String type) {
+        this.type = type;
     }
 
+    // EFFECTS: returns the type of the symbol
     public String getType() {
-        return null; //TODO: STUB
-    }
-
-    public boolean setBase(String base) {
-        return false; //TODO: STUB
-    }
-
-    public String getBase() {
-        return null; //TODO: STUB
+        return type;
     }
 }

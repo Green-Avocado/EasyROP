@@ -1,29 +1,26 @@
 package model;
 
-public class StringGadget implements ExploitElement {
-    private String base;
+public class StringGadget extends Gadget implements ExploitElement {
     private String string;
 
+    // EFFECTS: creates a new StringGadget
     public StringGadget() {
+        super();
     }
 
+    // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
         return "dummy script"; //TODO: STUB
     }
 
-    public boolean setString(String string) {
-        return false; //TODO: STUB
+    // MODIFIES: this
+    // EFFECTS: sets the string to search for
+    public void setString(String string) {
+        this.string = string;
     }
 
+    // EFFECTS: returns the string to search for
     public String getString() {
-        return null; //TODO: STUB
-    }
-
-    public boolean setBase(String base) {
-        return false; //TODO: STUB
-    }
-
-    public String getBase() {
-        return null; //TODO: STUB
+        return string;
     }
 }

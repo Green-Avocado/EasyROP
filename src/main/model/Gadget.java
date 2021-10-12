@@ -6,6 +6,7 @@ public abstract class Gadget {
     public Gadget() {
     }
 
+    // MODIFIES: this
     // EFFECTS sets the base of the gadget, returns true if successful, otherwise returns false
     public boolean setBase(String base) {
         this.base = base;
