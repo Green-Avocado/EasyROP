@@ -49,21 +49,21 @@ public abstract class GadgetCollection implements ExploitElement {
 
     // EFFECTS: returns a string of Python commands to produce the script
     public String getScript() {
-        String script = "";
+        StringBuilder script = new StringBuilder();
 
         for (ExploitElement element : exploitElementList) {
             String s = element.getScript();
 
             if (!s.isEmpty()) {
-                if (!script.isEmpty()) {
-                    script = script.concat("\n");
+                if (script.length() > 0) {
+                    script.append("\n");
                 }
 
-                script = script.concat(s);
+                script.append(s);
             }
         }
 
-        return script;
+        return script.toString();
     }
 
     // REQUIRES index >= 0
