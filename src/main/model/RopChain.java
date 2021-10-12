@@ -58,7 +58,7 @@ public class RopChain {
                     script = script.concat("\n");
                 }
 
-                script = script.concat(gadget.gadgetScript());
+                script = script.concat(gadgetScript);
             }
         }
 
