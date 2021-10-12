@@ -10,7 +10,7 @@ public class InstructionsGadget implements Gadget {
     }
 
     public String gadgetScript() {
-        return null; //TODO: STUB
+        return "dummy script"; //TODO: STUB
     }
 
     public boolean addInstruction(String instruction, int index) {

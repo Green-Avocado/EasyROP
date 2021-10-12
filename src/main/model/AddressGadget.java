@@ -8,7 +8,7 @@ public class AddressGadget implements Gadget {
     }
 
     public String gadgetScript() {
-        return null; //TODO: STUB
+        return "dummy script"; //TODO: STUB
     }
 
     public boolean setAddress(int address) {
