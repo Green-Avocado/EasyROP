@@ -20,7 +20,7 @@ class RopChainTest {
     void addGadgetTest() {
         ArrayList<Gadget> gadgetList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for(int i = 0; i < 4; i++) {
             Gadget gadget = new AddressGadget();
             gadgetList.add(gadget);
         }
@@ -30,15 +30,23 @@ class RopChainTest {
         assertEquals(0, ropChain.getRopChainLength());
 
         // add to empty
-        assertTrue(ropChain.addGadget(gadgetList.get(0), 0));
+        assertTrue(ropChain.addGadget(gadgetList.get(2), 0));
         assertEquals(1, ropChain.getRopChainLength());
-        assertEquals(gadgetList.get(0), ropChain.getGadget(0));
+        assertEquals(gadgetList.get(2), ropChain.getGadget(0));
 
-        // add to end of list
-        assertTrue(ropChain.addGadget(gadgetList.get(2), ropChain.getRopChainLength()));
+        // add to start of list
+        assertTrue(ropChain.addGadget(gadgetList.get(0), 0));
         assertEquals(2, ropChain.getRopChainLength());
         assertEquals(
                 Arrays.asList(gadgetList.get(0), gadgetList.get(2)),
+                ropChain.getGadgetList()
+        );
+
+        // add to end of list
+        assertTrue(ropChain.addGadget(gadgetList.get(3), ropChain.getRopChainLength()));
+        assertEquals(3, ropChain.getRopChainLength());
+        assertEquals(
+                Arrays.asList(gadgetList.get(0), gadgetList.get(2), gadgetList.get(3)),
                 ropChain.getGadgetList()
         );
 
