@@ -17,7 +17,7 @@ class PayloadTest {
     }
 
     @Test
-    void addRopChainTest() {
+    void addTest() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
         for(int i = 0; i < 4; i++) {
@@ -54,7 +54,7 @@ class PayloadTest {
     }
 
     @Test
-    void removeRopChainTest() {
+    void removeTest() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
@@ -89,61 +89,12 @@ class PayloadTest {
     }
 
     @Test
-    void getScriptTest() {
-        ArrayList<ExploitElement> gadgetList = new ArrayList<>();
-        ArrayList<String> scriptList = new ArrayList<>();
+    void setNameTest() {
+        payload.setName("abcdefgh");
+        assertEquals("abcdefgh", payload.getName());
 
-        Padding padding = new Padding();
-        padding.setLength(8);
-        gadgetList.add(padding);
-
-        Padding nullPadding = new Padding();
-        nullPadding.setLength(0);
-        gadgetList.add(nullPadding);
-
-        AddressGadget addressGadget = new AddressGadget();
-        addressGadget.setBase("exe");
-        addressGadget.setAddress("0xdeadbeef");
-        gadgetList.add(addressGadget);
-
-        InstructionsGadget instructionsGadget = new InstructionsGadget();
-        instructionsGadget.setBase("exe");
-        instructionsGadget.add("ret", 0);
-        gadgetList.add(instructionsGadget);
-
-        StringGadget stringGadget = new StringGadget();
-        stringGadget.setBase("exe");
-        stringGadget.setString("/bin/sh\\x00");
-        gadgetList.add(stringGadget);
-
-        SymbolGadget symbolGadget = new SymbolGadget();
-        symbolGadget.setBase("exe");
-        symbolGadget.setSymbol("puts");
-        symbolGadget.setType("got");
-        gadgetList.add(symbolGadget);
-
-        for (ExploitElement gadget : gadgetList) {
-            RopChain ropChain = new RopChain();
-            ropChain.add(gadget, 0);
-            payload.add(ropChain, payload.getLength());
-            if (!ropChain.getScript().isEmpty()) {
-                scriptList.add(ropChain.getScript());
-            }
-        }
-
-        assertEquals(
-                String.join("\n", scriptList),
-                payload.getScript()
-        );
-    }
-
-    @Test
-    void setIsAmd64Test() {
-        Payload.setIsAmd64(false);
-        assertFalse(Payload.getIsAmd64());
-
-        Payload.setIsAmd64(true);
-        assertTrue(Payload.getIsAmd64());
+        payload.setName("hgfedcba");
+        assertEquals("hgfedcba", payload.getName());
     }
 
     @Test
@@ -189,5 +140,81 @@ class PayloadTest {
 
             assertEquals(i + 1, payload.getLength());
         }
+    }
+
+    @Test
+    void getScriptTest() {
+        ArrayList<ExploitElement> gadgetList = new ArrayList<>();
+        ArrayList<String> scriptList = new ArrayList<>();
+        scriptList.add("payload = ''");
+
+        Padding padding = new Padding();
+        padding.setLength(8);
+        gadgetList.add(padding);
+
+        Padding nullPadding = new Padding();
+        nullPadding.setLength(0);
+        gadgetList.add(nullPadding);
+
+        AddressGadget addressGadget = new AddressGadget();
+        addressGadget.setBase("exe");
+        addressGadget.setAddress("0xdeadbeef");
+        gadgetList.add(addressGadget);
+
+        InstructionsGadget instructionsGadget = new InstructionsGadget();
+        instructionsGadget.setBase("exe");
+        instructionsGadget.add("ret", 0);
+        gadgetList.add(instructionsGadget);
+
+        StringGadget stringGadget = new StringGadget();
+        stringGadget.setBase("exe");
+        stringGadget.setString("/bin/sh\\x00");
+        gadgetList.add(stringGadget);
+
+        SymbolGadget symbolGadget = new SymbolGadget();
+        symbolGadget.setBase("exe");
+        symbolGadget.setSymbol("puts");
+        symbolGadget.setType("got");
+        gadgetList.add(symbolGadget);
+
+        int i = 0;
+        for (ExploitElement gadget : gadgetList) {
+            RopChain ropChain = new RopChain();
+
+            for(int j = 0; j <= i; j++) {
+                ropChain.add(gadget, 0);
+            }
+
+            payload.add(ropChain, payload.getLength());
+
+            if (!ropChain.getScript().isEmpty()) {
+                scriptList.add(ropChain.getScript());
+                scriptList.add("payload += " + ropChain.getName());
+            }
+
+            i++;
+        }
+
+        assertEquals(
+                String.join("\n", scriptList),
+                payload.getScript()
+        );
+
+        RopChain ropChain = new RopChain();
+        payload = new Payload();
+
+        ropChain.add(nullPadding, ropChain.getLength());
+        payload.add(ropChain, payload.getLength());
+
+        assertEquals("", payload.getScript());
+    }
+
+    @Test
+    void setIsAmd64Test() {
+        Payload.setIsAmd64(false);
+        assertFalse(Payload.getIsAmd64());
+
+        Payload.setIsAmd64(true);
+        assertTrue(Payload.getIsAmd64());
     }
 }
