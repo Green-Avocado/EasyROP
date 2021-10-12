@@ -17,17 +17,17 @@ public class RopChain {
         return false; //TODO: STUB
     }
 
+    // REQUIRES index >= 0
+    // MODIFIES: this
+    // EFFECTS: replaces gadget at the specified index with the specified gadget, returns true if successful
+    public boolean setGadget(Gadget gadget, int index) {
+        return false; //TODO: STUB
+    }
+
     // REQUIRES: index >= 0
     // MODIFIES: this
     // EFFECTS: removes gadget from specified index, returns true if successful
     public boolean removeGadget(int index) {
-        return false; //TODO: STUB
-    }
-
-    // REQUIRES index >= 0
-    // MODIFIES: this
-    // EFFECTS: replaces gadget at the specified index with the specified gadget, returns true if successful
-    public boolean replaceGadget(Gadget gadget, int index) {
         return false; //TODO: STUB
     }
 
