@@ -23,11 +23,11 @@ public class Payload {
         return null; //TODO: STUB
     }
 
-    public LinkedList<Gadget> viewPayload() {
-        return null; //TODO: STUB
+    public LinkedList<RopChain> getRopChainList() {
+        return ropList;
     }
 
-    public String outputScript() {
+    public String payloadScript() {
         return null; //TODO: STUB
     }
 

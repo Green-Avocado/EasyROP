@@ -26,4 +26,15 @@ public class RopChain {
         return null; //TODO: STUB
     }
 
+    public LinkedList<Gadget> getGadgetList(int index) {
+        return gadgetList;
+    }
+
+    public String ropScript() {
+        return null; //TODO: STUB
+    }
+
+    public int getRopChainLength() {
+        return gadgetList.size();
+    }
 }
