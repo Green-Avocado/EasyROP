@@ -5,11 +5,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class InstructionsGadget extends Gadget implements ExploitElement {
-    private LinkedList<String> instructions;
+    private final LinkedList<String> instructions;
 
     // EFFECTS: creates a new InstructionsGadget
     public InstructionsGadget() {
         super();
+
+        instructions = new LinkedList<>();
     }
 
     // EFFECTS: returns a python command to produce the gadget
