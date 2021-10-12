@@ -93,11 +93,11 @@ class PayloadTest {
         ArrayList<ExploitElement> gadgetList = new ArrayList<>();
         ArrayList<String> scriptList = new ArrayList<>();
 
-        PaddingGadget padding = new PaddingGadget();
+        Padding padding = new Padding();
         padding.setLength(8);
         gadgetList.add(padding);
 
-        PaddingGadget nullPadding = new PaddingGadget();
+        Padding nullPadding = new Padding();
         nullPadding.setLength(0);
         gadgetList.add(nullPadding);
 
