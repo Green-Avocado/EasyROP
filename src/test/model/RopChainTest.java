@@ -133,6 +133,9 @@ class RopChainTest {
         Padding padding = new Padding();
         padding.setLength(8);
 
+        Padding nullPadding = new Padding();
+        nullPadding.setLength(0);
+
         AddressGadget addressGadget = new AddressGadget();
         addressGadget.setBase("exe");
         addressGadget.setAddress(0);
@@ -151,6 +154,7 @@ class RopChainTest {
         symbolGadget.setType("got");
 
         ropChain.addGadget(padding, ropChain.getRopChainLength());
+        ropChain.addGadget(nullPadding, ropChain.getRopChainLength());
         ropChain.addGadget(addressGadget, ropChain.getRopChainLength());
         ropChain.addGadget(instructionsGadget, ropChain.getRopChainLength());
         ropChain.addGadget(stringGadget, ropChain.getRopChainLength());
