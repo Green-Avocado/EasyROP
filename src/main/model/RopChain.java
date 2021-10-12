@@ -81,7 +81,7 @@ public class RopChain {
     }
 
     // EFFECTS: returns the number of Gadgets in the RopChain
-    public int getRopChainLength() {
+    public int getLength() {
         return gadgetList.size();
     }
 }

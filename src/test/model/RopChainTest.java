@@ -26,17 +26,17 @@ class RopChainTest {
         }
 
         // add to out of bounds index
-        assertFalse(ropChain.addGadget(gadgetList.get(0), ropChain.getRopChainLength() + 1));
-        assertEquals(0, ropChain.getRopChainLength());
+        assertFalse(ropChain.addGadget(gadgetList.get(0), ropChain.getLength() + 1));
+        assertEquals(0, ropChain.getLength());
 
         // add to empty
         assertTrue(ropChain.addGadget(gadgetList.get(2), 0));
-        assertEquals(1, ropChain.getRopChainLength());
+        assertEquals(1, ropChain.getLength());
         assertEquals(gadgetList.get(2), ropChain.getGadget(0));
 
         // add to start of list
         assertTrue(ropChain.addGadget(gadgetList.get(0), 0));
-        assertEquals(2, ropChain.getRopChainLength());
+        assertEquals(2, ropChain.getLength());
         assertEquals(
                 Arrays.asList(gadgetList.get(0), gadgetList.get(2)),
                 ropChain.getGadgetList()
@@ -44,12 +44,12 @@ class RopChainTest {
 
         // add to middle of list
         assertTrue(ropChain.addGadget(gadgetList.get(1), 1));
-        assertEquals(3, ropChain.getRopChainLength());
+        assertEquals(3, ropChain.getLength());
         assertEquals(gadgetList.subList(0, gadgetList.size() - 1), ropChain.getGadgetList());
 
         // add to end of list
-        assertTrue(ropChain.addGadget(gadgetList.get(3), ropChain.getRopChainLength()));
-        assertEquals(gadgetList.size(), ropChain.getRopChainLength());
+        assertTrue(ropChain.addGadget(gadgetList.get(3), ropChain.getLength()));
+        assertEquals(gadgetList.size(), ropChain.getLength());
         assertEquals(gadgetList, ropChain.getGadgetList());
     }
 
@@ -61,7 +61,7 @@ class RopChainTest {
         for(int i = 0; i < 3; i++) {
             Gadget gadget = new AddressGadget();
             gadgetList.add(gadget);
-            ropChain.addGadget(gadget, ropChain.getRopChainLength());
+            ropChain.addGadget(gadget, ropChain.getLength());
         }
 
         for(int i = 0; i < 3; i++) {
@@ -70,7 +70,7 @@ class RopChainTest {
         }
 
         // replace out of bounds index
-        assertFalse(ropChain.setGadget(newGadgetList.get(0), ropChain.getRopChainLength()));
+        assertFalse(ropChain.setGadget(newGadgetList.get(0), ropChain.getLength()));
         assertEquals(gadgetList, ropChain.getGadgetList());
 
         // replace first
@@ -89,8 +89,8 @@ class RopChainTest {
 
         // replace last
         assertTrue(ropChain.setGadget(
-                newGadgetList.get(ropChain.getRopChainLength() - 1),
-                ropChain.getRopChainLength() - 1
+                newGadgetList.get(ropChain.getLength() - 1),
+                ropChain.getLength() - 1
         ));
         assertEquals(
                 newGadgetList,
@@ -105,31 +105,31 @@ class RopChainTest {
         for(int i = 0; i < 3; i++) {
             Gadget gadget = new AddressGadget();
             gadgetList.add(gadget);
-            ropChain.addGadget(gadget, ropChain.getRopChainLength());
+            ropChain.addGadget(gadget, ropChain.getLength());
         }
 
         // remove from out of bounds index
-        assertFalse(ropChain.removeGadget(ropChain.getRopChainLength()));
-        assertEquals(3, ropChain.getRopChainLength());
+        assertFalse(ropChain.removeGadget(ropChain.getLength()));
+        assertEquals(3, ropChain.getLength());
         assertEquals(gadgetList, ropChain.getGadgetList());
 
         // remove from start of list
         assertTrue(ropChain.removeGadget(0));
-        assertEquals(gadgetList.size() - 1, ropChain.getRopChainLength());
+        assertEquals(gadgetList.size() - 1, ropChain.getLength());
         assertEquals(gadgetList.subList(1, gadgetList.size()), ropChain.getGadgetList());
 
         ropChain.addGadget(gadgetList.get(0), 0);
 
         // remove from middle of list
-        assertTrue(ropChain.removeGadget(ropChain.getRopChainLength() - 2));
-        assertEquals(gadgetList.size() - 1, ropChain.getRopChainLength());
+        assertTrue(ropChain.removeGadget(ropChain.getLength() - 2));
+        assertEquals(gadgetList.size() - 1, ropChain.getLength());
         assertEquals(Arrays.asList(gadgetList.get(0), gadgetList.get(gadgetList.size() - 1)), ropChain.getGadgetList());
 
         ropChain.addGadget(gadgetList.get(1), 1);
 
         // remove from end of list
-        assertTrue(ropChain.removeGadget(ropChain.getRopChainLength() - 1));
-        assertEquals(gadgetList.size() - 1, ropChain.getRopChainLength());
+        assertTrue(ropChain.removeGadget(ropChain.getLength() - 1));
+        assertEquals(gadgetList.size() - 1, ropChain.getLength());
         assertEquals(gadgetList.subList(0, gadgetList.size() - 1), ropChain.getGadgetList());
     }
 
@@ -158,12 +158,12 @@ class RopChainTest {
         symbolGadget.setSymbol("puts");
         symbolGadget.setType("got");
 
-        ropChain.addGadget(padding, ropChain.getRopChainLength());
-        ropChain.addGadget(nullPadding, ropChain.getRopChainLength());
-        ropChain.addGadget(addressGadget, ropChain.getRopChainLength());
-        ropChain.addGadget(instructionsGadget, ropChain.getRopChainLength());
-        ropChain.addGadget(stringGadget, ropChain.getRopChainLength());
-        ropChain.addGadget(symbolGadget, ropChain.getRopChainLength());
+        ropChain.addGadget(padding, ropChain.getLength());
+        ropChain.addGadget(nullPadding, ropChain.getLength());
+        ropChain.addGadget(addressGadget, ropChain.getLength());
+        ropChain.addGadget(instructionsGadget, ropChain.getLength());
+        ropChain.addGadget(stringGadget, ropChain.getLength());
+        ropChain.addGadget(symbolGadget, ropChain.getLength());
 
         assertEquals(
                 String.join(
@@ -185,7 +185,7 @@ class RopChainTest {
         for(int i = 0; i < 3; i++) {
             Gadget gadget = new AddressGadget();
             gadgetList.add(gadget);
-            ropChain.addGadget(gadget, ropChain.getRopChainLength());
+            ropChain.addGadget(gadget, ropChain.getLength());
         }
 
         for(int i = 0; i < 3; i++) {
@@ -193,7 +193,7 @@ class RopChainTest {
         }
 
         // get out of bounds index
-        assertNull(ropChain.getGadget(ropChain.getRopChainLength()));
+        assertNull(ropChain.getGadget(ropChain.getLength()));
     }
 
     @Test
@@ -205,21 +205,21 @@ class RopChainTest {
         for(int i = 0; i < 3; i++) {
             Gadget gadget = new AddressGadget();
             gadgetList.add(gadget);
-            ropChain.addGadget(gadget, ropChain.getRopChainLength());
+            ropChain.addGadget(gadget, ropChain.getLength());
 
             assertEquals(gadgetList, ropChain.getGadgetList());
         }
     }
 
     @Test
-    void getRopChainLengthTest() {
-        assertEquals(0, ropChain.getRopChainLength());
+    void getLengthTest() {
+        assertEquals(0, ropChain.getLength());
 
         for(int i = 0; i < 3; i++) {
             Gadget gadget = new AddressGadget();
-            ropChain.addGadget(gadget, ropChain.getRopChainLength());
+            ropChain.addGadget(gadget, ropChain.getLength());
 
-            assertEquals(i + 1, ropChain.getRopChainLength());
+            assertEquals(i + 1, ropChain.getLength());
         }
     }
 }
