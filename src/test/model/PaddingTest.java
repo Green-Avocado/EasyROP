@@ -15,12 +15,13 @@ class PaddingTest {
 
     @Test
     void getScriptTest() {
-        String string = "";
+        padding.setLength(0);
+        assertEquals("", padding.getScript());
 
-        for(int i = 0; i <= 16; i++) {
+        for(int i = 1; i <= 16; i++) {
+            String string = "b'a' * " + i;
             padding.setLength(i);
             assertEquals(string, padding.getScript());
-            string = string.concat("a");
         }
     }
 
