@@ -181,7 +181,7 @@ class PayloadTest {
         for (ExploitElement gadget : gadgetList) {
             RopChain ropChain = new RopChain();
 
-            for(int j = 0; j <= i; j++) {
+            for (int j = 0; j <= i; j++) {
                 ropChain.add(gadget, 0);
             }
 
@@ -207,14 +207,5 @@ class PayloadTest {
         payload.add(ropChain, payload.getLength());
 
         assertEquals("", payload.getScript());
-    }
-
-    @Test
-    void setIsAmd64Test() {
-        Payload.setIsAmd64(false);
-        assertFalse(Payload.getIsAmd64());
-
-        Payload.setIsAmd64(true);
-        assertTrue(Payload.getIsAmd64());
     }
 }
