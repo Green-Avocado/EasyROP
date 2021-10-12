@@ -42,16 +42,13 @@ class RopChainTest {
                 ropChain.getGadgetList()
         );
 
-        // add to end of list
-        assertTrue(ropChain.addGadget(gadgetList.get(3), ropChain.getRopChainLength()));
-        assertEquals(3, ropChain.getRopChainLength());
-        assertEquals(
-                Arrays.asList(gadgetList.get(0), gadgetList.get(2), gadgetList.get(3)),
-                ropChain.getGadgetList()
-        );
-
         // add to middle of list
         assertTrue(ropChain.addGadget(gadgetList.get(1), 1));
+        assertEquals(3, ropChain.getRopChainLength());
+        assertEquals(gadgetList.subList(0, gadgetList.size() - 1), ropChain.getGadgetList());
+
+        // add to end of list
+        assertTrue(ropChain.addGadget(gadgetList.get(3), ropChain.getRopChainLength()));
         assertEquals(gadgetList.size(), ropChain.getRopChainLength());
         assertEquals(gadgetList, ropChain.getGadgetList());
     }
