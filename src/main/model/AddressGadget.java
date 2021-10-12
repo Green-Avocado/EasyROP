@@ -1,7 +1,7 @@
 package model;
 
 public class AddressGadget extends Gadget implements ExploitElement {
-    private int address;
+    private String address;
 
     // EFFECTS: creates a new AddressGadget
     public AddressGadget() {
@@ -10,17 +10,17 @@ public class AddressGadget extends Gadget implements ExploitElement {
 
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
-        return "dummy script"; //TODO: STUB
+        return "pack(" + getBase() + ".address + " + address + ")";
     }
 
     // MODIFIES: this
     // EFFECTS: sets the address of the gadget
-    public void setAddress(int address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
     // EFFECTS: returns the address of the gadget
-    public int getAddress() {
+    public String getAddress() {
         return address;
     }
 }

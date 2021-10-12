@@ -143,7 +143,7 @@ class RopChainTest {
 
         AddressGadget addressGadget = new AddressGadget();
         addressGadget.setBase("exe");
-        addressGadget.setAddress(0);
+        addressGadget.setAddress("0xdeadbeef");
 
         InstructionsGadget instructionsGadget = new InstructionsGadget();
         instructionsGadget.setBase("exe");
