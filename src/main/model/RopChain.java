@@ -7,28 +7,9 @@ public class RopChain extends GadgetCollection {
         setName("ropChain");
     }
 
-    // EFFECTS: returns a string of Python commands to produce the RopChain
-    public String getScript() {
-        StringBuilder script = new StringBuilder();
-        for (ExploitElement element : getList()) {
-            String s = element.getScript();
-
-            if (!s.isEmpty()) {
-                script.append('\n');
-                script.append(getName());
-                script.append(" += ");
-                script.append(s);
-            }
-        }
-
-        if (script.length() > 0) {
-            script.insert(0, " = ''");
-            script.insert(0, getName());
-
-            return script.toString();
-        } else {
-            return "";
-        }
+    // EFFECTS: returns a string of Python commands to append a ExploitElement to a RopChain
+    protected String getScriptInternal(ExploitElement element) {
+        return "\n" + getName() + " += " + element.getScript();
     }
 
     // REQUIRES index >= 0

@@ -67,5 +67,26 @@ public abstract class GadgetCollection implements ExploitElement {
     }
 
     // EFFECTS: returns a python command to produce the GadgetCollection
-    public abstract String getScript();
+    public String getScript() {
+        StringBuilder script = new StringBuilder();
+
+        for (ExploitElement element : getList()) {
+            String s = element.getScript();
+
+            if (!s.isEmpty()) {
+                script.append(getScriptInternal(element));
+            }
+        }
+
+        if (script.length() > 0) {
+            script.insert(0, " = ''");
+            script.insert(0, getName());
+
+            return script.toString();
+        } else {
+            return "";
+        }
+    }
+
+    protected abstract String getScriptInternal(ExploitElement element);
 }
