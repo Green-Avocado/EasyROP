@@ -16,7 +16,21 @@ public class InstructionsGadget extends Gadget implements ExploitElement {
 
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
-        return "dummy script"; //TODO: STUB
+        StringBuilder stringBuilder = new StringBuilder();
+
+        stringBuilder.append("rop_");
+        stringBuilder.append(getBase());
+        stringBuilder.append(".find_gadget([");
+
+        for (String instruction : instructions) {
+            stringBuilder.append("'");
+            stringBuilder.append(instruction);
+            stringBuilder.append("',");
+        }
+
+        stringBuilder.append("])[0]");
+
+        return stringBuilder.toString();
     }
 
     // REQUIRES index >= 0
