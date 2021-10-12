@@ -7,7 +7,7 @@ public class AddressGadget implements Gadget {
     public AddressGadget() {
     }
 
-    public String gadgetScript() {
+    public String getScript() {
         return "dummy script"; //TODO: STUB
     }
 

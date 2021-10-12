@@ -8,7 +8,7 @@ public class Padding implements Gadget {
     public Padding() {
     }
 
-    public String gadgetScript() {
+    public String getScript() {
         String paddingString = "";
 
         for (int i = 0; i < length; i++) {

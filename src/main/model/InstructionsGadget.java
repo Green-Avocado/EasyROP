@@ -9,7 +9,7 @@ public class InstructionsGadget implements Gadget {
     public InstructionsGadget() {
     }
 
-    public String gadgetScript() {
+    public String getScript() {
         return "dummy script"; //TODO: STUB
     }
 

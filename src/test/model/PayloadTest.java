@@ -26,31 +26,31 @@ class PayloadTest {
         }
 
         // add to out of bounds index
-        assertFalse(payload.addRopChain(ropChainList.get(0), payload.getLength() + 1));
+        assertFalse(payload.add(ropChainList.get(0), payload.getLength() + 1));
         assertEquals(0, payload.getLength());
 
         // add to empty
-        assertTrue(payload.addRopChain(ropChainList.get(2), 0));
+        assertTrue(payload.add(ropChainList.get(2), 0));
         assertEquals(1, payload.getLength());
-        assertEquals(ropChainList.get(2), payload.getRopChain(0));
+        assertEquals(ropChainList.get(2), payload.get(0));
 
         // add to start of list
-        assertTrue(payload.addRopChain(ropChainList.get(0), 0));
+        assertTrue(payload.add(ropChainList.get(0), 0));
         assertEquals(2, payload.getLength());
         assertEquals(
                 Arrays.asList(ropChainList.get(0), ropChainList.get(2)),
-                payload.getRopChainList()
+                payload.getList()
         );
 
         // add to middle of list
-        assertTrue(payload.addRopChain(ropChainList.get(1), 1));
+        assertTrue(payload.add(ropChainList.get(1), 1));
         assertEquals(3, payload.getLength());
-        assertEquals(ropChainList.subList(0, ropChainList.size() - 1), payload.getRopChainList());
+        assertEquals(ropChainList.subList(0, ropChainList.size() - 1), payload.getList());
 
         // add to end of list
-        assertTrue(payload.addRopChain(ropChainList.get(3), payload.getLength()));
+        assertTrue(payload.add(ropChainList.get(3), payload.getLength()));
         assertEquals(ropChainList.size(), payload.getLength());
-        assertEquals(ropChainList, payload.getRopChainList());
+        assertEquals(ropChainList, payload.getList());
     }
 
     @Test
@@ -60,36 +60,36 @@ class PayloadTest {
         for(int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
-            payload.addRopChain(ropChain, payload.getLength());
+            payload.add(ropChain, payload.getLength());
         }
 
         // remove from out of bounds index
-        assertFalse(payload.removeRopChain(payload.getLength()));
+        assertFalse(payload.remove(payload.getLength()));
         assertEquals(3, payload.getLength());
-        assertEquals(ropChainList, payload.getRopChainList());
+        assertEquals(ropChainList, payload.getList());
 
         // remove from start of list
-        assertTrue(payload.removeRopChain(0));
+        assertTrue(payload.remove(0));
         assertEquals(ropChainList.size() - 1, payload.getLength());
-        assertEquals(ropChainList.subList(1, ropChainList.size()), payload.getRopChainList());
+        assertEquals(ropChainList.subList(1, ropChainList.size()), payload.getList());
 
-        payload.addRopChain(ropChainList.get(0), 0);
+        payload.add(ropChainList.get(0), 0);
 
         // remove from middle of list
-        assertTrue(payload.removeRopChain(payload.getLength() - 2));
+        assertTrue(payload.remove(payload.getLength() - 2));
         assertEquals(ropChainList.size() - 1, payload.getLength());
-        assertEquals(Arrays.asList(ropChainList.get(0), ropChainList.get(ropChainList.size() - 1)), payload.getRopChainList());
+        assertEquals(Arrays.asList(ropChainList.get(0), ropChainList.get(ropChainList.size() - 1)), payload.getList());
 
-        payload.addRopChain(ropChainList.get(1), 1);
+        payload.add(ropChainList.get(1), 1);
 
         // remove from end of list
-        assertTrue(payload.removeRopChain(payload.getLength() - 1));
+        assertTrue(payload.remove(payload.getLength() - 1));
         assertEquals(ropChainList.size() - 1, payload.getLength());
-        assertEquals(ropChainList.subList(0, ropChainList.size() - 1), payload.getRopChainList());
+        assertEquals(ropChainList.subList(0, ropChainList.size() - 1), payload.getList());
     }
 
     @Test
-    void payloadScriptTest() {
+    void getScriptTest() {
         ArrayList<Gadget> gadgetList = new ArrayList<>();
         ArrayList<String> scriptList = new ArrayList<>();
 
@@ -124,16 +124,16 @@ class PayloadTest {
 
         for (Gadget gadget : gadgetList) {
             RopChain ropChain = new RopChain();
-            ropChain.addGadget(gadget, 0);
-            payload.addRopChain(ropChain, payload.getLength());
-            if (!ropChain.ropScript().isEmpty()) {
-                scriptList.add(ropChain.ropScript());
+            ropChain.add(gadget, 0);
+            payload.add(ropChain, payload.getLength());
+            if (!ropChain.getScript().isEmpty()) {
+                scriptList.add(ropChain.getScript());
             }
         }
 
         assertEquals(
                 String.join("\n", scriptList),
-                payload.payloadScript()
+                payload.getScript()
         );
     }
 
@@ -153,29 +153,29 @@ class PayloadTest {
         for(int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
-            payload.addRopChain(ropChain, payload.getLength());
+            payload.add(ropChain, payload.getLength());
         }
 
         for(int i = 0; i < 3; i++) {
-            assertEquals(ropChainList.get(i), payload.getRopChain(i));
+            assertEquals(ropChainList.get(i), payload.get(i));
         }
 
         // get out of bounds index
-        assertNull(payload.getRopChain(payload.getLength()));
+        assertNull(payload.get(payload.getLength()));
     }
 
     @Test
     void getRopChainListTest() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
-        assertEquals(ropChainList, payload.getRopChainList());
+        assertEquals(ropChainList, payload.getList());
 
         for(int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
-            payload.addRopChain(ropChain, payload.getLength());
+            payload.add(ropChain, payload.getLength());
 
-            assertEquals(ropChainList, payload.getRopChainList());
+            assertEquals(ropChainList, payload.getList());
         }
     }
 
@@ -185,7 +185,7 @@ class PayloadTest {
 
         for(int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
-            payload.addRopChain(ropChain, payload.getLength());
+            payload.add(ropChain, payload.getLength());
 
             assertEquals(i + 1, payload.getLength());
         }

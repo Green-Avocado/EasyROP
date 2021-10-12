@@ -8,7 +8,7 @@ public class SymbolGadget implements Gadget {
     public SymbolGadget() {
     }
 
-    public String gadgetScript() {
+    public String getScript() {
         return "dummy script"; //TODO: STUB
     }
 

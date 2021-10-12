@@ -7,7 +7,7 @@ public class StringGadget implements Gadget {
     public StringGadget() {
     }
 
-    public String gadgetScript() {
+    public String getScript() {
         return "dummy script"; //TODO: STUB
     }
 
