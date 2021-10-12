@@ -219,6 +219,8 @@ class RopChainTest {
         ropChain.add(stringGadget, ropChain.getLength());
         ropChain.add(symbolGadget, ropChain.getLength());
 
+        ropChain.setName("ropChain");
+
         assertEquals(
                 String.join(
                         "\n",

@@ -177,6 +177,8 @@ class PayloadTest {
         symbolGadget.setType("got");
         gadgetList.add(symbolGadget);
 
+        payload.setName("payload");
+
         int i = 0;
         for (ExploitObject gadget : gadgetList) {
             RopChain ropChain = new RopChain();

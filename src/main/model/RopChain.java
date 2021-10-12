@@ -4,7 +4,6 @@ public class RopChain extends GadgetCollection {
     // EFFECTS: creates a new RopChain with an empty list of gadgets
     public RopChain() {
         super();
-        setName("ropChain");
     }
 
     // EFFECTS: returns a string of Python commands to append a ExploitObject to a RopChain

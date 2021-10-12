@@ -4,7 +4,6 @@ public class Payload extends GadgetCollection {
     // EFFECTS: creates a new Payload with an empty list of RopChains
     public Payload() {
         super();
-        setName("payload");
     }
 
     // EFFECTS: returns a string of Python commands to append a RopChain to a Payload
