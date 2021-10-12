@@ -135,10 +135,10 @@ class RopChainTest {
 
     @Test
     void getScriptTest() {
-        Padding padding = new Padding();
+        PaddingGadget padding = new PaddingGadget();
         padding.setLength(8);
 
-        Padding nullPadding = new Padding();
+        PaddingGadget nullPadding = new PaddingGadget();
         nullPadding.setLength(0);
 
         AddressGadget addressGadget = new AddressGadget();

@@ -1,9 +1,9 @@
 package model;
 
-public class Padding implements ExploitElement {
+public class PaddingGadget implements ExploitElement {
     private int length;
 
-    public Padding() {
+    public PaddingGadget() {
     }
 
     public String getScript() {
