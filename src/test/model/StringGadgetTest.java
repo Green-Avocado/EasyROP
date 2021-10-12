@@ -17,11 +17,11 @@ class StringGadgetTest {
     void getScriptTest() {
         gadget.setBase("exe");
         gadget.setString("cat flag.txt");
-        assertEquals("next(exe.search(b\"cat flag.txt\"))", gadget.getScript());
+        assertEquals("next(exe.search(b'cat flag.txt'))", gadget.getScript());
 
         gadget.setBase("libc");
         gadget.setString("/bin/sh\\x00");
-        assertEquals("next(libc.search(b\"/bin/sh\\x00\"))", gadget.getScript());
+        assertEquals("next(libc.search(b'/bin/sh\\x00'))", gadget.getScript());
     }
 
     @Test

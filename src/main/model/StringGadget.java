@@ -10,7 +10,7 @@ public class StringGadget extends Gadget implements ExploitElement {
 
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
-        return "next(" + getBase() + ".search(b\"" + string + "\"))";
+        return "next(" + getBase() + ".search(b'" + string + "'))";
     }
 
     // MODIFIES: this
