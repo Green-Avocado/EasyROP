@@ -3,14 +3,14 @@ package model;
 public abstract class Gadget {
     private String base;
 
+    // EFFECTS: creates a new gadget
     public Gadget() {
     }
 
     // MODIFIES: this
-    // EFFECTS sets the base of the gadget, returns true if successful, otherwise returns false
-    public boolean setBase(String base) {
+    // EFFECTS sets the base of the gadget
+    public void setBase(String base) {
         this.base = base;
-        return true;
     }
 
     // EFFECTS: returns the base of the gadget
