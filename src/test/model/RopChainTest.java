@@ -147,7 +147,7 @@ class RopChainTest {
 
         InstructionsGadget instructionsGadget = new InstructionsGadget();
         instructionsGadget.setBase("exe");
-        instructionsGadget.addInstruction("ret", 0);
+        instructionsGadget.add("ret", 0);
 
         StringGadget stringGadget = new StringGadget();
         stringGadget.setBase("exe");

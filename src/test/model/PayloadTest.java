@@ -108,7 +108,7 @@ class PayloadTest {
 
         InstructionsGadget instructionsGadget = new InstructionsGadget();
         instructionsGadget.setBase("exe");
-        instructionsGadget.addInstruction("ret", 0);
+        instructionsGadget.add("ret", 0);
         gadgetList.add(instructionsGadget);
 
         StringGadget stringGadget = new StringGadget();
