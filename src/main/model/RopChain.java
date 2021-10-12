@@ -3,7 +3,6 @@ package model;
 import java.util.LinkedList;
 
 public class RopChain {
-    private int padding = 0;
     private final LinkedList<Gadget> gadgetList;
 
     // EFFECTS: creates a new RopChain with an empty list of gadgets
