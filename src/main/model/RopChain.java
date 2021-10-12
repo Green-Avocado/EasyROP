@@ -7,16 +7,16 @@ public class RopChain extends GadgetCollection {
         setName("ropChain");
     }
 
-    // EFFECTS: returns a string of Python commands to append a ExploitElement to a RopChain
-    protected String getScriptInternal(ExploitElement element) {
+    // EFFECTS: returns a string of Python commands to append a ExploitObject to a RopChain
+    protected String getScriptInternal(ExploitObject element) {
         return "\n" + getName() + " += " + element.getScript();
     }
 
     // REQUIRES index >= 0
     // MODIFIES: this
-    // EFFECTS: replaces the ExploitElement at the specified index with the specified ExploitElement,
+    // EFFECTS: replaces the object at the specified index with the specified gadget,
     //          returns true if successful, otherwise returns false
-    public boolean set(ExploitElement gadget, int index) {
+    public boolean set(ExploitObject gadget, int index) {
         if (index < getList().size()) {
             getList().set(index, gadget);
             return true;

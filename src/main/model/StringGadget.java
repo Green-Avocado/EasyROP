@@ -1,6 +1,6 @@
 package model;
 
-public class StringGadget extends Gadget implements ExploitElement {
+public class StringGadget extends Gadget implements ExploitObject {
     private String string;
 
     // EFFECTS: creates a new StringGadget

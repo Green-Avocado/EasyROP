@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class InstructionsGadget extends Gadget implements ExploitElement {
+public class InstructionsGadget extends Gadget implements ExploitObject {
     private final LinkedList<String> instructions;
 
     // EFFECTS: creates a new InstructionsGadget

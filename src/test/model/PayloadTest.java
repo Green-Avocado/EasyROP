@@ -144,7 +144,7 @@ class PayloadTest {
 
     @Test
     void getScriptTest() {
-        ArrayList<ExploitElement> gadgetList = new ArrayList<>();
+        ArrayList<ExploitObject> gadgetList = new ArrayList<>();
         ArrayList<String> scriptList = new ArrayList<>();
         scriptList.add("payload = ''");
 
@@ -178,7 +178,7 @@ class PayloadTest {
         gadgetList.add(symbolGadget);
 
         int i = 0;
-        for (ExploitElement gadget : gadgetList) {
+        for (ExploitObject gadget : gadgetList) {
             RopChain ropChain = new RopChain();
 
             for (int j = 0; j <= i; j++) {

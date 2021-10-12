@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Gadget {
+public abstract class Gadget implements ExploitObject {
     private String base;
 
     // EFFECTS: creates a new gadget

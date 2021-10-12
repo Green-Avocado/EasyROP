@@ -8,7 +8,7 @@ public class Payload extends GadgetCollection {
     }
 
     // EFFECTS: returns a string of Python commands to append a RopChain to a Payload
-    protected String getScriptInternal(ExploitElement element) {
+    protected String getScriptInternal(ExploitObject element) {
         return "\n" + element.getScript() + "\n" + getName() + " += " + ((RopChain) element).getName();
     }
 }

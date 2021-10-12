@@ -1,6 +1,6 @@
 package model;
 
-public class Padding implements ExploitElement {
+public class Padding implements ExploitObject {
     private int length;
 
     // EFFECTS: creates a new padding element

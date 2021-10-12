@@ -1,6 +1,6 @@
 package model;
 
-public class AddressGadget extends Gadget implements ExploitElement {
+public class AddressGadget extends Gadget implements ExploitObject {
     private String address;
 
     // EFFECTS: creates a new AddressGadget
