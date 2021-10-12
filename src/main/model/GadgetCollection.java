@@ -2,7 +2,7 @@ package model;
 
 import java.util.LinkedList;
 
-public abstract class GadgetCollection {
+public abstract class GadgetCollection implements ExploitElement {
     private final LinkedList<ExploitElement> exploitElementList;
 
     // EFFECTS: creates a new GadgetCollection with an empty list of ExploitElements
