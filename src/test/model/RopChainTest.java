@@ -208,13 +208,10 @@ class RopChainTest {
 
     @Test
     void getRopChainLengthTest() {
-        ArrayList<Gadget> gadgetList = new ArrayList<>();
-
         assertEquals(0, ropChain.getRopChainLength());
 
         for(int i = 0; i < 3; i++) {
             Gadget gadget = new AddressGadget();
-            gadgetList.add(gadget);
             ropChain.addGadget(gadget, ropChain.getRopChainLength());
 
             assertEquals(i + 1, ropChain.getRopChainLength());
