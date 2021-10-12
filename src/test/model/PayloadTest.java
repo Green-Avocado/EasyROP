@@ -90,11 +90,11 @@ class PayloadTest {
 
     @Test
     void setNameTest() {
-        payload.setName("abcdefgh");
-        assertEquals("abcdefgh", payload.getName());
+        payload.setName("testName");
+        assertEquals("testName", payload.getName());
 
-        payload.setName("hgfedcba");
-        assertEquals("hgfedcba", payload.getName());
+        payload.setName("nameTest");
+        assertEquals("nameTest", payload.getName());
     }
 
     @Test

@@ -153,11 +153,11 @@ class RopChainTest {
 
     @Test
     void setNameTest() {
-        ropChain.setName("abcdefgh");
-        assertEquals("abcdefgh", ropChain.getName());
+        ropChain.setName("testName");
+        assertEquals("testName", ropChain.getName());
 
-        ropChain.setName("hgfedcba");
-        assertEquals("hgfedcba", ropChain.getName());
+        ropChain.setName("nameTest");
+        assertEquals("nameTest", ropChain.getName());
     }
 
     @Test
