@@ -9,13 +9,13 @@ public class Padding implements ExploitElement {
 
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
-        String paddingString = "";
+        StringBuilder paddingString = new StringBuilder();
 
         for (int i = 0; i < length; i++) {
-            paddingString = paddingString.concat("a");
+            paddingString.append("a");
         }
 
-        return paddingString;
+        return paddingString.toString();
     }
 
     // REQUIRES: length >= 0
