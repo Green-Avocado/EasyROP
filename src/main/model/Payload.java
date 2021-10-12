@@ -26,25 +26,9 @@ public class Payload {
         return false; //TODO: STUB
     }
 
-    // REQUIRES index >= 0
-    // EFFECTS: returns the RopChain at the specified index
-    public RopChain getRopChain(int index) {
-        return null; //TODO: STUB
-    }
-
-    // EFFECTS: returns the list of RopChains
-    public LinkedList<RopChain> getRopChainList() {
-        return ropList;
-    }
-
     // EFFECTS: return
     public String payloadScript() {
         return null; //TODO: STUB
-    }
-
-    // EFFECTS: returns the number of RopChains in the Payload
-    public int getPayloadLength() {
-        return ropList.size(); //TODO: STUB
     }
 
     // MODIFIES: this
@@ -56,5 +40,21 @@ public class Payload {
     // EFFECTS: returns true if the payload is to be formatted for Amd64 and false for i386
     public static boolean getIsAmd64() {
         return isAmd64;
+    }
+
+    // REQUIRES index >= 0
+    // EFFECTS: returns the RopChain at the specified index
+    public RopChain getRopChain(int index) {
+        return null; //TODO: STUB
+    }
+
+    // EFFECTS: returns the list of RopChains
+    public LinkedList<RopChain> getRopChainList() {
+        return ropList;
+    }
+
+    // EFFECTS: returns the number of RopChains in the Payload
+    public int getPayloadLength() {
+        return ropList.size(); //TODO: STUB
     }
 }

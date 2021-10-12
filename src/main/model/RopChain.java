@@ -31,6 +31,11 @@ public class RopChain {
         return false; //TODO: STUB
     }
 
+    // EFFECTS: returns a string of Python commands to print the RopChain
+    public String ropScript() {
+        return null; //TODO: STUB
+    }
+
     // REQUIRES index >= 0
     // EFFECTS: returns the gadget at the specified index or null if no such Gadget exists
     public Gadget getGadget(int index) {
@@ -40,11 +45,6 @@ public class RopChain {
     // EFFECTS: returns the list of Gadgets
     public LinkedList<Gadget> getGadgetList() {
         return gadgetList;
-    }
-
-    // EFFECTS: returns a string of Python commands to print the RopChain
-    public String ropScript() {
-        return null; //TODO: STUB
     }
 
     // EFFECTS: returns the number of Gadgets in the RopChain
