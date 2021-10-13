@@ -1,11 +1,23 @@
 package ui;
 
-import java.util.List;
+import model.ExploitObject;
+import model.GadgetCollection;
 
 public abstract class CollectionEditor {
-    protected CollectionEditor() {}
+    private GadgetCollection collection;
+    private ExploitObject storedObject;
 
-    protected abstract String getContext();
+    protected CollectionEditor(GadgetCollection collection) {
+        this.collection = collection;
+    }
 
-    protected abstract String getMenu();
+    abstract void handleInput(String input);
+
+    abstract void reset();
+
+    abstract void setName();
+
+    abstract String getContext();
+
+    abstract String getMenu();
 }

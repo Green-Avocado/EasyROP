@@ -1,15 +1,29 @@
 package ui;
 
+import model.Payload;
+
 public class PayloadEditor extends CollectionEditor {
-    public PayloadEditor() {
-        super();
+    public PayloadEditor(Payload payload) {
+        super(payload);
     }
 
-    protected String getContext() {
+    void handleInput(String input) {
+        // TODO
+    }
+
+    void reset() {
+        // TODO
+    }
+
+    void setName() {
+        // TODO
+    }
+
+    String getContext() {
         return null; // TODO
     }
 
-    protected String getMenu() {
+    String getMenu() {
         return null; // TODO
     }
 }

@@ -1,15 +1,29 @@
 package ui;
 
+import model.RopChain;
+
 public class RopChainEditor extends CollectionEditor {
-    public RopChainEditor() {
-        super();
+    public RopChainEditor(RopChain ropChain) {
+        super(ropChain);
     }
 
-    protected String getContext() {
+    void handleInput(String input) {
+        // TODO
+    }
+
+    void reset() {
+        // TODO
+    }
+
+    void setName() {
+        // TODO
+    }
+
+    String getContext() {
         return null; // TODO
     }
 
-    protected String getMenu() {
+    String getMenu() {
         return null; // TODO
     }
 }
