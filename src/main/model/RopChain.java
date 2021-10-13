@@ -17,7 +17,7 @@ public class RopChain extends GadgetCollection {
     //          returns true if successful, otherwise returns false
     public boolean set(ExploitObject gadget, int index) {
         if (index < getList().size()) {
-            getList().set(index, gadget);
+            super.exploitObjectList.set(index, gadget);
             return true;
         } else {
             return false;

@@ -1,9 +1,11 @@
 package model;
 
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 public abstract class GadgetCollection implements ExploitObject {
-    private final LinkedList<ExploitObject> exploitObjectList;
+    protected final LinkedList<ExploitObject> exploitObjectList;
     private String name;
 
     // EFFECTS: creates a new GadgetCollection with an empty list of ExploitObjects
@@ -57,8 +59,8 @@ public abstract class GadgetCollection implements ExploitObject {
     }
 
     // EFFECTS: returns the list of ExploitObject
-    public LinkedList<ExploitObject> getList() {
-        return exploitObjectList;
+    public List<ExploitObject> getList() {
+        return Collections.unmodifiableList(exploitObjectList);
     }
 
     // EFFECTS: returns the number of elements in the exploitObjectList
