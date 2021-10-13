@@ -6,14 +6,14 @@ import model.RopChain;
 
 import java.util.Scanner;
 
-public class PayloadApp {
+public class EasyRopApp {
     private static final String PAYLOAD_DEFAULT_NAME = "payload";
     private static final String ROPCHAIN_DEFAULT_NAME = "ropChain";
 
     private Payload payload;
     private final Scanner scanner;
 
-    public PayloadApp() {
+    public EasyRopApp() {
         scanner = new Scanner(System.in);
         scanner.useDelimiter("\n");
 
