@@ -6,8 +6,8 @@ public class DeleteRopChainContext extends PromptContext {
         super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength() - 1));
     }
 
-    ConsoleContext handleInput(String input) {
-        int index = Integer.parseInt(handleInputInternal(input));
+    ConsoleContext handleInputInternal(String input) {
+        int index = Integer.parseInt(input);
 
         if (index >= 0) {
             ((PayloadEditor) getParentContext()).getCollection().remove(index);

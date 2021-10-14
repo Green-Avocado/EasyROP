@@ -19,11 +19,13 @@ public abstract class PromptContext extends ConsoleContext {
         return prompt + " (default " + defaultResponse + "): ";
     }
 
-    String handleInputInternal(String input) {
+    ConsoleContext handleInput(String input) {
         if (!input.isEmpty()) {
-            return input;
+            return handleInputInternal(input);
         } else {
-            return defaultResponse;
+            return handleInputInternal(defaultResponse);
         }
     }
+
+    abstract ConsoleContext handleInputInternal(String input);
 }

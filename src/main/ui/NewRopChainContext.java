@@ -15,9 +15,7 @@ public class NewRopChainContext extends PromptContext {
         this.ropChain = ropChain;
     }
 
-    ConsoleContext handleInput(String input) {
-        input = handleInputInternal(input);
-
+    ConsoleContext handleInputInternal(String input) {
         if (ropChain == null) {
             return readName(input);
         } else {

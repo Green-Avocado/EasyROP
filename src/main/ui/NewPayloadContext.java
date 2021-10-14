@@ -10,10 +10,10 @@ public class NewPayloadContext extends PromptContext {
     }
 
     // EFFECTS: returns a PayloadEditor with a Payload with the given name or default name
-    ConsoleContext handleInput(String input) {
+    ConsoleContext handleInputInternal(String input) {
         Payload payload = new Payload();
 
-        payload.setName(handleInputInternal(input));
+        payload.setName(input);
 
         return new PayloadEditor(payload);
     }

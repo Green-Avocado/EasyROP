@@ -8,8 +8,8 @@ public class OpenRopChainContext extends PromptContext {
         super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength() - 1));
     }
 
-    ConsoleContext handleInput(String input) {
-        int index = Integer.parseInt(handleInputInternal(input));
+    ConsoleContext handleInputInternal(String input) {
+        int index = Integer.parseInt(input);
 
         RopChain ropChain = (RopChain) ((CollectionEditor) getParentContext()).getCollection().get(index);
 

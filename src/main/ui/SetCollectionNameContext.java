@@ -6,8 +6,8 @@ public class SetCollectionNameContext extends PromptContext {
         super(parentContext, "New name", ((CollectionEditor) parentContext).getCollection().getName());
     }
 
-    ConsoleContext handleInput(String input) {
-        ((CollectionEditor) getParentContext()).getCollection().setName(handleInputInternal(input));
+    ConsoleContext handleInputInternal(String input) {
+        ((CollectionEditor) getParentContext()).getCollection().setName(input);
         return getParentContext();
     }
 }
