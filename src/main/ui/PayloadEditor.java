@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class PayloadEditor extends CollectionEditor {
+
     public PayloadEditor(Payload payload) {
         super(payload, null);
     }

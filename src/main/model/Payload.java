@@ -1,6 +1,7 @@
 package model;
 
 public class Payload extends GadgetCollection {
+
     // EFFECTS: creates a new Payload with an empty list of RopChains
     public Payload() {
         super();

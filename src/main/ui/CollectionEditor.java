@@ -6,6 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class CollectionEditor extends MenuContext {
+
     public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext) {
         super(collection, parentContext);
     }
