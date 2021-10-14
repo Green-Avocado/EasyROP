@@ -8,11 +8,10 @@ public abstract class PromptContext extends ConsoleContext {
 
     public PromptContext(
             GadgetCollection collection,
-            ConsoleContext parentContext,
             String prompt,
             String defaultResponse
     ) {
-        super(collection, parentContext);
+        super(collection);
 
         this.prompt = prompt;
         this.defaultResponse = defaultResponse;

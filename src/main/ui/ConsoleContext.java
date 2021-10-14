@@ -3,16 +3,10 @@ package ui;
 import model.GadgetCollection;
 
 public abstract class ConsoleContext {
-    private final ConsoleContext parentContext;
     private GadgetCollection collection;
 
-    ConsoleContext(GadgetCollection collection, ConsoleContext parentContext) {
+    ConsoleContext(GadgetCollection collection) {
         this.collection = collection;
-        this.parentContext = parentContext;
-    }
-
-    public ConsoleContext getParentContext() {
-        return parentContext;
     }
 
     public void setCollection(GadgetCollection collection) {
