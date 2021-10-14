@@ -16,17 +16,17 @@ class PayloadEditorTest {
     }
 
     @Test
-    void resetTest() {
+    void testReset() {
         // TODO
     }
 
     @Test
-    void getContextTest() {
+    void testGetContext() {
         // TODO
     }
 
     @Test
-    void getMenuTest() {
+    void testGetMenu() {
         // TODO
     }
 }

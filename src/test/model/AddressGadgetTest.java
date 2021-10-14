@@ -14,7 +14,7 @@ class AddressGadgetTest {
     }
 
     @Test
-    void getScriptTest() {
+    void testGetScript() {
         gadget.setBase("exe");
         gadget.setAddress("0xdeadbeef");
         assertEquals("pack(exe.address + 0xdeadbeef)", gadget.getScript());
@@ -25,7 +25,7 @@ class AddressGadgetTest {
     }
 
     @Test
-    void getNameTest() {
+    void testGetName() {
         gadget.setBase("exe");
         gadget.setAddress("0xdeadbeef");
         assertEquals("AddressGadget (exe.address + 0xdeadbeef)", gadget.getName());
@@ -36,7 +36,7 @@ class AddressGadgetTest {
     }
 
     @Test
-    void setAddressTest() {
+    void testSetAddress() {
         for(int i = 0; i <= 256; i += 16) {
             gadget.setAddress(Integer.toHexString(i));
             assertEquals(Integer.toHexString(i), gadget.getAddress());
@@ -44,7 +44,7 @@ class AddressGadgetTest {
     }
 
     @Test
-    void setBaseTest() {
+    void testSetBase() {
         gadget.setBase("exe");
         assertEquals("exe", gadget.getBase());
 

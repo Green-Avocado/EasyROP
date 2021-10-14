@@ -17,7 +17,7 @@ class RopChainTest {
     }
 
     @Test
-    void addTest() {
+    void testAdd() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         for(int i = 0; i < 4; i++) {
@@ -54,7 +54,7 @@ class RopChainTest {
     }
 
     @Test
-    void removeTest() {
+    void testRemove() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
@@ -89,7 +89,7 @@ class RopChainTest {
     }
 
     @Test
-    void setTest() {
+    void testSet() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
         ArrayList<ExploitObject> newGadgetList = new ArrayList<>();
 
@@ -134,7 +134,7 @@ class RopChainTest {
     }
 
     @Test
-    void getTest() {
+    void testGet() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
@@ -152,7 +152,7 @@ class RopChainTest {
     }
 
     @Test
-    void setNameTest() {
+    void testSetName() {
         ropChain.setName("testName");
         assertEquals("testName", ropChain.getName());
 
@@ -161,7 +161,7 @@ class RopChainTest {
     }
 
     @Test
-    void getListTest() {
+    void testGetList() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         assertEquals(gadgetList, ropChain.getList());
@@ -176,7 +176,7 @@ class RopChainTest {
     }
 
     @Test
-    void getLengthTest() {
+    void testGetLength() {
         assertEquals(0, ropChain.getLength());
 
         for(int i = 0; i < 3; i++) {
@@ -188,7 +188,7 @@ class RopChainTest {
     }
 
     @Test
-    void getScriptTest() {
+    void testGetScript() {
         Padding padding = new Padding();
         padding.setLength(8);
 

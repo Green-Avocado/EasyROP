@@ -17,7 +17,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void getScriptTest() {
+    void testGetScript() {
         gadget.setBase("exe");
         gadget.add("ret", 0);
 
@@ -29,7 +29,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void getNameTest() {
+    void testGetName() {
         for(int i = 0; i < 3; i++) {
             String instruction = "ret";
             gadget.add(instruction, 0);
@@ -38,7 +38,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void addInstructionTest() {
+    void testAddInstruction() {
         ArrayList<String> instructionList = new ArrayList<>();
 
         for(int i = 0; i < 4; i++) {
@@ -75,7 +75,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void setInstructionTest() {
+    void testSetInstruction() {
         ArrayList<String> instructionList = new ArrayList<>();
         ArrayList<String> newInstructionList = new ArrayList<>();
 
@@ -120,7 +120,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void removeInstructionTest() {
+    void testRemoveInstruction() {
         ArrayList<String> instructionList = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
@@ -155,7 +155,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void getInstructionsTest() {
+    void testGetInstructions() {
         ArrayList<String> instructionList = new ArrayList<>();
 
         assertEquals(instructionList, gadget.getInstructions());
@@ -170,7 +170,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void getLengthTest() {
+    void testGetLength() {
         for(int i = 0; i < 3; i++) {
             String instruction = "ret";
             gadget.add(instruction, 0);
@@ -179,7 +179,7 @@ class InstructionsGadgetTest {
     }
 
     @Test
-    void setBaseTest() {
+    void testSetBase() {
         gadget.setBase("exe");
         assertEquals("exe", gadget.getBase());
 

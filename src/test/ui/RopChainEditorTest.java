@@ -17,27 +17,27 @@ class RopChainEditorTest {
     }
 
     @Test
-    void handleInputTest() {
+    void testHandleInput() {
         // TODO
     }
 
     @Test
-    void resetTest() {
+    void testReset() {
         // TODO
     }
 
     @Test
-    void setNameTest() {
+    void testSetName() {
         // TODO
     }
 
     @Test
-    void getContextTest() {
+    void testGetContext() {
         // TODO
     }
 
     @Test
-    void getMenuTest() {
+    void testGetMenu() {
         // TODO
     }
 }

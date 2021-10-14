@@ -17,7 +17,7 @@ class PayloadTest {
     }
 
     @Test
-    void addTest() {
+    void testAdd() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
         for(int i = 0; i < 4; i++) {
@@ -54,7 +54,7 @@ class PayloadTest {
     }
 
     @Test
-    void removeTest() {
+    void testRemove() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
@@ -89,7 +89,7 @@ class PayloadTest {
     }
 
     @Test
-    void setNameTest() {
+    void testSetName() {
         payload.setName("testName");
         assertEquals("testName", payload.getName());
 
@@ -98,7 +98,7 @@ class PayloadTest {
     }
 
     @Test
-    void getRopChainTest() {
+    void testGetRopChain() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
         for(int i = 0; i < 3; i++) {
@@ -116,7 +116,7 @@ class PayloadTest {
     }
 
     @Test
-    void getRopChainListTest() {
+    void testGetRopChainList() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
         assertEquals(ropChainList, payload.getList());
@@ -131,7 +131,7 @@ class PayloadTest {
     }
 
     @Test
-    void getLengthTest() {
+    void testGetLength() {
         assertEquals(0, payload.getLength());
 
         for(int i = 0; i < 3; i++) {
@@ -143,7 +143,7 @@ class PayloadTest {
     }
 
     @Test
-    void getScriptTest() {
+    void testGetScript() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
         ArrayList<String> scriptList = new ArrayList<>();
         scriptList.add("payload = ''");

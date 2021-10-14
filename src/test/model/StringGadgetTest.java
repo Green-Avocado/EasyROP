@@ -14,7 +14,7 @@ class StringGadgetTest {
     }
 
     @Test
-    void getScriptTest() {
+    void testGetScript() {
         gadget.setBase("exe");
         gadget.setString("cat flag.txt");
         assertEquals("pack(next(exe.search(b'cat flag.txt')))", gadget.getScript());
@@ -25,7 +25,7 @@ class StringGadgetTest {
     }
 
     @Test
-    void getNameTest() {
+    void testGetName() {
         gadget.setString("cat flag.txt");
         assertEquals("StringGadget (cat flag.txt)", gadget.getName());
 
@@ -34,7 +34,7 @@ class StringGadgetTest {
     }
 
     @Test
-    void setStringTest() {
+    void testSetString() {
         gadget.setString("cat flag.txt");
         assertEquals("cat flag.txt", gadget.getString());
 
@@ -43,7 +43,7 @@ class StringGadgetTest {
     }
 
     @Test
-    void setBaseTest() {
+    void testSetBase() {
         gadget.setBase("exe");
         assertEquals("exe", gadget.getBase());
 

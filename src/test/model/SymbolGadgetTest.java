@@ -14,7 +14,7 @@ class SymbolGadgetTest {
     }
 
     @Test
-    void getScriptTest() {
+    void testGetScript() {
         gadget.setBase("exe");
         gadget.setType("got");
         gadget.setSymbol("puts");
@@ -29,7 +29,7 @@ class SymbolGadgetTest {
     }
 
     @Test
-    void getNameTest() {
+    void testGetName() {
         gadget.setBase("exe");
         gadget.setType("got");
         gadget.setSymbol("puts");
@@ -42,7 +42,7 @@ class SymbolGadgetTest {
     }
 
     @Test
-    void setSymbolTest() {
+    void testSetSymbol() {
         gadget.setSymbol("puts");
         assertEquals("puts", gadget.getSymbol());
 
@@ -51,7 +51,7 @@ class SymbolGadgetTest {
     }
 
     @Test
-    void setTypeTest() {
+    void testSetType() {
         gadget.setType("got");
         assertEquals("got", gadget.getType());
 
@@ -60,7 +60,7 @@ class SymbolGadgetTest {
     }
 
     @Test
-    void setBaseTest() {
+    void testSetBase() {
         gadget.setBase("exe");
         assertEquals("exe", gadget.getBase());
 
