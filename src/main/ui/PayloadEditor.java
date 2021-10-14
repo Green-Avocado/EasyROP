@@ -68,7 +68,7 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext add() {
-        return new NewRopChainContext(this);
+        return new NewRopChainNameContext(this);
     }
 
     void open() {

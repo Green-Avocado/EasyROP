@@ -6,19 +6,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NewRopChainContextTest {
-    private NewRopChainContext newRopChainContext;
+class NewRopChainNameContextTest {
+    private NewRopChainNameContext nameContext;
     private ConsoleContext parentContext;
 
     @BeforeEach
     void runBefore() {
         parentContext = new PayloadEditor(new Payload());
-        newRopChainContext = new NewRopChainContext(parentContext);
+        nameContext = new NewRopChainNameContext(parentContext);
     }
 
     @Test
     void testConstructor() {
-        assertEquals(parentContext, newRopChainContext.getParentContext());
+        assertEquals(parentContext, nameContext.getParentContext());
     }
 
     @Test
@@ -26,22 +26,22 @@ class NewRopChainContextTest {
         // default name
         assertEquals(
                 "ropChain",
-                ((RopChainEditor)newRopChainContext.handleInput("")).getCollection().getName()
+                ((RopChainEditor) nameContext.handleInput("").handleInput("")).getCollection().getName()
         );
 
         // provided name
         assertEquals(
                 "ropChain0",
-                ((RopChainEditor)newRopChainContext.handleInput("ropChain0")).getCollection().getName()
+                ((RopChainEditor) nameContext.handleInput("ropChain0").handleInput("")).getCollection().getName()
         );
         assertEquals(
                 "ROPchain1",
-                ((RopChainEditor)newRopChainContext.handleInput("ROPchain1")).getCollection().getName()
+                ((RopChainEditor) nameContext.handleInput("ROPchain1").handleInput("")).getCollection().getName()
         );
     }
 
     @Test
     void testGetContextString() {
-        assertEquals("New ROPchain name (default ropChain): ", newRopChainContext.getContextString());
+        assertEquals("New ROPchain name (default ropChain): ", nameContext.getContextString());
     }
 }
