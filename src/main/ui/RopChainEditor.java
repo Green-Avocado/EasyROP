@@ -27,8 +27,7 @@ public class RopChainEditor extends CollectionEditor {
     }
 
     ConsoleContext add() {
-        // TODO
-        return this;
+        return new NewGadgetContext(this);
     }
 
     ConsoleContext open() {
@@ -50,17 +49,10 @@ public class RopChainEditor extends CollectionEditor {
     }
 
     ConsoleContext print() {
-        // TODO
-        return this;
+        return new PrintScriptContext(this, getCollection().getScript());
     }
 
     ConsoleContext editName() {
         return new SetCollectionNameContext(this);
     }
-
-    ConsoleContext reset() {
-        // TODO
-        return this;
-    }
-
 }

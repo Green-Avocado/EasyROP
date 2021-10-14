@@ -61,9 +61,4 @@ public class PayloadEditor extends CollectionEditor {
     ConsoleContext editName() {
         return new SetCollectionNameContext(this);
     }
-
-    ConsoleContext reset() {
-        return new NewPayloadContext();
-    }
-
 }

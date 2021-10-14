@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class CollectionEditor extends MenuContext {
-    private GadgetCollection collection;
+    private final GadgetCollection collection;
 
     public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext) {
         super(parentContext);
@@ -50,8 +50,6 @@ public abstract class CollectionEditor extends MenuContext {
                 return print();
             case "e":
                 return editName();
-            case "r":
-                return reset();
             case "q":
                 return getParentContext();
             default:
@@ -64,7 +62,7 @@ public abstract class CollectionEditor extends MenuContext {
     }
 
     List<String> getMenu() {
-        return Arrays.asList("[e]dit name", "[r]eset", "[q]uit");
+        return Arrays.asList("[e]dit name", "[q]uit");
     }
 
     abstract ConsoleContext add();
@@ -78,6 +76,4 @@ public abstract class CollectionEditor extends MenuContext {
     abstract ConsoleContext print();
 
     abstract ConsoleContext editName();
-
-    abstract ConsoleContext reset();
 }
