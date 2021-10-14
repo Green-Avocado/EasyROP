@@ -12,24 +12,6 @@ public class RopChainEditor extends CollectionEditor {
         super(ropChain, parentContext);
     }
 
-    public ConsoleContext handleInput(String input) {
-        input = input.toLowerCase();
-
-        switch (input) {
-            case "n":
-                return add();
-            case "o":
-                return open();
-            case "d":
-                return delete();
-            case "p":
-                print();
-                return this;
-            default:
-                return super.handleInput(input);
-        }
-    }
-
     ConsoleContext defaultAction() {
         add();
         return this;

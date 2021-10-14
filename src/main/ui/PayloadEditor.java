@@ -13,23 +13,6 @@ public class PayloadEditor extends CollectionEditor {
         super(payload, null);
     }
 
-    public ConsoleContext handleInput(String input) {
-        input = input.toLowerCase();
-
-        switch (input) {
-            case "n":
-                return add();
-            case "o":
-                return open();
-            case "d":
-                return delete();
-            case "p":
-                return print();
-            default:
-                return super.handleInput(input);
-        }
-    }
-
     ConsoleContext defaultAction() {
         return add();
     }
