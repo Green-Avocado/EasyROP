@@ -17,13 +17,13 @@ public class NewGadgetContext extends MenuContext {
             case "p":
                 return new NewPaddingContext(getParentContext());
             case "a":
-                return this;
+                return new NewAddressGadgetContext(getParentContext());
             case "i":
-                return this;
+                return new NewInstructionsGadgetContext(getParentContext());
             case "s":
-                return this;
+                return new NewStringGadgetContext(getParentContext());
             case "sy":
-                return this;
+                return new NewSymbolGadgetContext(getParentContext());
             case "q":
                 return getParentContext();
             default:
