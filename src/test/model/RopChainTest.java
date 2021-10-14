@@ -1,5 +1,7 @@
 package model;
 
+import model.gadgets.*;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

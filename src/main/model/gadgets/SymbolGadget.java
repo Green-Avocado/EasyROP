@@ -1,4 +1,4 @@
-package model;
+package model.gadgets;
 
 public class SymbolGadget extends Gadget {
     private String symbol;

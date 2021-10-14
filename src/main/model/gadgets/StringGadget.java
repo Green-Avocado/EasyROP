@@ -1,4 +1,4 @@
-package model;
+package model.gadgets;
 
 public class StringGadget extends Gadget {
     private String string;

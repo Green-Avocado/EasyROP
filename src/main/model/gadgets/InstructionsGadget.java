@@ -1,4 +1,4 @@
-package model;
+package model.gadgets;
 
 import java.util.Collections;
 import java.util.LinkedList;
