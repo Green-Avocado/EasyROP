@@ -22,21 +22,22 @@ class NewRopChainNameContextTest {
     }
 
     @Test
-    void testHandleInput() {
-        // default name
+    void testHandleInputDefaultName() {
         assertEquals(
                 "ropChain",
-                ((RopChainEditor) nameContext.handleInput("").handleInput("")).getCollection().getName()
+                ((PayloadEditor) nameContext.handleInput("").handleInput("0")).getCollection().get(0).getName()
         );
+    }
 
-        // provided name
+    @Test
+    void testHandleInputProvidedName() {
         assertEquals(
                 "ropChain0",
-                ((RopChainEditor) nameContext.handleInput("ropChain0").handleInput("")).getCollection().getName()
+                ((PayloadEditor) nameContext.handleInput("ropChain0").handleInput("0")).getCollection().get(0).getName()
         );
         assertEquals(
                 "ROPchain1",
-                ((RopChainEditor) nameContext.handleInput("ROPchain1").handleInput("")).getCollection().getName()
+                ((PayloadEditor) nameContext.handleInput("ROPchain1").handleInput("0")).getCollection().get(0).getName()
         );
     }
 

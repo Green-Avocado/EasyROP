@@ -34,7 +34,7 @@ class NewRopChainIndexContextTest {
 
             assertEquals(
                     payload.getList(),
-                    ((PayloadEditor) indexContext.handleInput("").getParentContext()).getCollection().getList()
+                    ((PayloadEditor) indexContext.handleInput("")).getCollection().getList()
             );
         }
     }
@@ -48,7 +48,7 @@ class NewRopChainIndexContextTest {
         for (int i = 0; i < 3; i++) {
             ropChain = new RopChain();
             payload.add(ropChain, 0);
-            ((PayloadEditor)parentContext).getCollection().add(ropChain, 0);
+            ((PayloadEditor) parentContext).getCollection().add(ropChain, 0);
         }
 
         for (int i = 0; i < 3; i += 2) {
@@ -58,8 +58,7 @@ class NewRopChainIndexContextTest {
 
             assertEquals(
                     payload.getList(),
-                    ((PayloadEditor) indexContext.handleInput(String.valueOf(i)).getParentContext())
-                            .getCollection().getList()
+                    ((PayloadEditor) indexContext.handleInput(String.valueOf(i))).getCollection().getList()
             );
         }
     }
@@ -68,8 +67,7 @@ class NewRopChainIndexContextTest {
     void testHandleInputOutOfBounds() {
         assertEquals(
                 0,
-                ((PayloadEditor) indexContext.handleInput("1").getParentContext())
-                        .getCollection().getLength()
+                ((PayloadEditor) indexContext.handleInput("1")).getCollection().getLength()
         );
     }
 
@@ -77,8 +75,7 @@ class NewRopChainIndexContextTest {
     void testHandleInputNotNonNegative() {
         assertEquals(
                 0,
-                ((PayloadEditor) indexContext.handleInput("-1").getParentContext())
-                        .getCollection().getLength()
+                ((PayloadEditor) indexContext.handleInput("-1")).getCollection().getLength()
         );
     }
 

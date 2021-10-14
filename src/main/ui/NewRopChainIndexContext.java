@@ -24,6 +24,6 @@ public class NewRopChainIndexContext extends PromptContext {
             );
         }
 
-        return new RopChainEditor(ropChain, getParentContext());
+        return getParentContext();
     }
 }
