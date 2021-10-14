@@ -37,7 +37,7 @@ public abstract class CollectionEditor extends MenuContext {
         input = input.toLowerCase();
 
         switch (input) {
-            default:
+            case "":
             case "n":
                 return add();
             case "o":
@@ -52,6 +52,8 @@ public abstract class CollectionEditor extends MenuContext {
                 return reset();
             case "q":
                 return getParentContext();
+            default:
+                return this;
         }
     }
 
