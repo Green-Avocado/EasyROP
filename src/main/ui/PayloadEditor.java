@@ -31,12 +31,12 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext add() {
-        return new NewRopChainNameContext(this);
+        return new NewRopChainContext(this);
     }
 
     ConsoleContext open() {
         if (getCollection().getLength() > 0) {
-            return new OpenRopChainIndexContext(this);
+            return new OpenRopChainContext(this);
         } else {
             return this;
         }
@@ -52,7 +52,7 @@ public class PayloadEditor extends CollectionEditor {
 
     ConsoleContext delete() {
         if (getCollection().getLength() > 0) {
-            return new DeleteRopChainIndexContext(this);
+            return new DeleteRopChainContext(this);
         } else {
             return this;
         }

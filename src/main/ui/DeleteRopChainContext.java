@@ -1,8 +1,8 @@
 package ui;
 
-public class DeleteRopChainIndexContext extends PromptContext {
+public class DeleteRopChainContext extends PromptContext {
 
-    public DeleteRopChainIndexContext(ConsoleContext parentContext) {
+    public DeleteRopChainContext(ConsoleContext parentContext) {
         super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength() - 1));
     }
 

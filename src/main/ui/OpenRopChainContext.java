@@ -2,9 +2,9 @@ package ui;
 
 import model.RopChain;
 
-public class OpenRopChainIndexContext extends PromptContext {
+public class OpenRopChainContext extends PromptContext {
 
-    public OpenRopChainIndexContext(ConsoleContext parentContext) {
+    public OpenRopChainContext(ConsoleContext parentContext) {
         super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength() - 1));
     }
 
