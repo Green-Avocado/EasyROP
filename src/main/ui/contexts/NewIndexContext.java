@@ -1,6 +1,6 @@
-package ui;
+package ui.contexts;
 
-import model.ExploitObject;
+import model.gadgets.ExploitObject;
 
 public class NewIndexContext extends PromptContext {
     private final ExploitObject exploitObject;

@@ -1,4 +1,4 @@
-package ui;
+package ui.contexts;
 
 public abstract class ConsoleContext {
     private final ConsoleContext parentContext;

@@ -1,5 +1,7 @@
 package model;
 
+import model.gadgets.ExploitObject;
+
 public class Payload extends GadgetCollection {
 
     // EFFECTS: creates a new Payload with an empty list of RopChains

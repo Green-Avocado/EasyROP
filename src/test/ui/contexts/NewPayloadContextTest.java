@@ -1,5 +1,6 @@
-package ui;
+package ui.contexts;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,7 +23,7 @@ class NewPayloadContextTest {
     @Test
     void testHandleInput() {
         // default name
-        assertEquals(
+        Assertions.assertEquals(
                 "payload",
                 ((PayloadEditor) newPayloadContext.handleInput("")).getCollection().getName()
         );

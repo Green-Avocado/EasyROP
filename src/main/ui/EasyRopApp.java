@@ -1,5 +1,8 @@
 package ui;
 
+import ui.contexts.ConsoleContext;
+import ui.contexts.NewPayloadContext;
+
 import java.util.Scanner;
 
 public class EasyRopApp {

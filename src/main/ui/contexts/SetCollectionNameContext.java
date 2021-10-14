@@ -1,4 +1,4 @@
-package ui;
+package ui.contexts;
 
 public class SetCollectionNameContext extends PromptContext {
 

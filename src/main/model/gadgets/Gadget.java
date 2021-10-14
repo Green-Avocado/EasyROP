@@ -1,7 +1,5 @@
 package model.gadgets;
 
-import model.ExploitObject;
-
 public abstract class Gadget implements ExploitObject {
     private final String base;
 

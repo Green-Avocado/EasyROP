@@ -1,6 +1,6 @@
-package ui;
+package ui.contexts;
 
-import model.ExploitObject;
+import model.gadgets.ExploitObject;
 import model.GadgetCollection;
 
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package ui;
+package ui.contexts;
 
 public abstract class PromptContext extends ConsoleContext {
     private final String prompt;

@@ -1,9 +1,6 @@
 package model;
 
-import model.gadgets.AddressGadget;
-import model.gadgets.InstructionsGadget;
-import model.gadgets.StringGadget;
-import model.gadgets.SymbolGadget;
+import model.gadgets.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

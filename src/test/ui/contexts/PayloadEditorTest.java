@@ -1,4 +1,4 @@
-package ui;
+package ui.contexts;
 
 import model.Payload;
 import org.junit.jupiter.api.BeforeEach;

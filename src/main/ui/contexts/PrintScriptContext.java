@@ -1,4 +1,4 @@
-package ui;
+package ui.contexts;
 
 public class PrintScriptContext extends ConsoleContext {
     private final String script;
