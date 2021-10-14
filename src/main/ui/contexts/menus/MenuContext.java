@@ -1,4 +1,6 @@
-package ui.contexts;
+package ui.contexts.menus;
+
+import ui.contexts.ConsoleContext;
 
 import java.util.List;
 

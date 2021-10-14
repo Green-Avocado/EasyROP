@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.gadgets.AddressGadget;
+import ui.contexts.ConsoleContext;
 
 public class NewAddressGadgetContext extends PromptContext {
     private String base;

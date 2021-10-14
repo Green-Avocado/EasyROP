@@ -1,4 +1,6 @@
-package ui.contexts;
+package ui.contexts.prompts;
+
+import ui.contexts.ConsoleContext;
 
 public class PrintScriptContext extends ConsoleContext {
     private final String script;

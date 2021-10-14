@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.gadgets.StringGadget;
+import ui.contexts.ConsoleContext;
 
 public class NewStringGadgetContext extends PromptContext {
     private String base;

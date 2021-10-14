@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.gadgets.SymbolGadget;
+import ui.contexts.ConsoleContext;
 
 public class NewSymbolGadgetContext extends PromptContext {
     private String base;

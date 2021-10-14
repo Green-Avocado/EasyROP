@@ -1,9 +1,10 @@
 package ui.contexts;
 
 import model.Payload;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.contexts.menus.PayloadEditor;
+import ui.contexts.prompts.NewRopChainContext;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

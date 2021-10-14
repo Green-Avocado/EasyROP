@@ -1,7 +1,12 @@
-package ui.contexts;
+package ui.contexts.menus;
 
-import model.gadgets.ExploitObject;
 import model.GadgetCollection;
+import model.gadgets.ExploitObject;
+import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.DeleteExploitObjectContext;
+import ui.contexts.prompts.MoveExploitObjectContext;
+import ui.contexts.prompts.PrintScriptContext;
+import ui.contexts.prompts.SetCollectionNameContext;
 
 import java.util.Arrays;
 import java.util.List;

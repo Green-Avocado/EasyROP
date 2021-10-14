@@ -3,6 +3,7 @@ package ui.contexts;
 import model.Payload;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.contexts.menus.PayloadEditor;
 
 class PayloadEditorTest {
     private PayloadEditor payloadEditor;

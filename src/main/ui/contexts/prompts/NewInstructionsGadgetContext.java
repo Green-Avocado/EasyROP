@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.gadgets.InstructionsGadget;
+import ui.contexts.ConsoleContext;
 
 import java.util.ArrayList;
 

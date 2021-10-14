@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.Padding;
+import ui.contexts.ConsoleContext;
 
 public class NewPaddingContext extends PromptContext {
     public NewPaddingContext(ConsoleContext parentContext) {

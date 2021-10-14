@@ -1,6 +1,8 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.gadgets.ExploitObject;
+import ui.contexts.ConsoleContext;
+import ui.contexts.menus.CollectionEditor;
 
 public class NewIndexContext extends PromptContext {
     private final ExploitObject exploitObject;

@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.RopChain;
+import ui.contexts.ConsoleContext;
 
 public class NewRopChainContext extends PromptContext {
 

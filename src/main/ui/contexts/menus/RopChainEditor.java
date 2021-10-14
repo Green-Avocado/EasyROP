@@ -1,6 +1,7 @@
-package ui.contexts;
+package ui.contexts.menus;
 
 import model.RopChain;
+import ui.contexts.ConsoleContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;

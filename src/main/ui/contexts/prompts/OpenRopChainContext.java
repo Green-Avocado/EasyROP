@@ -1,6 +1,10 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.RopChain;
+import ui.contexts.ConsoleContext;
+import ui.contexts.menus.CollectionEditor;
+import ui.contexts.menus.PayloadEditor;
+import ui.contexts.menus.RopChainEditor;
 
 public class OpenRopChainContext extends PromptContext {
 

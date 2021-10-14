@@ -3,7 +3,7 @@ package ui.contexts;
 public abstract class ConsoleContext {
     private final ConsoleContext parentContext;
 
-    ConsoleContext(ConsoleContext parentContext) {
+    public ConsoleContext(ConsoleContext parentContext) {
         this.parentContext = parentContext;
     }
 

@@ -4,6 +4,8 @@ import model.Payload;
 import model.RopChain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.contexts.menus.PayloadEditor;
+import ui.contexts.menus.RopChainEditor;
 
 class RopChainEditorTest {
     private RopChainEditor ropChainEditor;

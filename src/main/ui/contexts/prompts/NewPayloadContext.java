@@ -1,6 +1,8 @@
-package ui.contexts;
+package ui.contexts.prompts;
 
 import model.Payload;
+import ui.contexts.ConsoleContext;
+import ui.contexts.menus.PayloadEditor;
 
 public class NewPayloadContext extends PromptContext {
 

@@ -3,6 +3,8 @@ package ui.contexts;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.contexts.menus.PayloadEditor;
+import ui.contexts.prompts.NewPayloadContext;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
