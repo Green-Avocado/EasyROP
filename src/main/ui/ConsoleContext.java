@@ -11,7 +11,7 @@ public abstract class ConsoleContext {
         return parentContext;
     }
 
-    abstract ConsoleContext handleInput(String input);
+    public abstract ConsoleContext handleInput(String input);
 
-    abstract String getContextString();
+    public abstract String getContextString();
 }

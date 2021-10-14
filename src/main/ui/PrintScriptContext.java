@@ -13,7 +13,7 @@ public class PrintScriptContext extends ConsoleContext {
         return script;
     }
 
-    ConsoleContext handleInput(String input) {
+    public ConsoleContext handleInput(String input) {
         return getParentContext();
     }
 }
