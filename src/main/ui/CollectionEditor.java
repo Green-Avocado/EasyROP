@@ -1,5 +1,6 @@
 package ui;
 
+import model.ExploitObject;
 import model.GadgetCollection;
 
 import java.util.Arrays;
@@ -13,6 +14,24 @@ public abstract class CollectionEditor extends MenuContext {
 
         this.collection = collection;
     }
+
+    public String getContextString() {
+        StringBuilder contextString = new StringBuilder();
+
+        contextString.append(getCollection().getName());
+        contextString.append(":\n");
+
+        for (ExploitObject exploitObject : getCollection().getList()) {
+            contextString.append("  ");
+            contextString.append(exploitObject.getName());
+            contextString.append("\n");
+        }
+
+        contextString.append(super.getContextString());
+
+        return contextString.toString();
+    }
+
 
     public ConsoleContext handleInput(String input) {
         input = input.toLowerCase();
@@ -33,10 +52,6 @@ public abstract class CollectionEditor extends MenuContext {
             default:
                 return defaultAction();
         }
-    }
-
-    public void setCollection(GadgetCollection collection) {
-        this.collection = collection;
     }
 
     public GadgetCollection getCollection() {
