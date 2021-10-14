@@ -4,6 +4,7 @@ import model.ExploitObject;
 import model.GadgetCollection;
 import model.RopChain;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -60,12 +61,12 @@ public class RopChainEditor extends CollectionEditor {
     }
 
     List<String> getMenu() {
-        List<String> menu = Arrays.asList(
+        ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew gadget",
                 "[o]pen gadget",
                 "[d]elete gadget",
                 "[p]rint gadget"
-        );
+        ));
 
         menu.addAll(super.getMenu());
 
