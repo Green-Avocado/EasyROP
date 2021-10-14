@@ -29,11 +29,11 @@ public class NewPaddingContext extends PromptContext {
         }
     }
 
-    ConsoleContext readLength(int length) {
+    private ConsoleContext readLength(int length) {
         return new NewPaddingContext(getParentContext(), new Padding(length));
     }
 
-    ConsoleContext readIndex(int index) {
+    private ConsoleContext readIndex(int index) {
         ((RopChainEditor) getParentContext()).getCollection().add(padding, index);
         return getParentContext();
     }

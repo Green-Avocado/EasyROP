@@ -23,14 +23,14 @@ public class NewRopChainContext extends PromptContext {
         }
     }
 
-    ConsoleContext readName(String input) {
+    private ConsoleContext readName(String input) {
         ropChain = new RopChain();
         ropChain.setName(input);
 
         return new NewRopChainContext(getParentContext(), ropChain);
     }
 
-    ConsoleContext readIndex(String input) {
+    private ConsoleContext readIndex(String input) {
         int index = Integer.parseInt(input);
 
         if (index >= 0) {
