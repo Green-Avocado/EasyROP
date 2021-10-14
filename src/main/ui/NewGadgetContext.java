@@ -1,7 +1,5 @@
 package ui;
 
-import model.ExploitObject;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,21 +13,32 @@ public class NewGadgetContext extends MenuContext {
         input = input.toLowerCase();
 
         switch (input) {
-            default:
-            case "n":
-                return null;
+            case "":
+            case "p":
+                return new NewPaddingContext(getParentContext());
+            case "a":
+                return this;
+            case "i":
+                return this;
+            case "s":
+                return this;
+            case "sy":
+                return this;
             case "q":
                 return getParentContext();
+            default:
+                return this;
         }
     }
 
     List<String> getMenu() {
         return Arrays.asList(
-                "[N]ew ROPchain",
-                "[o]pen ROPchain",
-                "[m]move ROPchain",
-                "[d]elete ROPchain",
-                "[p]rint ROPchain"
+                "[P]adding",
+                "[a]ddress gadget",
+                "[i]instructions gadget",
+                "[s]tring gadget",
+                "[sy]mbol gadget",
+                "[q]uit"
         );
     }
 }
