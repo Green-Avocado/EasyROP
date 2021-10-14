@@ -1,7 +1,5 @@
 package ui;
 
-import model.Payload;
-
 import java.util.Scanner;
 
 public class EasyRopApp {
