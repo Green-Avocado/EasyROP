@@ -77,8 +77,11 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext delete() {
-        // TODO
-        return this;
+        if (getCollection().getLength() > 0) {
+            return new DeleteRopChainIndexContext(this);
+        } else {
+            return this;
+        }
     }
 
     ConsoleContext reset() {
