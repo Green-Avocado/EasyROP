@@ -54,11 +54,16 @@ public class PayloadEditor extends CollectionEditor {
         }
     }
 
+    ConsoleContext print() {
+        return new PrintScriptContext(this, getCollection().getScript());
+    }
+
+    ConsoleContext editName() {
+        return new SetCollectionNameContext(this);
+    }
+
     ConsoleContext reset() {
         return new NewPayloadContext();
     }
 
-    ConsoleContext print() {
-        return new PrintScriptContext(this, getCollection().getScript());
-    }
 }

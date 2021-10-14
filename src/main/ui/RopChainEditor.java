@@ -49,12 +49,16 @@ public class RopChainEditor extends CollectionEditor {
         return this;
     }
 
-    ConsoleContext reset() {
+    ConsoleContext print() {
         // TODO
         return this;
     }
 
-    ConsoleContext print() {
+    ConsoleContext editName() {
+        return new SetCollectionNameContext(this);
+    }
+
+    ConsoleContext reset() {
         // TODO
         return this;
     }

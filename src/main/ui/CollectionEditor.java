@@ -48,6 +48,8 @@ public abstract class CollectionEditor extends MenuContext {
                 return delete();
             case "p":
                 return print();
+            case "e":
+                return editName();
             case "r":
                 return reset();
             case "q":
@@ -62,11 +64,7 @@ public abstract class CollectionEditor extends MenuContext {
     }
 
     List<String> getMenu() {
-        return Arrays.asList("[r]eset", "[q]uit");
-    }
-
-    void setName(String name) {
-        getCollection().setName(name);
+        return Arrays.asList("[e]dit name", "[r]eset", "[q]uit");
     }
 
     abstract ConsoleContext add();
@@ -78,6 +76,8 @@ public abstract class CollectionEditor extends MenuContext {
     abstract ConsoleContext delete();
 
     abstract ConsoleContext print();
+
+    abstract ConsoleContext editName();
 
     abstract ConsoleContext reset();
 }
