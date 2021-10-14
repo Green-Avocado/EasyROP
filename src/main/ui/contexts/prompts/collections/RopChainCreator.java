@@ -5,6 +5,7 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
 import ui.contexts.prompts.util.GetIndex;
 
+// Represents a UI context which creates a new RopChain with a given name and index in a Payload
 public class RopChainCreator extends PromptContext {
 
     public RopChainCreator(ConsoleContext parentContext) {

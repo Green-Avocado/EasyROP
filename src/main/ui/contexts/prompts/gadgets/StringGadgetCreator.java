@@ -5,6 +5,7 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
 import ui.contexts.prompts.util.GetIndex;
 
+// Represents a UI context that creates a new StringGadget
 public class StringGadgetCreator extends PromptContext {
     private String base;
 

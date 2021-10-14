@@ -5,6 +5,7 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
 import ui.contexts.prompts.PromptContext;
 
+// Represents a UI context which gets the index of a new ExploitObject to be added to a collection
 public class GetIndex extends PromptContext {
     private final ExploitObject exploitObject;
 

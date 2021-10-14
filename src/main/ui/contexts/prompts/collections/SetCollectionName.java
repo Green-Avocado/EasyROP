@@ -4,6 +4,7 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
 import ui.contexts.prompts.PromptContext;
 
+// Represents a UI context that renames a GadgetCollection
 public class SetCollectionName extends PromptContext {
 
     public SetCollectionName(ConsoleContext parentContext) {

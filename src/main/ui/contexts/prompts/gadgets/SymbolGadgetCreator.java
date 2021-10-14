@@ -5,6 +5,7 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
 import ui.contexts.prompts.util.GetIndex;
 
+// Represents a UI context that creates a new SymbolGadget
 public class SymbolGadgetCreator extends PromptContext {
     private String base;
     private String type;

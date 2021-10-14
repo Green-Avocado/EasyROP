@@ -11,6 +11,7 @@ import ui.contexts.prompts.util.ExploitObjectMover;
 import java.util.Arrays;
 import java.util.List;
 
+// Represents a UI context that edits a GadgetCollection
 public abstract class CollectionEditor extends MenuContext {
     private final GadgetCollection collection;
 

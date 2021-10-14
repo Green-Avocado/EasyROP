@@ -5,6 +5,7 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
 import ui.contexts.prompts.util.GetIndex;
 
+// Represents a UI context that creates a new AddressGadget
 public class AddressGadgetCreator extends PromptContext {
     private String base;
 

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// Represents a UI context that edits RopChain objects
 public class RopChainEditor extends CollectionEditor {
 
     public RopChainEditor(RopChain ropChain, ConsoleContext parentContext) {

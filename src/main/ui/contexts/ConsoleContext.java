@@ -1,5 +1,6 @@
 package ui.contexts;
 
+// Represents an arbitrary UI context with a given string, parent context, and input handler
 public abstract class ConsoleContext {
     private final ConsoleContext parentContext;
 

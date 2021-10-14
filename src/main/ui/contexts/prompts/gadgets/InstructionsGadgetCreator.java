@@ -7,6 +7,7 @@ import ui.contexts.prompts.util.GetIndex;
 
 import java.util.ArrayList;
 
+// Represents a UI context that creates a new InstructionsGadget
 public class InstructionsGadgetCreator extends PromptContext {
     private String base;
     private ArrayList<String> list;

@@ -7,6 +7,7 @@ import ui.contexts.menus.PayloadEditor;
 import ui.contexts.menus.RopChainEditor;
 import ui.contexts.prompts.PromptContext;
 
+// Represents a UI context that selects a RopChain from a Payload
 public class RopChainSelector extends PromptContext {
 
     public RopChainSelector(ConsoleContext parentContext) {

@@ -6,6 +6,7 @@ import ui.contexts.prompts.gadgets.*;
 import java.util.Arrays;
 import java.util.List;
 
+// Represents a UI context that creates a Gadget or Padding object
 public class GadgetCreator extends MenuContext {
 
     public GadgetCreator(ConsoleContext parentContext) {

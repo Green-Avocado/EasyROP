@@ -2,6 +2,7 @@ package ui.contexts.prompts;
 
 import ui.contexts.ConsoleContext;
 
+// Represents a UI context where a value is inputted or the default value is selected if left blank
 public abstract class PromptContext extends ConsoleContext {
     private final String prompt;
     private final String defaultResponse;

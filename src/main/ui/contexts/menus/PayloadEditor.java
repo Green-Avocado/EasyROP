@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// Represents a UI context that edits Payload objects
 public class PayloadEditor extends CollectionEditor {
 
     public PayloadEditor(Payload payload) {
