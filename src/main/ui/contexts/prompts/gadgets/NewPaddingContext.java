@@ -1,14 +1,16 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.gadgets;
 
-import model.Padding;
+import model.gadgets.Padding;
 import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.PromptContext;
+import ui.contexts.prompts.util.NewIndexContext;
 
 public class NewPaddingContext extends PromptContext {
     public NewPaddingContext(ConsoleContext parentContext) {
         super(parentContext, "Padding length", "8");
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         int length = Integer.parseInt(input);
 
         if (length < 0) {

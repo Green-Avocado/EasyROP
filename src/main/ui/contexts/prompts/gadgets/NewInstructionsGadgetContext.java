@@ -1,7 +1,9 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.gadgets;
 
 import model.gadgets.InstructionsGadget;
 import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.PromptContext;
+import ui.contexts.prompts.util.NewIndexContext;
 
 import java.util.ArrayList;
 
@@ -20,7 +22,7 @@ public class NewInstructionsGadgetContext extends PromptContext {
         this.list = list;
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
             return new NewInstructionsGadgetContext(getParentContext(), input, new ArrayList<>());
         } else if (!input.equalsIgnoreCase("quit")) {

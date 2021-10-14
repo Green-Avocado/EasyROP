@@ -29,5 +29,5 @@ public abstract class PromptContext extends ConsoleContext {
         }
     }
 
-    abstract ConsoleContext handleInputInternal(String input);
+    public abstract ConsoleContext handleInputInternal(String input);
 }

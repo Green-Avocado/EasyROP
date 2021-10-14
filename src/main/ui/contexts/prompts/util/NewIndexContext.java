@@ -1,8 +1,9 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.util;
 
 import model.gadgets.ExploitObject;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
+import ui.contexts.prompts.PromptContext;
 
 public class NewIndexContext extends PromptContext {
     private final ExploitObject exploitObject;
@@ -13,7 +14,7 @@ public class NewIndexContext extends PromptContext {
         this.exploitObject = exploitObject;
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         int index = Integer.parseInt(input);
 
         if (index >= 0) {

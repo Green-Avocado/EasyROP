@@ -1,6 +1,4 @@
-package model;
-
-import model.gadgets.ExploitObject;
+package model.gadgets;
 
 public class Padding implements ExploitObject {
     private final int length;

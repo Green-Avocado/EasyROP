@@ -1,7 +1,9 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.gadgets;
 
 import model.gadgets.SymbolGadget;
 import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.PromptContext;
+import ui.contexts.prompts.util.NewIndexContext;
 
 public class NewSymbolGadgetContext extends PromptContext {
     private String base;
@@ -24,7 +26,7 @@ public class NewSymbolGadgetContext extends PromptContext {
         this.type = type;
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
             return new NewSymbolGadgetContext(getParentContext(), input);
         } else if (type == null) {

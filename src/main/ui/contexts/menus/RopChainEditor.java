@@ -27,7 +27,7 @@ public class RopChainEditor extends CollectionEditor {
     }
 
     ConsoleContext add() {
-        return new NewGadgetContext(this);
+        return new GadgetCreator(this);
     }
 
     ConsoleContext open() {

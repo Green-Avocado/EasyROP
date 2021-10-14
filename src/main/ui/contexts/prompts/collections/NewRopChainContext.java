@@ -1,7 +1,9 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.collections;
 
 import model.RopChain;
 import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.PromptContext;
+import ui.contexts.prompts.util.NewIndexContext;
 
 public class NewRopChainContext extends PromptContext {
 
@@ -9,7 +11,7 @@ public class NewRopChainContext extends PromptContext {
         super(parentContext, "New ROPchain name", "ropChain");
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         RopChain ropChain = new RopChain();
         ropChain.setName(input);
         return new NewIndexContext(getParentContext(), ropChain);

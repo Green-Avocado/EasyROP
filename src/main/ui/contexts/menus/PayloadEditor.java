@@ -2,8 +2,8 @@ package ui.contexts.menus;
 
 import model.Payload;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.NewRopChainContext;
-import ui.contexts.prompts.OpenRopChainContext;
+import ui.contexts.prompts.collections.NewRopChainContext;
+import ui.contexts.prompts.collections.OpenRopChainContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;

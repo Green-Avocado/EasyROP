@@ -1,8 +1,9 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.collections;
 
 import model.Payload;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.PayloadEditor;
+import ui.contexts.prompts.PromptContext;
 
 public class NewPayloadContext extends PromptContext {
 
@@ -12,7 +13,7 @@ public class NewPayloadContext extends PromptContext {
     }
 
     // EFFECTS: returns a PayloadEditor with a Payload with the given name or default name
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         Payload payload = new Payload();
 
         payload.setName(input);

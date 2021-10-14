@@ -1,7 +1,7 @@
 package ui;
 
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.NewPayloadContext;
+import ui.contexts.prompts.collections.NewPayloadContext;
 
 import java.util.Scanner;
 

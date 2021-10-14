@@ -1,14 +1,14 @@
 package ui.contexts.menus;
 
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.*;
+import ui.contexts.prompts.gadgets.*;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class NewGadgetContext extends MenuContext {
+public class GadgetCreator extends MenuContext {
 
-    public NewGadgetContext(ConsoleContext parentContext) {
+    public GadgetCreator(ConsoleContext parentContext) {
         super(parentContext);
     }
 

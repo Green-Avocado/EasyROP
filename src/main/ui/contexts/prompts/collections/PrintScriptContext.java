@@ -1,4 +1,4 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.collections;
 
 import ui.contexts.ConsoleContext;
 

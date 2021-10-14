@@ -1,7 +1,8 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.collections;
 
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
+import ui.contexts.prompts.PromptContext;
 
 public class SetCollectionNameContext extends PromptContext {
 
@@ -9,7 +10,7 @@ public class SetCollectionNameContext extends PromptContext {
         super(parentContext, "New name", ((CollectionEditor) parentContext).getCollection().getName());
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         ((CollectionEditor) getParentContext()).getCollection().setName(input);
         return getParentContext();
     }

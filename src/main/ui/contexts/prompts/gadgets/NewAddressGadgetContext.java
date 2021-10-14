@@ -1,7 +1,9 @@
-package ui.contexts.prompts;
+package ui.contexts.prompts.gadgets;
 
 import model.gadgets.AddressGadget;
 import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.PromptContext;
+import ui.contexts.prompts.util.NewIndexContext;
 
 public class NewAddressGadgetContext extends PromptContext {
     private String base;
@@ -16,7 +18,7 @@ public class NewAddressGadgetContext extends PromptContext {
         this.base = base;
     }
 
-    ConsoleContext handleInputInternal(String input) {
+    public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
             return new NewAddressGadgetContext(getParentContext(), input);
         } else {
