@@ -5,10 +5,10 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
 import ui.contexts.prompts.PromptContext;
 
-public class NewIndexContext extends PromptContext {
+public class GetIndex extends PromptContext {
     private final ExploitObject exploitObject;
 
-    public NewIndexContext(ConsoleContext parentContext, ExploitObject exploitObject) {
+    public GetIndex(ConsoleContext parentContext, ExploitObject exploitObject) {
         super(parentContext, "Index", String.valueOf(((CollectionEditor) parentContext).getCollection().getLength()));
 
         this.exploitObject = exploitObject;

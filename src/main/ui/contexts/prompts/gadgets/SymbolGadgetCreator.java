@@ -3,23 +3,23 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.SymbolGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.NewIndexContext;
+import ui.contexts.prompts.util.GetIndex;
 
-public class NewSymbolGadgetContext extends PromptContext {
+public class SymbolGadgetCreator extends PromptContext {
     private String base;
     private String type;
 
-    public NewSymbolGadgetContext(ConsoleContext parentContext) {
+    public SymbolGadgetCreator(ConsoleContext parentContext) {
         super(parentContext, "Base", "exe");
     }
 
-    public NewSymbolGadgetContext(ConsoleContext parentContext, String base) {
+    public SymbolGadgetCreator(ConsoleContext parentContext, String base) {
         super(parentContext, "Type", "sym");
 
         this.base = base;
     }
 
-    public NewSymbolGadgetContext(ConsoleContext parentContext, String base, String type) {
+    public SymbolGadgetCreator(ConsoleContext parentContext, String base, String type) {
         super(parentContext, "Symbol", "system");
 
         this.base = base;
@@ -28,11 +28,11 @@ public class NewSymbolGadgetContext extends PromptContext {
 
     public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
-            return new NewSymbolGadgetContext(getParentContext(), input);
+            return new SymbolGadgetCreator(getParentContext(), input);
         } else if (type == null) {
-            return new NewSymbolGadgetContext(getParentContext(), base, input);
+            return new SymbolGadgetCreator(getParentContext(), base, input);
         } else {
-            return new NewIndexContext(getParentContext(), new SymbolGadget(base, type, input));
+            return new GetIndex(getParentContext(), new SymbolGadget(base, type, input));
         }
     }
 }

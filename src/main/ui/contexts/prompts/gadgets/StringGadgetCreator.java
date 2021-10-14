@@ -3,16 +3,16 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.StringGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.NewIndexContext;
+import ui.contexts.prompts.util.GetIndex;
 
-public class NewStringGadgetContext extends PromptContext {
+public class StringGadgetCreator extends PromptContext {
     private String base;
 
-    public NewStringGadgetContext(ConsoleContext parentContext) {
+    public StringGadgetCreator(ConsoleContext parentContext) {
         super(parentContext, "Base", "exe");
     }
 
-    public NewStringGadgetContext(ConsoleContext parentContext, String base) {
+    public StringGadgetCreator(ConsoleContext parentContext, String base) {
         super(parentContext, "String", "/bin/sh\\x00");
 
         this.base = base;
@@ -20,9 +20,9 @@ public class NewStringGadgetContext extends PromptContext {
 
     public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
-            return new NewStringGadgetContext(getParentContext(), input);
+            return new StringGadgetCreator(getParentContext(), input);
         } else {
-            return new NewIndexContext(getParentContext(), new StringGadget(base, input));
+            return new GetIndex(getParentContext(), new StringGadget(base, input));
         }
     }
 }

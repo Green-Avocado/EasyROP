@@ -4,22 +4,22 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.menus.PayloadEditor;
-import ui.contexts.prompts.collections.NewPayloadContext;
+import ui.contexts.prompts.collections.PayloadCreator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
-class NewPayloadContextTest {
-    private NewPayloadContext newPayloadContext;
+class PayloadCreatorTest {
+    private PayloadCreator payloadCreator;
 
     @BeforeEach
     void runBefore() {
-        newPayloadContext = new NewPayloadContext();
+        payloadCreator = new PayloadCreator();
     }
 
     @Test
     void testConstructor() {
-        assertNull(newPayloadContext.getParentContext());
+        assertNull(payloadCreator.getParentContext());
     }
 
     @Test
@@ -27,22 +27,22 @@ class NewPayloadContextTest {
         // default name
         Assertions.assertEquals(
                 "payload",
-                ((PayloadEditor) newPayloadContext.handleInput("")).getCollection().getName()
+                ((PayloadEditor) payloadCreator.handleInput("")).getCollection().getName()
         );
 
         // provided name
         assertEquals(
                 "payload0",
-                ((PayloadEditor) newPayloadContext.handleInput("payload0")).getCollection().getName()
+                ((PayloadEditor) payloadCreator.handleInput("payload0")).getCollection().getName()
         );
         assertEquals(
                 "Payload1",
-                ((PayloadEditor) newPayloadContext.handleInput("Payload1")).getCollection().getName()
+                ((PayloadEditor) payloadCreator.handleInput("Payload1")).getCollection().getName()
         );
     }
 
     @Test
     void testGetContextString() {
-        assertEquals("New payload name (default payload): ", newPayloadContext.getContextString());
+        assertEquals("New payload name (default payload): ", payloadCreator.getContextString());
     }
 }

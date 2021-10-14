@@ -4,9 +4,9 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
 import ui.contexts.prompts.PromptContext;
 
-public class SetCollectionNameContext extends PromptContext {
+public class SetCollectionName extends PromptContext {
 
-    public SetCollectionNameContext(ConsoleContext parentContext) {
+    public SetCollectionName(ConsoleContext parentContext) {
         super(parentContext, "New name", ((CollectionEditor) parentContext).getCollection().getName());
     }
 

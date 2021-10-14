@@ -3,17 +3,17 @@ package ui.contexts.prompts.collections;
 import model.RopChain;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.NewIndexContext;
+import ui.contexts.prompts.util.GetIndex;
 
-public class NewRopChainContext extends PromptContext {
+public class RopChainCreator extends PromptContext {
 
-    public NewRopChainContext(ConsoleContext parentContext) {
+    public RopChainCreator(ConsoleContext parentContext) {
         super(parentContext, "New ROPchain name", "ropChain");
     }
 
     public ConsoleContext handleInputInternal(String input) {
         RopChain ropChain = new RopChain();
         ropChain.setName(input);
-        return new NewIndexContext(getParentContext(), ropChain);
+        return new GetIndex(getParentContext(), ropChain);
     }
 }

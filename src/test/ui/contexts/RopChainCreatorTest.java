@@ -4,18 +4,18 @@ import model.Payload;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.menus.PayloadEditor;
-import ui.contexts.prompts.collections.NewRopChainContext;
+import ui.contexts.prompts.collections.RopChainCreator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class NewRopChainContextTest {
+class RopChainCreatorTest {
     private ConsoleContext parentContext;
-    private NewRopChainContext nameContext;
+    private RopChainCreator nameContext;
 
     @BeforeEach
     void runBefore() {
         parentContext = new PayloadEditor(new Payload());
-        nameContext = new NewRopChainContext(parentContext);
+        nameContext = new RopChainCreator(parentContext);
     }
 
     @Test
@@ -38,7 +38,7 @@ class NewRopChainContextTest {
                 ((PayloadEditor) nameContext.handleInput("ropChain0").handleInput("0")).getCollection().get(0).getName()
         );
 
-        nameContext = new NewRopChainContext(parentContext);
+        nameContext = new RopChainCreator(parentContext);
         assertEquals(
                 "ROPchain1",
                 ((PayloadEditor) nameContext.handleInput("ROPchain1").handleInput("0")).getCollection().get(0).getName()

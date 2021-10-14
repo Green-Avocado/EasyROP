@@ -5,10 +5,10 @@ import ui.contexts.ConsoleContext;
 import ui.contexts.menus.PayloadEditor;
 import ui.contexts.prompts.PromptContext;
 
-public class NewPayloadContext extends PromptContext {
+public class PayloadCreator extends PromptContext {
 
-    // EFFECTS: creates a NewPayloadContext with a new Payload, null parentContext, and a prompt and defaultResponse
-    public NewPayloadContext() {
+    // EFFECTS: creates a PayloadCreator with a new Payload, null parentContext, and a prompt and defaultResponse
+    public PayloadCreator() {
         super(null, "New payload name", "payload");
     }
 

@@ -3,10 +3,10 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.Padding;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.NewIndexContext;
+import ui.contexts.prompts.util.GetIndex;
 
-public class NewPaddingContext extends PromptContext {
-    public NewPaddingContext(ConsoleContext parentContext) {
+public class PaddingCreator extends PromptContext {
+    public PaddingCreator(ConsoleContext parentContext) {
         super(parentContext, "Padding length", "8");
     }
 
@@ -17,6 +17,6 @@ public class NewPaddingContext extends PromptContext {
             return getParentContext();
         }
 
-        return new NewIndexContext(getParentContext(), new Padding(length));
+        return new GetIndex(getParentContext(), new Padding(length));
     }
 }

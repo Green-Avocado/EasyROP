@@ -3,16 +3,16 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.AddressGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.NewIndexContext;
+import ui.contexts.prompts.util.GetIndex;
 
-public class NewAddressGadgetContext extends PromptContext {
+public class AddressGadgetCreator extends PromptContext {
     private String base;
 
-    public NewAddressGadgetContext(ConsoleContext parentContext) {
+    public AddressGadgetCreator(ConsoleContext parentContext) {
         super(parentContext, "Base", "exe");
     }
 
-    public NewAddressGadgetContext(ConsoleContext parentContext, String base) {
+    public AddressGadgetCreator(ConsoleContext parentContext, String base) {
         super(parentContext, "Offset", "0");
 
         this.base = base;
@@ -20,9 +20,9 @@ public class NewAddressGadgetContext extends PromptContext {
 
     public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
-            return new NewAddressGadgetContext(getParentContext(), input);
+            return new AddressGadgetCreator(getParentContext(), input);
         } else {
-            return new NewIndexContext(getParentContext(), new AddressGadget(base, input));
+            return new GetIndex(getParentContext(), new AddressGadget(base, input));
         }
     }
 }

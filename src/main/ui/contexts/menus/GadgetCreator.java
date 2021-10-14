@@ -18,15 +18,15 @@ public class GadgetCreator extends MenuContext {
         switch (input) {
             case "":
             case "p":
-                return new NewPaddingContext(getParentContext());
+                return new PaddingCreator(getParentContext());
             case "a":
-                return new NewAddressGadgetContext(getParentContext());
+                return new AddressGadgetCreator(getParentContext());
             case "i":
-                return new NewInstructionsGadgetContext(getParentContext());
+                return new InstructionsGadgetCreator(getParentContext());
             case "s":
-                return new NewStringGadgetContext(getParentContext());
+                return new StringGadgetCreator(getParentContext());
             case "sy":
-                return new NewSymbolGadgetContext(getParentContext());
+                return new SymbolGadgetCreator(getParentContext());
             case "q":
                 return getParentContext();
             default:

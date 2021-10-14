@@ -3,10 +3,10 @@ package ui.contexts.menus;
 import model.GadgetCollection;
 import model.gadgets.ExploitObject;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.collections.PrintScriptContext;
-import ui.contexts.prompts.collections.SetCollectionNameContext;
-import ui.contexts.prompts.util.DeleteExploitObjectContext;
-import ui.contexts.prompts.util.MoveExploitObjectContext;
+import ui.contexts.prompts.collections.ScriptViewer;
+import ui.contexts.prompts.collections.SetCollectionName;
+import ui.contexts.prompts.util.ExploitObjectRemover;
+import ui.contexts.prompts.util.ExploitObjectMover;
 
 import java.util.Arrays;
 import java.util.List;
@@ -72,7 +72,7 @@ public abstract class CollectionEditor extends MenuContext {
 
     ConsoleContext delete() {
         if (getCollection().getLength() > 0) {
-            return new DeleteExploitObjectContext(this);
+            return new ExploitObjectRemover(this);
         } else {
             return this;
         }
@@ -80,18 +80,18 @@ public abstract class CollectionEditor extends MenuContext {
 
     ConsoleContext move() {
         if (getCollection().getLength() > 1) {
-            return new MoveExploitObjectContext(this);
+            return new ExploitObjectMover(this);
         } else {
             return this;
         }
     }
 
     ConsoleContext editName() {
-        return new SetCollectionNameContext(this);
+        return new SetCollectionName(this);
     }
 
     ConsoleContext print() {
-        return new PrintScriptContext(this, getCollection().getScript());
+        return new ScriptViewer(this, getCollection().getScript());
     }
 
     abstract ConsoleContext add();

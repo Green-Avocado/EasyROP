@@ -1,7 +1,7 @@
 package ui;
 
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.collections.NewPayloadContext;
+import ui.contexts.prompts.collections.PayloadCreator;
 
 import java.util.Scanner;
 
@@ -11,7 +11,7 @@ public class EasyRopApp {
 
     public EasyRopApp() {
         scanner = new Scanner(System.in);
-        context = new NewPayloadContext();
+        context = new PayloadCreator();
         run();
     }
 
