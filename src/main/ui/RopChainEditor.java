@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RopChainEditor extends CollectionEditor {
     public RopChainEditor(RopChain ropChain, ConsoleContext parentContext) {
-        super(ropChain, parentContext, "ropChain");
+        super(ropChain, parentContext);
     }
 
     public ConsoleContext handleInput(String input) {

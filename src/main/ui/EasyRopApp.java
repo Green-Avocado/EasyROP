@@ -10,7 +10,7 @@ public class EasyRopApp {
 
     public EasyRopApp() {
         scanner = new Scanner(System.in);
-        context = new PayloadEditor(new Payload());
+        context = new NewPayloadContext();
         run();
     }
 
