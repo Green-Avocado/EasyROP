@@ -68,8 +68,7 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext reset() {
-        // TODO
-        return this;
+        return new NewPayloadContext();
     }
 
     ConsoleContext print() {

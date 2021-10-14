@@ -27,8 +27,7 @@ public abstract class CollectionEditor extends MenuContext {
             case "p":
                 return print();
             case "r":
-                reset();
-                return this;
+                return reset();
             case "q":
                 return getParentContext();
             default:
