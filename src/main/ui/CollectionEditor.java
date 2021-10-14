@@ -15,7 +15,17 @@ public abstract class CollectionEditor extends MenuContext {
     }
 
     public ConsoleContext handleInput(String input) {
+        input = input.toLowerCase();
+
         switch (input) {
+            case "n":
+                return add();
+            case "o":
+                return open();
+            case "d":
+                return delete();
+            case "p":
+                return print();
             case "r":
                 reset();
                 return this;
@@ -34,10 +44,6 @@ public abstract class CollectionEditor extends MenuContext {
         return collection;
     }
 
-    boolean delete(int index) {
-        return getCollection().remove(index);
-    }
-
     List<String> getMenu() {
         return Arrays.asList("[r]eset", "[q]uit");
     }
@@ -48,5 +54,13 @@ public abstract class CollectionEditor extends MenuContext {
 
     abstract ConsoleContext defaultAction();
 
-    abstract void reset();
+    abstract ConsoleContext add();
+
+    abstract ConsoleContext open();
+
+    abstract ConsoleContext delete();
+
+    abstract ConsoleContext print();
+
+    abstract ConsoleContext reset();
 }

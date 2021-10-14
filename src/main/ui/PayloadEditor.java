@@ -20,14 +20,11 @@ public class PayloadEditor extends CollectionEditor {
             case "n":
                 return add();
             case "o":
-                open();
-                return this;
+                return open();
             case "d":
-                delete();
-                return this;
+                return delete();
             case "p":
-                print();
-                return this;
+                return print();
             default:
                 return super.handleInput(input);
         }
@@ -71,19 +68,26 @@ public class PayloadEditor extends CollectionEditor {
         return new NewRopChainNameContext(this);
     }
 
-    void open() {
-        // TODO
+    ConsoleContext open() {
+        if (getCollection().getLength() > 0) {
+            return new OpenRopChainIndexContext(this);
+        } else {
+            return this;
+        }
     }
 
-    void delete() {
+    ConsoleContext delete() {
         // TODO
+        return this;
     }
 
-    void reset() {
+    ConsoleContext reset() {
         // TODO
+        return this;
     }
 
-    void print() {
+    ConsoleContext print() {
         // TODO
+        return this;
     }
 }

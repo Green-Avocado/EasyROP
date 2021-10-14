@@ -17,14 +17,11 @@ public class RopChainEditor extends CollectionEditor {
 
         switch (input) {
             case "n":
-                add();
-                return this;
+                return add();
             case "o":
-                open();
-                return this;
+                return open();
             case "d":
-                delete();
-                return this;
+                return delete();
             case "p":
                 print();
                 return this;
@@ -38,24 +35,29 @@ public class RopChainEditor extends CollectionEditor {
         return this;
     }
 
-    void add() {
+    ConsoleContext add() {
         // TODO
+        return this;
     }
 
-    void open() {
+    ConsoleContext open() {
         // TODO
+        return this;
     }
 
-    void delete() {
+    ConsoleContext delete() {
         // TODO
+        return this;
     }
 
-    void reset() {
+    ConsoleContext reset() {
         // TODO
+        return this;
     }
 
-    void print() {
+    ConsoleContext print() {
         // TODO
+        return this;
     }
 
     List<String> getMenu() {
