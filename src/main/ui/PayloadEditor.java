@@ -18,7 +18,7 @@ public class PayloadEditor extends CollectionEditor {
                 "[o]pen ROPchain",
                 "[m]move ROPchain",
                 "[d]elete ROPchain",
-                "[p]rint ROPchain"
+                "[p]rint payload"
         ));
 
         menu.addAll(super.getMenu());
@@ -36,29 +36,5 @@ public class PayloadEditor extends CollectionEditor {
         } else {
             return this;
         }
-    }
-
-    ConsoleContext move() {
-        if (getCollection().getLength() > 1) {
-            return new MoveExploitObjectContext(this);
-        } else {
-            return this;
-        }
-    }
-
-    ConsoleContext delete() {
-        if (getCollection().getLength() > 0) {
-            return new DeleteRopChainContext(this);
-        } else {
-            return this;
-        }
-    }
-
-    ConsoleContext print() {
-        return new PrintScriptContext(this, getCollection().getScript());
-    }
-
-    ConsoleContext editName() {
-        return new SetCollectionNameContext(this);
     }
 }

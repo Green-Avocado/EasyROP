@@ -65,15 +65,31 @@ public abstract class CollectionEditor extends MenuContext {
         return Arrays.asList("[e]dit name", "[q]uit");
     }
 
+    ConsoleContext delete() {
+        if (getCollection().getLength() > 0) {
+            return new DeleteExploitObjectContext(this);
+        } else {
+            return this;
+        }
+    }
+
+    ConsoleContext move() {
+        if (getCollection().getLength() > 1) {
+            return new MoveExploitObjectContext(this);
+        } else {
+            return this;
+        }
+    }
+
+    ConsoleContext editName() {
+        return new SetCollectionNameContext(this);
+    }
+
+    ConsoleContext print() {
+        return new PrintScriptContext(this, getCollection().getScript());
+    }
+
     abstract ConsoleContext add();
 
     abstract ConsoleContext open();
-
-    abstract ConsoleContext move();
-
-    abstract ConsoleContext delete();
-
-    abstract ConsoleContext print();
-
-    abstract ConsoleContext editName();
 }

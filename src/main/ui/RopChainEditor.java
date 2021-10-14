@@ -15,10 +15,9 @@ public class RopChainEditor extends CollectionEditor {
     List<String> getMenu() {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew gadget",
-                "[o]pen gadget",
                 "[m]ove gadget",
                 "[d]elete gadget",
-                "[p]rint gadget"
+                "[p]rint ROPchain"
         ));
 
         menu.addAll(super.getMenu());
@@ -31,28 +30,6 @@ public class RopChainEditor extends CollectionEditor {
     }
 
     ConsoleContext open() {
-        // TODO
-        return this;
-    }
-
-    ConsoleContext move() {
-        if (getCollection().getLength() > 1) {
-            return new MoveExploitObjectContext(this);
-        } else {
-            return this;
-        }
-    }
-
-    ConsoleContext delete() {
-        // TODO
-        return this;
-    }
-
-    ConsoleContext print() {
-        return new PrintScriptContext(this, getCollection().getScript());
-    }
-
-    ConsoleContext editName() {
-        return new SetCollectionNameContext(this);
+        return this; // do nothing
     }
 }
