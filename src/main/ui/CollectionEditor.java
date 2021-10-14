@@ -1,23 +1,52 @@
 package ui;
 
-import model.ExploitObject;
 import model.GadgetCollection;
 
-public abstract class CollectionEditor {
-    private GadgetCollection collection;
-    private ExploitObject storedObject;
+import java.util.Arrays;
+import java.util.List;
 
-    protected CollectionEditor(GadgetCollection collection) {
-        this.collection = collection;
+public abstract class CollectionEditor extends MenuContext {
+    String defaultName;
+
+    public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext) {
+        super(collection, parentContext);
     }
 
-    abstract void handleInput(String input);
+    public String getContextString() {
+        return getCollection().getName() + "\n" + super.getContextString();
+    }
+
+    public ConsoleContext handleInput(String input) {
+        switch (input) {
+            case "r":
+                reset();
+                return this;
+            case "q":
+                return getParentContext();
+            default:
+                return defaultAction();
+        }
+    }
+
+    boolean delete(int index) {
+        return getCollection().remove(index);
+    }
+
+    List<String> getMenu() {
+        return Arrays.asList("[r]eset", "[q]uit");
+    }
+
+    void setName(String name) {
+        getCollection().setName(name);
+    }
+
+    abstract ConsoleContext defaultAction();
+
+    abstract void add();
+
+    abstract void open();
+
+    abstract void print();
 
     abstract void reset();
-
-    abstract void setName();
-
-    abstract String getContext();
-
-    abstract String getMenu();
 }

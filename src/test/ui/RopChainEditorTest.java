@@ -1,5 +1,6 @@
 package ui;
 
+import model.Payload;
 import model.RopChain;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +13,7 @@ class RopChainEditorTest {
 
     @BeforeEach
     void runBefore() {
-        ropChainEditor = new RopChainEditor(new RopChain());
+        ropChainEditor = new RopChainEditor(new RopChain(), new PayloadEditor(new Payload()));
     }
 
     @Test
