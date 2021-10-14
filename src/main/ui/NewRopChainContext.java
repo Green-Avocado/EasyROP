@@ -5,8 +5,6 @@ import model.RopChain;
 public class NewRopChainContext extends PromptContext {
     private RopChain ropChain;
 
-    // EFFECTS: creates a NewRopChainContext with a new Payload,
-    //          null parentContext, and a prompt and defaultResponse
     public NewRopChainContext(ConsoleContext parentContext) {
         super(parentContext, "New ROPchain name", "ropChain");
     }
@@ -17,24 +15,33 @@ public class NewRopChainContext extends PromptContext {
         this.ropChain = ropChain;
     }
 
-    // EFFECTS: returns a RopChainEditor with a RopChain with the given name or default name
     ConsoleContext handleInput(String input) {
+        input = handleInputInternal(input);
+
         if (ropChain == null) {
-            ropChain = new RopChain();
-            ropChain.setName(handleInputInternal(input));
-
-            return new NewRopChainContext(getParentContext(), ropChain);
+            return readName(input);
         } else {
-            int index = Integer.parseInt(handleInputInternal(input));
-
-            if (index >= 0) {
-                ((CollectionEditor) getParentContext()).getCollection().add(
-                        ropChain,
-                        index
-                );
-            }
-
-            return getParentContext();
+            return readIndex(input);
         }
+    }
+
+    ConsoleContext readName(String input) {
+        ropChain = new RopChain();
+        ropChain.setName(input);
+
+        return new NewRopChainContext(getParentContext(), ropChain);
+    }
+
+    ConsoleContext readIndex(String input) {
+        int index = Integer.parseInt(input);
+
+        if (index >= 0) {
+            ((CollectionEditor) getParentContext()).getCollection().add(
+                    ropChain,
+                    index
+            );
+        }
+
+        return getParentContext();
     }
 }
