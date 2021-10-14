@@ -72,7 +72,6 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext print() {
-        // TODO
-        return this;
+        return new PrintScriptContext(this, getCollection().getScript());
     }
 }
