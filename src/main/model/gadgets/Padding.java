@@ -1,5 +1,6 @@
 package model.gadgets;
 
+// Represents an arbitrary number of characters used to overflow a character buffer
 public class Padding implements ExploitObject {
     private final int length;
 

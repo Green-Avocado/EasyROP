@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+// Represents a collection of Gadgets or a collection of collections
 public abstract class GadgetCollection implements ExploitObject {
     protected final LinkedList<ExploitObject> exploitObjectList;
     private String name;

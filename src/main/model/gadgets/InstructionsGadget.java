@@ -2,6 +2,7 @@ package model.gadgets;
 
 import java.util.List;
 
+// Represents a memory address where a given set of assembly instructions can be found
 public class InstructionsGadget extends Gadget {
     private final List<String> instructions;
 

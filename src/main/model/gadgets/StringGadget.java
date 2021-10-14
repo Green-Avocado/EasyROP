@@ -1,5 +1,6 @@
 package model.gadgets;
 
+// Represents a memory address where a given string can be found
 public class StringGadget extends Gadget {
     private final String string;
 

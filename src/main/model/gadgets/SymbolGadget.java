@@ -1,5 +1,6 @@
 package model.gadgets;
 
+// Represents the memory address of a given symbol in an ELF file
 public class SymbolGadget extends Gadget {
     private final String type;
     private final String symbol;

@@ -2,6 +2,7 @@ package model;
 
 import model.gadgets.ExploitObject;
 
+// Represents a collection of ROP chains used to exploit a program
 public class Payload extends GadgetCollection {
 
     // EFFECTS: creates a new Payload with an empty list of RopChains

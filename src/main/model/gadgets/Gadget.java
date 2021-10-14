@@ -1,5 +1,6 @@
 package model.gadgets;
 
+// Represents a memory address relative to a given base address
 public abstract class Gadget implements ExploitObject {
     private final String base;
 
