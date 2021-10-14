@@ -41,11 +41,5 @@ public abstract class CollectionEditor extends MenuContext {
 
     abstract ConsoleContext defaultAction();
 
-    abstract void add();
-
-    abstract void open();
-
-    abstract void print();
-
     abstract void reset();
 }
