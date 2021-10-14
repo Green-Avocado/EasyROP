@@ -6,10 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class CollectionEditor extends MenuContext {
-    String defaultName;
+    private final String defaultName;
 
-    public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext) {
+    public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext, String defaultName) {
         super(collection, parentContext);
+        this.defaultName = defaultName;
     }
 
     public String getContextString() {
@@ -38,6 +39,10 @@ public abstract class CollectionEditor extends MenuContext {
 
     void setName(String name) {
         getCollection().setName(name);
+    }
+
+    public String getDefaultName() {
+        return defaultName;
     }
 
     abstract ConsoleContext defaultAction();

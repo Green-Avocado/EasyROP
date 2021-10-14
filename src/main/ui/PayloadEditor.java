@@ -9,8 +9,7 @@ import java.util.List;
 
 public class PayloadEditor extends CollectionEditor {
     public PayloadEditor(Payload payload) {
-        super(payload, null);
-        defaultName = "payload";
+        super(payload, null, "payload");
     }
 
     public ConsoleContext handleInput(String input) {

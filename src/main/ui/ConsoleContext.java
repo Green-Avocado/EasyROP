@@ -4,7 +4,6 @@ import model.GadgetCollection;
 
 public abstract class ConsoleContext {
     private final ConsoleContext parentContext;
-
     private GadgetCollection collection;
 
     ConsoleContext(GadgetCollection collection, ConsoleContext parentContext) {
