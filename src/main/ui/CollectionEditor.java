@@ -37,6 +37,7 @@ public abstract class CollectionEditor extends MenuContext {
         input = input.toLowerCase();
 
         switch (input) {
+            default:
             case "n":
                 return add();
             case "o":
@@ -51,8 +52,6 @@ public abstract class CollectionEditor extends MenuContext {
                 return reset();
             case "q":
                 return getParentContext();
-            default:
-                return defaultAction();
         }
     }
 
@@ -67,8 +66,6 @@ public abstract class CollectionEditor extends MenuContext {
     void setName(String name) {
         getCollection().setName(name);
     }
-
-    abstract ConsoleContext defaultAction();
 
     abstract ConsoleContext add();
 

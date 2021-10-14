@@ -12,10 +12,6 @@ public class PayloadEditor extends CollectionEditor {
         super(payload, null);
     }
 
-    ConsoleContext defaultAction() {
-        return add();
-    }
-
     List<String> getMenu() {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew ROPchain",

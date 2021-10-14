@@ -12,10 +12,6 @@ public class RopChainEditor extends CollectionEditor {
         super(ropChain, parentContext);
     }
 
-    ConsoleContext defaultAction() {
-        return add();
-    }
-
     List<String> getMenu() {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew gadget",
