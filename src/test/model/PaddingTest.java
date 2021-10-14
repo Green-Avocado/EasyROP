@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PaddingTest {
@@ -22,6 +24,14 @@ class PaddingTest {
             String string = "b'a' * " + i;
             padding.setLength(i);
             assertEquals(string, padding.getScript());
+        }
+    }
+
+    @Test
+    void getNameTest() {
+        for(int i = 0; i <= 16; i++) {
+            padding.setLength(i);
+            assertEquals("Padding (" + i + ")", padding.getName());
         }
     }
 

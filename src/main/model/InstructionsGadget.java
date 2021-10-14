@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class InstructionsGadget extends Gadget implements ExploitObject {
+public class InstructionsGadget extends Gadget {
     private final LinkedList<String> instructions;
 
     // EFFECTS: creates a new InstructionsGadget
@@ -31,6 +31,11 @@ public class InstructionsGadget extends Gadget implements ExploitObject {
         stringBuilder.append("])[0]");
 
         return stringBuilder.toString();
+    }
+
+    // EFFECTS: returns the name and key properties of the gadget
+    public String getName() {
+        return "InstructionsGadget (" + instructions.size() + " instructions)";
     }
 
     // REQUIRES index >= 0

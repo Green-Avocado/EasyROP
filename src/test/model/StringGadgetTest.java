@@ -25,6 +25,15 @@ class StringGadgetTest {
     }
 
     @Test
+    void getNameTest() {
+        gadget.setString("cat flag.txt");
+        assertEquals("StringGadget (cat flag.txt)", gadget.getName());
+
+        gadget.setString("/bin/sh\\x00");
+        assertEquals("StringGadget (/bin/sh\\x00)", gadget.getName());
+    }
+
+    @Test
     void setStringTest() {
         gadget.setString("cat flag.txt");
         assertEquals("cat flag.txt", gadget.getString());

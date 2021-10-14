@@ -29,6 +29,15 @@ class InstructionsGadgetTest {
     }
 
     @Test
+    void getNameTest() {
+        for(int i = 0; i < 3; i++) {
+            String instruction = "ret";
+            gadget.add(instruction, 0);
+            assertEquals("InstructionsGadget (" + (i + 1) + " instructions)", gadget.getName());
+        }
+    }
+
+    @Test
     void addInstructionTest() {
         ArrayList<String> instructionList = new ArrayList<>();
 
@@ -157,6 +166,15 @@ class InstructionsGadgetTest {
             gadget.add(instruction, gadget.getLength());
 
             assertEquals(instructionList, gadget.getInstructions());
+        }
+    }
+
+    @Test
+    void getLengthTest() {
+        for(int i = 0; i < 3; i++) {
+            String instruction = "ret";
+            gadget.add(instruction, 0);
+            assertEquals(i + 1, gadget.getLength());
         }
     }
 

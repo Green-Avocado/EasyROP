@@ -15,6 +15,11 @@ public class Padding implements ExploitObject {
         }
     }
 
+    // EFFECTS: returns the name and key properties of the gadget
+    public String getName() {
+        return "Padding (" + length + ")";
+    }
+
     // REQUIRES: length >= 0
     // EFFECTS: sets the length of padding
     public void setLength(int length) {

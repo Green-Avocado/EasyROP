@@ -29,6 +29,19 @@ class SymbolGadgetTest {
     }
 
     @Test
+    void getNameTest() {
+        gadget.setBase("exe");
+        gadget.setType("got");
+        gadget.setSymbol("puts");
+        assertEquals("SymbolGadget (exe.got.puts)", gadget.getName());
+
+        gadget.setBase("libc");
+        gadget.setType("sym");
+        gadget.setSymbol("system");
+        assertEquals("SymbolGadget (libc.sym.system)", gadget.getName());
+    }
+
+    @Test
     void setSymbolTest() {
         gadget.setSymbol("puts");
         assertEquals("puts", gadget.getSymbol());

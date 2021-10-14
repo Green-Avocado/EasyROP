@@ -1,6 +1,6 @@
 package model;
 
-public class SymbolGadget extends Gadget implements ExploitObject {
+public class SymbolGadget extends Gadget {
     private String symbol;
     private String type;
 
@@ -12,6 +12,11 @@ public class SymbolGadget extends Gadget implements ExploitObject {
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
         return "pack(" + getBase() + "." + type + "['" + symbol + "'])";
+    }
+
+    // EFFECTS: returns the name and key properties of the gadget
+    public String getName() {
+        return "SymbolGadget (" + getBase() + "." + type + "." + symbol + ")";
     }
 
     // MODIFIES: this

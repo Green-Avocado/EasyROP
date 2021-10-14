@@ -25,6 +25,17 @@ class AddressGadgetTest {
     }
 
     @Test
+    void getNameTest() {
+        gadget.setBase("exe");
+        gadget.setAddress("0xdeadbeef");
+        assertEquals("AddressGadget (exe.address + 0xdeadbeef)", gadget.getName());
+
+        gadget.setBase("libc");
+        gadget.setAddress("0xcafebabe");
+        assertEquals("AddressGadget (libc.address + 0xcafebabe)", gadget.getName());
+    }
+
+    @Test
     void setAddressTest() {
         for(int i = 0; i <= 256; i += 16) {
             gadget.setAddress(Integer.toHexString(i));

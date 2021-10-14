@@ -1,6 +1,6 @@
 package model;
 
-public class StringGadget extends Gadget implements ExploitObject {
+public class StringGadget extends Gadget {
     private String string;
 
     // EFFECTS: creates a new StringGadget
@@ -11,6 +11,11 @@ public class StringGadget extends Gadget implements ExploitObject {
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {
         return "pack(next(" + getBase() + ".search(b'" + string + "')))";
+    }
+
+    // EFFECTS: returns the name and key properties of the gadget
+    public String getName() {
+        return "StringGadget (" + string + ")";
     }
 
     // MODIFIES: this
