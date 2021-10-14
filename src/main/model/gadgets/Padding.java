@@ -19,9 +19,4 @@ public class Padding implements ExploitObject {
     public String getName() {
         return "Padding (" + length + ")";
     }
-
-    // EFFECTS: returns the length of padding
-    public int getLength() {
-        return length;
-    }
 }
