@@ -15,10 +15,14 @@ public class NewRopChainIndexContext extends PromptContext {
 
     // EFFECTS: returns a RopChainEditor with a RopChain with the given name or default name
     ConsoleContext handleInput(String input) {
-        ((CollectionEditor)getParentContext()).getCollection().add(
-                ropChain,
-                Integer.parseInt(handleInputInternal(input))
-        );
+        int index = Integer.parseInt(handleInputInternal(input));
+
+        if (index >= 0) {
+            ((CollectionEditor) getParentContext()).getCollection().add(
+                    ropChain,
+                    index
+            );
+        }
 
         return new RopChainEditor(ropChain, getParentContext());
     }
