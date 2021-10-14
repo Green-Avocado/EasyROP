@@ -1,12 +1,14 @@
 package model.gadgets;
 
 public class SymbolGadget extends Gadget {
-    private String symbol;
-    private String type;
+    private final String type;
+    private final String symbol;
 
     // EFFECTS: creates a new SymbolGadget
-    public SymbolGadget() {
-        super();
+    public SymbolGadget(String base, String type, String symbol) {
+        super(base);
+        this.type = type;
+        this.symbol = symbol;
     }
 
     // EFFECTS: returns a python command to produce the gadget
@@ -17,26 +19,5 @@ public class SymbolGadget extends Gadget {
     // EFFECTS: returns the name and key properties of the gadget
     public String getName() {
         return "SymbolGadget (" + getBase() + "." + type + "." + symbol + ")";
-    }
-
-    // MODIFIES: this
-    // EFFECTS: sets the value of the symbol
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
-    }
-
-    // EFFECTS: returns the value of the symbol
-    public String getSymbol() {
-        return symbol;
-    }
-
-    // MODIFIES: this
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    // EFFECTS: returns the type of the symbol
-    public String getType() {
-        return type;
     }
 }

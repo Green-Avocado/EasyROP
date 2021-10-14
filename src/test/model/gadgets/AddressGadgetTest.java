@@ -6,49 +6,30 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AddressGadgetTest {
-    private AddressGadget gadget;
+    private AddressGadget gadget0;
+    private AddressGadget gadget1;
 
     @BeforeEach
     void runBefore() {
-        gadget = new AddressGadget();
+        gadget0 = new AddressGadget("exe", "0xdeadbeef");
+        gadget1 = new AddressGadget("libc", "0xcafebabe");
     }
 
     @Test
     void testGetScript() {
-        gadget.setBase("exe");
-        gadget.setAddress("0xdeadbeef");
-        assertEquals("pack(exe.address + 0xdeadbeef)", gadget.getScript());
-
-        gadget.setBase("libc");
-        gadget.setAddress("0xcafebabe");
-        assertEquals("pack(libc.address + 0xcafebabe)", gadget.getScript());
+        assertEquals("pack(exe.address + 0xdeadbeef)", gadget0.getScript());
+        assertEquals("pack(libc.address + 0xcafebabe)", gadget1.getScript());
     }
 
     @Test
     void testGetName() {
-        gadget.setBase("exe");
-        gadget.setAddress("0xdeadbeef");
-        assertEquals("AddressGadget (exe.address + 0xdeadbeef)", gadget.getName());
-
-        gadget.setBase("libc");
-        gadget.setAddress("0xcafebabe");
-        assertEquals("AddressGadget (libc.address + 0xcafebabe)", gadget.getName());
+        assertEquals("AddressGadget (exe.address + 0xdeadbeef)", gadget0.getName());
+        assertEquals("AddressGadget (libc.address + 0xcafebabe)", gadget1.getName());
     }
 
     @Test
-    void testSetAddress() {
-        for (int i = 0; i <= 256; i += 16) {
-            gadget.setAddress(Integer.toHexString(i));
-            assertEquals(Integer.toHexString(i), gadget.getAddress());
-        }
-    }
-
-    @Test
-    void testSetBase() {
-        gadget.setBase("exe");
-        assertEquals("exe", gadget.getBase());
-
-        gadget.setBase("libc");
-        assertEquals("libc", gadget.getBase());
+    void testGetBase() {
+        assertEquals("exe", gadget0.getBase());
+        assertEquals("libc", gadget1.getBase());
     }
 }

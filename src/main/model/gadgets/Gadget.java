@@ -3,15 +3,10 @@ package model.gadgets;
 import model.ExploitObject;
 
 public abstract class Gadget implements ExploitObject {
-    private String base;
+    private final String base;
 
-    // EFFECTS: creates a new gadget
-    public Gadget() {
-    }
-
-    // MODIFIES: this
-    // EFFECTS sets the base of the gadget
-    public void setBase(String base) {
+    // EFFECTS: creates a new gadget with the specified base
+    public Gadget(String base) {
         this.base = base;
     }
 

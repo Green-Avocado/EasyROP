@@ -1,7 +1,9 @@
 package model;
 
-import model.gadgets.*;
-
+import model.gadgets.AddressGadget;
+import model.gadgets.InstructionsGadget;
+import model.gadgets.StringGadget;
+import model.gadgets.SymbolGadget;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +25,7 @@ class RopChainTest {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         for (int i = 0; i < 4; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             gadgetList.add(gadget);
         }
 
@@ -60,7 +62,7 @@ class RopChainTest {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         for (int i = 0; i < 3; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
         }
@@ -96,13 +98,13 @@ class RopChainTest {
         ArrayList<ExploitObject> newGadgetList = new ArrayList<>();
 
         for (int i = 0; i < 3; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
         }
 
         for (int i = 0; i < 3; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             newGadgetList.add(gadget);
         }
 
@@ -140,7 +142,7 @@ class RopChainTest {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
         for (int i = 0; i < 3; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
         }
@@ -169,7 +171,7 @@ class RopChainTest {
         assertEquals(gadgetList, ropChain.getList());
 
         for (int i = 0; i < 3; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
 
@@ -182,7 +184,7 @@ class RopChainTest {
         assertEquals(0, ropChain.getLength());
 
         for (int i = 0; i < 3; i++) {
-            ExploitObject gadget = new AddressGadget();
+            ExploitObject gadget = new AddressGadget("exe", "0xdeadbeef");
             ropChain.add(gadget, ropChain.getLength());
 
             assertEquals(i + 1, ropChain.getLength());
@@ -191,35 +193,17 @@ class RopChainTest {
 
     @Test
     void testGetScript() {
-        Padding padding = new Padding();
-        padding.setLength(8);
+        Padding padding = new Padding(8);
+        AddressGadget addressGadget = new AddressGadget("exe", "0xdeadbeef");
+        InstructionsGadget instructionsGadget = new InstructionsGadget("libc", Arrays.asList("pop rdi", "ret"));
+        StringGadget stringGadget = new StringGadget("exe", "/bin/sh\\x00");
+        SymbolGadget symbolGadget = new SymbolGadget("libc", "sym", "puts");
 
-        Padding nullPadding = new Padding();
-        nullPadding.setLength(0);
-
-        AddressGadget addressGadget = new AddressGadget();
-        addressGadget.setBase("exe");
-        addressGadget.setAddress("0xdeadbeef");
-
-        InstructionsGadget instructionsGadget = new InstructionsGadget();
-        instructionsGadget.setBase("exe");
-        instructionsGadget.add("ret", 0);
-
-        StringGadget stringGadget = new StringGadget();
-        stringGadget.setBase("exe");
-        stringGadget.setString("/bin/sh\\x00");
-
-        SymbolGadget symbolGadget = new SymbolGadget();
-        symbolGadget.setBase("exe");
-        symbolGadget.setSymbol("puts");
-        symbolGadget.setType("got");
-
-        ropChain.add(padding, ropChain.getLength());
-        ropChain.add(nullPadding, ropChain.getLength());
-        ropChain.add(addressGadget, ropChain.getLength());
-        ropChain.add(instructionsGadget, ropChain.getLength());
-        ropChain.add(stringGadget, ropChain.getLength());
-        ropChain.add(symbolGadget, ropChain.getLength());
+        ropChain.add(new Padding(8), ropChain.getLength());
+        ropChain.add(new AddressGadget("exe", "0xdeadbeef"), ropChain.getLength());
+        ropChain.add(new InstructionsGadget("libc", Arrays.asList("pop rdi", "ret")), ropChain.getLength());
+        ropChain.add(new StringGadget("exe", "/bin/sh\\x00"), ropChain.getLength());
+        ropChain.add(new SymbolGadget("libc", "sym", "puts"), ropChain.getLength());
 
         ropChain.setName("ropChain");
 
@@ -235,11 +219,14 @@ class RopChainTest {
                 ),
                 ropChain.getScript()
         );
+    }
 
-        ropChain = new RopChain();
+    @Test
+    void testGetScriptEmpty() {
+        ropChain.setName("ropChain");
+        assertEquals("ropChain = ''", ropChain.getScript());
 
-        ropChain.add(nullPadding, ropChain.getLength());
-
-        assertEquals("", ropChain.getScript());
+        ropChain.setName("ROPchain0");
+        assertEquals("ROPchain0 = ''", ropChain.getScript());
     }
 }

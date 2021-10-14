@@ -1,7 +1,9 @@
 package model;
 
-import model.gadgets.*;
-
+import model.gadgets.AddressGadget;
+import model.gadgets.InstructionsGadget;
+import model.gadgets.StringGadget;
+import model.gadgets.SymbolGadget;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -150,33 +152,19 @@ class PayloadTest {
         ArrayList<String> scriptList = new ArrayList<>();
         scriptList.add("payload = ''");
 
-        Padding padding = new Padding();
-        padding.setLength(8);
+        Padding padding = new Padding(8);
         gadgetList.add(padding);
 
-        Padding nullPadding = new Padding();
-        nullPadding.setLength(0);
-        gadgetList.add(nullPadding);
-
-        AddressGadget addressGadget = new AddressGadget();
-        addressGadget.setBase("exe");
-        addressGadget.setAddress("0xdeadbeef");
+        AddressGadget addressGadget = new AddressGadget("exe", "0xdeadbeef");
         gadgetList.add(addressGadget);
 
-        InstructionsGadget instructionsGadget = new InstructionsGadget();
-        instructionsGadget.setBase("exe");
-        instructionsGadget.add("ret", 0);
+        InstructionsGadget instructionsGadget = new InstructionsGadget("libc", Arrays.asList("pop rdi", "ret"));
         gadgetList.add(instructionsGadget);
 
-        StringGadget stringGadget = new StringGadget();
-        stringGadget.setBase("exe");
-        stringGadget.setString("/bin/sh\\x00");
+        StringGadget stringGadget = new StringGadget("exe", "/bin/sh\\x00");
         gadgetList.add(stringGadget);
 
-        SymbolGadget symbolGadget = new SymbolGadget();
-        symbolGadget.setBase("exe");
-        symbolGadget.setSymbol("puts");
-        symbolGadget.setType("got");
+        SymbolGadget symbolGadget = new SymbolGadget("libc", "sym", "puts");
         gadgetList.add(symbolGadget);
 
         payload.setName("payload");
@@ -201,12 +189,22 @@ class PayloadTest {
 
         assertEquals(String.join("\n", scriptList), payload.getScript());
 
+    }
+
+    @Test
+    void testGetScriptEmptyPayload() {
+        payload.setName("payload");
+        assertEquals("payload = ''", payload.getScript());
+    }
+
+    @Test
+    void testGetScriptEmptyRopChain() {
         RopChain ropChain = new RopChain();
-        payload = new Payload();
+        ropChain.setName("ropChain");
 
-        ropChain.add(nullPadding, ropChain.getLength());
-        payload.add(ropChain, payload.getLength());
+        payload.setName("payload");
+        payload.add(ropChain, 0);
 
-        assertEquals("", payload.getScript());
+        assertEquals("payload = ''\nropChain = ''\npayload += ropChain", payload.getScript());
     }
 }

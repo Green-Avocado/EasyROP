@@ -73,21 +73,13 @@ public abstract class GadgetCollection implements ExploitObject {
         StringBuilder script = new StringBuilder();
 
         for (ExploitObject element : getList()) {
-            String s = element.getScript();
-
-            if (!s.isEmpty()) {
-                script.append(getScriptInternal(element));
-            }
+            script.append(getScriptInternal(element));
         }
 
-        if (script.length() > 0) {
-            script.insert(0, " = ''");
-            script.insert(0, getName());
+        script.insert(0, " = ''");
+        script.insert(0, getName());
 
-            return script.toString();
-        } else {
-            return "";
-        }
+        return script.toString();
     }
 
     protected abstract String getScriptInternal(ExploitObject element);
