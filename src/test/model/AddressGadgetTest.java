@@ -3,7 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AddressGadgetTest {
     private AddressGadget gadget;
@@ -37,7 +37,7 @@ class AddressGadgetTest {
 
     @Test
     void testSetAddress() {
-        for(int i = 0; i <= 256; i += 16) {
+        for (int i = 0; i <= 256; i += 16) {
             gadget.setAddress(Integer.toHexString(i));
             assertEquals(Integer.toHexString(i), gadget.getAddress());
         }

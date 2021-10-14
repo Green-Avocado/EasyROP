@@ -30,7 +30,7 @@ class InstructionsGadgetTest {
 
     @Test
     void testGetName() {
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             String instruction = "ret";
             gadget.add(instruction, 0);
             assertEquals("InstructionsGadget (" + (i + 1) + " instructions)", gadget.getName());
@@ -41,7 +41,7 @@ class InstructionsGadgetTest {
     void testAddInstruction() {
         ArrayList<String> instructionList = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             String instruction = "ret";
             instructionList.add(instruction);
         }
@@ -53,7 +53,7 @@ class InstructionsGadgetTest {
         // add to empty
         assertTrue(gadget.add(instructionList.get(2), 0));
         assertEquals(1, gadget.getLength());
-        assertEquals(instructionList.subList(2,3), gadget.getInstructions());
+        assertEquals(instructionList.subList(2, 3), gadget.getInstructions());
 
         // add to start of list
         assertTrue(gadget.add(instructionList.get(0), 0));
@@ -79,13 +79,13 @@ class InstructionsGadgetTest {
         ArrayList<String> instructionList = new ArrayList<>();
         ArrayList<String> newInstructionList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             String instruction = "ret";
             instructionList.add(instruction);
             gadget.add(instruction, gadget.getLength());
         }
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             String instruction = "pop rdi";
             newInstructionList.add(instruction);
         }
@@ -123,7 +123,7 @@ class InstructionsGadgetTest {
     void testRemoveInstruction() {
         ArrayList<String> instructionList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             String instruction = "ret";
             instructionList.add(instruction);
             gadget.add(instruction, gadget.getLength());
@@ -160,7 +160,7 @@ class InstructionsGadgetTest {
 
         assertEquals(instructionList, gadget.getInstructions());
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             String instruction = "ret";
             instructionList.add(instruction);
             gadget.add(instruction, gadget.getLength());
@@ -171,7 +171,7 @@ class InstructionsGadgetTest {
 
     @Test
     void testGetLength() {
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             String instruction = "ret";
             gadget.add(instruction, 0);
             assertEquals(i + 1, gadget.getLength());

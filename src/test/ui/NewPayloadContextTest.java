@@ -3,7 +3,8 @@ package ui;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 class NewPayloadContextTest {
     private NewPayloadContext newPayloadContext;
@@ -23,17 +24,17 @@ class NewPayloadContextTest {
         // default name
         assertEquals(
                 "payload",
-                ((PayloadEditor)newPayloadContext.handleInput("")).getCollection().getName()
+                ((PayloadEditor) newPayloadContext.handleInput("")).getCollection().getName()
         );
 
         // provided name
         assertEquals(
                 "payload0",
-                ((PayloadEditor)newPayloadContext.handleInput("payload0")).getCollection().getName()
+                ((PayloadEditor) newPayloadContext.handleInput("payload0")).getCollection().getName()
         );
         assertEquals(
                 "Payload1",
-                ((PayloadEditor)newPayloadContext.handleInput("Payload1")).getCollection().getName()
+                ((PayloadEditor) newPayloadContext.handleInput("Payload1")).getCollection().getName()
         );
     }
 

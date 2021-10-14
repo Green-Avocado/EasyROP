@@ -4,7 +4,8 @@ public abstract class Gadget implements ExploitObject {
     private String base;
 
     // EFFECTS: creates a new gadget
-    public Gadget() {}
+    public Gadget() {
+    }
 
     // MODIFIES: this
     // EFFECTS sets the base of the gadget

@@ -20,7 +20,7 @@ class PayloadTest {
     void testAdd() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
         }
@@ -57,7 +57,7 @@ class PayloadTest {
     void testRemove() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
             payload.add(ropChain, payload.getLength());
@@ -101,13 +101,13 @@ class PayloadTest {
     void testGetRopChain() {
         ArrayList<RopChain> ropChainList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
             payload.add(ropChain, payload.getLength());
         }
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             assertEquals(ropChainList.get(i), payload.get(i));
         }
 
@@ -121,7 +121,7 @@ class PayloadTest {
 
         assertEquals(ropChainList, payload.getList());
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             ropChainList.add(ropChain);
             payload.add(ropChain, payload.getLength());
@@ -134,7 +134,7 @@ class PayloadTest {
     void testGetLength() {
         assertEquals(0, payload.getLength());
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             RopChain ropChain = new RopChain();
             payload.add(ropChain, payload.getLength());
 

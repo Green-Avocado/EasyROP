@@ -20,7 +20,7 @@ class RopChainTest {
     void testAdd() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
-        for(int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             ExploitObject gadget = new AddressGadget();
             gadgetList.add(gadget);
         }
@@ -57,7 +57,7 @@ class RopChainTest {
     void testRemove() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             ExploitObject gadget = new AddressGadget();
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
@@ -93,13 +93,13 @@ class RopChainTest {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
         ArrayList<ExploitObject> newGadgetList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             ExploitObject gadget = new AddressGadget();
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
         }
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             ExploitObject gadget = new AddressGadget();
             newGadgetList.add(gadget);
         }
@@ -137,13 +137,13 @@ class RopChainTest {
     void testGet() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             ExploitObject gadget = new AddressGadget();
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
         }
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             assertEquals(gadgetList.get(i), ropChain.get(i));
         }
 
@@ -166,7 +166,7 @@ class RopChainTest {
 
         assertEquals(gadgetList, ropChain.getList());
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             ExploitObject gadget = new AddressGadget();
             gadgetList.add(gadget);
             ropChain.add(gadget, ropChain.getLength());
@@ -179,7 +179,7 @@ class RopChainTest {
     void testGetLength() {
         assertEquals(0, ropChain.getLength());
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < 3; i++) {
             ExploitObject gadget = new AddressGadget();
             ropChain.add(gadget, ropChain.getLength());
 

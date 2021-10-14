@@ -4,7 +4,8 @@ public class Padding implements ExploitObject {
     private int length;
 
     // EFFECTS: creates a new padding element
-    public Padding() {}
+    public Padding() {
+    }
 
     // EFFECTS: returns a python command to produce the gadget
     public String getScript() {

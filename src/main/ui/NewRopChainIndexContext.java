@@ -8,7 +8,7 @@ public class NewRopChainIndexContext extends PromptContext {
     // EFFECTS: creates a NewRopChainIndexContext with a new Payload,
     //          null parentContext, and a prompt and defaultResponse
     public NewRopChainIndexContext(RopChain ropChain, ConsoleContext parentContext) {
-        super(parentContext, "Index", String.valueOf(((PayloadEditor)parentContext).getCollection().getLength()));
+        super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength()));
 
         this.ropChain = ropChain;
     }
