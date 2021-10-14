@@ -1,7 +1,5 @@
 package ui;
 
-import model.ExploitObject;
-import model.GadgetCollection;
 import model.RopChain;
 
 import java.util.ArrayList;

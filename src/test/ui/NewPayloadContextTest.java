@@ -15,18 +15,26 @@ class NewPayloadContextTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, newPayloadContext.getCollection().getLength());
         assertNull(newPayloadContext.getParentContext());
     }
 
     @Test
     void testHandleInput() {
         // default name
-        assertEquals("payload", newPayloadContext.handleInput("").getCollection().getName());
+        assertEquals(
+                "payload",
+                ((PayloadEditor)newPayloadContext.handleInput("")).getCollection().getName()
+        );
 
         // provided name
-        assertEquals("payload0", newPayloadContext.handleInput("payload0").getCollection().getName());
-        assertEquals("Payload1", newPayloadContext.handleInput("Payload1").getCollection().getName());
+        assertEquals(
+                "payload0",
+                ((PayloadEditor)newPayloadContext.handleInput("payload0")).getCollection().getName()
+        );
+        assertEquals(
+                "Payload1",
+                ((PayloadEditor)newPayloadContext.handleInput("Payload1")).getCollection().getName()
+        );
     }
 
     @Test

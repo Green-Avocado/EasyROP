@@ -6,8 +6,8 @@ import java.util.List;
 
 public abstract class MenuContext extends ConsoleContext {
 
-    public MenuContext(GadgetCollection collection, ConsoleContext parentContext) {
-        super(collection, parentContext);
+    public MenuContext(ConsoleContext parentContext) {
+        super(parentContext);
     }
 
     public String getContextString() {

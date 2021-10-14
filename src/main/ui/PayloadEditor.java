@@ -1,7 +1,7 @@
 package ui;
 
+import model.ExploitObject;
 import model.Payload;
-import model.RopChain;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,8 +18,7 @@ public class PayloadEditor extends CollectionEditor {
 
         switch (input) {
             case "n":
-                add();
-                return this;
+                return add();
             case "o":
                 open();
                 return this;
@@ -35,8 +34,24 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext defaultAction() {
-        add();
-        return this;
+        return add();
+    }
+
+    public String getContextString() {
+        StringBuilder contextString = new StringBuilder();
+
+        contextString.append(getCollection().getName());
+        contextString.append(":\n");
+
+        for (ExploitObject exploitObject : getCollection().getList()) {
+            contextString.append("  ");
+            contextString.append(exploitObject.getName());
+            contextString.append("\n");
+        }
+
+        contextString.append(super.getContextString());
+
+        return contextString.toString();
     }
 
     List<String> getMenu() {
@@ -52,8 +67,8 @@ public class PayloadEditor extends CollectionEditor {
         return menu;
     }
 
-    void add() {
-        // TODO
+    ConsoleContext add() {
+        return new NewRopChainContext(this);
     }
 
     void open() {

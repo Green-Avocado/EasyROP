@@ -18,18 +18,26 @@ class NewRopChainContextTest {
 
     @Test
     void testConstructor() {
-        assertEquals(0, newRopChainContext.getCollection().getLength());
         assertEquals(parentContext, newRopChainContext.getParentContext());
     }
 
     @Test
     void testHandleInput() {
         // default name
-        assertEquals("ropChain", newRopChainContext.handleInput("").getCollection().getName());
+        assertEquals(
+                "ropChain",
+                ((RopChainEditor)newRopChainContext.handleInput("")).getCollection().getName()
+        );
 
         // provided name
-        assertEquals("ropChain0", newRopChainContext.handleInput("ropChain0").getCollection().getName());
-        assertEquals("ROPchain1", newRopChainContext.handleInput("ROPchain1").getCollection().getName());
+        assertEquals(
+                "ropChain0",
+                ((RopChainEditor)newRopChainContext.handleInput("ropChain0")).getCollection().getName()
+        );
+        assertEquals(
+                "ROPchain1",
+                ((RopChainEditor)newRopChainContext.handleInput("ROPchain1")).getCollection().getName()
+        );
     }
 
     @Test

@@ -1,18 +1,15 @@
 package ui;
 
-import model.GadgetCollection;
-
 public abstract class PromptContext extends ConsoleContext {
     private final String prompt;
     private final String defaultResponse;
 
     public PromptContext(
-            GadgetCollection collection,
             ConsoleContext parentContext,
             String prompt,
             String defaultResponse
     ) {
-        super(collection, parentContext);
+        super(parentContext);
 
         this.prompt = prompt;
         this.defaultResponse = defaultResponse;
