@@ -16,6 +16,7 @@ class NewPayloadContextTest {
     @Test
     void testConstructor() {
         assertEquals(0, newPayloadContext.getCollection().getLength());
+        assertNull(newPayloadContext.getParentContext());
     }
 
     @Test
