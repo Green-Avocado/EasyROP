@@ -41,6 +41,8 @@ public abstract class CollectionEditor extends MenuContext {
                 return add();
             case "o":
                 return open();
+            case "m":
+                return move();
             case "d":
                 return delete();
             case "p":
@@ -71,6 +73,8 @@ public abstract class CollectionEditor extends MenuContext {
     abstract ConsoleContext add();
 
     abstract ConsoleContext open();
+
+    abstract ConsoleContext move();
 
     abstract ConsoleContext delete();
 

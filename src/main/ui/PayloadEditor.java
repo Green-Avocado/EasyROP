@@ -1,6 +1,5 @@
 package ui;
 
-import model.ExploitObject;
 import model.Payload;
 
 import java.util.ArrayList;
@@ -21,6 +20,7 @@ public class PayloadEditor extends CollectionEditor {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew ROPchain",
                 "[o]pen ROPchain",
+                "[m]move ROPchain",
                 "[d]elete ROPchain",
                 "[p]rint ROPchain"
         ));
@@ -37,6 +37,14 @@ public class PayloadEditor extends CollectionEditor {
     ConsoleContext open() {
         if (getCollection().getLength() > 0) {
             return new OpenRopChainIndexContext(this);
+        } else {
+            return this;
+        }
+    }
+
+    ConsoleContext move() {
+        if (getCollection().getLength() > 1) {
+            return new MoveExploitObjectContext(this);
         } else {
             return this;
         }
