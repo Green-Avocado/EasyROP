@@ -7,9 +7,9 @@ import ui.contexts.menus.PayloadEditor;
 import ui.contexts.menus.RopChainEditor;
 import ui.contexts.prompts.PromptContext;
 
-public class RopChainViewer extends PromptContext {
+public class RopChainSelector extends PromptContext {
 
-    public RopChainViewer(ConsoleContext parentContext) {
+    public RopChainSelector(ConsoleContext parentContext) {
         super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength() - 1));
     }
 

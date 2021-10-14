@@ -3,7 +3,7 @@ package ui.contexts.menus;
 import model.Payload;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.collections.RopChainCreator;
-import ui.contexts.prompts.collections.RopChainViewer;
+import ui.contexts.prompts.collections.RopChainSelector;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +35,7 @@ public class PayloadEditor extends CollectionEditor {
 
     ConsoleContext open() {
         if (getCollection().getLength() > 0) {
-            return new RopChainViewer(this);
+            return new RopChainSelector(this);
         } else {
             return this;
         }
