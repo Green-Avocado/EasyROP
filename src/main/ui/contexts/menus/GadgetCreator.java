@@ -1,6 +1,9 @@
 package ui.contexts.menus;
 
-import model.gadgets.*;
+import model.gadgets.AddressGadget;
+import model.gadgets.Padding;
+import model.gadgets.StringGadget;
+import model.gadgets.SymbolGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.InstructionsGadgetCreator;
 import ui.contexts.prompts.util.ExploitObjectCreator;
@@ -17,29 +20,22 @@ public class GadgetCreator extends MenuContext {
     }
 
     public ConsoleContext handleInput(String input) {
-        ExploitObject gadget;
-        ArrayList<List<String>> promptData = new ArrayList<>();
-
         switch (input.toLowerCase()) {
             case "":
             case "p":
-                gadget = newPadding(promptData);
-                break;
+                return newPadding();
 
             case "a":
-                gadget = newAddressGadget(promptData);
-                break;
+                return newAddressGadget();
 
             case "i":
                 return new InstructionsGadgetCreator(getParentContext());
 
             case "s":
-                gadget = newStringGadget(promptData);
-                break;
+                return newStringGadget();
 
             case "sy":
-                gadget = newSymbolGadget(promptData);
-                break;
+                return newSymbolGadget();
 
             case "q":
                 return getParentContext();
@@ -47,32 +43,34 @@ public class GadgetCreator extends MenuContext {
             default:
                 return this;
         }
-
-        return new ExploitObjectCreator(getParentContext(), gadget, promptData);
     }
 
-    ExploitObject newPadding(ArrayList<List<String>> promptData) {
+    ConsoleContext newPadding() {
+        ArrayList<List<String>> promptData = new ArrayList<>();
         promptData.add(Arrays.asList("Length", "8"));
-        return new Padding();
+        return new ExploitObjectCreator(getParentContext(), new Padding(), promptData);
     }
 
-    ExploitObject newAddressGadget(ArrayList<List<String>> promptData) {
+    ConsoleContext newAddressGadget() {
+        ArrayList<List<String>> promptData = new ArrayList<>();
         promptData.add(Arrays.asList("Base", "exe"));
         promptData.add(Arrays.asList("Offset", "0"));
-        return new AddressGadget();
+        return new ExploitObjectCreator(getParentContext(), new AddressGadget(), promptData);
     }
 
-    ExploitObject newStringGadget(ArrayList<List<String>> promptData) {
+    ConsoleContext newStringGadget() {
+        ArrayList<List<String>> promptData = new ArrayList<>();
         promptData.add(Arrays.asList("Base", "exe"));
         promptData.add(Arrays.asList("String", "/bin/sh\\x00"));
-        return new StringGadget();
+        return new ExploitObjectCreator(getParentContext(), new StringGadget(), promptData);
     }
 
-    ExploitObject newSymbolGadget(ArrayList<List<String>> promptData) {
+    ConsoleContext newSymbolGadget() {
+        ArrayList<List<String>> promptData = new ArrayList<>();
         promptData.add(Arrays.asList("Base", "exe"));
         promptData.add(Arrays.asList("Type", "sym"));
         promptData.add(Arrays.asList("Symbol", "main"));
-        return new SymbolGadget();
+        return new ExploitObjectCreator(getParentContext(), new SymbolGadget(), promptData);
     }
 
     List<String> getMenu() {
