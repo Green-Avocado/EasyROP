@@ -9,6 +9,7 @@ public class SymbolGadget extends Gadget {
 
     // EFFECTS: Creates a new SymbolGadget.
     public SymbolGadget() {
+        super();
     }
 
     // EFFECTS: Creates a new SymbolGadget with a specified base, type, and symbol.
