@@ -1,5 +1,6 @@
 package model.gadgets;
 
+import java.util.Collections;
 import java.util.List;
 
 // Represents a memory address where a given set of assembly instructions can be found.
@@ -58,6 +59,6 @@ public class InstructionsGadget extends Gadget {
 
     // EFFECTS: Returns the list of instructions.
     public List<String> getInstructions() {
-        return instructions;
+        return Collections.unmodifiableList(instructions);
     }
 }

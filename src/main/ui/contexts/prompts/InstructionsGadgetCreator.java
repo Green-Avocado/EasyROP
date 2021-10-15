@@ -26,7 +26,7 @@ public class InstructionsGadgetCreator extends PromptContext {
         if (base == null) {
             return new InstructionsGadgetCreator(getParentContext(), input, new ArrayList<>());
         } else if (!input.equalsIgnoreCase("quit")) {
-            list.add(input.toLowerCase());
+            list.add(input);
             return new InstructionsGadgetCreator(getParentContext(), input, list);
         } else if (list.isEmpty()) {
             return getParentContext();
