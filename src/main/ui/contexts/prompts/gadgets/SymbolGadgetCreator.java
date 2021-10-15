@@ -3,7 +3,7 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.SymbolGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.GetIndex;
+import ui.contexts.prompts.util.AddExploitObjectToIndex;
 
 // Represents a UI context that creates a new SymbolGadget
 public class SymbolGadgetCreator extends PromptContext {
@@ -33,7 +33,7 @@ public class SymbolGadgetCreator extends PromptContext {
         } else if (type == null) {
             return new SymbolGadgetCreator(getParentContext(), base, input);
         } else {
-            return new GetIndex(getParentContext(), new SymbolGadget(base, type, input));
+            return new AddExploitObjectToIndex(getParentContext(), new SymbolGadget(base, type, input));
         }
     }
 }

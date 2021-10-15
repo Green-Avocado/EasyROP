@@ -3,7 +3,7 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.Padding;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.GetIndex;
+import ui.contexts.prompts.util.AddExploitObjectToIndex;
 
 // Represents a UI element that creates a new Padding object
 public class PaddingCreator extends PromptContext {
@@ -18,6 +18,6 @@ public class PaddingCreator extends PromptContext {
             return getParentContext();
         }
 
-        return new GetIndex(getParentContext(), new Padding(length));
+        return new AddExploitObjectToIndex(getParentContext(), new Padding(length));
     }
 }

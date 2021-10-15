@@ -3,7 +3,7 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.AddressGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.GetIndex;
+import ui.contexts.prompts.util.AddExploitObjectToIndex;
 
 // Represents a UI context that creates a new AddressGadget
 public class AddressGadgetCreator extends PromptContext {
@@ -23,7 +23,7 @@ public class AddressGadgetCreator extends PromptContext {
         if (base == null) {
             return new AddressGadgetCreator(getParentContext(), input);
         } else {
-            return new GetIndex(getParentContext(), new AddressGadget(base, input));
+            return new AddExploitObjectToIndex(getParentContext(), new AddressGadget(base, input));
         }
     }
 }

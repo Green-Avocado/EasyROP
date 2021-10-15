@@ -3,7 +3,7 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.InstructionsGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.GetIndex;
+import ui.contexts.prompts.util.AddExploitObjectToIndex;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class InstructionsGadgetCreator extends PromptContext {
         } else if (list.isEmpty()) {
             return getParentContext();
         } else {
-            return new GetIndex(getParentContext(), new InstructionsGadget(base, list));
+            return new AddExploitObjectToIndex(getParentContext(), new InstructionsGadget(base, list));
         }
     }
 }

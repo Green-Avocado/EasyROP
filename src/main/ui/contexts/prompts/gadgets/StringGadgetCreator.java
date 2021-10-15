@@ -3,7 +3,7 @@ package ui.contexts.prompts.gadgets;
 import model.gadgets.StringGadget;
 import ui.contexts.ConsoleContext;
 import ui.contexts.prompts.PromptContext;
-import ui.contexts.prompts.util.GetIndex;
+import ui.contexts.prompts.util.AddExploitObjectToIndex;
 
 // Represents a UI context that creates a new StringGadget
 public class StringGadgetCreator extends PromptContext {
@@ -23,7 +23,7 @@ public class StringGadgetCreator extends PromptContext {
         if (base == null) {
             return new StringGadgetCreator(getParentContext(), input);
         } else {
-            return new GetIndex(getParentContext(), new StringGadget(base, input));
+            return new AddExploitObjectToIndex(getParentContext(), new StringGadget(base, input));
         }
     }
 }
