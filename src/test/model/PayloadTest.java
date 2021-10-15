@@ -149,7 +149,7 @@ class PayloadTest {
         ArrayList<String> scriptList = new ArrayList<>();
         scriptList.add("payload = ''");
 
-        Padding padding = new Padding(8);
+        Padding padding = new Padding("8");
         gadgetList.add(padding);
 
         AddressGadget addressGadget = new AddressGadget("exe", "0xdeadbeef");

@@ -12,12 +12,6 @@ public class PaddingCreator extends PromptContext {
     }
 
     public ConsoleContext handleInputInternal(String input) {
-        int length = Integer.parseInt(input);
-
-        if (length < 0) {
-            return getParentContext();
-        }
-
-        return new AddExploitObjectToIndex(getParentContext(), new Padding(length));
+        return new AddExploitObjectToIndex(getParentContext(), new Padding(input));
     }
 }

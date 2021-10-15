@@ -2,14 +2,13 @@ package model.gadgets;
 
 // Represents an arbitrary number of characters used to overflow a character buffer.
 public class Padding implements ExploitObject {
-    private final int length;
+    private final String length;
 
     // EFFECTS: Creates a new padding element
-    public Padding(int length) {
+    public Padding(String length) {
         this.length = length;
     }
 
-    // REQUIRES: length > 0
     // EFFECTS: Returns a python command to produce the gadget.
     public String getScript() {
         return "b'a' * " + length;

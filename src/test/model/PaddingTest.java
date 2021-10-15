@@ -10,14 +10,14 @@ class PaddingTest {
     @Test
     void testGetScript() {
         for (int i = 1; i <= 16; i++) {
-            assertEquals("b'a' * " + i, new Padding(i).getScript());
+            assertEquals("b'a' * " + i, new Padding(String.valueOf(i)).getScript());
         }
     }
 
     @Test
     void testGetName() {
         for (int i = 1; i <= 16; i++) {
-            assertEquals("Padding (" + i + ")", new Padding(i).getName());
+            assertEquals("Padding (" + i + ")", new Padding(String.valueOf(i)).getName());
         }
     }
 }

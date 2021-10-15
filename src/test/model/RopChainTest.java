@@ -190,13 +190,13 @@ class RopChainTest {
 
     @Test
     void testGetScript() {
-        Padding padding = new Padding(8);
+        Padding padding = new Padding("8");
         AddressGadget addressGadget = new AddressGadget("exe", "0xdeadbeef");
         InstructionsGadget instructionsGadget = new InstructionsGadget("libc", Arrays.asList("pop rdi", "ret"));
         StringGadget stringGadget = new StringGadget("exe", "/bin/sh\\x00");
         SymbolGadget symbolGadget = new SymbolGadget("libc", "sym", "puts");
 
-        ropChain.add(new Padding(8), ropChain.getLength());
+        ropChain.add(new Padding("8"), ropChain.getLength());
         ropChain.add(new AddressGadget("exe", "0xdeadbeef"), ropChain.getLength());
         ropChain.add(new InstructionsGadget("libc", Arrays.asList("pop rdi", "ret")), ropChain.getLength());
         ropChain.add(new StringGadget("exe", "/bin/sh\\x00"), ropChain.getLength());
