@@ -15,17 +15,23 @@ Features include:
 - Displaying the current payload.
 
 *EasyROP* is primarily intended for new CTF players learning the basics of binary exploitation.
-It can be used to teach fundamentals behind techniques such as Return-Oriented Programming, as reduces the learning curve of writing an exploit.
-This project is of interest to me as a member of the UBC CTF team, [Maple Bacon](https://ubcctf.github.io/), because of the influx of new members recently.
-Many of our newer members would like to learn concepts such as stack buffer overflows, but find them very complex and difficult to pick up.
-I wish to simplify the learning process my making it easier to start developing exploits without extensive experience in more complex tools.
+It can be used to teach fundamentals behind techniques such as Return-Oriented Programming,
+as reduces the learning curve of writing an exploit.
+This project is of interest to me as a member of the UBC CTF team, [Maple Bacon](https://ubcctf.github.io/),
+because of the influx of new members recently.
+Many of our newer members would like to learn concepts such as stack buffer overflows,
+but find them very complex and difficult to pick up.
+The goal of EasyROP is to simplify the learning process by making it easier to start developing exploits.
 
 ## User Stories
 
-- As a user, I want to be able to add a ROPchain to a payload
-- As a user, I want to be able to add a ROP gadget to a ROPchain using an address, symbol, list of instructions, or string.
-- As a user, I want to be able to select a ROP gadget and replace it with a different ROP gadget.
-- As a user, I want to be able to select and change the contents of a ROP gadget.
-- As a user, I want to be able to remove a ROP gadget from a ROPchain.
-- As a user, I want to be able to visualise padding and ROPchains of a payload.
-- As a user, I want to be able to output an exploit script using a payload.
+- As a user, I want to be able to add a ROP chain to a payload
+- As a user, I want to be able to select and move ROP chains within a payload.
+- As a user, I want to be able to remove a ROP chain from a payload.
+- As a user, I want to be able to view the ROP chains of a payload.
+- As a user, I want to be able to output an exploit script of a payload.
+- As a user, I want to be able to add a gadget to a ROP chain using an address, symbol, instructions, or string.
+- As a user, I want to be able to select and move gadgets within a ROP chain.
+- As a user, I want to be able to a ROP gadget from a ROP chain.
+- As a user, I want to be able to view the gadgets of a ROP chain.
+- As a user, I want to be able to output an exploit script of a ROP chain.
