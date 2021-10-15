@@ -10,7 +10,7 @@ public abstract class Gadget implements ExploitObject {
 
     // EFFECTS: Creates a new gadget with the specified base.
     public Gadget(String base) {
-        this.base = base;
+        setBase(base);
     }
 
     // EFFECTS: Returns the base of the gadget.

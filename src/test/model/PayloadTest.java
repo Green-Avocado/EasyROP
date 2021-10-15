@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,6 +16,15 @@ class PayloadTest {
     @BeforeEach
     void runBefore() {
         payload = new Payload();
+    }
+
+    @Test
+    void testFromList() {
+        payload.fromList(Collections.singletonList("foo"));
+        assertEquals("foo", payload.getName());
+
+        payload.fromList(Collections.singletonList("BAR"));
+        assertEquals("BAR", payload.getName());
     }
 
     @Test

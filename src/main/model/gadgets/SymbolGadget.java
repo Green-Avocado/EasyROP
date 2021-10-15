@@ -15,8 +15,8 @@ public class SymbolGadget extends Gadget {
     // EFFECTS: Creates a new SymbolGadget with a specified base, type, and symbol.
     public SymbolGadget(String base, String type, String symbol) {
         super(base);
-        this.type = type;
-        this.symbol = symbol;
+        setType(type);
+        setSymbol(symbol);
     }
 
     // REQUIRES: list.size() == 3
@@ -24,17 +24,39 @@ public class SymbolGadget extends Gadget {
     // MODIFIES: this
     public void fromList(List<String> list) {
         setBase(list.get(0));
-        type = list.get(1);
-        symbol = list.get(2);
+        setType(list.get(1));
+        setSymbol(list.get(2));
     }
 
     // EFFECTS: Returns a python command to produce the gadget.
     public String getScript() {
-        return "pack(" + getBase() + "." + type + "['" + symbol + "'])";
+        return "pack(" + getBase() + "." + getType() + "['" + getSymbol() + "'])";
     }
 
     // EFFECTS: Returns the name and key properties of the gadget.
     public String getName() {
-        return "SymbolGadget (" + getBase() + "." + type + "." + symbol + ")";
+        return "SymbolGadget (" + getBase() + "." + getType() + "." + getSymbol() + ")";
+    }
+
+    // EFFECTS: Sets the symbol type of this object to the specified string.
+    // MODIFIES: this
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    // EFFECTS: Returns the symbol type of this object.
+    public String getType() {
+        return type;
+    }
+
+    // EFFECTS: Sets the symbol value of this object to the specified string.
+    // MODIFIES: this
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    // EFFECTS: Returns the symbol value of this object.
+    public String getSymbol() {
+        return symbol;
     }
 }

@@ -6,11 +6,16 @@ import java.util.List;
 public class InstructionsGadget extends Gadget {
     private List<String> instructions;
 
+    // EFFECTS: Creates a new empty InstructionsGadget
+    public InstructionsGadget() {
+        super();
+    }
+
     // REQUIRES: !instructions.isEmpty()
     // EFFECTS: Creates a new InstructionsGadget with the specified base and instructions.
     public InstructionsGadget(String base, List<String> instructions) {
         super(base);
-        this.instructions = instructions;
+        setInstructions(instructions);
     }
 
     // REQUIRES: list.size() > 0
@@ -18,7 +23,7 @@ public class InstructionsGadget extends Gadget {
     // MODIFIES: this
     public void fromList(List<String> list) {
         setBase(list.get(0));
-        instructions = list.subList(0, list.size());
+        setInstructions(list.subList(1, list.size()));
     }
 
     // EFFECTS: Returns a python command to produce the gadget.
@@ -29,7 +34,7 @@ public class InstructionsGadget extends Gadget {
         stringBuilder.append(getBase());
         stringBuilder.append(".find_gadget([");
 
-        for (String instruction : instructions) {
+        for (String instruction : getInstructions()) {
             stringBuilder.append("'");
             stringBuilder.append(instruction);
             stringBuilder.append("',");
@@ -42,6 +47,17 @@ public class InstructionsGadget extends Gadget {
 
     // EFFECTS: Returns the name and key properties of the gadget.
     public String getName() {
-        return "InstructionsGadget (" + String.join("; ", instructions) + ";)";
+        return "InstructionsGadget (" + String.join("; ", getInstructions()) + ";)";
+    }
+
+    // EFFECTS: Sets the list of instructions to a given list of strings.
+    // MODIFIES: this
+    public void setInstructions(List<String> instructions) {
+        this.instructions = instructions;
+    }
+
+    // EFFECTS: Returns the list of instructions.
+    public List<String> getInstructions() {
+        return instructions;
     }
 }

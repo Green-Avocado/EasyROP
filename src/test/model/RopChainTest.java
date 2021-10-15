@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,6 +16,15 @@ class RopChainTest {
     @BeforeEach
     void runBefore() {
         ropChain = new RopChain();
+    }
+
+    @Test
+    void testFromList() {
+        ropChain.fromList(Collections.singletonList("foo"));
+        assertEquals("foo", ropChain.getName());
+
+        ropChain.fromList(Collections.singletonList("BAR"));
+        assertEquals("BAR", ropChain.getName());
     }
 
     @Test

@@ -92,5 +92,6 @@ public abstract class GadgetCollection implements ExploitObject {
         return script.toString();
     }
 
+    // EFFECTS: Returns a python command to produce the element.
     abstract String getScriptInternal(ExploitObject element);
 }
