@@ -57,8 +57,12 @@ public class InstructionsGadget extends Gadget {
         this.instructions = instructions;
     }
 
-    // EFFECTS: Returns the list of instructions.
+    // EFFECTS: Returns the list of instructions or null if none exists.
     public List<String> getInstructions() {
-        return Collections.unmodifiableList(instructions);
+        if (instructions != null) {
+            return Collections.unmodifiableList(instructions);
+        } else {
+            return null;
+        }
     }
 }
