@@ -3,7 +3,7 @@ package ui.contexts.menus;
 import model.Payload;
 import model.RopChain;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.collections.RopChainSelector;
+import ui.contexts.prompts.RopChainSelector;
 import ui.contexts.prompts.util.ExploitObjectCreator;
 
 import java.util.ArrayList;

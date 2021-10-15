@@ -3,10 +3,10 @@ package ui.contexts.menus;
 import model.GadgetCollection;
 import model.gadgets.ExploitObject;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.collections.ScriptViewer;
-import ui.contexts.prompts.collections.SetCollectionName;
-import ui.contexts.prompts.util.ExploitObjectRemover;
+import ui.contexts.prompts.ScriptViewer;
+import ui.contexts.prompts.SetCollectionName;
 import ui.contexts.prompts.util.ExploitObjectMover;
+import ui.contexts.prompts.util.ExploitObjectRemover;
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,19 +47,26 @@ public abstract class CollectionEditor extends MenuContext {
             case "n":
                 return add();
 
-            case "o": return open();
+            case "o":
+                return open();
 
-            case "m": return move();
+            case "m":
+                return move();
 
-            case "d": return delete();
+            case "d":
+                return delete();
 
-            case "p": return print();
+            case "p":
+                return print();
 
-            case "e": return editName();
+            case "e":
+                return editName();
 
-            case "q": return getParentContext();
+            case "q":
+                return getParentContext();
 
-            default: return this;
+            default:
+                return this;
         }
     }
 

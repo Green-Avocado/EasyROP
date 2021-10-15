@@ -1,9 +1,8 @@
-package ui.contexts.prompts.collections;
+package ui.contexts.prompts;
 
 import model.Payload;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.PayloadEditor;
-import ui.contexts.prompts.PromptContext;
 
 // Represents a UI context which creates a new Payload object with a specified name
 public class PayloadCreator extends PromptContext {

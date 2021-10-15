@@ -26,20 +26,26 @@ public class GadgetCreator extends MenuContext {
                 gadget = newPadding(promptData);
                 break;
 
-            case "a": gadget = newAddressGadget(promptData);
+            case "a":
+                gadget = newAddressGadget(promptData);
                 break;
 
-            case "i": return new InstructionsGadgetCreator(getParentContext());
+            case "i":
+                return new InstructionsGadgetCreator(getParentContext());
 
-            case "s": gadget = newStringGadget(promptData);
+            case "s":
+                gadget = newStringGadget(promptData);
                 break;
 
-            case "sy": gadget = newSymbolGadget(promptData);
+            case "sy":
+                gadget = newSymbolGadget(promptData);
                 break;
 
-            case "q": return getParentContext();
+            case "q":
+                return getParentContext();
 
-            default: return this;
+            default:
+                return this;
         }
 
         return new ExploitObjectCreator(getParentContext(), gadget, promptData);
