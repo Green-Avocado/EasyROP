@@ -8,11 +8,13 @@ Exploit scripts created by this program are intended for use with [pwntools](htt
 
 Features include:
 
-- Adding padding to payloads to overflow stack buffers.
-- Modifying current padding.
-- Adding return addresses to a payload.
-- Modifying current return addresses.
-- Displaying the current payload.
+- Adding/removing ROP chains to payloads.
+- Moving ROP chains within a payload
+- Adding/removing gadgets to ROP chains.
+- Adding/removing padding to ROP chains.
+- Moving gadgets and padding within a ROP chain.
+- Outputting code for a payload.
+- Outputting code for a ROP chain.
 
 *EasyROP* is primarily intended for new CTF players learning the basics of binary exploitation.
 It can be used to teach fundamentals behind techniques such as Return-Oriented Programming,
