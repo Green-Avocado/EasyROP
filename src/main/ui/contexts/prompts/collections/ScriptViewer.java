@@ -9,7 +9,7 @@ public class ScriptViewer extends ConsoleContext {
     public ScriptViewer(ConsoleContext parentContext, String script) {
         super(parentContext);
 
-        this.script = script;
+        this.script = script + "\n";
     }
 
     public String getContextString() {
