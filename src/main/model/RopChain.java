@@ -11,7 +11,7 @@ public class RopChain extends GadgetCollection {
     }
 
     // EFFECTS: Returns a string of Python commands to append a ExploitObject to a RopChain.
-    protected String getScriptInternal(ExploitObject element) {
+    String getScriptInternal(ExploitObject element) {
         return "\n" + getName() + " += " + element.getScript();
     }
 

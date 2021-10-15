@@ -92,5 +92,5 @@ public abstract class GadgetCollection implements ExploitObject {
         return script.toString();
     }
 
-    protected abstract String getScriptInternal(ExploitObject element);
+    abstract String getScriptInternal(ExploitObject element);
 }
