@@ -1,23 +1,23 @@
 package model.gadgets;
 
-// Represents the memory address of a given symbol in an ELF file
+// Represents the memory address of a given symbol in an ELF file.
 public class SymbolGadget extends Gadget {
     private final String type;
     private final String symbol;
 
-    // EFFECTS: creates a new SymbolGadget
+    // EFFECTS: Creates a new SymbolGadget.
     public SymbolGadget(String base, String type, String symbol) {
         super(base);
         this.type = type;
         this.symbol = symbol;
     }
 
-    // EFFECTS: returns a python command to produce the gadget
+    // EFFECTS: Returns a python command to produce the gadget.
     public String getScript() {
         return "pack(" + getBase() + "." + type + "['" + symbol + "'])";
     }
 
-    // EFFECTS: returns the name and key properties of the gadget
+    // EFFECTS: Returns the name and key properties of the gadget.
     public String getName() {
         return "SymbolGadget (" + getBase() + "." + type + "." + symbol + ")";
     }

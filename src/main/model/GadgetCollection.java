@@ -6,19 +6,19 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-// Represents a collection of Gadgets or a collection of collections
+// Represents a collection of Gadgets or a collection of collections.
 public abstract class GadgetCollection implements ExploitObject {
     protected final LinkedList<ExploitObject> exploitObjectList;
     private String name;
 
-    // EFFECTS: creates a new GadgetCollection with an empty list of ExploitObjects
+    // EFFECTS: Creates a new GadgetCollection with an empty list of ExploitObjects.
     protected GadgetCollection() {
         exploitObjectList = new LinkedList<>();
     }
 
     // REQUIRES index >= 0
     // MODIFIES: this
-    // EFFECTS: adds ExploitObject to the ExploitObjectList at the specified index, returns true if successful
+    // EFFECTS: Adds ExploitObject to the ExploitObjectList at the specified index, returns true if successful.
     public boolean add(ExploitObject exploitObject, int index) {
         if (index <= exploitObjectList.size()) {
             exploitObjectList.add(index, exploitObject);
@@ -30,7 +30,7 @@ public abstract class GadgetCollection implements ExploitObject {
 
     // REQUIRES: index >= 0
     // MODIFIES: this
-    // EFFECTS: removes the ExploitObject at specified index, returns true if successful, otherwise returns false
+    // EFFECTS: Removes the ExploitObject at specified index, returns true if successful, otherwise returns false.
     public boolean remove(int index) {
         if (index < exploitObjectList.size()) {
             exploitObjectList.remove(index);
@@ -41,7 +41,7 @@ public abstract class GadgetCollection implements ExploitObject {
     }
 
     // REQUIRES index >= 0
-    // EFFECTS: returns the ExploitObject at the specified index or null if no such object exists
+    // EFFECTS: Returns the ExploitObject at the specified index or null if no such object exists.
     public ExploitObject get(int index) {
         if (index < exploitObjectList.size()) {
             return exploitObjectList.get(index);
@@ -51,27 +51,27 @@ public abstract class GadgetCollection implements ExploitObject {
     }
 
     // MODIFIES: this
-    // EFFECTS: sets the name of the GadgetCollection
+    // EFFECTS: Sets the name of the GadgetCollection.
     public void setName(String name) {
         this.name = name;
     }
 
-    // EFFECTS: returns the name of the GadgetCollection
+    // EFFECTS: Returns the name of the GadgetCollection.
     public String getName() {
         return name;
     }
 
-    // EFFECTS: returns the list of ExploitObject
+    // EFFECTS: Returns the list of ExploitObject.
     public List<ExploitObject> getList() {
         return Collections.unmodifiableList(exploitObjectList);
     }
 
-    // EFFECTS: returns the number of elements in the exploitObjectList
+    // EFFECTS: Returns the number of elements in the exploitObjectList.
     public int getLength() {
         return exploitObjectList.size();
     }
 
-    // EFFECTS: returns a python command to produce the GadgetCollection
+    // EFFECTS: Returns a python command to produce the GadgetCollection.
     public String getScript() {
         StringBuilder script = new StringBuilder();
 
