@@ -46,20 +46,20 @@ public abstract class CollectionEditor extends MenuContext {
             case "":
             case "n":
                 return add();
-            case "o":
-                return open();
-            case "m":
-                return move();
-            case "d":
-                return delete();
-            case "p":
-                return print();
-            case "e":
-                return editName();
-            case "q":
-                return getParentContext();
-            default:
-                return this;
+
+            case "o": return open();
+
+            case "m": return move();
+
+            case "d": return delete();
+
+            case "p": return print();
+
+            case "e": return editName();
+
+            case "q": return getParentContext();
+
+            default: return this;
         }
     }
 
