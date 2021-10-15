@@ -17,6 +17,8 @@ public class PayloadEditor extends CollectionEditor {
         super(payload, null);
     }
 
+    // EFFECTS: Appends PayloadEditor-specific menu options with CollectionEditor options.
+    //          Returns the list of menu options.
     List<String> getMenu() {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew ROPchain",
@@ -31,6 +33,7 @@ public class PayloadEditor extends CollectionEditor {
         return menu;
     }
 
+    // EFFECTS: Returns a context for adding a new RopChain to the collection.
     ConsoleContext add() {
         RopChain ropChain = new RopChain();
         ArrayList<List<String>> promptData = new ArrayList<>();
@@ -44,6 +47,8 @@ public class PayloadEditor extends CollectionEditor {
         );
     }
 
+    // EFFECTS: If the collection is not empty, returns a context for opening an element of the collection,
+    //          otherwise returns this context.
     ConsoleContext open() {
         if (getCollection().getLength() > 0) {
             return new RopChainSelector(this);

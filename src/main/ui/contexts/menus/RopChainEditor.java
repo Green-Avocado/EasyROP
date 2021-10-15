@@ -14,6 +14,8 @@ public class RopChainEditor extends CollectionEditor {
         super(ropChain, parentContext);
     }
 
+    // EFFECTS: Appends RopChainEditor-specific menu options with CollectionEditor options.
+    //          Returns the list of menu options.
     List<String> getMenu() {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew gadget",
@@ -27,10 +29,12 @@ public class RopChainEditor extends CollectionEditor {
         return menu;
     }
 
+    // EFFECTS: Returns a context for adding a new gadget or padding to this collection.
     ConsoleContext add() {
         return new GadgetCreator(this);
     }
 
+    // EFFECTS: Returns this context.
     ConsoleContext open() {
         return this; // do nothing
     }

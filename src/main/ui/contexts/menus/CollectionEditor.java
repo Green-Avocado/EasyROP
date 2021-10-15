@@ -15,12 +15,14 @@ import java.util.List;
 public abstract class CollectionEditor extends MenuContext {
     private final GadgetCollection collection;
 
+    // Creates a new CollectionEditor context with a given collection and parentContext
     public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext) {
         super(parentContext);
 
         this.collection = collection;
     }
 
+    // EFFECTS: Returns the string to print at the start of this context
     public String getContextString() {
         StringBuilder contextString = new StringBuilder();
 
@@ -38,11 +40,10 @@ public abstract class CollectionEditor extends MenuContext {
         return contextString.toString();
     }
 
-
+    // EFFECTS: Calls a helper function and returns its context depending on the menu option selected.
+    //          If no valid option was selected, returns this context.
     public ConsoleContext handleInput(String input) {
-        input = input.toLowerCase();
-
-        switch (input) {
+        switch (input.toLowerCase()) {
             case "":
             case "n":
                 return add();
@@ -70,14 +71,18 @@ public abstract class CollectionEditor extends MenuContext {
         }
     }
 
+    // EFFECTS: Returns the collection of this object.
     public GadgetCollection getCollection() {
         return collection;
     }
 
+    // EFFECTS: Returns a list of menu options common to all implementations of this class
     List<String> getMenu() {
         return Arrays.asList("[e]dit name", "[q]uit");
     }
 
+    // EFFECTS: If the collection is not empty, returns a context for removing an item from the collection,
+    //          otherwise returns this context.
     ConsoleContext delete() {
         if (getCollection().getLength() > 0) {
             return new ExploitObjectRemover(this);
@@ -86,6 +91,8 @@ public abstract class CollectionEditor extends MenuContext {
         }
     }
 
+    // EFFECTS: If there are at least 2 elements in the collection, returns a context for moving items within
+    //          a collection, otherwise returns this context.
     ConsoleContext move() {
         if (getCollection().getLength() > 1) {
             return new ExploitObjectMover(this);
@@ -94,15 +101,19 @@ public abstract class CollectionEditor extends MenuContext {
         }
     }
 
+    // EFFECTS: Returns a context for editing the collection name of this context.
     ConsoleContext editName() {
         return new SetCollectionName(this);
     }
 
+    // EFFECTS: Returns a context for viewing the script of the collection.
     ConsoleContext print() {
         return new ScriptViewer(this, getCollection().getScript());
     }
 
+    // EFFECTS: Returns a context for adding an item to the collection.
     abstract ConsoleContext add();
 
+    // EFFECTS: Returns a context for selecting an item from the collection if supported by the concrete class.
     abstract ConsoleContext open();
 }
