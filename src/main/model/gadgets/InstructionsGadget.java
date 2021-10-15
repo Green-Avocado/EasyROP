@@ -4,13 +4,21 @@ import java.util.List;
 
 // Represents a memory address where a given set of assembly instructions can be found.
 public class InstructionsGadget extends Gadget {
-    private final List<String> instructions;
+    private List<String> instructions;
 
     // REQUIRES: !instructions.isEmpty()
     // EFFECTS: Creates a new InstructionsGadget with the specified base and instructions.
     public InstructionsGadget(String base, List<String> instructions) {
         super(base);
         this.instructions = instructions;
+    }
+
+    // REQUIRES: list.size() > 0
+    // EFFECTS: sets the base and offset of this object to the values in the list
+    // MODIFIES: this
+    public void fromList(List<String> list) {
+        setBase(list.get(0));
+        instructions = list.subList(0, list.size());
     }
 
     // EFFECTS: Returns a python command to produce the gadget.

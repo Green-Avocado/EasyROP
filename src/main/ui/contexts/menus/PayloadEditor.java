@@ -1,9 +1,10 @@
 package ui.contexts.menus;
 
 import model.Payload;
+import model.RopChain;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.collections.RopChainCreator;
 import ui.contexts.prompts.collections.RopChainSelector;
+import ui.contexts.prompts.util.ExploitObjectCreator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -31,7 +32,16 @@ public class PayloadEditor extends CollectionEditor {
     }
 
     ConsoleContext add() {
-        return new RopChainCreator(this);
+        RopChain ropChain = new RopChain();
+        ArrayList<List<String>> promptData = new ArrayList<>();
+
+        promptData.add(Arrays.asList("New ROPchain name", "ropChain"));
+
+        return new ExploitObjectCreator(
+                this,
+                ropChain,
+                promptData
+        );
     }
 
     ConsoleContext open() {
