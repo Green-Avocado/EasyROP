@@ -34,5 +34,6 @@ public abstract class PromptContext extends ConsoleContext {
         }
     }
 
+    // EFFECTS: Handles the input after the defaultResponse has been applied if necessary, returns a new ConsoleContext
     public abstract ConsoleContext handleInputInternal(String input);
 }

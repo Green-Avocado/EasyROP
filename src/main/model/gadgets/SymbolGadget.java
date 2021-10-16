@@ -20,8 +20,8 @@ public class SymbolGadget extends Gadget {
     }
 
     // REQUIRES: list.size() == 3
-    // EFFECTS: sets the base, type, and symbol of this object to the values in the list
     // MODIFIES: this
+    // EFFECTS: sets the base, type, and symbol of this object to the values in the list
     public void fromList(List<String> list) {
         setBase(list.get(0));
         setType(list.get(1));
@@ -38,8 +38,8 @@ public class SymbolGadget extends Gadget {
         return "SymbolGadget (" + getBase() + "." + getType() + "." + getSymbol() + ")";
     }
 
-    // EFFECTS: Sets the symbol type of this object to the specified string.
     // MODIFIES: this
+    // EFFECTS: Sets the symbol type of this object to the specified string.
     public void setType(String type) {
         this.type = type;
     }
@@ -49,8 +49,8 @@ public class SymbolGadget extends Gadget {
         return type;
     }
 
-    // EFFECTS: Sets the symbol value of this object to the specified string.
     // MODIFIES: this
+    // EFFECTS: Sets the symbol value of this object to the specified string.
     public void setSymbol(String symbol) {
         this.symbol = symbol;
     }

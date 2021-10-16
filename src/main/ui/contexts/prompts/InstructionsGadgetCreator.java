@@ -24,6 +24,7 @@ public class InstructionsGadgetCreator extends PromptContext {
         this.instructions = instructions;
     }
 
+    // MODIFIES: this
     // EFFECTS: If base is not set, returns a new InstructionsGadgetCreator with
     //          the same parentContext, the input as the base, and a new ArrayList as the instructions.
     //          If base is set and input is not "quit", adds input to instructions and returns a
@@ -31,7 +32,6 @@ public class InstructionsGadgetCreator extends PromptContext {
     //          If base is set and input is "quit", returns the parentContext if instructions is empty,
     //          or returns an AddExploitObjectToIndex with the parentContext and a new InstructionsGadget
     //          with the base and list.
-    // MODIFIES: this
     public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
             return new InstructionsGadgetCreator(getParentContext(), input, new ArrayList<>());

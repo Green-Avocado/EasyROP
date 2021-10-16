@@ -18,8 +18,8 @@ public class AddressGadget extends Gadget {
     }
 
     // REQUIRES: list.size() == 2
-    // EFFECTS: sets the base and offset of this object to the values in the list
     // MODIFIES: this
+    // EFFECTS: sets the base and offset of this object to the values in the list
     public void fromList(List<String> list) {
         setBase(list.get(0));
         setOffset(list.get(1));
@@ -35,8 +35,8 @@ public class AddressGadget extends Gadget {
         return "AddressGadget (" + getBase() + ".address + " + getOffset() + ")";
     }
 
-    // EFFECTS: Sets the offset of this object to the given string.
     // MODIFIES: this
+    // EFFECTS: Sets the offset of this object to the given string.
     public void setOffset(String offset) {
         this.offset = offset;
     }

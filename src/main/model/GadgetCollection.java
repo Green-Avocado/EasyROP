@@ -17,8 +17,8 @@ public abstract class GadgetCollection implements ExploitObject {
     }
 
     // REQUIRES: list.size() == 1
-    // EFFECTS: sets the name of this object to the element in the list
     // MODIFIES: this
+    // EFFECTS: sets the name of this object to the element in the list
     public void fromList(List<String> list) {
         setName(list.get(0));
     }

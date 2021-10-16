@@ -18,8 +18,8 @@ public class EasyRopApp {
         run();
     }
 
-    // EFFECTS: Prints the context string, then gets a line of user input and sends it to the handler of the context.
     // MODIFIES: this, this.context
+    // EFFECTS: Prints the context string, then gets a line of user input and sends it to the handler of the context.
     private void run() {
         while (context != null) {
             System.out.print(context.getContextString());

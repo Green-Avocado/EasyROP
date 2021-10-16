@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class CollectionEditor extends MenuContext {
     private final GadgetCollection collection;
 
-    // Creates a new CollectionEditor context with a given collection and parentContext
+    // EFFECTS: Creates a new CollectionEditor context with a given collection and parentContext
     public CollectionEditor(GadgetCollection collection, ConsoleContext parentContext) {
         super(parentContext);
 

@@ -20,8 +20,8 @@ public class InstructionsGadget extends Gadget {
     }
 
     // REQUIRES: list.size() > 0
-    // EFFECTS: sets the base and offset of this object to the values in the list
     // MODIFIES: this
+    // EFFECTS: sets the base and offset of this object to the values in the list
     public void fromList(List<String> list) {
         setBase(list.get(0));
         setInstructions(list.subList(1, list.size()));
@@ -51,8 +51,8 @@ public class InstructionsGadget extends Gadget {
         return "InstructionsGadget (" + String.join("; ", getInstructions()) + ";)";
     }
 
-    // EFFECTS: Sets the list of instructions to a given list of strings.
     // MODIFIES: this
+    // EFFECTS: Sets the list of instructions to a given list of strings.
     public void setInstructions(List<String> instructions) {
         this.instructions = instructions;
     }

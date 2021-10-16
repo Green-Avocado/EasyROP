@@ -18,8 +18,8 @@ public class StringGadget extends Gadget {
     }
 
     // REQUIRES: list.size() == 2
-    // EFFECTS: sets the base and string of this object to the values in the list
     // MODIFIES: this
+    // EFFECTS: sets the base and string of this object to the values in the list
     public void fromList(List<String> list) {
         setBase(list.get(0));
         setString(list.get(1));
@@ -35,8 +35,8 @@ public class StringGadget extends Gadget {
         return "StringGadget (" + getString() + ")";
     }
 
-    // EFFECTS: Sets the string of this object to the specified string.
     // MODIFIES: this
+    // EFFECTS: Sets the string of this object to the specified string.
     public void setString(String string) {
         this.string = string;
     }

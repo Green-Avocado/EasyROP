@@ -16,8 +16,8 @@ public class Padding implements ExploitObject {
     }
 
     // REQUIRES: list.size() == 0
-    // EFFECTS: sets the padding length to the element in this list
     // MODIFIES: this
+    // EFFECTS: sets the padding length to the element in this list
     public void fromList(List<String> list) {
         setLength(list.get(0));
     }
@@ -32,8 +32,8 @@ public class Padding implements ExploitObject {
         return "Padding (" + getLength() + ")";
     }
 
-    // EFFECTS: Sets the length of this object to the given length.
     // MODIFIES: this
+    // EFFECTS: Sets the length of this object to the given length.
     public void setLength(String length) {
         this.length = length;
     }
