@@ -60,7 +60,7 @@ public class GadgetCreatorTest {
             actualContext = actualContext.handleInput("");
         }
 
-        assertEquals(expectedContext.getParentContext(), actualContext.getParentContext());
+        assertEquals(expectedContext, actualContext);
     }
 
     @Test
@@ -74,7 +74,7 @@ public class GadgetCreatorTest {
             actualContext = actualContext.handleInput("");
         }
 
-        assertEquals(expectedContext.getParentContext(), actualContext.getParentContext());
+        assertEquals(expectedContext, actualContext);
     }
 
     @Test
@@ -98,8 +98,9 @@ public class GadgetCreatorTest {
         for (int i = 0; i < 2; i++) {
             expectedContext = expectedContext.handleInput("");
             actualContext = actualContext.handleInput("");
-            assertEquals(expectedContext.getParentContext(), actualContext.getParentContext());
         }
+
+        assertEquals(expectedContext, actualContext);
 
         RopChain ropChain = (RopChain) ((RopChainEditor) gadgetCreator.getParentContext()).getCollection();
         InstructionsGadget gadget = (InstructionsGadget) ropChain.get(1);
@@ -119,7 +120,7 @@ public class GadgetCreatorTest {
             actualContext = actualContext.handleInput("");
         }
 
-        assertEquals(expectedContext.getParentContext(), actualContext.getParentContext());
+        assertEquals(expectedContext, actualContext);
     }
 
     @Test
@@ -133,7 +134,7 @@ public class GadgetCreatorTest {
             actualContext = actualContext.handleInput("");
         }
 
-        assertEquals(expectedContext.getParentContext(), actualContext.getParentContext());
+        assertEquals(expectedContext, actualContext);
     }
 
     @Test
