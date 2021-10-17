@@ -8,19 +8,12 @@ import java.util.ArrayList;
 // Represents a UI context that creates a new InstructionsGadget
 public class InstructionsGadgetCreator extends PromptContext {
     private String base;
-    private ArrayList<String> instructions;
+    private final ArrayList<String> instructions;
 
     // EFFECTS: Creates a new InstructionsGadgetCreator with the given parentContext.
     public InstructionsGadgetCreator(ConsoleContext parentContext) {
         super(parentContext, "Base", "exe");
-    }
-
-    // EFFECTS: Creates a new InstructionsGadgetCreator with the given parentContext, base, and list of instructions.
-    public InstructionsGadgetCreator(ConsoleContext parentContext, String base, ArrayList<String> instructions) {
-        super(parentContext, "Instruction/quit", "quit");
-
-        this.base = base;
-        this.instructions = instructions;
+        this.instructions = new ArrayList<>();
     }
 
     // MODIFIES: this
@@ -33,10 +26,13 @@ public class InstructionsGadgetCreator extends PromptContext {
     //          with the base and list.
     public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
-            return new InstructionsGadgetCreator(getParentContext(), input, new ArrayList<>());
+            setPrompt("Instruction/quit");
+            setDefaultResponse("quit");
+            base = input;
+            return this;
         } else if (!input.equalsIgnoreCase("quit")) {
             instructions.add(input);
-            return new InstructionsGadgetCreator(getParentContext(), base, instructions);
+            return this;
         } else if (instructions.isEmpty()) {
             return getParentContext();
         } else {
