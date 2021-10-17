@@ -4,8 +4,8 @@ import ui.contexts.ConsoleContext;
 
 // Represents a UI context where a value is inputted or the default value is selected if left blank.
 public abstract class PromptContext extends ConsoleContext {
-    private final String prompt;
-    private final String defaultResponse;
+    private String prompt;
+    private String defaultResponse;
 
     // EFFECTS: Creates a new PromptContext with a given parentContext, prompt string, and default response.
     public PromptContext(
@@ -32,6 +32,18 @@ public abstract class PromptContext extends ConsoleContext {
         } else {
             return handleInputInternal(defaultResponse);
         }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets the prompt to the specified string.
+    void setPrompt(String prompt) {
+        this.prompt = prompt;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets the defaultResponse to the specified string.
+    void setDefaultResponse(String defaultResponse) {
+        this.defaultResponse = defaultResponse;
     }
 
     // EFFECTS: Handles the input after the defaultResponse has been applied if necessary, returns a new ConsoleContext
