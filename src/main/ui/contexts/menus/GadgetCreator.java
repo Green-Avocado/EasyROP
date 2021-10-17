@@ -58,7 +58,7 @@ public class GadgetCreator extends MenuContext {
     // EFFECTS: Returns an ExploitObjectCreator context with parameters for adding a new AddressGadget object.
     ConsoleContext newAddressGadget() {
         ArrayList<List<String>> promptData = new ArrayList<>();
-        promptData.add(Arrays.asList("Base", "exe"));
+        promptData.add(Arrays.asList("Base", "exe.address"));
         promptData.add(Arrays.asList("Offset", "0"));
         return new ExploitObjectCreator(getParentContext(), new AddressGadget(), promptData);
     }
