@@ -14,16 +14,16 @@ class AddressGadgetTest {
 
     @BeforeEach
     void runBefore() {
-        gadget0 = new AddressGadget("exe", "0xdeadbeef");
-        gadget1 = new AddressGadget("libc", "0xcafebabe");
+        gadget0 = new AddressGadget("exe.address", "0xdeadbeef");
+        gadget1 = new AddressGadget("libc.address", "0xcafebabe");
     }
 
     @Test
     void testConstructor() {
-        assertEquals("exe", gadget0.getBase());
+        assertEquals("exe.address", gadget0.getBase());
         assertEquals("0xdeadbeef", gadget0.getOffset());
 
-        assertEquals("libc", gadget1.getBase());
+        assertEquals("libc.address", gadget1.getBase());
         assertEquals("0xcafebabe", gadget1.getOffset());
 
         AddressGadget gadget = new AddressGadget();
@@ -34,12 +34,12 @@ class AddressGadgetTest {
 
     @Test
     void testFromList() {
-        gadget0.fromList(Arrays.asList("bin", "0xcafebabe"));
-        assertEquals("bin", gadget0.getBase());
+        gadget0.fromList(Arrays.asList("bin.address", "0xcafebabe"));
+        assertEquals("bin.address", gadget0.getBase());
         assertEquals("0xcafebabe", gadget0.getOffset());
 
-        gadget1.fromList(Arrays.asList("VULN", "0xC0DED00D"));
-        assertEquals("VULN", gadget1.getBase());
+        gadget1.fromList(Arrays.asList("VULN.address", "0xC0DED00D"));
+        assertEquals("VULN.address", gadget1.getBase());
         assertEquals("0xC0DED00D", gadget1.getOffset());
     }
 

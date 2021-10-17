@@ -27,12 +27,12 @@ public class AddressGadget extends Gadget {
 
     // EFFECTS: Returns a python command to produce the gadget.
     public String getScript() {
-        return "pack(" + getBase() + ".address + " + getOffset() + ")";
+        return "pack(" + getBase() + " + " + getOffset() + ")";
     }
 
     // EFFECTS: Returns the name and key properties of the gadget.
     public String getName() {
-        return "AddressGadget (" + getBase() + ".address + " + getOffset() + ")";
+        return "AddressGadget (" + getBase() + " + " + getOffset() + ")";
     }
 
     // MODIFIES: this
