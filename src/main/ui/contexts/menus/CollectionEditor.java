@@ -3,10 +3,10 @@ package ui.contexts.menus;
 import model.GadgetCollection;
 import model.gadgets.ExploitObject;
 import ui.contexts.ConsoleContext;
+import ui.contexts.prompts.ExploitObjectMover;
+import ui.contexts.prompts.ExploitObjectRemover;
 import ui.contexts.prompts.ScriptViewer;
 import ui.contexts.prompts.SetCollectionName;
-import ui.contexts.prompts.util.ExploitObjectMover;
-import ui.contexts.prompts.util.ExploitObjectRemover;
 
 import java.util.Arrays;
 import java.util.List;

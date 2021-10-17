@@ -2,7 +2,6 @@ package ui.contexts.prompts;
 
 import model.gadgets.InstructionsGadget;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.util.AddExploitObjectToIndex;
 
 import java.util.ArrayList;
 
