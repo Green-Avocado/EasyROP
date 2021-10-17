@@ -208,8 +208,9 @@ public class GadgetCreatorTest {
                         "[i]instructions gadget",
                         "[s]tring gadget",
                         "[sy]mbol gadget",
-                        "[q]uit"),
+                        "[q]uit"
+                ),
                 gadgetCreator.getMenu()
-                );
+        );
     }
 }
