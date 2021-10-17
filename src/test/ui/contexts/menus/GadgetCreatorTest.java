@@ -30,9 +30,6 @@ public class GadgetCreatorTest {
 
     @Test
     void testHandleInput() {
-        // quit
-        assertEquals(RopChainEditor.class, gadgetCreator.handleInput("q").getClass());
-
         // case insensitivity
         assertEquals(
                 gadgetCreator.handleInput("p").getContextString(),
@@ -135,6 +132,13 @@ public class GadgetCreatorTest {
         }
 
         assertEquals(expectedContext, actualContext);
+    }
+
+    @Test
+    void testHandleInputQ() {
+        RopChainEditor ropChainEditor = new RopChainEditor(new RopChain(), null);
+        gadgetCreator = new GadgetCreator(ropChainEditor);
+        assertEquals(ropChainEditor, gadgetCreator.handleInput("q"));
     }
 
     @Test
