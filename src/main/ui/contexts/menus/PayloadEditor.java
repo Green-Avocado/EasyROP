@@ -23,7 +23,7 @@ public class PayloadEditor extends CollectionEditor {
         ArrayList<String> menu = new ArrayList<>(Arrays.asList(
                 "[N]ew ROPchain",
                 "[o]pen ROPchain",
-                "[m]move ROPchain",
+                "[m]ove ROPchain",
                 "[d]elete ROPchain",
                 "[p]rint payload"
         ));
