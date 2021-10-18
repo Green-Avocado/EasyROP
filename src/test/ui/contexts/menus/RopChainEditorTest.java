@@ -73,7 +73,7 @@ public class RopChainEditorTest {
             for (int j = 0; j < i; j++) {
                 Padding padding = new Padding(String.valueOf(j));
                 ropChainEditor.getCollection().add(padding, j);
-                expectedString.append("  ").append(padding.getName()).append("\n");
+                expectedString.append(j).append(": ").append(padding.getName()).append("\n");
             }
 
             expectedString.append(String.join("  ", ropChainEditor.getMenu())).append("\n");

@@ -101,7 +101,7 @@ public class PayloadEditorTest {
             // adds j elements to the Payload
             for (int j = 0; j < i; j++) {
                 payloadEditor.add().handleInput("testChain" + j).handleInput("");
-                expectedString.append("  testChain").append(j).append("\n");
+                expectedString.append(j).append(": testChain").append(j).append("\n");
             }
 
             expectedString.append(String.join("  ", payloadEditor.getMenu())).append("\n");

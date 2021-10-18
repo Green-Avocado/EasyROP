@@ -29,10 +29,13 @@ public abstract class CollectionEditor extends MenuContext {
         contextString.append(getCollection().getName());
         contextString.append(":\n");
 
+        int i = 0;
         for (ExploitObject exploitObject : getCollection().getList()) {
-            contextString.append("  ");
+            contextString.append(i);
+            contextString.append(": ");
             contextString.append(exploitObject.getName());
             contextString.append("\n");
+            i++;
         }
 
         contextString.append(super.getContextString());
