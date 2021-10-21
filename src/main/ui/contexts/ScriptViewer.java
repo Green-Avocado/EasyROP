@@ -1,6 +1,4 @@
-package ui.contexts.prompts;
-
-import ui.contexts.ConsoleContext;
+package ui.contexts;
 
 // Represents a UI context that displays the Python code for a GadgetCollection
 public class ScriptViewer extends ConsoleContext {
