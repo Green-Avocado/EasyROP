@@ -37,3 +37,7 @@ The goal of EasyROP is to simplify the learning process by making it easier to s
 - As a user, I want to be able to a ROP gadget from a ROP chain.
 - As a user, I want to be able to view the gadgets of a ROP chain.
 - As a user, I want to be able to output an exploit script of a ROP chain.
+- As a user, I want to be able to save my payload to a file.
+- As a user, I want to be able to load my payload from a file.
+- As a user, I want to be able to save my ROP chain to a file.
+- As a user, I want to be able to load my ROP chain from a file.
