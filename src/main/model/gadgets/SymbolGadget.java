@@ -1,5 +1,7 @@
 package model.gadgets;
 
+import model.ExploitObjectType;
+
 import java.util.List;
 
 // Represents the memory address of a given symbol in an ELF file.
@@ -22,6 +24,7 @@ public class SymbolGadget extends Gadget {
     // REQUIRES: list.size() == 3
     // MODIFIES: this
     // EFFECTS: sets the base, type, and symbol of this object to the values in the list
+    @Override
     public void fromList(List<String> list) {
         setBase(list.get(0));
         setType(list.get(1));
@@ -29,11 +32,13 @@ public class SymbolGadget extends Gadget {
     }
 
     // EFFECTS: Returns a python command to produce the gadget.
+    @Override
     public String getScript() {
         return "pack(" + getBase() + "." + getType() + "['" + getSymbol() + "'])";
     }
 
     // EFFECTS: Returns the name and key properties of the gadget.
+    @Override
     public String getName() {
         return "SymbolGadget (" + getBase() + "." + getType() + "." + getSymbol() + ")";
     }
@@ -58,5 +63,11 @@ public class SymbolGadget extends Gadget {
     // EFFECTS: Returns the symbol value of this object.
     public String getSymbol() {
         return symbol;
+    }
+
+    // EFFECTS: Returns the type of this object.
+    @Override
+    public ExploitObjectType getExploitObjectType() {
+        return ExploitObjectType.SYMBOL_GADGET;
     }
 }

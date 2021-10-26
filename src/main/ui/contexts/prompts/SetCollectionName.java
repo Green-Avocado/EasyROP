@@ -13,6 +13,7 @@ public class SetCollectionName extends PromptContext {
 
     // MODIFIES: ((CollectionEditor) getParentContext()).getCollection()
     // EFFECTS: Sets the name of the collection of the parentContext to the input string.
+    @Override
     public ConsoleContext handleInputInternal(String input) {
         ((CollectionEditor) getParentContext()).getCollection().setName(input);
         return getParentContext();

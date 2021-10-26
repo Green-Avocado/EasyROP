@@ -1,7 +1,5 @@
 package model;
 
-import model.gadgets.ExploitObject;
-
 // Represents a set of ROP gadgets which perform a specific function in an exploit.
 public class RopChain extends GadgetCollection {
 
@@ -11,6 +9,7 @@ public class RopChain extends GadgetCollection {
     }
 
     // EFFECTS: Returns a string of Python commands to append a ExploitObject to a RopChain.
+    @Override
     String getScriptInternal(ExploitObject element) {
         return "\n" + getName() + " += " + element.getScript();
     }
@@ -26,5 +25,11 @@ public class RopChain extends GadgetCollection {
         } else {
             return false;
         }
+    }
+
+    // EFFECTS: Returns the type of this object.
+    @Override
+    public ExploitObjectType getExploitObjectType() {
+        return ExploitObjectType.ROP_CHAIN;
     }
 }

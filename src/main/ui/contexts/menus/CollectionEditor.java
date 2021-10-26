@@ -1,7 +1,7 @@
 package ui.contexts.menus;
 
 import model.GadgetCollection;
-import model.gadgets.ExploitObject;
+import model.ExploitObject;
 import ui.contexts.ConsoleContext;
 import ui.contexts.ScriptViewer;
 import ui.contexts.prompts.ExploitObjectMover;
@@ -23,6 +23,7 @@ public abstract class CollectionEditor extends MenuContext {
     }
 
     // EFFECTS: Returns the string to print at the start of this context
+    @Override
     public String getContextString() {
         StringBuilder contextString = new StringBuilder();
 
@@ -45,6 +46,7 @@ public abstract class CollectionEditor extends MenuContext {
 
     // EFFECTS: Calls a helper function and returns its context depending on the menu option selected.
     //          If no valid option was selected, returns this context.
+    @Override
     public ConsoleContext handleInput(String input) {
         switch (input.toLowerCase()) {
             case "":
@@ -80,6 +82,7 @@ public abstract class CollectionEditor extends MenuContext {
     }
 
     // EFFECTS: Returns a list of menu options common to all implementations of this class
+    @Override
     List<String> getMenu() {
         return Arrays.asList("[e]dit name", "[q]uit");
     }

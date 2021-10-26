@@ -24,6 +24,7 @@ public class InstructionsGadgetCreator extends PromptContext {
     //          If base is set and input is "quit", returns the parentContext if instructions is empty,
     //          or returns an AddExploitObjectToIndex with the parentContext and a new InstructionsGadget
     //          with the base and list.
+    @Override
     public ConsoleContext handleInputInternal(String input) {
         if (base == null) {
             setPrompt("Instruction/quit");

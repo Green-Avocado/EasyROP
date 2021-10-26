@@ -22,6 +22,7 @@ public class GadgetCreator extends MenuContext {
 
     // EFFECTS: Calls a helper function and returns its context depending on the menu option selected.
     //          If no valid option was selected, returns this context.
+    @Override
     public ConsoleContext handleInput(String input) {
         switch (input.toLowerCase()) {
             case "":
@@ -81,6 +82,7 @@ public class GadgetCreator extends MenuContext {
     }
 
     // EFFECTS: Returns the list of menu options.
+    @Override
     List<String> getMenu() {
         return Arrays.asList(
                 "[P]adding",

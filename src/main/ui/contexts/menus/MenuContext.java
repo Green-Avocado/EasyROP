@@ -13,6 +13,7 @@ public abstract class MenuContext extends ConsoleContext {
     }
 
     // EFFECTS: Returns a string of the menu options.
+    @Override
     public String getContextString() {
         return String.join("  ", getMenu()) + "\n";
     }

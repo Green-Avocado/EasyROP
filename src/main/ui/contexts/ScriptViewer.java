@@ -12,11 +12,13 @@ public class ScriptViewer extends ConsoleContext {
     }
 
     // EFFECTS: Returns the script of this object.
+    @Override
     public String getContextString() {
         return script;
     }
 
     // EFFECTS: Returns the parentContext.
+    @Override
     public ConsoleContext handleInput(String input) {
         return getParentContext();
     }

@@ -1,5 +1,7 @@
 package model.gadgets;
 
+import model.ExploitObjectType;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -22,12 +24,14 @@ public class InstructionsGadget extends Gadget {
     // REQUIRES: list.size() > 0
     // MODIFIES: this
     // EFFECTS: sets the base and offset of this object to the values in the list
+    @Override
     public void fromList(List<String> list) {
         setBase(list.get(0));
         setInstructions(list.subList(1, list.size()));
     }
 
     // EFFECTS: Returns a python command to produce the gadget.
+    @Override
     public String getScript() {
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -47,6 +51,7 @@ public class InstructionsGadget extends Gadget {
     }
 
     // EFFECTS: Returns the name and key properties of the gadget.
+    @Override
     public String getName() {
         return "InstructionsGadget (" + String.join("; ", getInstructions()) + ";)";
     }
@@ -64,5 +69,11 @@ public class InstructionsGadget extends Gadget {
         } else {
             return null;
         }
+    }
+
+    // EFFECTS: Returns the type of this object.
+    @Override
+    public ExploitObjectType getExploitObjectType() {
+        return ExploitObjectType.INSTRUCTIONS_GADGET;
     }
 }

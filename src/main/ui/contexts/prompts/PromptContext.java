@@ -20,12 +20,14 @@ public abstract class PromptContext extends ConsoleContext {
     }
 
     // EFFECTS: Returns the formatted prompt string and default response.
+    @Override
     public String getContextString() {
         return prompt + " (default " + defaultResponse + "): ";
     }
 
     // EFFECTS: If input is not empty, passes the input to an abstract input handling method and returns its context.
     //          If input is empty, passes the default value to the abstract input handling method instead.
+    @Override
     public ConsoleContext handleInput(String input) {
         if (!input.isEmpty()) {
             return handleInputInternal(input);

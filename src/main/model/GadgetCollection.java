@@ -1,7 +1,5 @@
 package model;
 
-import model.gadgets.ExploitObject;
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,7 +16,8 @@ public abstract class GadgetCollection implements ExploitObject {
 
     // REQUIRES: list.size() == 1
     // MODIFIES: this
-    // EFFECTS: sets the name of this object to the element in the list
+    // EFFECTS: sets the name of this object to the element in the list.
+    @Override
     public void fromList(List<String> list) {
         setName(list.get(0));
     }
@@ -64,6 +63,7 @@ public abstract class GadgetCollection implements ExploitObject {
     }
 
     // EFFECTS: Returns the name of the GadgetCollection.
+    @Override
     public String getName() {
         return name;
     }
@@ -79,6 +79,7 @@ public abstract class GadgetCollection implements ExploitObject {
     }
 
     // EFFECTS: Returns a python command to produce the GadgetCollection.
+    @Override
     public String getScript() {
         StringBuilder script = new StringBuilder();
 

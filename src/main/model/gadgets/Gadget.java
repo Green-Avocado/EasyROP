@@ -1,5 +1,7 @@
 package model.gadgets;
 
+import model.ExploitObject;
+
 // Represents a memory address relative to a given base address.
 public abstract class Gadget implements ExploitObject {
     private String base;
