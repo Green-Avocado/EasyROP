@@ -14,22 +14,25 @@ public class RopChainSelector extends PromptContext {
         super(parentContext, "Index", String.valueOf(((PayloadEditor) parentContext).getCollection().getLength() - 1));
     }
 
-    // REQUIRES: input can be parsed as an integer.
     // EFFECTS: Returns a RopChainEditor context with this parentContext and the ropChain at the given index.
     //          If no such ropChain exists, returns the parentContext instead.
     @Override
     public ConsoleContext handleInputInternal(String input) {
+        for (char c : input.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return getParentContext();
+            }
+        }
+
         int index = Integer.parseInt(input);
 
-        if (index >= 0) {
-            RopChain ropChain = (RopChain) ((CollectionEditor) getParentContext()).getCollection().get(index);
+        RopChain ropChain = (RopChain) ((CollectionEditor) getParentContext()).getCollection().get(index);
 
-            if (ropChain != null) {
-                return new RopChainEditor(
-                        ropChain,
-                        getParentContext()
-                );
-            }
+        if (ropChain != null) {
+            return new RopChainEditor(
+                    ropChain,
+                    getParentContext()
+            );
         }
 
         return getParentContext();
