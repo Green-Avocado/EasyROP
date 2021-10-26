@@ -1,5 +1,6 @@
 package model.gadgets;
 
+import model.ExploitObjectType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -72,5 +73,10 @@ class InstructionsGadgetTest {
         list = Collections.emptyList();
         gadget1.setInstructions(list);
         assertEquals(list, gadget1.getInstructions());
+    }
+
+    @Test
+    void testGetExploitObjectType() {
+        assertEquals(ExploitObjectType.INSTRUCTIONS_GADGET, gadget0.getExploitObjectType());
     }
 }

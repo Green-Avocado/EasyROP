@@ -1,5 +1,6 @@
 package model.gadgets;
 
+import model.ExploitObjectType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -70,5 +71,10 @@ class PaddingTest {
             padding.setLength("0x" + i);
             assertEquals("0x" + i, padding.getLength());
         }
+    }
+
+    @Test
+    void testGetExploitObjectType() {
+        assertEquals(ExploitObjectType.PADDING, padding.getExploitObjectType());
     }
 }

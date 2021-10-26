@@ -1,5 +1,6 @@
 package model.gadgets;
 
+import model.ExploitObjectType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -85,5 +86,10 @@ class SymbolGadgetTest {
 
         gadget1.setSymbol("ABC");
         assertEquals("ABC", gadget1.getSymbol());
+    }
+
+    @Test
+    void testGetExploitObjectType() {
+        assertEquals(ExploitObjectType.SYMBOL_GADGET, gadget0.getExploitObjectType());
     }
 }

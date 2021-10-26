@@ -236,4 +236,9 @@ class RopChainTest {
         ropChain.setName("ROPchain0");
         assertEquals("ROPchain0 = ''", ropChain.getScript());
     }
+
+    @Test
+    void testGetExploitObjectType() {
+        assertEquals(ExploitObjectType.ROP_CHAIN, ropChain.getExploitObjectType());
+    }
 }

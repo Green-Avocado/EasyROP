@@ -214,4 +214,9 @@ class PayloadTest {
 
         assertEquals("payload = ''\nropChain = ''\npayload += ropChain", payload.getScript());
     }
+
+    @Test
+    void testGetExploitObjectType() {
+        assertEquals(ExploitObjectType.PAYLOAD, payload.getExploitObjectType());
+    }
 }

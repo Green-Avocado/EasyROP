@@ -1,5 +1,6 @@
 package model.gadgets;
 
+import model.ExploitObjectType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -71,5 +72,10 @@ class AddressGadgetTest {
 
         gadget1.setOffset("ABC");
         assertEquals("ABC", gadget1.getOffset());
+    }
+
+    @Test
+    void testGetExploitObjectType() {
+        assertEquals(ExploitObjectType.ADDRESS_GADGET, gadget0.getExploitObjectType());
     }
 }
