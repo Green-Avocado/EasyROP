@@ -64,7 +64,7 @@ public class JsonReader {
     //          Throws UnsupportedOperationException if JSON data is malformed.
     private RopChain ropChainFromJson(JSONObject jsonObject) throws UnsupportedOperationException {
         ExploitObjectType type = jsonObject.getEnum(ExploitObjectType.class, "type");
-        if (type != ExploitObjectType.PAYLOAD) {
+        if (type != ExploitObjectType.ROP_CHAIN) {
             throw new UnsupportedOperationException(type.name());
         }
 

@@ -27,7 +27,7 @@ public class JsonWriter {
         JSONObject jsonObject = new JSONObject();
 
         ExploitObjectType type = exploitObject.getExploitObjectType();
-        jsonObject.append("type", type);
+        jsonObject.put("type", type);
 
         switch (type) {
             default:
@@ -46,54 +46,47 @@ public class JsonWriter {
     }
 
     private JSONObject collectionJson(JSONObject jsonObject, GadgetCollection gadgetCollection) {
-        jsonObject.append("name", gadgetCollection.getName());
-
-        JSONArray jsonArray = new JSONArray();
+        jsonObject.put("name", gadgetCollection.getName());
+        jsonObject.put("exploitObjectList", new JSONArray());
 
         for (ExploitObject exploitObject : gadgetCollection.getList()) {
-            jsonArray.put(exploitObjectToJson(exploitObject));
+            jsonObject.append("exploitObjectList", exploitObjectToJson(exploitObject));
         }
-
-        jsonObject.append("exploitObjectList", jsonArray);
 
         return jsonObject;
     }
 
     private JSONObject paddingJson(JSONObject jsonObject, Padding padding) {
-        jsonObject.append("length", padding.getLength());
+        jsonObject.put("length", padding.getLength());
         return jsonObject;
     }
 
     private JSONObject addressJson(JSONObject jsonObject, AddressGadget addressGadget) {
-        jsonObject.append("base", addressGadget.getBase());
-        jsonObject.append("offset", addressGadget.getOffset());
+        jsonObject.put("base", addressGadget.getBase());
+        jsonObject.put("offset", addressGadget.getOffset());
         return jsonObject;
     }
 
     private JSONObject instructionsJson(JSONObject jsonObject, InstructionsGadget instructionsGadget) {
-        jsonObject.append("base", instructionsGadget.getBase());
-
-        JSONArray jsonArray = new JSONArray();
+        jsonObject.put("base", instructionsGadget.getBase());
 
         for (String instruction : instructionsGadget.getInstructions()) {
-            jsonArray.put(instruction);
+            jsonObject.append("instructions", instruction);
         }
-
-        jsonObject.append("instructions", jsonArray);
 
         return jsonObject;
     }
 
     private JSONObject stringJson(JSONObject jsonObject, StringGadget stringGadget) {
-        jsonObject.append("base", stringGadget.getBase());
-        jsonObject.append("string", stringGadget.getString());
+        jsonObject.put("base", stringGadget.getBase());
+        jsonObject.put("string", stringGadget.getString());
         return jsonObject;
     }
 
     private JSONObject symbolJson(JSONObject jsonObject, SymbolGadget symbolGadget) {
-        jsonObject.append("base", symbolGadget.getBase());
-        jsonObject.append("symbolType", symbolGadget.getType());
-        jsonObject.append("symbol", symbolGadget.getSymbol());
+        jsonObject.put("base", symbolGadget.getBase());
+        jsonObject.put("symbolType", symbolGadget.getType());
+        jsonObject.put("symbol", symbolGadget.getSymbol());
         return jsonObject;
     }
 }
