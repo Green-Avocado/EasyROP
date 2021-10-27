@@ -4,9 +4,7 @@ import model.GadgetCollection;
 import model.ExploitObject;
 import ui.contexts.ConsoleContext;
 import ui.contexts.ScriptViewer;
-import ui.contexts.prompts.ExploitObjectMover;
-import ui.contexts.prompts.ExploitObjectRemover;
-import ui.contexts.prompts.SetCollectionName;
+import ui.contexts.prompts.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -68,6 +66,12 @@ public abstract class CollectionEditor extends MenuContext {
             case "e":
                 return editName();
 
+            case "s":
+                return save();
+
+            case "l":
+                return load();
+
             case "q":
                 return getParentContext();
 
@@ -115,6 +119,16 @@ public abstract class CollectionEditor extends MenuContext {
     // EFFECTS: Returns a context for viewing the script of the collection.
     ConsoleContext print() {
         return new ScriptViewer(this, getCollection().getScript());
+    }
+
+    // EFFECTS: returns a context for saving a collection to a file.
+    ConsoleContext save() {
+        return new SaveFile(this);
+    }
+
+    // EFFECTS: returns a context for loading a collection from a file.
+    ConsoleContext load() {
+        return new LoadFile(this);
     }
 
     // EFFECTS: Returns a context for adding an item to the collection.

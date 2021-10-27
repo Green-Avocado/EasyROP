@@ -22,7 +22,9 @@ public class RopChainEditor extends CollectionEditor {
                 "[N]ew gadget",
                 "[m]ove gadget",
                 "[d]elete gadget",
-                "[p]rint ROPchain"
+                "[p]rint ROPchain",
+                "[s]ave ROPchain to file",
+                "[l]oad ROPchain from file"
         ));
 
         menu.addAll(super.getMenu());
