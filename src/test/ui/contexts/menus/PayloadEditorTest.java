@@ -5,10 +5,8 @@ import model.RopChain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.ExploitObjectMover;
-import ui.contexts.prompts.ExploitObjectRemover;
+import ui.contexts.prompts.*;
 import ui.contexts.ScriptViewer;
-import ui.contexts.prompts.SetCollectionName;
 
 import java.util.Arrays;
 
@@ -137,6 +135,8 @@ public class PayloadEditorTest {
 
         for (int i = 0; i < 2; i++) {
             assertEquals(expectedContext.getContextString(), actualContext.getContextString());
+            assertEquals(expectedContext.getClass(), actualContext.getClass());
+
             expectedContext = expectedContext.handleInput("");
             actualContext = actualContext.handleInput("");
         }
@@ -157,6 +157,8 @@ public class PayloadEditorTest {
                     payloadEditor.handleInput("o").handleInput("").getContextString()
             );
         }
+
+        assertEquals(payloadEditor.open().getClass(), payloadEditor.handleInput("o").getClass());
     }
 
     @Test
@@ -179,11 +181,14 @@ public class PayloadEditorTest {
             assertEquals(payloadEditor.move().getContextString(), payloadEditor.handleInput("m").getContextString());
             assertEquals(expectedContextString, actualContextString);
         }
+
+        assertEquals(payloadEditor.move().getClass(), payloadEditor.handleInput("m").getClass());
     }
 
     @Test
     void testHandleInputD() {
         assertEquals(payloadEditor.delete().getContextString(), payloadEditor.handleInput("d").getContextString());
+        assertEquals(payloadEditor.delete().getClass(), payloadEditor.handleInput("d").getClass());
     }
 
     @Test
@@ -193,11 +198,26 @@ public class PayloadEditorTest {
             payloadEditor.add().handleInput("testChain" + i).handleInput("");
             assertEquals(payloadEditor.print().getContextString(), payloadEditor.handleInput("p").getContextString());
         }
+
+        assertEquals(payloadEditor.print().getClass(), payloadEditor.handleInput("p").getClass());
     }
 
     @Test
     void testHandleInputE() {
         assertEquals(payloadEditor.editName().getContextString(), payloadEditor.handleInput("e").getContextString());
+        assertEquals(payloadEditor.editName().getClass(), payloadEditor.handleInput("e").getClass());
+    }
+
+    @Test
+    void testHandleInputS() {
+        assertEquals(payloadEditor.save().getContextString(), payloadEditor.handleInput("s").getContextString());
+        assertEquals(payloadEditor.save().getClass(), payloadEditor.handleInput("s").getClass());
+    }
+
+    @Test
+    void testHandleInputL() {
+        assertEquals(payloadEditor.load().getContextString(), payloadEditor.handleInput("l").getContextString());
+        assertEquals(payloadEditor.load().getClass(), payloadEditor.handleInput("l").getClass());
     }
 
     @Test
@@ -255,5 +275,17 @@ public class PayloadEditorTest {
         assertEquals(ScriptViewer.class, payloadEditor.print().getClass());
         assertEquals(payloadEditor, payloadEditor.print().getParentContext());
         assertEquals(payloadEditor, payloadEditor.print().handleInput(""));
+    }
+
+    @Test
+    void testSave() {
+        assertEquals(SaveFile.class, payloadEditor.save().getClass());
+        assertEquals(payloadEditor, payloadEditor.save().getParentContext());
+    }
+
+    @Test
+    void testLoad() {
+        assertEquals(LoadFile.class, payloadEditor.load().getClass());
+        assertEquals(payloadEditor, payloadEditor.load().getParentContext());
     }
 }

@@ -6,10 +6,8 @@ import model.gadgets.Padding;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.ExploitObjectMover;
-import ui.contexts.prompts.ExploitObjectRemover;
+import ui.contexts.prompts.*;
 import ui.contexts.ScriptViewer;
-import ui.contexts.prompts.SetCollectionName;
 
 import java.util.Arrays;
 
@@ -104,8 +102,8 @@ public class RopChainEditorTest {
 
     @Test
     void testHandleInputN() {
-        assertEquals(GadgetCreator.class, ropChainEditor.add().getClass());
-        assertEquals(ropChainEditor, ropChainEditor.add().getParentContext());
+        assertEquals(ropChainEditor.add().getContextString(), ropChainEditor.handleInput("n").getContextString());
+        assertEquals(ropChainEditor.add().getClass(), ropChainEditor.handleInput("n").getClass());
     }
 
     @Test
@@ -121,6 +119,8 @@ public class RopChainEditorTest {
                     ropChainEditor.handleInput("o").handleInput("").getContextString()
             );
         }
+
+        assertEquals(ropChainEditor.open().getClass(), ropChainEditor.handleInput("o").getClass());
     }
 
     @Test
@@ -143,11 +143,14 @@ public class RopChainEditorTest {
             assertEquals(ropChainEditor.move().getContextString(), ropChainEditor.handleInput("m").getContextString());
             assertEquals(expectedContextString, actualContextString);
         }
+
+        assertEquals(ropChainEditor.move().getClass(), ropChainEditor.handleInput("m").getClass());
     }
 
     @Test
     void testHandleInputD() {
         assertEquals(ropChainEditor.delete().getContextString(), ropChainEditor.handleInput("d").getContextString());
+        assertEquals(ropChainEditor.delete().getClass(), ropChainEditor.handleInput("d").getClass());
     }
 
     @Test
@@ -157,11 +160,26 @@ public class RopChainEditorTest {
             ropChainEditor.add().handleInput("").handleInput(String.valueOf(i)).handleInput("");
             assertEquals(ropChainEditor.print().getContextString(), ropChainEditor.handleInput("p").getContextString());
         }
+
+        assertEquals(ropChainEditor.print().getClass(), ropChainEditor.handleInput("p").getClass());
     }
 
     @Test
     void testHandleInputE() {
         assertEquals(ropChainEditor.editName().getContextString(), ropChainEditor.handleInput("e").getContextString());
+        assertEquals(ropChainEditor.editName().getClass(), ropChainEditor.handleInput("e").getClass());
+    }
+
+    @Test
+    void testHandleInputS() {
+        assertEquals(ropChainEditor.save().getContextString(), ropChainEditor.handleInput("s").getContextString());
+        assertEquals(ropChainEditor.save().getClass(), ropChainEditor.handleInput("s").getClass());
+    }
+
+    @Test
+    void testHandleInputL() {
+        assertEquals(ropChainEditor.load().getContextString(), ropChainEditor.handleInput("l").getContextString());
+        assertEquals(ropChainEditor.load().getClass(), ropChainEditor.handleInput("l").getClass());
     }
 
     @Test
@@ -214,5 +232,17 @@ public class RopChainEditorTest {
         assertEquals(ScriptViewer.class, ropChainEditor.print().getClass());
         assertEquals(ropChainEditor, ropChainEditor.print().getParentContext());
         assertEquals(ropChainEditor, ropChainEditor.print().handleInput(""));
+    }
+
+    @Test
+    void testSave() {
+        assertEquals(SaveFile.class, ropChainEditor.save().getClass());
+        assertEquals(ropChainEditor, ropChainEditor.save().getParentContext());
+    }
+
+    @Test
+    void testLoad() {
+        assertEquals(LoadFile.class, ropChainEditor.load().getClass());
+        assertEquals(ropChainEditor, ropChainEditor.load().getParentContext());
     }
 }
