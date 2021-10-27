@@ -23,22 +23,24 @@ public class JsonWriterTest {
     }
 
     @Test
-    void testWriteObject() throws TypeMismatchException, IOException {
-        Payload payload = new JsonReader("./data/testReadPayload.json").payloadFromFile();
-        RopChain ropChain = new JsonReader("./data/testReadRopChain.json").ropChainFromFile();
-        String oldFile;
-        String newFile;
+    void testWriteObjectPayload() throws TypeMismatchException, IOException {
+        jsonWriter.writeObject(new JsonReader("./data/testReadPayload.json").payloadFromFile());
 
-        jsonWriter.writeObject(payload);
-        oldFile = String.join("\n", Files.readAllLines(Paths.get("./data/testReadPayload.json")));
-        newFile = String.join("\n", Files.readAllLines(Paths.get("./data/testWrite.json")));
-        assertEquals(oldFile, newFile);
-
-        jsonWriter.writeObject(ropChain);
-        oldFile = String.join("\n", Files.readAllLines(Paths.get("./data/testReadRopChain.json")));
-        newFile = String.join("\n", Files.readAllLines(Paths.get("./data/testWrite.json")));
-        assertEquals(oldFile, newFile);
-
+        assertEquals(
+                String.join("\n", Files.readAllLines(Paths.get("./data/testReadPayload.json"))),
+                String.join("\n", Files.readAllLines(Paths.get("./data/testWrite.json")))
+        );
         assertThrows(IOException.class, () -> jsonWriterIllegal.writeObject(new Payload()));
+    }
+
+    @Test
+    void testWriteObjectRopChain() throws TypeMismatchException, IOException {
+        jsonWriter.writeObject(new JsonReader("./data/testReadRopChain.json").ropChainFromFile());
+
+        assertEquals(
+                String.join("\n", Files.readAllLines(Paths.get("./data/testReadRopChain.json"))),
+                String.join("\n", Files.readAllLines(Paths.get("./data/testWrite.json")))
+        );
+        assertThrows(IOException.class, () -> jsonWriterIllegal.writeObject(new RopChain()));
     }
 }
