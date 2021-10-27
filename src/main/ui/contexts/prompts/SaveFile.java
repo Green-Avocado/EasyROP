@@ -4,8 +4,11 @@ import persistence.JsonWriter;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
 
+// Represents a context where the user can select a file to save to.
 public class SaveFile extends PromptContext {
 
+    // EFFECTS: Creates a new SaveFile context with the given parentContext.
+    //          The default filename is created based on the collection name of the parentContext.
     public SaveFile(ConsoleContext parentContext) {
         super(
                 parentContext,
@@ -14,6 +17,8 @@ public class SaveFile extends PromptContext {
         );
     }
 
+    // EFFECTS: Accepts user input and attempts to write the contents of the collection to the specified file.
+    //          Returns the parentContext.
     @Override
     ConsoleContext handleInputInternal(String input) {
         try {
