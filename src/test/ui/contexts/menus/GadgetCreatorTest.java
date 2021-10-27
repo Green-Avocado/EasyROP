@@ -17,7 +17,7 @@ public class GadgetCreatorTest {
 
     @BeforeEach
     void runBefore() {
-        gadgetCreator = new GadgetCreator(new RopChainEditor(new RopChain(), null));
+        gadgetCreator = new GadgetCreator(new RopChainEditor(null, new RopChain()));
     }
 
     @Test
@@ -136,7 +136,7 @@ public class GadgetCreatorTest {
 
     @Test
     void testHandleInputQ() {
-        RopChainEditor ropChainEditor = new RopChainEditor(new RopChain(), null);
+        RopChainEditor ropChainEditor = new RopChainEditor(null, new RopChain());
         gadgetCreator = new GadgetCreator(ropChainEditor);
         assertEquals(ropChainEditor, gadgetCreator.handleInput("q"));
     }

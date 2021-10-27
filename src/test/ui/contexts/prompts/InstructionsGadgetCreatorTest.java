@@ -15,7 +15,7 @@ public class InstructionsGadgetCreatorTest {
 
     @BeforeEach
     void runBefore() {
-        ropChainEditor = new RopChainEditor(new RopChain(), new PayloadEditor(new Payload()));
+        ropChainEditor = new RopChainEditor(new PayloadEditor(new Payload()), new RopChain());
         instructionsGadgetCreator = new InstructionsGadgetCreator(ropChainEditor);
     }
 

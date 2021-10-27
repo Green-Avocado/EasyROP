@@ -30,8 +30,7 @@ public class RopChainSelector extends PromptContext {
 
         if (ropChain != null) {
             return new RopChainEditor(
-                    ropChain,
-                    getParentContext()
+                    getParentContext(), ropChain
             );
         }
 

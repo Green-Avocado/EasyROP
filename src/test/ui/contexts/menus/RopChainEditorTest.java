@@ -18,14 +18,14 @@ public class RopChainEditorTest {
 
     @BeforeEach
     void runBefore() {
-        ropChainEditor = new RopChainEditor(new RopChain(), new PayloadEditor(new Payload()));
+        ropChainEditor = new RopChainEditor(new PayloadEditor(new Payload()), new RopChain());
     }
 
     @Test
     void testConstructor() {
         RopChain ropChain = new RopChain();
         PayloadEditor payloadEditor = new PayloadEditor(new Payload());
-        ropChainEditor = new RopChainEditor(ropChain, payloadEditor);
+        ropChainEditor = new RopChainEditor(payloadEditor, ropChain);
 
         assertEquals(ropChain, ropChainEditor.getCollection());
         assertEquals(payloadEditor, ropChainEditor.getParentContext());
@@ -63,7 +63,7 @@ public class RopChainEditorTest {
     void testGetContextString() {
         // nested for loop tests different sized RopChains
         for (int i = 0; i < 16; i++) {
-            ropChainEditor = new RopChainEditor(new RopChain(), null);
+            ropChainEditor = new RopChainEditor(null, new RopChain());
             ropChainEditor.getCollection().setName("testName");
 
             StringBuilder expectedString = new StringBuilder();

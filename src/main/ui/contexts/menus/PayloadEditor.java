@@ -14,7 +14,7 @@ import java.util.List;
 public class PayloadEditor extends CollectionEditor {
 
     public PayloadEditor(Payload payload) {
-        super(payload, null);
+        super(null, payload);
     }
 
     // EFFECTS: Appends PayloadEditor-specific menu options with CollectionEditor options.

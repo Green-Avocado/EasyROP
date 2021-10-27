@@ -20,7 +20,7 @@ public class SaveFileTest {
         payloadEditor = new PayloadEditor(new Payload());
         payloadEditor.getCollection().setName("testSavePayload");
 
-        ropChainEditor = new RopChainEditor(new RopChain(), payloadEditor);
+        ropChainEditor = new RopChainEditor(payloadEditor, new RopChain());
         ropChainEditor.getCollection().setName("testSaveRopChain");
 
         saveFilePayload = new SaveFile(payloadEditor);

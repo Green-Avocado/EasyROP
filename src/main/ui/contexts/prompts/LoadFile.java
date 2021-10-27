@@ -30,7 +30,7 @@ public class LoadFile extends PromptContext {
             if (getParentContext().getClass() == PayloadEditor.class) {
                 return new PayloadEditor(jsonReader.payloadFromFile());
             } else {
-                return new RopChainEditor(jsonReader.ropChainFromFile(), getParentContext());
+                return new RopChainEditor(getParentContext(), jsonReader.ropChainFromFile());
             }
         } catch (Exception e) {
             return getParentContext();

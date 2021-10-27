@@ -10,8 +10,8 @@ import java.util.List;
 // Represents a UI context that edits RopChain objects
 public class RopChainEditor extends CollectionEditor {
 
-    public RopChainEditor(RopChain ropChain, ConsoleContext parentContext) {
-        super(ropChain, parentContext);
+    public RopChainEditor(ConsoleContext parentContext, RopChain ropChain) {
+        super(parentContext, ropChain);
     }
 
     // EFFECTS: Appends RopChainEditor-specific menu options with CollectionEditor options.
