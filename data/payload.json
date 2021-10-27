@@ -1,1 +1,1 @@
-{"name":"testNamePayload","type":"PAYLOAD","exploitObjectList":[]}
+{"name":"payload","type":"PAYLOAD","exploitObjectList":[{"name":"ropChain","type":"ROP_CHAIN","exploitObjectList":[]}]}
