@@ -42,6 +42,8 @@ public class RopChainEditorTest {
                         "[d]elete gadget",
                         "[p]rint ROPchain",
                         "[e]dit name",
+                        "[s]ave",
+                        "[l]oad",
                         "[q]uit"
                 ),
                 ropChainEditor.getMenu()

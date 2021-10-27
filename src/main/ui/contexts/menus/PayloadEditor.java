@@ -26,9 +26,7 @@ public class PayloadEditor extends CollectionEditor {
                 "[o]pen ROPchain",
                 "[m]ove ROPchain",
                 "[d]elete ROPchain",
-                "[p]rint payload",
-                "[s]ave payload to file",
-                "[l]oad payload from file"
+                "[p]rint payload"
         ));
 
         menu.addAll(super.getMenu());

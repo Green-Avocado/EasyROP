@@ -88,7 +88,7 @@ public abstract class CollectionEditor extends MenuContext {
     // EFFECTS: Returns a list of menu options common to all implementations of this class
     @Override
     List<String> getMenu() {
-        return Arrays.asList("[e]dit name", "[q]uit");
+        return Arrays.asList("[e]dit name", "[s]ave", "[l]oad", "[q]uit");
     }
 
     // EFFECTS: If the collection is not empty, returns a context for removing an item from the collection,

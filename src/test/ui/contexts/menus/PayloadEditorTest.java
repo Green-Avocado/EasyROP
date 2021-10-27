@@ -41,6 +41,8 @@ public class PayloadEditorTest {
                         "[d]elete ROPchain",
                         "[p]rint payload",
                         "[e]dit name",
+                        "[s]ave",
+                        "[l]oad",
                         "[q]uit"
                 ),
                 payloadEditor.getMenu()
