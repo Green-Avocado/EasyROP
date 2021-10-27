@@ -37,8 +37,11 @@ public class JsonReaderTest {
         assertEquals("testReadRopChain", payload.get(0).getName());
         assertEquals(ExploitObjectType.ROP_CHAIN, payload.get(0).getExploitObjectType());
 
-        assertThrows(TypeMismatchException.class, () -> jsonReaderRopChain.payloadFromFile());
-        assertThrows(TypeMismatchException.class, () -> jsonReaderRopChain.payloadFromFile());
+        assertEquals(
+                "Payload cannot be of type ROP_CHAIN",
+                assertThrows(TypeMismatchException.class, () -> jsonReaderRopChain.payloadFromFile()).getMessage()
+        );
+
         assertThrows(IOException.class, () -> jsonReaderNoFile.payloadFromFile());
     }
 
@@ -83,8 +86,15 @@ public class JsonReaderTest {
         assertEquals("main", ((SymbolGadget) ropChain.get(8)).getSymbol());
         assertEquals("puts", ((SymbolGadget) ropChain.get(9)).getSymbol());
 
-        assertThrows(TypeMismatchException.class, () -> jsonReaderPayload.ropChainFromFile());
-        assertThrows(TypeMismatchException.class, () -> jsonReaderRopChainMalformed.ropChainFromFile());
+        assertEquals(
+                "RopChain cannot be of type PAYLOAD",
+                assertThrows(TypeMismatchException.class, () -> jsonReaderPayload.ropChainFromFile()).getMessage()
+        );
+        assertEquals(
+                "Gadget cannot be of type PAYLOAD",
+                assertThrows(TypeMismatchException.class, () -> jsonReaderRopChainMalformed.ropChainFromFile()).getMessage()
+        );
+
         assertThrows(IOException.class, () -> jsonReaderNoFile.ropChainFromFile());
     }
 }
