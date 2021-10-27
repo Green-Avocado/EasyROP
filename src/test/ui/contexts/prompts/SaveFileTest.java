@@ -18,10 +18,10 @@ public class SaveFileTest {
     @BeforeEach
     void runBefore() {
         payloadEditor = new PayloadEditor(new Payload());
-        payloadEditor.getCollection().setName("testNamePayload");
+        payloadEditor.getCollection().setName("testSavePayload");
 
         ropChainEditor = new RopChainEditor(new RopChain(), payloadEditor);
-        ropChainEditor.getCollection().setName("testNameRopChain");
+        ropChainEditor.getCollection().setName("testSaveRopChain");
 
         saveFilePayload = new SaveFile(payloadEditor);
         saveFileRopChain = new SaveFile(ropChainEditor);
@@ -35,16 +35,16 @@ public class SaveFileTest {
 
     @Test
     void testGetContextString() {
-        assertEquals("File name (default ./data/testNamePayload.json): ", saveFilePayload.getContextString());
-        assertEquals("File name (default ./data/testNameRopChain.json): ", saveFileRopChain.getContextString());
+        assertEquals("File name (default ./data/testSavePayload.json): ", saveFilePayload.getContextString());
+        assertEquals("File name (default ./data/testSaveRopChain.json): ", saveFileRopChain.getContextString());
     }
 
     @Test
     void testHandleInput() {
         assertEquals(payloadEditor, saveFilePayload.handleInput("/etc/passwd"));
-        assertEquals(payloadEditor, saveFilePayload.handleInput("./data/payload.json"));
+        assertEquals(payloadEditor, saveFilePayload.handleInput("./data/testSavePayload.json"));
 
         assertEquals(ropChainEditor, saveFileRopChain.handleInput("/etc/passwd"));
-        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data/ropChain.json"));
+        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data/testSaveRopChain.json"));
     }
 }
