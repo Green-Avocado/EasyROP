@@ -29,7 +29,7 @@ public class JsonReaderTest {
     }
 
     @Test
-    void testPayloadFromFile() throws UnsupportedOperationException, IOException {
+    void testPayloadFromFile() throws TypeMismatchException, IOException {
         Payload payload = jsonReaderPayload.payloadFromFile();
         assertEquals("testReadPayload", payload.getName());
         assertEquals(1, payload.getLength());
@@ -37,13 +37,13 @@ public class JsonReaderTest {
         assertEquals("testReadRopChain", payload.get(0).getName());
         assertEquals(ExploitObjectType.ROP_CHAIN, payload.get(0).getExploitObjectType());
 
-        assertThrows(UnsupportedOperationException.class, () -> jsonReaderRopChain.payloadFromFile());
-        assertThrows(UnsupportedOperationException.class, () -> jsonReaderRopChain.payloadFromFile());
+        assertThrows(TypeMismatchException.class, () -> jsonReaderRopChain.payloadFromFile());
+        assertThrows(TypeMismatchException.class, () -> jsonReaderRopChain.payloadFromFile());
         assertThrows(IOException.class, () -> jsonReaderNoFile.payloadFromFile());
     }
 
     @Test
-    void testRopChainFromFile() throws UnsupportedOperationException, IOException {
+    void testRopChainFromFile() throws TypeMismatchException, IOException {
         RopChain ropChain = jsonReaderRopChain.ropChainFromFile();
         assertEquals("testReadRopChain", ropChain.getName());
         assertEquals(10, ropChain.getLength());
@@ -83,8 +83,8 @@ public class JsonReaderTest {
         assertEquals("main", ((SymbolGadget) ropChain.get(8)).getSymbol());
         assertEquals("puts", ((SymbolGadget) ropChain.get(9)).getSymbol());
 
-        assertThrows(UnsupportedOperationException.class, () -> jsonReaderPayload.ropChainFromFile());
-        assertThrows(UnsupportedOperationException.class, () -> jsonReaderRopChainMalformed.ropChainFromFile());
+        assertThrows(TypeMismatchException.class, () -> jsonReaderPayload.ropChainFromFile());
+        assertThrows(TypeMismatchException.class, () -> jsonReaderRopChainMalformed.ropChainFromFile());
         assertThrows(IOException.class, () -> jsonReaderNoFile.ropChainFromFile());
     }
 }

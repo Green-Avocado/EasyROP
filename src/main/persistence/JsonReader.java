@@ -22,16 +22,16 @@ public class JsonReader {
     }
 
     // EFFECTS: Returns a Payload object from the file specified by filename.
-    //          Throws UnsupportedOperationException if JSON data is malformed or of the wrong type.
+    //          Throws TypeMismatchException if JSON data is malformed or of the wrong type.
     //          Throws IOException on error reading the file.
-    public Payload payloadFromFile() throws UnsupportedOperationException, IOException {
+    public Payload payloadFromFile() throws TypeMismatchException, IOException {
         return payloadFromJson(jsonFromFile());
     }
 
     // EFFECTS: Returns a RopChain object from the file specified by filename.
-    //          Throws UnsupportedOperationException if JSON data is malformed or of the wrong type.
+    //          Throws TypeMismatchException if JSON data is malformed or of the wrong type.
     //          Throws IOException on error reading the file.
-    public RopChain ropChainFromFile() throws UnsupportedOperationException, IOException {
+    public RopChain ropChainFromFile() throws TypeMismatchException, IOException {
         return ropChainFromJson(jsonFromFile());
     }
 
@@ -43,11 +43,11 @@ public class JsonReader {
     }
 
     // EFFECTS: Returns a Payload object from a given JSONObject.
-    //          Throws UnsupportedOperationException if JSON data is malformed.
-    private Payload payloadFromJson(JSONObject jsonObject) throws UnsupportedOperationException {
+    //          Throws TypeMismatchException if JSON data is malformed.
+    private Payload payloadFromJson(JSONObject jsonObject) throws TypeMismatchException {
         ExploitObjectType type = jsonObject.getEnum(ExploitObjectType.class, "type");
         if (type != ExploitObjectType.PAYLOAD) {
-            throw new UnsupportedOperationException(type.name());
+            throw new TypeMismatchException("Payload cannot be of type " + type.name());
         }
 
         Payload payload = new Payload();
@@ -61,11 +61,11 @@ public class JsonReader {
     }
 
     // EFFECTS: Returns a RopChain object from a given JSONObject.
-    //          Throws UnsupportedOperationException if JSON data is malformed.
-    private RopChain ropChainFromJson(JSONObject jsonObject) throws UnsupportedOperationException {
+    //          Throws TypeMismatchException if JSON data is malformed.
+    private RopChain ropChainFromJson(JSONObject jsonObject) throws TypeMismatchException {
         ExploitObjectType type = jsonObject.getEnum(ExploitObjectType.class, "type");
         if (type != ExploitObjectType.ROP_CHAIN) {
-            throw new UnsupportedOperationException(type.name());
+            throw new TypeMismatchException("RopChain cannot be of type " + type.name());
         }
 
         RopChain ropChain = new RopChain();
@@ -79,9 +79,10 @@ public class JsonReader {
     }
 
     // EFFECTS: Returns a Padding or Gadget object from a given JSONObject.
-    //          Throws UnsupportedOperationException if JSON data is malformed.
-    private ExploitObject gadgetFromJson(JSONObject jsonObject) throws UnsupportedOperationException {
-        switch (jsonObject.getEnum(ExploitObjectType.class, "type")) {
+    //          Throws TypeMismatchException if JSON data is malformed.
+    private ExploitObject gadgetFromJson(JSONObject jsonObject) throws TypeMismatchException {
+        ExploitObjectType type = jsonObject.getEnum(ExploitObjectType.class, "type");
+        switch (type) {
             case PADDING:
                 return paddingFromJson(jsonObject);
             case ADDRESS_GADGET:
@@ -93,7 +94,7 @@ public class JsonReader {
             case SYMBOL_GADGET:
                 return symbolGadgetFromJson(jsonObject);
             default:
-                throw new UnsupportedOperationException();
+                throw new TypeMismatchException("Gadget cannot be of type " + type.name());
         }
     }
 
