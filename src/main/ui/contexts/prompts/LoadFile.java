@@ -1,5 +1,6 @@
 package ui.contexts.prompts;
 
+import model.GadgetCollection;
 import persistence.JsonReader;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
@@ -27,11 +28,17 @@ public class LoadFile extends PromptContext {
         try {
             JsonReader jsonReader = new JsonReader(input);
 
+            GadgetCollection gadgetCollection;
+
             if (getParentContext().getClass() == PayloadEditor.class) {
-                return new PayloadEditor(jsonReader.payloadFromFile());
+                gadgetCollection = jsonReader.payloadFromFile();
             } else {
-                return new RopChainEditor(getParentContext(), jsonReader.ropChainFromFile());
+                gadgetCollection = jsonReader.ropChainFromFile();
             }
+
+            ((CollectionEditor) getParentContext()).setCollection(gadgetCollection);
+            return getParentContext();
+
         } catch (Exception e) {
             return getParentContext();
         }

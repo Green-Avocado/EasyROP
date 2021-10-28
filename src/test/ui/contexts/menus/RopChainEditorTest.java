@@ -1,5 +1,6 @@
 package ui.contexts.menus;
 
+import model.GadgetCollection;
 import model.Payload;
 import model.RopChain;
 import model.gadgets.Padding;
@@ -29,6 +30,13 @@ public class RopChainEditorTest {
 
         assertEquals(ropChain, ropChainEditor.getCollection());
         assertEquals(payloadEditor, ropChainEditor.getParentContext());
+    }
+
+    @Test
+    void testSetCollection() {
+        RopChain ropChain = new RopChain();
+        ropChainEditor.setCollection(ropChain);
+        assertEquals(ropChain, ropChainEditor.getCollection());
     }
 
     @Test

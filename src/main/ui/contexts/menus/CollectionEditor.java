@@ -11,7 +11,7 @@ import java.util.List;
 
 // Represents a UI context that edits a GadgetCollection
 public abstract class CollectionEditor extends MenuContext {
-    private final GadgetCollection collection;
+    private GadgetCollection collection;
 
     // EFFECTS: Creates a new CollectionEditor context with a given collection and parentContext
     public CollectionEditor(ConsoleContext parentContext, GadgetCollection collection) {
@@ -78,6 +78,10 @@ public abstract class CollectionEditor extends MenuContext {
             default:
                 return this;
         }
+    }
+
+    public void setCollection(GadgetCollection collection) {
+        this.collection = collection;
     }
 
     // EFFECTS: Returns the collection of this object.
