@@ -41,10 +41,10 @@ public class SaveFileTest {
 
     @Test
     void testHandleInput() {
-        assertEquals(payloadEditor, saveFilePayload.handleInput("/etc/passwd"));
+        assertEquals(payloadEditor, saveFilePayload.handleInput("./data"));
         assertEquals(payloadEditor, saveFilePayload.handleInput("./data/testSavePayload.json"));
 
-        assertEquals(ropChainEditor, saveFileRopChain.handleInput("/etc/passwd"));
+        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data"));
         assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data/testSaveRopChain.json"));
     }
 }

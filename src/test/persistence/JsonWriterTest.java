@@ -19,7 +19,7 @@ public class JsonWriterTest {
     @BeforeEach
     void runBefore() {
         jsonWriter = new JsonWriter("./data/testWrite.json");
-        jsonWriterIllegal = new JsonWriter("/etc/passwd");
+        jsonWriterIllegal = new JsonWriter("./data");
     }
 
     @Test
