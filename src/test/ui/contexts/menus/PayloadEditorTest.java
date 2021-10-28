@@ -40,10 +40,10 @@ public class PayloadEditorTest {
     void testGetMenu() {
         assertEquals(
                 Arrays.asList(
-                        "[N]ew ROPchain",
-                        "[o]pen ROPchain",
-                        "[m]ove ROPchain",
-                        "[d]elete ROPchain",
+                        "[N]ew ROP chain",
+                        "[o]pen ROP chain",
+                        "[m]ove ROP chain",
+                        "[d]elete ROP chain",
                         "[p]rint payload",
                         "[e]dit name",
                         "[s]ave",
