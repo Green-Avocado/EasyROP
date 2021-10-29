@@ -1,8 +1,8 @@
 {
-  "name": "ropChain",
-  "type": "ROP_CHAIN",
-  "exploitObjectList": [{
-    "length": "8",
-    "type": "PAYLOAD"
-  }]
+    "name": "ropChain",
+    "type": "ROP_CHAIN",
+    "exploitObjectList": [{
+        "length": "8",
+        "type": "PAYLOAD"
+    }]
 }
