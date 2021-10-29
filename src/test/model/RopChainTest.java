@@ -100,6 +100,16 @@ class RopChainTest {
     }
 
     @Test
+    void testClear() {
+        for (int i = 0; i < 3; i++) {
+            ropChain.add(new AddressGadget(), ropChain.getLength());
+        }
+
+        ropChain.clear();
+        assertEquals(0, ropChain.getLength());
+    }
+
+    @Test
     void testSet() {
         ArrayList<ExploitObject> gadgetList = new ArrayList<>();
         ArrayList<ExploitObject> newGadgetList = new ArrayList<>();

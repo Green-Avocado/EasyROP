@@ -1,6 +1,8 @@
 package ui.contexts.prompts;
 
 import model.GadgetCollection;
+import model.Payload;
+import model.RopChain;
 import persistence.JsonReader;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
@@ -21,22 +23,21 @@ public class LoadFile extends PromptContext {
     }
 
     // EFFECTS: Accepts user input and attempts to read the context of the specified file.
-    //          If successful, returns a new context of the same class as the parentContext with the new data.
+    //          If successful, returns the parentContext with the newly read data.
     //          If unsuccessful, returns the parentContext with the original data.
     @Override
     ConsoleContext handleInputInternal(String input) {
         try {
             JsonReader jsonReader = new JsonReader(input);
 
-            GadgetCollection gadgetCollection;
+            GadgetCollection gadgetCollection = ((CollectionEditor) getParentContext()).getCollection();
 
             if (getParentContext().getClass() == PayloadEditor.class) {
-                gadgetCollection = jsonReader.payloadFromFile();
+                jsonReader.payloadFromFile((Payload) gadgetCollection);
             } else {
-                gadgetCollection = jsonReader.ropChainFromFile();
+                jsonReader.ropChainFromFile((RopChain) gadgetCollection);
             }
 
-            ((CollectionEditor) getParentContext()).setCollection(gadgetCollection);
             return getParentContext();
 
         } catch (Exception e) {

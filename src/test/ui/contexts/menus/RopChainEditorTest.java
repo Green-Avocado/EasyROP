@@ -33,13 +33,6 @@ public class RopChainEditorTest {
     }
 
     @Test
-    void testSetCollection() {
-        RopChain ropChain = new RopChain();
-        ropChainEditor.setCollection(ropChain);
-        assertEquals(ropChain, ropChainEditor.getCollection());
-    }
-
-    @Test
     void testGetMenu() {
         assertEquals(
                 Arrays.asList(

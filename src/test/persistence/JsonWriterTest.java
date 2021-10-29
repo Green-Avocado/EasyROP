@@ -24,7 +24,9 @@ public class JsonWriterTest {
 
     @Test
     void testWriteObjectPayload() throws TypeMismatchException, IOException {
-        jsonWriter.writeObject(new JsonReader("./data/testReadPayload.json").payloadFromFile());
+        Payload payload = new Payload();
+        new JsonReader("./data/testReadPayload.json").payloadFromFile(payload);
+        jsonWriter.writeObject(payload);
 
         assertEquals(
                 String.join("\n", Files.readAllLines(Paths.get("./data/testReadPayload.json"))),
@@ -35,7 +37,9 @@ public class JsonWriterTest {
 
     @Test
     void testWriteObjectRopChain() throws TypeMismatchException, IOException {
-        jsonWriter.writeObject(new JsonReader("./data/testReadRopChain.json").ropChainFromFile());
+        RopChain ropChain = new RopChain();
+        new JsonReader("./data/testReadRopChain.json").ropChainFromFile(ropChain);
+        jsonWriter.writeObject(ropChain);
 
         assertEquals(
                 String.join("\n", Files.readAllLines(Paths.get("./data/testReadRopChain.json"))),

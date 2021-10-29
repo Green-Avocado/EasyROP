@@ -80,10 +80,6 @@ public abstract class CollectionEditor extends MenuContext {
         }
     }
 
-    public void setCollection(GadgetCollection collection) {
-        this.collection = collection;
-    }
-
     // EFFECTS: Returns the collection of this object.
     public GadgetCollection getCollection() {
         return collection;

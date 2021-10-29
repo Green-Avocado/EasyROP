@@ -30,13 +30,6 @@ public class PayloadEditorTest {
     }
 
     @Test
-    void testSetCollection() {
-        Payload payload = new Payload();
-        payloadEditor.setCollection(payload);
-        assertEquals(payload, payloadEditor.getCollection());
-    }
-
-    @Test
     void testGetMenu() {
         assertEquals(
                 Arrays.asList(

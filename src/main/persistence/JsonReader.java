@@ -21,18 +21,20 @@ public class JsonReader {
         this.filename = filename;
     }
 
-    // EFFECTS: Returns a Payload object from the file specified by filename.
+    // MODIFIES: payload
+    // EFFECTS: Replaces the contents of payload with the contents of the file
     //          Throws TypeMismatchException if JSON data is malformed or of the wrong type.
     //          Throws IOException on error reading the file.
-    public Payload payloadFromFile() throws TypeMismatchException, IOException {
-        return payloadFromJson(jsonFromFile());
+    public void payloadFromFile(Payload payload) throws TypeMismatchException, IOException {
+        payloadFromJson(payload, jsonFromFile());
     }
 
-    // EFFECTS: Returns a RopChain object from the file specified by filename.
+    // MODIFIES: ropChain
+    // EFFECTS: Replaces the contents of ropChain with the contents of the file
     //          Throws TypeMismatchException if JSON data is malformed or of the wrong type.
     //          Throws IOException on error reading the file.
-    public RopChain ropChainFromFile() throws TypeMismatchException, IOException {
-        return ropChainFromJson(jsonFromFile());
+    public void ropChainFromFile(RopChain ropChain) throws TypeMismatchException, IOException {
+        ropChainFromJson(ropChain, jsonFromFile());
     }
 
     // EFFECTS: Returns a JSONObject from file specified by filename.
@@ -42,40 +44,40 @@ public class JsonReader {
         return new JSONObject(jsonString);
     }
 
-    // EFFECTS: Returns a Payload object from a given JSONObject.
+    // MODIFIES: payload
+    // EFFECTS: Replaces the contents of payload with the contents of jsonObject
     //          Throws TypeMismatchException if JSON data is malformed.
-    private Payload payloadFromJson(JSONObject jsonObject) throws TypeMismatchException {
+    private void payloadFromJson(Payload payload, JSONObject jsonObject) throws TypeMismatchException {
         ExploitObjectType type = jsonObject.getEnum(ExploitObjectType.class, "type");
         if (type != ExploitObjectType.PAYLOAD) {
             throw new TypeMismatchException("Payload cannot be of type " + type.name());
         }
 
-        Payload payload = new Payload();
         payload.setName(jsonObject.getString("name"));
+        payload.clear();
 
         for (Object object : jsonObject.getJSONArray("exploitObjectList")) {
-            payload.add(ropChainFromJson((JSONObject) object), payload.getLength());
+            RopChain ropChain = new RopChain();
+            ropChainFromJson(ropChain, (JSONObject) object);
+            payload.add(ropChain, payload.getLength());
         }
-
-        return payload;
     }
 
-    // EFFECTS: Returns a RopChain object from a given JSONObject.
+    // MODIFIES: ropChain
+    // EFFECTS: Replaces the contents of ropChain with the contents of jsonObject
     //          Throws TypeMismatchException if JSON data is malformed.
-    private RopChain ropChainFromJson(JSONObject jsonObject) throws TypeMismatchException {
+    private void ropChainFromJson(RopChain ropChain, JSONObject jsonObject) throws TypeMismatchException {
         ExploitObjectType type = jsonObject.getEnum(ExploitObjectType.class, "type");
         if (type != ExploitObjectType.ROP_CHAIN) {
             throw new TypeMismatchException("RopChain cannot be of type " + type.name());
         }
 
-        RopChain ropChain = new RopChain();
         ropChain.setName(jsonObject.getString("name"));
+        ropChain.clear();
 
         for (Object object : jsonObject.getJSONArray("exploitObjectList")) {
             ropChain.add(gadgetFromJson((JSONObject) object), ropChain.getLength());
         }
-
-        return ropChain;
     }
 
     // EFFECTS: Returns a Padding or Gadget object from a given JSONObject.

@@ -100,6 +100,16 @@ class PayloadTest {
     }
 
     @Test
+    void testClear() {
+        for (int i = 0; i < 3; i++) {
+            payload.add(new RopChain(), payload.getLength());
+        }
+
+        payload.clear();
+        assertEquals(0, payload.getLength());
+    }
+
+    @Test
     void testSetName() {
         payload.setName("testName");
         assertEquals("testName", payload.getName());

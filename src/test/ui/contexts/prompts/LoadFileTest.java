@@ -68,29 +68,55 @@ public class LoadFileTest {
     void testHandleInputSucceedPayload() {
         GadgetCollection oldCollection;
 
-        assertEquals(payloadEditor, loadFilePayload.handleInput(PAYLOAD_FILE));
+        // empty input
+        oldCollection = payloadEditor.getCollection();
         assertEquals(payloadEditor, loadFilePayload.handleInput(""));
+        assertEquals("testReadPayload", payloadEditor.getCollection().getName());
+        assertEquals(1, payloadEditor.getCollection().getLength());
+        assertEquals(oldCollection, payloadEditor.getCollection());
 
-        oldCollection = payloadEditor.getCollection();
-        assertNotEquals(oldCollection, ((CollectionEditor) loadFilePayload.handleInput("")).getCollection());
-        oldCollection = payloadEditor.getCollection();
-        assertNotEquals(oldCollection, ((CollectionEditor) loadFilePayload.handleInput(PAYLOAD_FILE)).getCollection());
+        // reset
+        payloadEditor = new PayloadEditor(new Payload());
+        payloadEditor.getCollection().setName("payload");
+        loadFilePayload = new LoadFile(payloadEditor);
 
+        // filename input
+        oldCollection = payloadEditor.getCollection();
+        assertEquals(payloadEditor, loadFilePayload.handleInput(PAYLOAD_FILE));
+        assertEquals("testReadPayload", payloadEditor.getCollection().getName());
+        assertEquals(1, payloadEditor.getCollection().getLength());
+        assertEquals(oldCollection, payloadEditor.getCollection());
+
+        // preserve parent
         assertEquals(payloadEditor.getParentContext(), loadFilePayload.handleInput("").getParentContext());
+        assertEquals(payloadEditor.getParentContext(), loadFilePayload.handleInput(PAYLOAD_FILE).getParentContext());
     }
 
     @Test
     void testHandleInputSucceedRopChain() {
         GadgetCollection oldCollection;
 
-        assertEquals(ropChainEditor, loadFileRopChain.handleInput(ROPCHAIN_FILE));
+        // empty input
+        oldCollection = ropChainEditor.getCollection();
         assertEquals(ropChainEditor, loadFileRopChain.handleInput(""));
+        assertEquals("testReadRopChain", ropChainEditor.getCollection().getName());
+        assertEquals(10, ropChainEditor.getCollection().getLength());
+        assertEquals(oldCollection, ropChainEditor.getCollection());
 
-        oldCollection = ropChainEditor.getCollection();
-        assertNotEquals(oldCollection, ((CollectionEditor) loadFileRopChain.handleInput("")).getCollection());
-        oldCollection = ropChainEditor.getCollection();
-        assertNotEquals(oldCollection, ((CollectionEditor) loadFileRopChain.handleInput(ROPCHAIN_FILE)).getCollection());
+        // reset
+        ropChainEditor = new RopChainEditor(payloadEditor, new RopChain());
+        ropChainEditor.getCollection().setName("ropChain");
+        loadFileRopChain = new LoadFile(ropChainEditor);
 
+        // filename input
+        oldCollection = ropChainEditor.getCollection();
+        assertEquals(ropChainEditor, loadFileRopChain.handleInput(ROPCHAIN_FILE));
+        assertEquals("testReadRopChain", ropChainEditor.getCollection().getName());
+        assertEquals(10, ropChainEditor.getCollection().getLength());
+        assertEquals(oldCollection, ropChainEditor.getCollection());
+
+        // preserve parent
         assertEquals(ropChainEditor.getParentContext(), loadFileRopChain.handleInput("").getParentContext());
+        assertEquals(ropChainEditor.getParentContext(), loadFileRopChain.handleInput(ROPCHAIN_FILE).getParentContext());
     }
 }

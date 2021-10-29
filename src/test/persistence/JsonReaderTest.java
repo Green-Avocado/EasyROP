@@ -30,7 +30,9 @@ public class JsonReaderTest {
 
     @Test
     void testPayloadFromFile() throws TypeMismatchException, IOException {
-        Payload payload = jsonReaderPayload.payloadFromFile();
+        Payload payload = new Payload();
+        jsonReaderPayload.payloadFromFile(payload);
+
         assertEquals("testReadPayload", payload.getName());
         assertEquals(1, payload.getLength());
 
@@ -39,15 +41,19 @@ public class JsonReaderTest {
 
         assertEquals(
                 "Payload cannot be of type ROP_CHAIN",
-                assertThrows(TypeMismatchException.class, () -> jsonReaderRopChain.payloadFromFile()).getMessage()
+                assertThrows(
+                        TypeMismatchException.class,
+                        () -> jsonReaderRopChain.payloadFromFile(payload)
+                ).getMessage()
         );
 
-        assertThrows(IOException.class, () -> jsonReaderNoFile.payloadFromFile());
+        assertThrows(IOException.class, () -> jsonReaderNoFile.payloadFromFile(payload));
     }
 
     @Test
     void testRopChainFromFile() throws TypeMismatchException, IOException {
-        RopChain ropChain = jsonReaderRopChain.ropChainFromFile();
+        RopChain ropChain = new RopChain();
+        jsonReaderRopChain.ropChainFromFile(ropChain);
         assertEquals("testReadRopChain", ropChain.getName());
         assertEquals(10, ropChain.getLength());
 
@@ -88,13 +94,19 @@ public class JsonReaderTest {
 
         assertEquals(
                 "RopChain cannot be of type PAYLOAD",
-                assertThrows(TypeMismatchException.class, () -> jsonReaderPayload.ropChainFromFile()).getMessage()
+                assertThrows(
+                        TypeMismatchException.class,
+                        () -> jsonReaderPayload.ropChainFromFile(new RopChain())
+                ).getMessage()
         );
         assertEquals(
                 "Gadget cannot be of type PAYLOAD",
-                assertThrows(TypeMismatchException.class, () -> jsonReaderRopChainMalformed.ropChainFromFile()).getMessage()
+                assertThrows(
+                        TypeMismatchException.class,
+                        () -> jsonReaderRopChainMalformed.ropChainFromFile(new RopChain())
+                ).getMessage()
         );
 
-        assertThrows(IOException.class, () -> jsonReaderNoFile.ropChainFromFile());
+        assertThrows(IOException.class, () -> jsonReaderNoFile.ropChainFromFile(new RopChain()));
     }
 }

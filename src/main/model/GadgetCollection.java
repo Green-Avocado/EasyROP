@@ -46,6 +46,12 @@ public abstract class GadgetCollection implements ExploitObject {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: removes all elements from the exploitObjectList.
+    public void clear() {
+        exploitObjectList.clear();
+    }
+
     // REQUIRES index >= 0
     // EFFECTS: Returns the ExploitObject at the specified index or null if no such object exists.
     public ExploitObject get(int index) {
