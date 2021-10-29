@@ -4,9 +4,13 @@ import model.GadgetCollection;
 import model.Payload;
 import model.RopChain;
 import persistence.JsonReader;
+import persistence.TypeMismatchException;
 import ui.contexts.ConsoleContext;
+import ui.contexts.TextViewer;
 import ui.contexts.menus.CollectionEditor;
 import ui.contexts.menus.PayloadEditor;
+
+import java.io.IOException;
 
 // Represents a context where a user can select a file to load from.
 public class LoadFile extends PromptContext {
@@ -39,8 +43,10 @@ public class LoadFile extends PromptContext {
 
             return getParentContext();
 
-        } catch (Exception e) {
-            return getParentContext();
+        } catch (TypeMismatchException e) {
+            return new TextViewer(getParentContext(), "Error: " + e.getMessage());
+        } catch (IOException e) {
+            return new TextViewer(getParentContext(), "Error: could not read file " + e.getMessage());
         }
     }
 }

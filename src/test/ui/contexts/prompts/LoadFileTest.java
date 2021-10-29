@@ -49,18 +49,47 @@ public class LoadFileTest {
     void testHandleInputFail() {
         GadgetCollection oldCollection;
 
-        assertEquals(payloadEditor, loadFilePayload.handleInput(DOES_NOT_EXIST));
-        assertEquals(payloadEditor, loadFilePayload.handleInput(ROPCHAIN_FILE));
-        assertEquals(ropChainEditor, loadFileRopChain.handleInput(DOES_NOT_EXIST));
-        assertEquals(ropChainEditor, loadFileRopChain.handleInput(PAYLOAD_FILE));
+        assertEquals(payloadEditor, loadFilePayload.handleInput(DOES_NOT_EXIST).handleInput(""));
+        assertEquals(payloadEditor, loadFilePayload.handleInput(ROPCHAIN_FILE).handleInput(""));
+        assertEquals(
+                "Error: could not read file File Does Not Exist\n",
+                loadFilePayload.handleInput(DOES_NOT_EXIST).getContextString()
+        );
+        assertEquals(
+                "Error: Payload cannot be of type ROP_CHAIN\n",
+                loadFilePayload.handleInput(ROPCHAIN_FILE).getContextString()
+        );
+
+        assertEquals(ropChainEditor, loadFileRopChain.handleInput(DOES_NOT_EXIST).handleInput(""));
+        assertEquals(ropChainEditor, loadFileRopChain.handleInput(PAYLOAD_FILE).handleInput(""));
+        assertEquals(
+                "Error: could not read file File Does Not Exist\n",
+                loadFileRopChain.handleInput(DOES_NOT_EXIST).getContextString()
+        );
+        assertEquals(
+                "Error: RopChain cannot be of type PAYLOAD\n",
+                loadFileRopChain.handleInput(PAYLOAD_FILE).getContextString()
+        );
 
         oldCollection = payloadEditor.getCollection();
-        assertEquals(oldCollection, ((CollectionEditor) loadFilePayload.handleInput(DOES_NOT_EXIST)).getCollection());
-        assertEquals(oldCollection, ((CollectionEditor) loadFilePayload.handleInput(ROPCHAIN_FILE)).getCollection());
+        assertEquals(
+                oldCollection,
+                ((CollectionEditor) loadFilePayload.handleInput(DOES_NOT_EXIST).handleInput("")).getCollection()
+        );
+        assertEquals(
+                oldCollection,
+                ((CollectionEditor) loadFilePayload.handleInput(ROPCHAIN_FILE).handleInput("")).getCollection()
+        );
 
         oldCollection = ropChainEditor.getCollection();
-        assertEquals(oldCollection, ((CollectionEditor) loadFileRopChain.handleInput(DOES_NOT_EXIST)).getCollection());
-        assertEquals(oldCollection, ((CollectionEditor) loadFileRopChain.handleInput(PAYLOAD_FILE)).getCollection());
+        assertEquals(
+                oldCollection,
+                ((CollectionEditor) loadFileRopChain.handleInput(DOES_NOT_EXIST).handleInput("")).getCollection()
+        );
+        assertEquals(
+                oldCollection,
+                ((CollectionEditor) loadFileRopChain.handleInput(PAYLOAD_FILE).handleInput("")).getCollection()
+        );
     }
 
     @Test

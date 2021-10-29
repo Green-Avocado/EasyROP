@@ -2,6 +2,7 @@ package ui.contexts.prompts;
 
 import persistence.JsonWriter;
 import ui.contexts.ConsoleContext;
+import ui.contexts.TextViewer;
 import ui.contexts.menus.CollectionEditor;
 
 // Represents a context where the user can select a file to save to.
@@ -26,7 +27,7 @@ public class SaveFile extends PromptContext {
             jsonWriter.writeObject(((CollectionEditor) getParentContext()).getCollection());
             return getParentContext();
         } catch (Exception e) {
-            return getParentContext();
+            return new TextViewer(getParentContext(), "Error: could not save to file " + e.getMessage());
         }
     }
 }

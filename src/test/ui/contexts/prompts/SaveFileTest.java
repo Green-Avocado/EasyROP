@@ -4,6 +4,7 @@ import model.Payload;
 import model.RopChain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ui.contexts.TextViewer;
 import ui.contexts.menus.PayloadEditor;
 import ui.contexts.menus.RopChainEditor;
 
@@ -41,10 +42,24 @@ public class SaveFileTest {
 
     @Test
     void testHandleInput() {
-        assertEquals(payloadEditor, saveFilePayload.handleInput("./data"));
-        assertEquals(payloadEditor, saveFilePayload.handleInput("./data/testSavePayload.json"));
+        // payload fail
+        assertEquals(payloadEditor, saveFilePayload.handleInput("./data").handleInput(""));
+        assertEquals(TextViewer.class, saveFilePayload.handleInput("./data").getClass());
+        assertEquals(
+                "Error: could not save to file ./data (Is a directory)\n",
+                saveFilePayload.handleInput("./data").getContextString()
+        );
 
-        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data"));
+        // ropChain fail
+        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data").handleInput(""));
+        assertEquals(TextViewer.class, saveFileRopChain.handleInput("./data").getClass());
+        assertEquals(
+                "Error: could not save to file ./data (Is a directory)\n",
+                saveFileRopChain.handleInput("./data").getContextString()
+        );
+
+        // success
+        assertEquals(payloadEditor, saveFilePayload.handleInput("./data/testSavePayload.json"));
         assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data/testSaveRopChain.json"));
     }
 }
