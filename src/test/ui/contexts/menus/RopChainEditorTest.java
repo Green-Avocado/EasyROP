@@ -6,7 +6,7 @@ import model.gadgets.Padding;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.ConsoleContext;
-import ui.contexts.ScriptViewer;
+import ui.contexts.TextViewer;
 import ui.contexts.prompts.*;
 
 import java.util.Arrays;
@@ -229,7 +229,7 @@ public class RopChainEditorTest {
             assertEquals(ropChainEditor.getCollection().getScript() + "\n", ropChainEditor.print().getContextString());
         }
 
-        assertEquals(ScriptViewer.class, ropChainEditor.print().getClass());
+        assertEquals(TextViewer.class, ropChainEditor.print().getClass());
         assertEquals(ropChainEditor, ropChainEditor.print().getParentContext());
         assertEquals(ropChainEditor, ropChainEditor.print().handleInput(""));
     }

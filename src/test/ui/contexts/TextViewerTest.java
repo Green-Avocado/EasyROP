@@ -7,29 +7,29 @@ import ui.contexts.menus.PayloadEditor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ScriptViewerTest {
-    private ScriptViewer scriptViewer;
+public class TextViewerTest {
+    private TextViewer textViewer;
     private PayloadEditor payloadEditor;
 
     @BeforeEach
     void runBefore() {
         payloadEditor = new PayloadEditor(new Payload());
-        scriptViewer = new ScriptViewer(payloadEditor, "testScript");
+        textViewer = new TextViewer(payloadEditor, "testScript");
     }
 
     @Test
     void testConstructor() {
-        assertEquals(payloadEditor, scriptViewer.getParentContext());
+        assertEquals(payloadEditor, textViewer.getParentContext());
     }
 
     @Test
     void testGetContextString() {
-        assertEquals("testScript\n", scriptViewer.getContextString());
+        assertEquals("testScript\n", textViewer.getContextString());
     }
 
     @Test
     void testHandleInput() {
-        assertEquals(payloadEditor, scriptViewer.handleInput(""));
-        assertEquals(payloadEditor, scriptViewer.handleInput("aaa"));
+        assertEquals(payloadEditor, textViewer.handleInput(""));
+        assertEquals(payloadEditor, textViewer.handleInput("aaa"));
     }
 }

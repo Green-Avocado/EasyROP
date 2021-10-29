@@ -5,7 +5,7 @@ import model.RopChain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.ConsoleContext;
-import ui.contexts.ScriptViewer;
+import ui.contexts.TextViewer;
 import ui.contexts.prompts.*;
 
 import java.util.Arrays;
@@ -272,7 +272,7 @@ public class PayloadEditorTest {
             assertEquals(payloadEditor.getCollection().getScript() + "\n", payloadEditor.print().getContextString());
         }
 
-        assertEquals(ScriptViewer.class, payloadEditor.print().getClass());
+        assertEquals(TextViewer.class, payloadEditor.print().getClass());
         assertEquals(payloadEditor, payloadEditor.print().getParentContext());
         assertEquals(payloadEditor, payloadEditor.print().handleInput(""));
     }

@@ -3,7 +3,7 @@ package ui.contexts.menus;
 import model.ExploitObject;
 import model.GadgetCollection;
 import ui.contexts.ConsoleContext;
-import ui.contexts.ScriptViewer;
+import ui.contexts.TextViewer;
 import ui.contexts.prompts.*;
 
 import java.util.Arrays;
@@ -118,7 +118,7 @@ public abstract class CollectionEditor extends MenuContext {
 
     // EFFECTS: Returns a context for viewing the script of the collection.
     ConsoleContext print() {
-        return new ScriptViewer(this, getCollection().getScript());
+        return new TextViewer(this, getCollection().getScript());
     }
 
     // EFFECTS: returns a context for saving a collection to a file.

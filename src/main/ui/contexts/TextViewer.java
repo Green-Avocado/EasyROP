@@ -1,20 +1,20 @@
 package ui.contexts;
 
 // Represents a UI context that displays the Python code for a GadgetCollection
-public class ScriptViewer extends ConsoleContext {
-    private final String script;
+public class TextViewer extends ConsoleContext {
+    private final String string;
 
-    // EFFECTS: Creates a new ScriptViewer context with a given parentContext and script.
-    public ScriptViewer(ConsoleContext parentContext, String script) {
+    // EFFECTS: Creates a new TextViewer context with a given parentContext and script.
+    public TextViewer(ConsoleContext parentContext, String string) {
         super(parentContext);
 
-        this.script = script + "\n";
+        this.string = string + "\n";
     }
 
     // EFFECTS: Returns the script of this object.
     @Override
     public String getContextString() {
-        return script;
+        return string;
     }
 
     // EFFECTS: Returns the parentContext.
