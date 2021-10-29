@@ -1,1 +1,5 @@
-{"name":"testSavePayload","type":"PAYLOAD","exploitObjectList":[]}
+{
+    "name": "testSavePayload",
+    "type": "PAYLOAD",
+    "exploitObjectList": []
+}

@@ -1,1 +1,12 @@
-{"name":"payload","type":"PAYLOAD","exploitObjectList":[{"name":"ropChain","type":"ROP_CHAIN","exploitObjectList":[]}]}
+{
+    "name": "payload",
+    "type": "PAYLOAD",
+    "exploitObjectList": [{
+        "name": "ropChain",
+        "type": "ROP_CHAIN",
+        "exploitObjectList": [{
+            "length": "8",
+            "type": "PADDING"
+        }]
+    }]
+}

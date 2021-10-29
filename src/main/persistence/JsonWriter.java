@@ -23,7 +23,7 @@ public class JsonWriter {
     //          Throws IOException if unsuccessful.
     public void writeObject(ExploitObject exploitObject) throws IOException {
         FileWriter fileWriter = new FileWriter(filename);
-        exploitObjectToJson(exploitObject).write(fileWriter);
+        exploitObjectToJson(exploitObject).write(fileWriter, 4, 0);
         fileWriter.close();
     }
 
