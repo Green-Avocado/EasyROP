@@ -7,7 +7,6 @@ import persistence.JsonReader;
 import ui.contexts.ConsoleContext;
 import ui.contexts.menus.CollectionEditor;
 import ui.contexts.menus.PayloadEditor;
-import ui.contexts.menus.RopChainEditor;
 
 // Represents a context where a user can select a file to load from.
 public class LoadFile extends PromptContext {

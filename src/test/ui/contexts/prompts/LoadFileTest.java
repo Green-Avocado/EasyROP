@@ -10,7 +10,6 @@ import ui.contexts.menus.PayloadEditor;
 import ui.contexts.menus.RopChainEditor;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class LoadFileTest {
     private static final String DOES_NOT_EXIST = "File Does Not Exist";

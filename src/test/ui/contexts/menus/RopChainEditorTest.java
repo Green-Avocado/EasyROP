@@ -1,14 +1,13 @@
 package ui.contexts.menus;
 
-import model.GadgetCollection;
 import model.Payload;
 import model.RopChain;
 import model.gadgets.Padding;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.*;
 import ui.contexts.ScriptViewer;
+import ui.contexts.prompts.*;
 
 import java.util.Arrays;
 

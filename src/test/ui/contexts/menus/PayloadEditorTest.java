@@ -5,8 +5,8 @@ import model.RopChain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ui.contexts.ConsoleContext;
-import ui.contexts.prompts.*;
 import ui.contexts.ScriptViewer;
+import ui.contexts.prompts.*;
 
 import java.util.Arrays;
 

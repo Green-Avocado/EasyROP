@@ -1,7 +1,7 @@
 package ui.contexts.menus;
 
-import model.GadgetCollection;
 import model.ExploitObject;
+import model.GadgetCollection;
 import ui.contexts.ConsoleContext;
 import ui.contexts.ScriptViewer;
 import ui.contexts.prompts.*;
@@ -11,7 +11,7 @@ import java.util.List;
 
 // Represents a UI context that edits a GadgetCollection
 public abstract class CollectionEditor extends MenuContext {
-    private GadgetCollection collection;
+    private final GadgetCollection collection;
 
     // EFFECTS: Creates a new CollectionEditor context with a given collection and parentContext
     public CollectionEditor(ConsoleContext parentContext, GadgetCollection collection) {
