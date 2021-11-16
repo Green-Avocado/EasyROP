@@ -5,7 +5,7 @@ import ui.cliContexts.prompts.PayloadCreator;
 
 import java.util.Scanner;
 
-// EasyRop Application
+// EasyRop Application with a command line interface
 public class EasyRopCli {
     private final Scanner scanner;
     private ConsoleContext context;
@@ -27,6 +27,7 @@ public class EasyRopCli {
         }
     }
 
+    // EFFECTS: Starts the command line interface
     public static void main(String[] args) {
         new EasyRopCli();
     }
