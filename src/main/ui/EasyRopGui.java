@@ -2,17 +2,13 @@ package ui;
 
 import model.Payload;
 import ui.gui.PayloadEditorGui;
-import ui.gui.RopChainEditorGui;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 
 // EasyRop Application with graphical user interface
 public class EasyRopGui {
-    private JFrame frame;
+    private final JFrame frame;
 
     // EFFECTS: Creates a new EasyRop GUI application and launches the GUI
     public EasyRopGui() {
@@ -27,7 +23,10 @@ public class EasyRopGui {
     }
 
     // MODIFIES: this.frame
-    // EFFECTS: Prompts the user to create the initial payload by entering a payload name
+    // EFFECTS: Prompts the user to create the initial payload by entering a payload name.
+    //          If empty response, prompt again.
+    //          If cancelled, close the GUI.
+    //          If ok and non-empty response, set payload name and show GUI.
     private void run() {
         String payloadName = "";
         while (payloadName.length() == 0) {
