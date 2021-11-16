@@ -29,16 +29,22 @@ public class EasyRopGui {
     // MODIFIES: this.frame
     // EFFECTS: Prompts the user to create the initial payload by entering a payload name
     private void run() {
-        String payloadName = JOptionPane.showInputDialog(
-                frame,
-                "New Payload Name:\n",
-                "New Payload",
-                JOptionPane.PLAIN_MESSAGE
-        );
+        String payloadName = "";
+        while (payloadName.length() == 0) {
+            payloadName = (String) JOptionPane.showInputDialog(
+                    frame,
+                    "New Payload Name:\n",
+                    "New Payload",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    null,
+                    "payload"
+            );
 
-        if (payloadName == null || payloadName.length() == 0) {
-            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            return;
+            if (payloadName == null) {
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                return;
+            }
         }
 
         frame.setVisible(true);
