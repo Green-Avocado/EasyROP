@@ -1,32 +1,26 @@
 package ui;
 
-import ui.cliContexts.ConsoleContext;
-import ui.cliContexts.prompts.PayloadCreator;
+import javax.swing.*;
 
-import java.util.Scanner;
-
-// EasyRop Application
+// EasyRop Application with graphical user interface
 public class EasyRopGui {
-    private final Scanner scanner;
-    private ConsoleContext context;
+    private JFrame frame;
 
-    // EFFECTS: Creates a new EasyRop application with a Scanner for input and an initial context for
-    //          creating a Payload.
+    // EFFECTS: Creates a new EasyRop GUI application and launches the GUI
     public EasyRopGui() {
-        scanner = new Scanner(System.in);
-        context = new PayloadCreator();
+        frame = new JFrame("Easy Rop");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
         run();
     }
 
-    // MODIFIES: this, this.context
-    // EFFECTS: Prints the context string, then gets a line of user input and sends it to the handler of the context.
+    // MODIFIES: this.frame
+    // EFFECTS: Makes the frame visible
     private void run() {
-        while (context != null) {
-            System.out.print(context.getContextString());
-            context = context.handleInput(scanner.nextLine());
-        }
+        frame.setVisible(true);
     }
 
+    // EFFECTS: Starts the graphical user interface
     public static void main(String[] args) {
         new EasyRopGui();
     }
