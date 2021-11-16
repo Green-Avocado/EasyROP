@@ -16,6 +16,10 @@ public abstract class CollectionEditorGui extends JPanel implements ActionListen
     // EFFECTS: Removes the element at the specified index from the collection.
     abstract void removeElement(String params);
 
+    abstract void saveCollection(String params);
+
+    abstract void loadCollection(String params);
+
     // REQUIRES: e.getActionCommand() is one of the specified actions,
     //           e.paramString() is a valid parameter string for the specified action command.
     // EFFECTS: calls the handler method for the given action command.
@@ -27,6 +31,12 @@ public abstract class CollectionEditorGui extends JPanel implements ActionListen
                 break;
             case "remove":
                 removeElement(e.paramString());
+                break;
+            case "save":
+                saveCollection(e.paramString());
+                break;
+            case "load":
+                loadCollection(e.paramString());
                 break;
         }
     }

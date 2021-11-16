@@ -9,9 +9,22 @@ public class PayloadEditorGui extends CollectionEditorGui {
         this.payload = payload;
     }
 
+    @Override
     void addElement(String params) {
+        int index = Integer.parseInt(params);
     }
 
+    @Override
     void removeElement(String params) {
+        int index = Integer.parseInt(params);
+        payload.remove(index);
+    }
+
+    @Override
+    void saveCollection(String params) {
+    }
+
+    @Override
+    void loadCollection(String params) {
     }
 }
