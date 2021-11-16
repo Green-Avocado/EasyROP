@@ -29,32 +29,19 @@ public class EasyRopGui {
     // MODIFIES: this.frame
     // EFFECTS: Prompts the user to create the initial payload by entering a payload name
     private void run() {
-        JDialog payloadNameDialogue = new JDialog(frame, "New Payload");
-        payloadNameDialogue.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
-            }
-        });
+        String payloadName = JOptionPane.showInputDialog(
+                frame,
+                "New Payload Name:\n",
+                "New Payload",
+                JOptionPane.PLAIN_MESSAGE
+        );
 
-        JPanel panel = new JPanel();
-        payloadNameDialogue.setContentPane(panel);
+        if (payloadName == null || payloadName.length() == 0) {
+            frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            return;
+        }
 
-        JLabel label = new JLabel("New payload name:");
-        panel.add(label);
-
-        JTextField textField = new JTextField(10);
-        panel.add(textField);
-
-        JButton buttonOk = new JButton();
-        panel.add(buttonOk);
-
-        JButton buttonCancel = new JButton();
-        panel.add(buttonCancel);
-
-        payloadNameDialogue.pack();
-        payloadNameDialogue.setLocationRelativeTo(null);
-        payloadNameDialogue.setVisible(true);
+        frame.setVisible(true);
     }
 
     // EFFECTS: Starts the graphical user interface
