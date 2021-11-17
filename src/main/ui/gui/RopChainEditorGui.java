@@ -1,5 +1,6 @@
 package ui.gui;
 
+import model.ExploitObject;
 import model.GadgetCollection;
 import model.RopChain;
 import persistence.JsonReader;
@@ -64,6 +65,12 @@ public class RopChainEditorGui extends CollectionEditorGui {
                         JOptionPane.ERROR_MESSAGE
                 );
             }
+        }
+
+        clear();
+
+        for (ExploitObject exploitObject : ropChain.getList()) {
+            insert(exploitObject);
         }
     }
 

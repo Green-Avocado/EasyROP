@@ -1,5 +1,6 @@
 package ui.gui;
 
+import model.ExploitObject;
 import model.GadgetCollection;
 import model.Payload;
 import model.RopChain;
@@ -60,6 +61,12 @@ public class PayloadEditorGui extends CollectionEditorGui {
                         JOptionPane.ERROR_MESSAGE
                 );
             }
+        }
+
+        clear();
+
+        for (ExploitObject exploitObject : payload.getList()) {
+            insert(exploitObject);
         }
     }
 
