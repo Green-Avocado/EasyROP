@@ -50,7 +50,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
         initMenuBar();
 
-        pack();
+        setMinimumSize(new Dimension(600, 400));
         setLocationRelativeTo(null);
         setVisible(true);
     }
@@ -78,7 +78,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         objectPanel.add(objectLabel);
 
         collectionViewer.add(objectPanel);
-        pack();
     }
 
     void clear() {
