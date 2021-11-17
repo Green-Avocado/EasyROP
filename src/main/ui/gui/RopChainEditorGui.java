@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 
 // Represents a window where a user can edit a RopChain.
 public class RopChainEditorGui extends CollectionEditorGui {
+    private final PayloadEditorGui parentFrame;
     private final RopChain ropChain;
     private final JMenuItem insertPaddingItem = new JMenuItem("New Padding");
     private final JMenuItem insertAddressItem = new JMenuItem("New Address Gadget");
@@ -19,7 +20,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
     private final JMenuItem insertSymbolItem = new JMenuItem("New Symbol Gadget");
 
     // EFFECTS: Creates a new RopChainEditorGui.
-    public RopChainEditorGui(RopChain ropChain) {
+    public RopChainEditorGui(PayloadEditorGui parentFrame, RopChain ropChain) {
+        this.parentFrame = parentFrame;
         this.ropChain = ropChain;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -68,11 +70,12 @@ public class RopChainEditorGui extends CollectionEditorGui {
             }
         }
 
-        clear();
+        reload();
+    }
 
-        for (ExploitObject exploitObject : ropChain.getList()) {
-            insertExploitObject(exploitObject);
-        }
+    @Override
+    void insert(ExploitObject exploitObject) {
+        validate();
     }
 
     @Override
@@ -97,6 +100,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
         ropChain.setName(name);
         setTitleLabel(ropChain.getName());
+
+        parentFrame.reload();
     }
 
     @Override

@@ -31,7 +31,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         fileChooser = new JFileChooser("./data/");
         fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
 
-        getContentPane().add(Box.createRigidArea(new Dimension(0,8)));
+        getContentPane().add(Box.createRigidArea(new Dimension(0, 8)));
 
         titleLabel = new JLabel();
         JPanel titlePanel = new JPanel();
@@ -39,7 +39,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         titlePanel.add(titleLabel);
         getContentPane().add(titlePanel);
 
-        getContentPane().add(Box.createRigidArea(new Dimension(0,8)));
+        getContentPane().add(Box.createRigidArea(new Dimension(0, 8)));
 
         collectionViewer = new JPanel();
         collectionViewer.setLayout(new BoxLayout(collectionViewer, BoxLayout.Y_AXIS));
@@ -82,6 +82,16 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         collectionViewer.removeAll();
     }
 
+    void reload() {
+        clear();
+
+        for (ExploitObject exploitObject : getCollection().getList()) {
+            insert(exploitObject);
+        }
+
+        validate();
+    }
+
     abstract GadgetCollection getCollection();
 
     // REQUIRES: params is a valid index with an object that can be removed from the collection.
@@ -92,6 +102,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     abstract void saveCollection();
 
     abstract void loadCollection();
+
+    abstract void insert(ExploitObject exploitObject);
 
     abstract void renameCollection();
 

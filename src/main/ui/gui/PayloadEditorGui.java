@@ -64,11 +64,13 @@ public class PayloadEditorGui extends CollectionEditorGui {
             }
         }
 
-        clear();
+        reload();
+    }
 
-        for (ExploitObject exploitObject : payload.getList()) {
-            insertRopChain((RopChain) exploitObject);
-        }
+    @Override
+    void insert(ExploitObject exploitObject) {
+        getCollectionViewer().add(new RopChainListItem(this, (RopChain) exploitObject));
+        validate();
     }
 
     @Override
@@ -135,11 +137,6 @@ public class PayloadEditorGui extends CollectionEditorGui {
         ropChain.setName(name);
 
         payload.add(ropChain, payload.getLength());
-        insertRopChain(ropChain);
-    }
-
-    void insertRopChain(RopChain ropChain) {
-        getCollectionViewer().add(new RopChainListItem(ropChain));
-        validate();
+        insert(ropChain);
     }
 }

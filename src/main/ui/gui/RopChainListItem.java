@@ -1,6 +1,5 @@
 package ui.gui;
 
-import model.ExploitObject;
 import model.RopChain;
 
 import javax.swing.*;
@@ -9,11 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class RopChainListItem extends JPanel implements ActionListener {
+    private final PayloadEditorGui parentFrame;
     private final RopChain ropChain;
     private final JButton editButton;
     private final JButton deleteButton;
 
-    public RopChainListItem(RopChain ropChain) {
+    public RopChainListItem(PayloadEditorGui parentFrame, RopChain ropChain) {
+        this.parentFrame = parentFrame;
         this.ropChain = ropChain;
 
         setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -43,9 +44,12 @@ public class RopChainListItem extends JPanel implements ActionListener {
     }
 
     private void edit() {
-        new RopChainEditorGui(ropChain);
+        new RopChainEditorGui(parentFrame, ropChain);
     }
 
     private void delete() {
+        int index = parentFrame.getCollection().getList().indexOf(ropChain);
+        parentFrame.getCollection().remove(index);
+        parentFrame.reload();
     }
 }
