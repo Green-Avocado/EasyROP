@@ -17,6 +17,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     private final JLabel titleLabel;
     private JMenuItem loadMenuItem;
     private JMenuItem saveMenuItem;
+    private JMenuItem viewScriptMenuItem;
     private JMenuItem exitMenuItem;
     private JMenuItem renameMenuItem;
 
@@ -104,6 +105,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
             saveCollection();
         } else if (source.equals(loadMenuItem)) {
             loadCollection();
+        } else if (source.equals(viewScriptMenuItem)) {
+            new TextViewerGui(getCollection().getName(), getCollection().getScript());
         } else if (source.equals(exitMenuItem)) {
             dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         }
@@ -130,6 +133,10 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         saveMenuItem = new JMenuItem("Save as");
         saveMenuItem.addActionListener(this);
         fileMenu.add(saveMenuItem);
+
+        viewScriptMenuItem = new JMenuItem("View script");
+        viewScriptMenuItem.addActionListener(this);
+        fileMenu.add(viewScriptMenuItem);
 
         exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.addActionListener(this);

@@ -9,7 +9,8 @@ public class TextViewerGui extends JFrame {
         super(title);
         this.content = content;
 
-        JLabel contentLabel = new JLabel(content);
+        JTextArea contentLabel = new JTextArea(content);
+        contentLabel.setEditable(false);
         add(contentLabel);
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
