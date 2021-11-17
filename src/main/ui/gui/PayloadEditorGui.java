@@ -3,6 +3,8 @@ package ui.gui;
 import model.GadgetCollection;
 import model.Payload;
 
+import javax.swing.*;
+
 public class PayloadEditorGui extends CollectionEditorGui {
     private final Payload payload;
 
@@ -29,10 +31,40 @@ public class PayloadEditorGui extends CollectionEditorGui {
     }
 
     @Override
-    void saveCollection(String params) {
+    void saveCollection() {
     }
 
     @Override
-    void loadCollection(String params) {
+    void loadCollection() {
+    }
+
+    @Override
+    void renameCollection() {
+        String name;
+
+        do {
+            name = (String) JOptionPane.showInputDialog(
+                    null,
+                    "New payload name:\n",
+                    "Rename Payload",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    null,
+                    payload.getName()
+            );
+
+            if (name == null) {
+                return;
+            }
+        } while (name.length() == 0);
+
+        payload.setName(name);
+        setTitleLabel(payload.getName());
+    }
+
+    @Override
+    void addInsertOptions(JMenu insertMenu) {
+        JMenuItem insertPayloadItem = new JMenuItem("New Payload");
+        insertMenu.add(insertPayloadItem);
     }
 }

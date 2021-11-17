@@ -19,11 +19,11 @@ public class EasyRopGui {
     //          If cancelled, close the GUI.
     //          If ok and non-empty response, set payload name and show GUI.
     private void run() {
-        String payloadName = "";
-        while (payloadName.length() == 0) {
+        String payloadName;
+        do {
             payloadName = (String) JOptionPane.showInputDialog(
                     null,
-                    "New Payload Name:\n",
+                    "New payload name:\n",
                     "New Payload",
                     JOptionPane.PLAIN_MESSAGE,
                     null,
@@ -34,11 +34,12 @@ public class EasyRopGui {
             if (payloadName == null) {
                 return;
             }
-        }
+        } while (payloadName.length() == 0);
 
         Payload payload = new Payload();
         payload.setName(payloadName);
-        PayloadEditorGui payloadEditorGui = new PayloadEditorGui(payload);
+
+        new PayloadEditorGui(payload);
     }
 
     // EFFECTS: Starts the graphical user interface
