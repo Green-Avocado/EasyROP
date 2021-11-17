@@ -2,6 +2,7 @@ package ui.gui;
 
 import model.GadgetCollection;
 import model.RopChain;
+import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
@@ -51,9 +52,9 @@ public class RopChainEditorGui extends CollectionEditorGui {
     void saveCollection() {
         JFileChooser fileChooser = getFileChooser();
 
-        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
-                new JsonWriter(fileChooser.getSelectedFile().getName()).writeObject(ropChain);
+                new JsonWriter(fileChooser.getSelectedFile().getAbsolutePath()).writeObject(ropChain);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -67,6 +68,20 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     @Override
     void loadCollection() {
+        JFileChooser fileChooser = getFileChooser();
+
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            try {
+                new JsonReader(fileChooser.getSelectedFile().getAbsolutePath()).ropChainFromFile(ropChain);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Error: could not load ROP chain from file " + e.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+        }
     }
 
     @Override

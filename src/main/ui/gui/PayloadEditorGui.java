@@ -2,6 +2,7 @@ package ui.gui;
 
 import model.GadgetCollection;
 import model.Payload;
+import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
@@ -35,9 +36,9 @@ public class PayloadEditorGui extends CollectionEditorGui {
     void saveCollection() {
         JFileChooser fileChooser = getFileChooser();
 
-        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
-                new JsonWriter(fileChooser.getSelectedFile().getName()).writeObject(payload);
+                new JsonWriter(fileChooser.getSelectedFile().getAbsolutePath()).writeObject(payload);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -51,6 +52,20 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     @Override
     void loadCollection() {
+        JFileChooser fileChooser = getFileChooser();
+
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            try {
+                new JsonReader(fileChooser.getSelectedFile().getAbsolutePath()).payloadFromFile(payload);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Error: could not load payload from file " + e.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+        }
     }
 
     @Override
