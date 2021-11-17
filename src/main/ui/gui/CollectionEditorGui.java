@@ -33,16 +33,18 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
 
         titleLabel = new JLabel();
-        titleLabel.setMinimumSize(new Dimension(50, 25));
-        JPanel titlePane = new JPanel();
-        getContentPane().add(titlePane);
-        titlePane.add(Box.createHorizontalGlue());
-        titlePane.add(titleLabel);
-        titlePane.add(Box.createHorizontalGlue());
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(new BoxLayout(titlePanel, BoxLayout.X_AXIS));
+        titlePanel.add(Box.createHorizontalGlue());
+        titlePanel.add(titleLabel);
+        titlePanel.add(Box.createHorizontalGlue());
+        getContentPane().add(titlePanel);
 
         collectionViewer = new JPanel();
         collectionViewer.setLayout(new BoxLayout(collectionViewer, BoxLayout.Y_AXIS));
         getContentPane().add(collectionViewer);
+
+        getContentPane().add(Box.createVerticalGlue());
     }
 
     void init() {
@@ -73,11 +75,23 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
     void insert(ExploitObject exploitObject) {
         JPanel objectPanel = new JPanel();
+        objectPanel.setLayout(new BoxLayout(objectPanel, BoxLayout.X_AXIS));
 
         JLabel objectLabel = new JLabel(exploitObject.getName());
         objectPanel.add(objectLabel);
 
+        objectPanel.add(Box.createHorizontalGlue());
+
+        JButton editButton = new JButton("Edit");
+        objectPanel.add(editButton);
+
+        JButton deleteButton = new JButton("Delete");
+        deleteButton.setActionCommand("delete");
+        objectPanel.add(deleteButton);
+
+        objectPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         collectionViewer.add(objectPanel);
+        validate();
     }
 
     void clear() {
