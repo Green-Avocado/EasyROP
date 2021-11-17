@@ -1,5 +1,6 @@
 package ui.gui;
 
+import model.GadgetCollection;
 import model.RopChain;
 
 public class RopChainEditorGui extends CollectionEditorGui {
@@ -7,6 +8,11 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     public RopChainEditorGui(RopChain ropChain) {
         this.ropChain = ropChain;
+    }
+
+    @Override
+    GadgetCollection getCollection() {
+        return ropChain;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package ui.gui;
 
+import model.GadgetCollection;
 import model.Payload;
 
 public class PayloadEditorGui extends CollectionEditorGui {
@@ -7,6 +8,13 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
+
+        super.init();
+    }
+
+    @Override
+    GadgetCollection getCollection() {
+        return payload;
     }
 
     @Override

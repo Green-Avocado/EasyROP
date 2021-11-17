@@ -3,7 +3,7 @@ package ui.gui;
 import javax.swing.*;
 
 public class TextViewerGui extends JFrame {
-    private String content;
+    private final String content;
 
     public TextViewerGui(String title, String content) {
         super(title);

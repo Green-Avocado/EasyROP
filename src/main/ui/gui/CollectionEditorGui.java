@@ -1,13 +1,37 @@
 package ui.gui;
 
+import model.GadgetCollection;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public abstract class CollectionEditorGui extends JPanel implements ActionListener {
+public abstract class CollectionEditorGui extends JFrame implements ActionListener {
+    private JPanel collectionViewer;
 
     public CollectionEditorGui() {
+        super("Easy Rop");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel content = new JPanel();
+        setContentPane(content);
     }
+
+    void init() {
+        JLabel title = new JLabel(getCollection().getName());
+        getContentPane().add(title);
+
+        collectionViewer = new JPanel();
+        getContentPane().add(collectionViewer);
+
+        initMenuBar();
+
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    abstract GadgetCollection getCollection();
 
     abstract void addElement(String params);
 
@@ -39,5 +63,19 @@ public abstract class CollectionEditorGui extends JPanel implements ActionListen
                 loadCollection(e.paramString());
                 break;
         }
+    }
+
+    private void initMenuBar() {
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+
+        JMenu menu = new JMenu("File");
+        menuBar.add(menu);
+
+        JMenuItem loadMenu = new JMenuItem("Open");
+        menu.add(loadMenu);
+
+        JMenuItem saveMenu = new JMenuItem("Save as");
+        menu.add(saveMenu);
     }
 }
