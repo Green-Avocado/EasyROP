@@ -35,11 +35,9 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     @Override
     void saveCollection() {
-        JFileChooser fileChooser = getFileChooser();
-
-        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (showSaveDialog()) {
             try {
-                new JsonWriter(fileChooser.getSelectedFile().getAbsolutePath()).writeObject(payload);
+                new JsonWriter(getSelectedFile()).writeObject(payload);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -53,11 +51,9 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     @Override
     void loadCollection() {
-        JFileChooser fileChooser = getFileChooser();
-
-        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (showOpenDialog()) {
             try {
-                new JsonReader(fileChooser.getSelectedFile().getAbsolutePath()).payloadFromFile(payload);
+                new JsonReader(getSelectedFile()).payloadFromFile(payload);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -104,7 +100,12 @@ public class PayloadEditorGui extends CollectionEditorGui {
         }
     }
 
-    void insertRopChain() {
+    @Override
+    void addInsertOptions(JMenu insertMenu) {
+        insertMenu.add(insertRopChainItem);
+    }
+
+    private void insertRopChain() {
         String name;
 
         do {
@@ -127,10 +128,6 @@ public class PayloadEditorGui extends CollectionEditorGui {
         ropChain.setName(name);
 
         payload.add(ropChain, payload.getLength());
-    }
-
-    @Override
-    void addInsertOptions(JMenu insertMenu) {
-        insertMenu.add(insertRopChainItem);
+        insert(ropChain);
     }
 }

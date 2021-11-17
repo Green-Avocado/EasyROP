@@ -50,11 +50,9 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     @Override
     void saveCollection() {
-        JFileChooser fileChooser = getFileChooser();
-
-        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (showSaveDialog()) {
             try {
-                new JsonWriter(fileChooser.getSelectedFile().getAbsolutePath()).writeObject(ropChain);
+                new JsonWriter(getSelectedFile()).writeObject(ropChain);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         this,
@@ -68,11 +66,9 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     @Override
     void loadCollection() {
-        JFileChooser fileChooser = getFileChooser();
-
-        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (showOpenDialog()) {
             try {
-                new JsonReader(fileChooser.getSelectedFile().getAbsolutePath()).ropChainFromFile(ropChain);
+                new JsonReader(getSelectedFile()).ropChainFromFile(ropChain);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(
                         this,
