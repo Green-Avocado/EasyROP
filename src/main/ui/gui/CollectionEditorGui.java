@@ -76,24 +76,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     }
 
     void insert(ExploitObject exploitObject) {
-        JPanel objectPanel = new JPanel();
-        objectPanel.setLayout(new BoxLayout(objectPanel, BoxLayout.X_AXIS));
-
-        JLabel objectLabel = new JLabel(exploitObject.getName());
-        objectPanel.add(objectLabel);
-
-        objectPanel.add(Box.createHorizontalGlue());
-
-        JButton editButton = new JButton("Edit");
-        editButton.setActionCommand("edit");
-        objectPanel.add(editButton);
-
-        JButton deleteButton = new JButton("Delete");
-        deleteButton.setActionCommand("delete");
-        objectPanel.add(deleteButton);
-
-        objectPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        collectionViewer.add(objectPanel);
+        collectionViewer.add(new ExploitObjectListItem(exploitObject));
         validate();
     }
 
