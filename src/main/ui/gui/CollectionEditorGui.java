@@ -32,13 +32,15 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         fileChooser = new JFileChooser("./data/");
         fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
 
+        getContentPane().add(Box.createRigidArea(new Dimension(0,8)));
+
         titleLabel = new JLabel();
         JPanel titlePanel = new JPanel();
         titlePanel.setLayout(new BoxLayout(titlePanel, BoxLayout.X_AXIS));
-        titlePanel.add(Box.createHorizontalGlue());
         titlePanel.add(titleLabel);
-        titlePanel.add(Box.createHorizontalGlue());
         getContentPane().add(titlePanel);
+
+        getContentPane().add(Box.createRigidArea(new Dimension(0,8)));
 
         collectionViewer = new JPanel();
         collectionViewer.setLayout(new BoxLayout(collectionViewer, BoxLayout.Y_AXIS));
@@ -83,6 +85,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         objectPanel.add(Box.createHorizontalGlue());
 
         JButton editButton = new JButton("Edit");
+        editButton.setActionCommand("edit");
         objectPanel.add(editButton);
 
         JButton deleteButton = new JButton("Delete");
