@@ -10,13 +10,13 @@ import java.awt.event.ActionEvent;
 
 public class PayloadEditorGui extends CollectionEditorGui {
     private final Payload payload;
-    private final JMenuItem insertPayloadItem;
+    private final JMenuItem insertRopChainItem;
 
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
 
-        insertPayloadItem = new JMenuItem("New Payload");
-        insertPayloadItem.addActionListener(this);
+        insertRopChainItem = new JMenuItem("New ROP Chain");
+        insertRopChainItem.addActionListener(this);
 
         super.init();
     }
@@ -96,7 +96,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        if (source.equals(insertPayloadItem)) {
+        if (source.equals(insertRopChainItem)) {
             return;
         } else {
             super.actionPerformed(e);
@@ -105,6 +105,6 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     @Override
     void addInsertOptions(JMenu insertMenu) {
-        insertMenu.add(insertPayloadItem);
+        insertMenu.add(insertRopChainItem);
     }
 }
