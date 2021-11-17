@@ -2,6 +2,7 @@ package ui.gui;
 
 import model.GadgetCollection;
 import model.RopChain;
+import persistence.JsonWriter;
 
 import javax.swing.*;
 
@@ -30,6 +31,20 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     @Override
     void saveCollection() {
+        JFileChooser fileChooser = getFileChooser();
+
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
+            try {
+                new JsonWriter(fileChooser.getSelectedFile().getName()).writeObject(ropChain);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(
+                        this,
+                        "Error: could not save ROP chain to file " + e.getMessage(),
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
+        }
     }
 
     @Override

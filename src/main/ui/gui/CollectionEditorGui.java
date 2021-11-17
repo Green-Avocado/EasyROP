@@ -40,8 +40,12 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         setVisible(true);
     }
 
-    public void setTitleLabel(String title) {
+    void setTitleLabel(String title) {
         titleLabel.setText(title);
+    }
+
+    JFileChooser getFileChooser() {
+        return fileChooser;
     }
 
     abstract GadgetCollection getCollection();
