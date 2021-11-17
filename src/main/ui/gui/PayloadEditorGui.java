@@ -2,6 +2,7 @@ package ui.gui;
 
 import model.GadgetCollection;
 import model.Payload;
+import model.RopChain;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -97,10 +98,35 @@ public class PayloadEditorGui extends CollectionEditorGui {
         Object source = e.getSource();
 
         if (source.equals(insertRopChainItem)) {
-            return;
+            insertRopChain();
         } else {
             super.actionPerformed(e);
         }
+    }
+
+    void insertRopChain() {
+        String name;
+
+        do {
+            name = (String) JOptionPane.showInputDialog(
+                    null,
+                    "New ROP chain name:\n",
+                    "New ROP Chain",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    null,
+                    "ropChain"
+            );
+
+            if (name == null) {
+                return;
+            }
+        } while (name.length() == 0);
+
+        RopChain ropChain = new RopChain();
+        ropChain.setName(name);
+
+        payload.add(ropChain, payload.getLength());
     }
 
     @Override
