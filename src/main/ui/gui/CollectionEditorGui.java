@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 public abstract class CollectionEditorGui extends JFrame implements ActionListener {
     private JPanel collectionViewer;
+    private JLabel titleLabel;
 
     public CollectionEditorGui() {
         super("Easy Rop");
@@ -18,8 +19,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     }
 
     void init() {
-        JLabel title = new JLabel(getCollection().getName());
-        getContentPane().add(title);
+        titleLabel = new JLabel(getCollection().getName());
+        getContentPane().add(titleLabel);
 
         collectionViewer = new JPanel();
         getContentPane().add(collectionViewer);
@@ -65,17 +66,24 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates and sets the menu bar with menu items
     private void initMenuBar() {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
-        JMenu menu = new JMenu("File");
-        menuBar.add(menu);
+        JMenu fileMenu = new JMenu("File");
+        menuBar.add(fileMenu);
+        JMenuItem loadMenuItem = new JMenuItem("Open");
+        fileMenu.add(loadMenuItem);
+        JMenuItem saveMenuItem = new JMenuItem("Save as");
+        fileMenu.add(saveMenuItem);
 
-        JMenuItem loadMenu = new JMenuItem("Open");
-        menu.add(loadMenu);
-
-        JMenuItem saveMenu = new JMenuItem("Save as");
-        menu.add(saveMenu);
+        JMenu editMenu = new JMenu("Edit");
+        menuBar.add(editMenu);
+        JMenuItem renameMenuItem = new JMenuItem("Rename");
+        editMenu.add(renameMenuItem);
+        JMenuItem insertMenuItem = new JMenuItem("Insert");
+        editMenu.add(insertMenuItem);
     }
 }
