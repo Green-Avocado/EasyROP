@@ -34,7 +34,11 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
         titleLabel = new JLabel();
         titleLabel.setMinimumSize(new Dimension(50, 25));
-        getContentPane().add(titleLabel);
+        JPanel titlePane = new JPanel();
+        getContentPane().add(titlePane);
+        titlePane.add(Box.createHorizontalGlue());
+        titlePane.add(titleLabel);
+        titlePane.add(Box.createHorizontalGlue());
 
         collectionViewer = new JPanel();
         collectionViewer.setLayout(new BoxLayout(collectionViewer, BoxLayout.Y_AXIS));
