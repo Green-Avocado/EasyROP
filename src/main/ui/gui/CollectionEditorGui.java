@@ -50,8 +50,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
     abstract GadgetCollection getCollection();
 
-    abstract void addElement(String params);
-
     // REQUIRES: params is a valid index with an object that can be removed from the collection.
     // MODIFIES: this
     // EFFECTS: Removes the element at the specified index from the collection.
@@ -71,6 +69,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
+
         if (source.equals(renameMenuItem)) {
             renameCollection();
         } else if (source.equals(saveMenuItem)) {

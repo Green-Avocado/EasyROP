@@ -5,22 +5,40 @@ import model.RopChain;
 import persistence.JsonWriter;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class RopChainEditorGui extends CollectionEditorGui {
     private final RopChain ropChain;
+    private final JMenuItem insertPaddingItem;
+    private final JMenuItem insertAddressItem;
+    private final JMenuItem insertInstructionsItem;
+    private final JMenuItem insertStringItem;
+    private final JMenuItem insertSymbolItem;
 
     public RopChainEditorGui(RopChain ropChain) {
         this.ropChain = ropChain;
+
+        insertPaddingItem = new JMenuItem("New Padding");
+        insertPaddingItem.addActionListener(this);
+
+        insertAddressItem = new JMenuItem("New Address Gadget");
+        insertAddressItem.addActionListener(this);
+
+        insertInstructionsItem = new JMenuItem("New Instructions Gadget");
+        insertInstructionsItem.addActionListener(this);
+
+        insertStringItem = new JMenuItem("New String Gadget");
+        insertStringItem.addActionListener(this);
+
+        insertSymbolItem = new JMenuItem("New Symbol Gadget");
+        insertSymbolItem.addActionListener(this);
+
+        super.init();
     }
 
     @Override
     GadgetCollection getCollection() {
         return ropChain;
-    }
-
-    @Override
-    void addElement(String params) {
-        int index = Integer.parseInt(params);
     }
 
     @Override
@@ -76,20 +94,30 @@ public class RopChainEditorGui extends CollectionEditorGui {
     }
 
     @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source.equals(insertPaddingItem)) {
+            return;
+        } else if (source.equals(insertAddressItem)) {
+            return;
+        } else if (source.equals(insertInstructionsItem)) {
+            return;
+        } else if (source.equals(insertStringItem)) {
+            return;
+        } else if (source.equals(insertSymbolItem)) {
+            return;
+        } else {
+            super.actionPerformed(e);
+        }
+    }
+
+    @Override
     void addInsertOptions(JMenu insertMenu) {
-        JMenuItem insertPaddingItem = new JMenuItem("New Padding");
         insertMenu.add(insertPaddingItem);
-
-        JMenuItem insertAddressItem = new JMenuItem("New Address Gadget");
         insertMenu.add(insertAddressItem);
-
-        JMenuItem insertInstructionsItem = new JMenuItem("New Instructions Gadget");
         insertMenu.add(insertInstructionsItem);
-
-        JMenuItem insertStringItem = new JMenuItem("New String Gadget");
         insertMenu.add(insertStringItem);
-
-        JMenuItem insertSymbolItem = new JMenuItem("New Symbol Gadget");
         insertMenu.add(insertSymbolItem);
     }
 }

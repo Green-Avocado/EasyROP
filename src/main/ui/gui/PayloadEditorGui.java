@@ -5,12 +5,17 @@ import model.Payload;
 import persistence.JsonWriter;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 
 public class PayloadEditorGui extends CollectionEditorGui {
     private final Payload payload;
+    private final JMenuItem insertPayloadItem;
 
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
+
+        insertPayloadItem = new JMenuItem("New Payload");
+        insertPayloadItem.addActionListener(this);
 
         super.init();
     }
@@ -18,11 +23,6 @@ public class PayloadEditorGui extends CollectionEditorGui {
     @Override
     GadgetCollection getCollection() {
         return payload;
-    }
-
-    @Override
-    void addElement(String params) {
-        int index = Integer.parseInt(params);
     }
 
     @Override
@@ -78,8 +78,18 @@ public class PayloadEditorGui extends CollectionEditorGui {
     }
 
     @Override
+    public void actionPerformed(ActionEvent e) {
+        Object source = e.getSource();
+
+        if (source.equals(insertPayloadItem)) {
+            return;
+        } else {
+            super.actionPerformed(e);
+        }
+    }
+
+    @Override
     void addInsertOptions(JMenu insertMenu) {
-        JMenuItem insertPayloadItem = new JMenuItem("New Payload");
         insertMenu.add(insertPayloadItem);
     }
 }
