@@ -8,31 +8,18 @@ import persistence.JsonWriter;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
+// Represents a window where a user can edit a RopChain.
 public class RopChainEditorGui extends CollectionEditorGui {
     private final RopChain ropChain;
-    private final JMenuItem insertPaddingItem;
-    private final JMenuItem insertAddressItem;
-    private final JMenuItem insertInstructionsItem;
-    private final JMenuItem insertStringItem;
-    private final JMenuItem insertSymbolItem;
+    private final JMenuItem insertPaddingItem = new JMenuItem("New Padding");
+    private final JMenuItem insertAddressItem = new JMenuItem("New Address Gadget");
+    private final JMenuItem insertInstructionsItem = new JMenuItem("New Instructions Gadget");
+    private final JMenuItem insertStringItem = new JMenuItem("New String Gadget");
+    private final JMenuItem insertSymbolItem = new JMenuItem("New Symbol Gadget");
 
+    // EFFECTS: Creates a new RopChainEditorGui.
     public RopChainEditorGui(RopChain ropChain) {
         this.ropChain = ropChain;
-
-        insertPaddingItem = new JMenuItem("New Padding");
-        insertPaddingItem.addActionListener(this);
-
-        insertAddressItem = new JMenuItem("New Address Gadget");
-        insertAddressItem.addActionListener(this);
-
-        insertInstructionsItem = new JMenuItem("New Instructions Gadget");
-        insertInstructionsItem.addActionListener(this);
-
-        insertStringItem = new JMenuItem("New String Gadget");
-        insertStringItem.addActionListener(this);
-
-        insertSymbolItem = new JMenuItem("New Symbol Gadget");
-        insertSymbolItem.addActionListener(this);
 
         super.init();
     }
@@ -125,6 +112,12 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     @Override
     void addInsertOptions(JMenu insertMenu) {
+        insertPaddingItem.addActionListener(this);
+        insertAddressItem.addActionListener(this);
+        insertInstructionsItem.addActionListener(this);
+        insertStringItem.addActionListener(this);
+        insertSymbolItem.addActionListener(this);
+
         insertMenu.add(insertPaddingItem);
         insertMenu.add(insertAddressItem);
         insertMenu.add(insertInstructionsItem);

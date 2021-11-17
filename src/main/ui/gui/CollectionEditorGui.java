@@ -15,11 +15,11 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     private final JFileChooser fileChooser;
     private final JPanel collectionViewer;
     private final JLabel titleLabel;
-    private JMenuItem loadMenuItem;
-    private JMenuItem saveMenuItem;
-    private JMenuItem viewScriptMenuItem;
-    private JMenuItem exitMenuItem;
-    private JMenuItem renameMenuItem;
+    private final JMenuItem loadMenuItem = new JMenuItem("Open");
+    private final JMenuItem saveMenuItem = new JMenuItem("Save as");
+    private final JMenuItem viewScriptMenuItem = new JMenuItem("View script");
+    private final JMenuItem exitMenuItem = new JMenuItem("Exit");
+    private final JMenuItem renameMenuItem = new JMenuItem("Rename");
 
     public CollectionEditorGui() {
         super("Easy Rop");
@@ -126,20 +126,14 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
 
-        loadMenuItem = new JMenuItem("Open");
         loadMenuItem.addActionListener(this);
-        fileMenu.add(loadMenuItem);
-
-        saveMenuItem = new JMenuItem("Save as");
         saveMenuItem.addActionListener(this);
-        fileMenu.add(saveMenuItem);
-
-        viewScriptMenuItem = new JMenuItem("View script");
         viewScriptMenuItem.addActionListener(this);
-        fileMenu.add(viewScriptMenuItem);
-
-        exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.addActionListener(this);
+
+        fileMenu.add(loadMenuItem);
+        fileMenu.add(saveMenuItem);
+        fileMenu.add(viewScriptMenuItem);
         fileMenu.add(exitMenuItem);
     }
 
@@ -147,7 +141,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         JMenu editMenu = new JMenu("Edit");
         menuBar.add(editMenu);
 
-        renameMenuItem = new JMenuItem("Rename");
         renameMenuItem.addActionListener(this);
         editMenu.add(renameMenuItem);
 

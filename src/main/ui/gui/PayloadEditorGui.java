@@ -9,15 +9,13 @@ import persistence.JsonWriter;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
+// Represents a window where a user can edit a Payload.
 public class PayloadEditorGui extends CollectionEditorGui {
     private final Payload payload;
-    private final JMenuItem insertRopChainItem;
+    private final JMenuItem insertRopChainItem = new JMenuItem("New ROP Chain");
 
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
-
-        insertRopChainItem = new JMenuItem("New ROP Chain");
-        insertRopChainItem.addActionListener(this);
 
         super.init();
     }
@@ -102,6 +100,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     @Override
     void addInsertOptions(JMenu insertMenu) {
+        insertRopChainItem.addActionListener(this);
         insertMenu.add(insertRopChainItem);
     }
 
