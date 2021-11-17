@@ -23,7 +23,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
     public CollectionEditorGui() {
         super("Easy Rop");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
@@ -75,9 +74,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         return fileChooser.getSelectedFile().getAbsolutePath();
     }
 
-    void insert(ExploitObject exploitObject) {
-        collectionViewer.add(new ExploitObjectListItem(exploitObject));
-        validate();
+    public JPanel getCollectionViewer() {
+        return collectionViewer;
     }
 
     void clear() {

@@ -17,6 +17,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
 
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         super.init();
     }
@@ -66,7 +67,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
         clear();
 
         for (ExploitObject exploitObject : payload.getList()) {
-            insert(exploitObject);
+            insertRopChain((RopChain) exploitObject);
         }
     }
 
@@ -99,7 +100,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
         Object source = e.getSource();
 
         if (source.equals(insertRopChainItem)) {
-            insertRopChain();
+            newRopChain();
         } else {
             super.actionPerformed(e);
         }
@@ -111,7 +112,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
         insertMenu.add(insertRopChainItem);
     }
 
-    private void insertRopChain() {
+    private void newRopChain() {
         String name;
 
         do {
@@ -134,6 +135,11 @@ public class PayloadEditorGui extends CollectionEditorGui {
         ropChain.setName(name);
 
         payload.add(ropChain, payload.getLength());
-        insert(ropChain);
+        insertRopChain(ropChain);
+    }
+
+    void insertRopChain(RopChain ropChain) {
+        getCollectionViewer().add(new RopChainListItem(ropChain));
+        validate();
     }
 }

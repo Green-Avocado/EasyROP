@@ -21,6 +21,7 @@ public class RopChainEditorGui extends CollectionEditorGui {
     // EFFECTS: Creates a new RopChainEditorGui.
     public RopChainEditorGui(RopChain ropChain) {
         this.ropChain = ropChain;
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         super.init();
     }
@@ -70,7 +71,7 @@ public class RopChainEditorGui extends CollectionEditorGui {
         clear();
 
         for (ExploitObject exploitObject : ropChain.getList()) {
-            insert(exploitObject);
+            insertExploitObject(exploitObject);
         }
     }
 
@@ -130,5 +131,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         insertMenu.add(insertInstructionsItem);
         insertMenu.add(insertStringItem);
         insertMenu.add(insertSymbolItem);
+    }
+
+    private void insertExploitObject(ExploitObject exploitObject) {
     }
 }
