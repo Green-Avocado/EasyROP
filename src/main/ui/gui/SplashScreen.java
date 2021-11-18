@@ -68,7 +68,7 @@ public class SplashScreen extends JFrame implements ActionListener {
         JFileChooser fileChooser = new JFileChooser("./data/");
         Payload payload = new Payload();
 
-        if (fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION) {
+        if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
                 new JsonReader(fileChooser.getSelectedFile().getAbsolutePath()).payloadFromFile(payload);
 
