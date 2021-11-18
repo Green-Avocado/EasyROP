@@ -1,6 +1,7 @@
 package ui;
 
 import model.Payload;
+import ui.gui.InitGui;
 import ui.gui.PayloadEditorGui;
 
 import javax.swing.*;
@@ -19,27 +20,7 @@ public class EasyRopGui {
     //          If cancelled, close the GUI.
     //          If ok and non-empty response, set payload name and show GUI.
     private void run() {
-        String payloadName;
-        do {
-            payloadName = (String) JOptionPane.showInputDialog(
-                    null,
-                    "New payload name:\n",
-                    "New Payload",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    null,
-                    "payload"
-            );
-
-            if (payloadName == null) {
-                return;
-            }
-        } while (payloadName.length() == 0);
-
-        Payload payload = new Payload();
-        payload.setName(payloadName);
-
-        new PayloadEditorGui(payload);
+        new InitGui();
     }
 
     // EFFECTS: Starts the graphical user interface
