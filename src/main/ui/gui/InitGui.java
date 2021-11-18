@@ -20,6 +20,8 @@ public class InitGui extends JFrame implements ActionListener {
         initSplash();
         initButtons();
 
+        getContentPane().setBackground(Color.WHITE);
+
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -102,6 +104,7 @@ public class InitGui extends JFrame implements ActionListener {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
         buttonsPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttonsPanel.setBackground(Color.WHITE);
         getContentPane().add(buttonsPanel);
 
         newPayloadButton.addActionListener(this);
