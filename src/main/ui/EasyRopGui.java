@@ -1,10 +1,6 @@
 package ui;
 
-import model.Payload;
-import ui.gui.InitGui;
-import ui.gui.PayloadEditorGui;
-
-import javax.swing.*;
+import ui.gui.SplashScreen;
 
 // EasyRop Application with graphical user interface
 public class EasyRopGui {
@@ -20,7 +16,7 @@ public class EasyRopGui {
     //          If cancelled, close the GUI.
     //          If ok and non-empty response, set payload name and show GUI.
     private void run() {
-        new InitGui();
+        new SplashScreen();
     }
 
     // EFFECTS: Starts the graphical user interface

@@ -10,8 +10,8 @@ import java.awt.event.ActionListener;
 public class RopChainListItem extends JPanel implements ActionListener {
     private final PayloadEditorGui parentFrame;
     private final RopChain ropChain;
-    private final JButton editButton;
-    private final JButton deleteButton;
+    private final JButton editButton = new JButton("Edit");
+    private final JButton deleteButton = new JButton("Delete");
 
     public RopChainListItem(PayloadEditorGui parentFrame, RopChain ropChain) {
         this.parentFrame = parentFrame;
@@ -21,12 +21,10 @@ public class RopChainListItem extends JPanel implements ActionListener {
         add(new JLabel(ropChain.getName()));
         add(Box.createHorizontalGlue());
 
-        editButton = new JButton("Edit");
         editButton.addActionListener(this);
-        add(editButton);
-
-        deleteButton = new JButton("Delete");
         deleteButton.addActionListener(this);
+
+        add(editButton);
         add(deleteButton);
 
         setBorder(BorderFactory.createLineBorder(Color.BLACK));

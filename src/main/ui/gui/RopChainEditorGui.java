@@ -1,13 +1,17 @@
 package ui.gui;
 
+import javafx.util.Pair;
 import model.ExploitObject;
 import model.GadgetCollection;
 import model.RopChain;
+import model.gadgets.Padding;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.util.Arrays;
+import java.util.Collections;
 
 // Represents a window where a user can edit a RopChain.
 public class RopChainEditorGui extends CollectionEditorGui {
@@ -110,7 +114,12 @@ public class RopChainEditorGui extends CollectionEditorGui {
         Object source = e.getSource();
 
         if (source.equals(insertPaddingItem)) {
-            return;
+            new NewExploitElementDialog(
+                    this,
+                    new Padding(),
+                    "New Padding",
+                    Collections.singletonList(new Pair<>("Length", "8"))
+            );
         } else if (source.equals(insertAddressItem)) {
             return;
         } else if (source.equals(insertInstructionsItem)) {

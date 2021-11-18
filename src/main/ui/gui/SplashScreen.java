@@ -8,11 +8,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class InitGui extends JFrame implements ActionListener {
+public class SplashScreen extends JFrame implements ActionListener {
     private final JButton newPayloadButton = new JButton("Create New Payload");
     private final JButton fromFileButton = new JButton("Load Existing Payload");
 
-    public InitGui() {
+    public SplashScreen() {
         super("Easy ROP");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
