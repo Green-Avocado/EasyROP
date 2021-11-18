@@ -28,12 +28,6 @@ public class PayloadEditorGui extends CollectionEditorGui {
     }
 
     @Override
-    void removeElement(String params) {
-        int index = Integer.parseInt(params);
-        payload.remove(index);
-    }
-
-    @Override
     void saveCollection() {
         if (showSaveDialog()) {
             try {

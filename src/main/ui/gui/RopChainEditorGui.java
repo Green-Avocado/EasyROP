@@ -38,12 +38,6 @@ public class RopChainEditorGui extends CollectionEditorGui {
     }
 
     @Override
-    void removeElement(String params) {
-        int index = Integer.parseInt(params);
-        ropChain.remove(index);
-    }
-
-    @Override
     void saveCollection() {
         if (showSaveDialog()) {
             try {

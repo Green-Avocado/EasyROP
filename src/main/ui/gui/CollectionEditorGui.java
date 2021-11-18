@@ -97,11 +97,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
     abstract GadgetCollection getCollection();
 
-    // REQUIRES: params is a valid index with an object that can be removed from the collection.
-    // MODIFIES: this
-    // EFFECTS: Removes the element at the specified index from the collection.
-    abstract void removeElement(String params);
-
     abstract void saveCollection();
 
     abstract void loadCollection();
