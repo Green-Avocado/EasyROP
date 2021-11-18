@@ -30,6 +30,8 @@ public class PayloadEditorGui extends CollectionEditorGui {
         return payload;
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a list entry for the given RopChain and adds it to the GUI.
     @Override
     public void insert(ExploitObject exploitObject) {
         getCollectionViewer().add(new RopChainListItem(this, (RopChain) exploitObject));
@@ -73,6 +75,9 @@ public class PayloadEditorGui extends CollectionEditorGui {
         reload();
     }
 
+    // MODIFIES: this.payload, this
+    // EFFECTS: Prompts the user for a new name to replace the current payload name.
+    //          If successful, renames the payload to the given string.
     @Override
     void renameCollection() {
         String name;
@@ -97,6 +102,8 @@ public class PayloadEditorGui extends CollectionEditorGui {
         setTitleLabel(payload.getName());
     }
 
+    // MODIFIES: this.payload, this
+    // EFFECTS: handles insertion ActionEvents or passes the ActionEvent to the CollectionEditorGui handler.
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -108,12 +115,18 @@ public class PayloadEditorGui extends CollectionEditorGui {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Sets the ActionListener for insert menu options and adds the insert options to the insert menu.
     @Override
     void addInsertOptions(JMenu insertMenu) {
         insertRopChainItem.addActionListener(this);
         insertMenu.add(insertRopChainItem);
     }
 
+    // MODIFIES: this.payload, this
+    // EFFECTS: Prompts the user for a new RopChain name.
+    //          If successful, creates a RopChain with the given name and adds it to the payload.
+    //          Then, updates the GUI to reflect changes.
     private void newRopChain() {
         String name;
 

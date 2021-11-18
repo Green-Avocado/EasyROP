@@ -22,6 +22,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     private final JMenuItem exitMenuItem = new JMenuItem("Exit");
     private final JMenuItem renameMenuItem = new JMenuItem("Rename");
 
+    // EFFECTS: Creates a new CollectionEditorGui.
     public CollectionEditorGui() {
         super("Easy Rop");
 
@@ -50,6 +51,9 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         getContentPane().add(Box.createVerticalGlue());
     }
 
+    // MODIFIES: this
+    // EFFECTS: Initialises final components of this frame after the concrete type has been constructed.
+    //          Sets the frame to be visible.
     void init() {
         titleLabel.setText(getCollection().getName());
 
@@ -62,28 +66,40 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         setVisible(true);
     }
 
+    // MODIFIES: this.titleLabel
+    // EFFECTS: Changes the text of the title label to the given title.
     void setTitleLabel(String title) {
         titleLabel.setText(title);
     }
 
+    // MODIFIES: this.fileChooser
+    // EFFECTS: Prompt the user to pick a file to save to.
+    //          Returns true if successful or false otherwise.
     boolean showSaveDialog() {
         return fileChooser.showSaveDialog(this) == JFileChooser.APPROVE_OPTION;
     }
 
+    // MODIFIES: this.fileChooser
+    // EFFECTS: Prompt the user to pick a file to open.
+    //          Returns true if successful or false otherwise.
     boolean showOpenDialog() {
         return fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION;
     }
 
+    // EFFECTS: Returns the absolute path to the selected file.
     String getSelectedFile() {
         return fileChooser.getSelectedFile().getAbsolutePath();
     }
 
+    // EFFECTS: Returns a reference to the collectionViewer panel.
     public JPanel getCollectionViewer() {
         return collectionViewer;
     }
 
+    // MODIFIES: this
+    // EFFECTS: Refreshes all mutable GUI elements.
     public void reload() {
-        clear();
+        collectionViewer.removeAll();
 
         setTitleLabel(getCollection().getName());
 
@@ -94,19 +110,31 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         validate();
     }
 
+    // EFFECTS: Returns a reference to the GadgetCollection being edited by this frame.
     public abstract GadgetCollection getCollection();
 
+    // MODIFIES: this.collectionViewer
+    // EFFECTS: Inserts the given exploitObject as a list item into the collectionViewer.
     public abstract void insert(ExploitObject exploitObject);
 
+    // EFFECTS: Save the current collection to a specified file.
     abstract void saveCollection();
 
+    // MODIFIES: this.getCollection, this
+    // EFFECTS: Overwrites the current collection with data from the specified file.
     abstract void loadCollection();
 
+    // MODIFIES: this.getCollection, this
+    // EFFECTS: Prompts the user for a new name.
+    //          If successful, renames the collection to the specified string.
     abstract void renameCollection();
 
+    // MODIFIES: this
+    // EFFECTS: Adds insert options for the insert menu specific to the concrete type of this frame.
     abstract void addInsertOptions(JMenu insertMenu);
 
-    // EFFECTS: calls the handler method for the given action command.
+    // MODIFIES: this.getCollection, this
+    // EFFECTS: Calls the handler method for the given action command.
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -134,6 +162,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         addEditMenu(menuBar);
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates the file menu and its components.
     private void addFileMenu(JMenuBar menuBar) {
         JMenu fileMenu = new JMenu("File");
         menuBar.add(fileMenu);
@@ -149,6 +179,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         fileMenu.add(exitMenuItem);
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates the edit menu and its components.
     private void addEditMenu(JMenuBar menuBar) {
         JMenu editMenu = new JMenu("Edit");
         menuBar.add(editMenu);
@@ -159,9 +191,5 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         JMenu insertMenu = new JMenu("Insert");
         editMenu.add(insertMenu);
         addInsertOptions(insertMenu);
-    }
-
-    private void clear() {
-        collectionViewer.removeAll();
     }
 }

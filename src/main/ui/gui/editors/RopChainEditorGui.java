@@ -123,7 +123,7 @@ public class RopChainEditorGui extends CollectionEditorGui {
         parentFrame.reload();
     }
 
-    // MODIFIES: this.ropchain, this.parentFrame, this
+    // MODIFIES: this.ropChain, this.parentFrame, this
     // EFFECTS: handles insertion ActionEvents or passes the ActionEvent to the CollectionEditorGui handler.
     @Override
     public void actionPerformed(ActionEvent e) {
