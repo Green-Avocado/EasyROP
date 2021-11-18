@@ -1,7 +1,8 @@
-package ui.gui;
+package ui.gui.editors;
 
 import model.ExploitObject;
 import model.GadgetCollection;
+import ui.gui.TextViewerGui;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -81,11 +82,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         return collectionViewer;
     }
 
-    void clear() {
-        collectionViewer.removeAll();
-    }
-
-    void reload() {
+    public void reload() {
         clear();
 
         setTitleLabel(getCollection().getName());
@@ -97,13 +94,13 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         validate();
     }
 
-    abstract GadgetCollection getCollection();
+    public abstract GadgetCollection getCollection();
+
+    public abstract void insert(ExploitObject exploitObject);
 
     abstract void saveCollection();
 
     abstract void loadCollection();
-
-    abstract void insert(ExploitObject exploitObject);
 
     abstract void renameCollection();
 
@@ -162,5 +159,9 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         JMenu insertMenu = new JMenu("Insert");
         editMenu.add(insertMenu);
         addInsertOptions(insertMenu);
+    }
+
+    private void clear() {
+        collectionViewer.removeAll();
     }
 }

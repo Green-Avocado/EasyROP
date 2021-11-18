@@ -2,6 +2,7 @@ package ui.gui;
 
 import model.Payload;
 import persistence.JsonReader;
+import ui.gui.editors.PayloadEditorGui;
 
 import javax.swing.*;
 import java.awt.*;

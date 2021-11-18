@@ -1,7 +1,8 @@
-package ui.gui;
+package ui.gui.dialogs;
 
 import javafx.util.Pair;
 import model.ExploitObject;
+import ui.gui.editors.RopChainEditorGui;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +12,7 @@ import java.util.Collections;
 public class NewInstructionsGadgetDialog extends NewExploitElementDialog {
     private final JButton addFieldButton = new JButton("+");
 
-    NewInstructionsGadgetDialog(RopChainEditorGui parentFrame, ExploitObject exploitObject) {
+    public NewInstructionsGadgetDialog(RopChainEditorGui parentFrame, ExploitObject exploitObject) {
         super(
                 parentFrame,
                 exploitObject,

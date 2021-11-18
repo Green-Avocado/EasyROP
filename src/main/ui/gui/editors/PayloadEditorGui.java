@@ -1,4 +1,4 @@
-package ui.gui;
+package ui.gui.editors;
 
 import model.ExploitObject;
 import model.GadgetCollection;
@@ -6,6 +6,7 @@ import model.Payload;
 import model.RopChain;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import ui.gui.listItems.RopChainListItem;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -15,6 +16,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
     private final Payload payload;
     private final JMenuItem insertRopChainItem = new JMenuItem("New ROP Chain");
 
+    // EFFECTS: Creates a new PayloadEditorGui with a given payload.
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -22,11 +24,19 @@ public class PayloadEditorGui extends CollectionEditorGui {
         super.init();
     }
 
+    // EFFECTS: Returns the payload being edited by this frame.
     @Override
-    GadgetCollection getCollection() {
+    public GadgetCollection getCollection() {
         return payload;
     }
 
+    @Override
+    public void insert(ExploitObject exploitObject) {
+        getCollectionViewer().add(new RopChainListItem(this, (RopChain) exploitObject));
+        validate();
+    }
+
+    // EFFECTS: Saves this.payload to the specified file.
     @Override
     void saveCollection() {
         if (showSaveDialog()) {
@@ -43,6 +53,8 @@ public class PayloadEditorGui extends CollectionEditorGui {
         }
     }
 
+    // MODIFIES: this.payload, this
+    // EFFECTS: Overwrites this.payload with data from the specified file.
     @Override
     void loadCollection() {
         if (showOpenDialog()) {
@@ -59,12 +71,6 @@ public class PayloadEditorGui extends CollectionEditorGui {
         }
 
         reload();
-    }
-
-    @Override
-    void insert(ExploitObject exploitObject) {
-        getCollectionViewer().add(new RopChainListItem(this, (RopChain) exploitObject));
-        validate();
     }
 
     @Override

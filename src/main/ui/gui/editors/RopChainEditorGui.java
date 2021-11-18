@@ -1,4 +1,4 @@
-package ui.gui;
+package ui.gui.editors;
 
 import javafx.util.Pair;
 import model.ExploitObject;
@@ -7,6 +7,9 @@ import model.RopChain;
 import model.gadgets.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
+import ui.gui.listItems.ExploitObjectListItem;
+import ui.gui.dialogs.NewExploitElementDialog;
+import ui.gui.dialogs.NewInstructionsGadgetDialog;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -35,15 +38,23 @@ public class RopChainEditorGui extends CollectionEditorGui {
     // MODIFIES: this.parentFrame, this
     // EFFECTS: Reloads all GUI elements for this frame and the parentFrame.
     @Override
-    void reload() {
+    public void reload() {
         super.reload();
         parentFrame.reload();
     }
 
     // EFFECTS: Returns the ropChain this frame is editing.
     @Override
-    GadgetCollection getCollection() {
+    public GadgetCollection getCollection() {
         return ropChain;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Creates a list entry for the given exploitObject and adds it to the GUI.
+    @Override
+    public void insert(ExploitObject exploitObject) {
+        getCollectionViewer().add(new ExploitObjectListItem(this, exploitObject));
+        validate();
     }
 
     // EFFECTS: Saves this ropChain to the specified file.
@@ -81,14 +92,6 @@ public class RopChainEditorGui extends CollectionEditorGui {
         }
 
         reload();
-    }
-
-    // MODIFIES: this
-    // EFFECTS: Creates a list entry for the given exploitObject and adds it to the GUI.
-    @Override
-    void insert(ExploitObject exploitObject) {
-        getCollectionViewer().add(new ExploitObjectListItem(this, exploitObject));
-        validate();
     }
 
     // MODIFIES: this.ropChain, this.parentFrame, this

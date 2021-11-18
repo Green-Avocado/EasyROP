@@ -1,6 +1,8 @@
-package ui.gui;
+package ui.gui.listItems;
 
 import model.RopChain;
+import ui.gui.editors.PayloadEditorGui;
+import ui.gui.editors.RopChainEditorGui;
 
 import javax.swing.*;
 import java.awt.*;
