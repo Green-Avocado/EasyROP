@@ -9,9 +9,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.Collections;
 
+// Represents a dialog where the user can enter parameters for a new InstructionsGadget.
 public class NewInstructionsGadgetDialog extends NewExploitElementDialog {
     private final JButton addFieldButton = new JButton("+");
 
+    // EFFECTS: Creates a new NewInstructionsGadgetDialog with the given parentFrame and exploitObject.
+    //          Sets the title and initial JTextField values for the super class.
+    //          Adds a button for creating new fields to add more instructions.
     public NewInstructionsGadgetDialog(RopChainEditorGui parentFrame, ExploitObject exploitObject) {
         super(
                 parentFrame,
@@ -26,6 +30,10 @@ public class NewInstructionsGadgetDialog extends NewExploitElementDialog {
         pack();
     }
 
+    // MODIFIES: this.getFieldsPanel(), super.fieldInputs()
+    // EFFECTS: Handles ActionEvents for this dialog.
+    //          If the addFieldButton was pressed, adds a new input field to the dialog and list of input fields.
+    //          Otherwise, passes the ActionEvent to the super.actionPerformed().
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();

@@ -30,6 +30,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
         return payload;
     }
 
+    // REQUIRES: exploitObject is a RopChain
     // MODIFIES: this
     // EFFECTS: Creates a list entry for the given RopChain and adds it to the GUI.
     @Override
