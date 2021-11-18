@@ -40,15 +40,15 @@ public class AddressGadget extends Gadget {
         return "AddressGadget (" + getBase() + " + " + getOffset() + ")";
     }
 
+    // EFFECTS: Returns the offset of this object.
+    public String getOffset() {
+        return offset;
+    }
+
     // MODIFIES: this
     // EFFECTS: Sets the offset of this object to the given string.
     public void setOffset(String offset) {
         this.offset = offset;
-    }
-
-    // EFFECTS: Returns the offset of this object.
-    public String getOffset() {
-        return offset;
     }
 
     // EFFECTS: Returns the type of this object.

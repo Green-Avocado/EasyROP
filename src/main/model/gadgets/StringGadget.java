@@ -40,15 +40,15 @@ public class StringGadget extends Gadget {
         return "StringGadget (" + getString() + ")";
     }
 
+    // EFFECTS: Returns the string of this object.
+    public String getString() {
+        return string;
+    }
+
     // MODIFIES: this
     // EFFECTS: Sets the string of this object to the specified string.
     public void setString(String string) {
         this.string = string;
-    }
-
-    // EFFECTS: Returns the string of this object.
-    public String getString() {
-        return string;
     }
 
     // EFFECTS: Returns the type of this object.

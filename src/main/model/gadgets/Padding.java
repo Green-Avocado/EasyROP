@@ -38,15 +38,15 @@ public class Padding implements ExploitObject {
         return "Padding (" + getLength() + ")";
     }
 
+    // EFFECTS: Returns the length of this object.
+    public String getLength() {
+        return length;
+    }
+
     // MODIFIES: this
     // EFFECTS: Sets the length of this object to the given length.
     public void setLength(String length) {
         this.length = length;
-    }
-
-    // EFFECTS: Returns the length of this object.
-    public String getLength() {
-        return length;
     }
 
     // EFFECTS: Returns the type of this object.

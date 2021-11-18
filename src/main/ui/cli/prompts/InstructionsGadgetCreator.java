@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 // Represents a UI context that creates a new InstructionsGadget
 public class InstructionsGadgetCreator extends PromptContext {
-    private String base;
     private final ArrayList<String> instructions;
+    private String base;
 
     // EFFECTS: Creates a new InstructionsGadgetCreator with the given parentContext.
     public InstructionsGadgetCreator(ConsoleContext parentContext) {

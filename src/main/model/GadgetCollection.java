@@ -62,16 +62,16 @@ public abstract class GadgetCollection implements ExploitObject {
         }
     }
 
-    // MODIFIES: this
-    // EFFECTS: Sets the name of the GadgetCollection.
-    public void setName(String name) {
-        this.name = name;
-    }
-
     // EFFECTS: Returns the name of the GadgetCollection.
     @Override
     public String getName() {
         return name;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets the name of the GadgetCollection.
+    public void setName(String name) {
+        this.name = name;
     }
 
     // EFFECTS: Returns the list of ExploitObject.

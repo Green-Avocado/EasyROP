@@ -18,6 +18,11 @@ public class EasyRopCli {
         run();
     }
 
+    // EFFECTS: Starts the command line interface
+    public static void main(String[] args) {
+        new EasyRopCli();
+    }
+
     // MODIFIES: this, this.context
     // EFFECTS: Prints the context string, then gets a line of user input and sends it to the handler of the context.
     private void run() {
@@ -25,10 +30,5 @@ public class EasyRopCli {
             System.out.print(context.getContextString());
             context = context.handleInput(scanner.nextLine());
         }
-    }
-
-    // EFFECTS: Starts the command line interface
-    public static void main(String[] args) {
-        new EasyRopCli();
     }
 }

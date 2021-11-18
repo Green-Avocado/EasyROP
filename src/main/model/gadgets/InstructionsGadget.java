@@ -56,12 +56,6 @@ public class InstructionsGadget extends Gadget {
         return "InstructionsGadget (" + String.join("; ", getInstructions()) + ";)";
     }
 
-    // MODIFIES: this
-    // EFFECTS: Sets the list of instructions to a given list of strings.
-    public void setInstructions(List<String> instructions) {
-        this.instructions = instructions;
-    }
-
     // EFFECTS: Returns the list of instructions or null if none exists.
     public List<String> getInstructions() {
         if (instructions != null) {
@@ -69,6 +63,12 @@ public class InstructionsGadget extends Gadget {
         } else {
             return null;
         }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets the list of instructions to a given list of strings.
+    public void setInstructions(List<String> instructions) {
+        this.instructions = instructions;
     }
 
     // EFFECTS: Returns the type of this object.

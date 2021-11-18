@@ -7,9 +7,9 @@ import model.RopChain;
 import model.gadgets.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
-import ui.gui.listitems.ExploitObjectListItem;
 import ui.gui.dialogs.NewExploitElementDialog;
 import ui.gui.dialogs.NewInstructionsGadgetDialog;
+import ui.gui.listitems.ExploitObjectListItem;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

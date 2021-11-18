@@ -16,12 +16,12 @@ public abstract class Gadget implements ExploitObject {
     }
 
     // EFFECTS: Returns the base of the gadget.
-    public void setBase(String base) {
-        this.base = base;
+    public String getBase() {
+        return base;
     }
 
     // EFFECTS: Returns the base of the gadget.
-    public String getBase() {
-        return base;
+    public void setBase(String base) {
+        this.base = base;
     }
 }

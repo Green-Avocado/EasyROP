@@ -43,26 +43,26 @@ public class SymbolGadget extends Gadget {
         return "SymbolGadget (" + getBase() + "." + getType() + "." + getSymbol() + ")";
     }
 
-    // MODIFIES: this
-    // EFFECTS: Sets the symbol type of this object to the specified string.
-    public void setType(String type) {
-        this.type = type;
-    }
-
     // EFFECTS: Returns the symbol type of this object.
     public String getType() {
         return type;
     }
 
     // MODIFIES: this
-    // EFFECTS: Sets the symbol value of this object to the specified string.
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    // EFFECTS: Sets the symbol type of this object to the specified string.
+    public void setType(String type) {
+        this.type = type;
     }
 
     // EFFECTS: Returns the symbol value of this object.
     public String getSymbol() {
         return symbol;
+    }
+
+    // MODIFIES: this
+    // EFFECTS: Sets the symbol value of this object to the specified string.
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     // EFFECTS: Returns the type of this object.
