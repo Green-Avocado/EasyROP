@@ -23,7 +23,7 @@ public class RopChainEditorGui extends CollectionEditorGui {
     private final JMenuItem insertStringItem = new JMenuItem("New String Gadget");
     private final JMenuItem insertSymbolItem = new JMenuItem("New Symbol Gadget");
 
-    // EFFECTS: Creates a new RopChainEditorGui.
+    // EFFECTS: Creates a new RopChainEditorGui with a given parentFrame and ropChain.
     public RopChainEditorGui(PayloadEditorGui parentFrame, RopChain ropChain) {
         this.parentFrame = parentFrame;
         this.ropChain = ropChain;
@@ -32,11 +32,21 @@ public class RopChainEditorGui extends CollectionEditorGui {
         super.init();
     }
 
+    // MODIFIES: this.parentFrame, this
+    // EFFECTS: Reloads all GUI elements for this frame and the parentFrame.
+    @Override
+    void reload() {
+        super.reload();
+        parentFrame.reload();
+    }
+
+    // EFFECTS: Returns the ropChain this frame is editing.
     @Override
     GadgetCollection getCollection() {
         return ropChain;
     }
 
+    // EFFECTS: Saves this ropChain to the specified file.
     @Override
     void saveCollection() {
         if (showSaveDialog()) {
@@ -53,6 +63,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         }
     }
 
+    // MODIFIES: this.ropChain, this.parentFrame, this
+    // EFFECTS: Overwrites this ropChain with data from the specified file.
     @Override
     void loadCollection() {
         if (showOpenDialog()) {
@@ -71,12 +83,17 @@ public class RopChainEditorGui extends CollectionEditorGui {
         reload();
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a list entry for the given exploitObject and adds it to the GUI.
     @Override
     void insert(ExploitObject exploitObject) {
         getCollectionViewer().add(new ExploitObjectListItem(this, exploitObject));
         validate();
     }
 
+    // MODIFIES: this.ropChain, this.parentFrame, this
+    // EFFECTS: Prompts the user for a new name to replace the current ropChain name.
+    //          If successful, renames the ropChain to the given string.
     @Override
     void renameCollection() {
         String name;
@@ -103,6 +120,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         parentFrame.reload();
     }
 
+    // MODIFIES: this.ropchain, this.parentFrame, this
+    // EFFECTS: handles insertion ActionEvents or passes the ActionEvent to the CollectionEditorGui handler.
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -122,6 +141,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: Sets ActionListeners for insert menu options and adds insert options to the insert menu.
     @Override
     void addInsertOptions(JMenu insertMenu) {
         insertPaddingItem.addActionListener(this);
@@ -137,6 +158,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         insertMenu.add(insertSymbolItem);
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a new Padding, prompts the user for values.
     private void newPadding() {
         new NewExploitElementDialog(
                 this,
@@ -146,6 +169,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         );
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a new AddressGadget, prompts the user for values.
     private void newAddressGadget() {
         new NewExploitElementDialog(
                 this,
@@ -155,10 +180,14 @@ public class RopChainEditorGui extends CollectionEditorGui {
         );
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a new InstructionsGadget, prompts the user for values.
     private void newInstructionsGadget() {
         new NewInstructionsGadgetDialog(this, new InstructionsGadget());
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a new StringGadget, prompts the user for values.
     private void newStringGadget() {
         new NewExploitElementDialog(
                 this,
@@ -168,6 +197,8 @@ public class RopChainEditorGui extends CollectionEditorGui {
         );
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates a new SymbolGadget, prompts the user for values.
     private void newSymbolGadget() {
         new NewExploitElementDialog(
                 this,

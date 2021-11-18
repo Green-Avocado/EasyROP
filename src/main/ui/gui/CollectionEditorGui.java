@@ -88,6 +88,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     void reload() {
         clear();
 
+        setTitleLabel(getCollection().getName());
+
         for (ExploitObject exploitObject : getCollection().getList()) {
             insert(exploitObject);
         }
@@ -107,8 +109,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
     abstract void addInsertOptions(JMenu insertMenu);
 
-    // REQUIRES: e.getActionCommand() is one of the specified actions,
-    //           e.paramString() is a valid parameter string for the specified action command.
     // EFFECTS: calls the handler method for the given action command.
     @Override
     public void actionPerformed(ActionEvent e) {

@@ -29,6 +29,7 @@ public class SplashScreen extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // MODIFIES: this
     // EFFECTS: Starts the main application from a new Payload or from a saved Payload file,
     //          depending on the ActionEvent.
     @Override

@@ -7,12 +7,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents a single RopChain display in a PayloadEditorGui list of RopChains.
 public class RopChainListItem extends JPanel implements ActionListener {
     private final PayloadEditorGui parentFrame;
     private final RopChain ropChain;
     private final JButton editButton = new JButton("Edit");
     private final JButton deleteButton = new JButton("Delete");
 
+    // EFFECTS: Creates a new RopChainListItem for the given parentFrame, representing the given ropChain.
     public RopChainListItem(PayloadEditorGui parentFrame, RopChain ropChain) {
         this.parentFrame = parentFrame;
         this.ropChain = ropChain;
@@ -30,6 +32,8 @@ public class RopChainListItem extends JPanel implements ActionListener {
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
+    // MODIFIES: this.parentFrame.getCollection(), this
+    // EFFECTS: Handles edit and delete button ActionEvents.
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
@@ -41,10 +45,13 @@ public class RopChainListItem extends JPanel implements ActionListener {
         }
     }
 
+    // EFFECTS: Launches a RopChainEditorGui to edit this.ropChain.
     private void edit() {
         new RopChainEditorGui(parentFrame, ropChain);
     }
 
+    // MODIFIES: this.parentFrame.getCollection(), this
+    // EFFECTS: Removes the ropChain this represents from the payload, and removes this list item from the GUI.
     private void delete() {
         int index = parentFrame.getCollection().getList().indexOf(ropChain);
         parentFrame.getCollection().remove(index);
