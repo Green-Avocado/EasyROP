@@ -1,6 +1,5 @@
-package ui;
+package ui.cli;
 
-import ui.cli.ConsoleContext;
 import ui.cli.prompts.PayloadCreator;
 
 import java.util.Scanner;

@@ -1,6 +1,4 @@
-package ui;
-
-import ui.gui.SplashScreen;
+package ui.gui;
 
 // EasyRop Application with graphical user interface
 public class EasyRopGui {
