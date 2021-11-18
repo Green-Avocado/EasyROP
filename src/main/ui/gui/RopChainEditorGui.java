@@ -156,7 +156,7 @@ public class RopChainEditorGui extends CollectionEditorGui {
     }
 
     private void newInstructionsGadget() {
-        // TODO
+        new NewInstructionsGadgetDialog(this, new InstructionsGadget());
     }
 
     private void newStringGadget() {
