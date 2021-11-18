@@ -53,6 +53,8 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
 
         initMenuBar();
 
+        reload();
+
         setMinimumSize(new Dimension(600, 400));
         setLocationRelativeTo(null);
         setVisible(true);

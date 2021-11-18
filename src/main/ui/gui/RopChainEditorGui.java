@@ -75,6 +75,7 @@ public class RopChainEditorGui extends CollectionEditorGui {
 
     @Override
     void insert(ExploitObject exploitObject) {
+        getCollectionViewer().add(new ExploitObjectListItem(this, exploitObject));
         validate();
     }
 
@@ -136,8 +137,5 @@ public class RopChainEditorGui extends CollectionEditorGui {
         insertMenu.add(insertInstructionsItem);
         insertMenu.add(insertStringItem);
         insertMenu.add(insertSymbolItem);
-    }
-
-    private void insertExploitObject(ExploitObject exploitObject) {
     }
 }
