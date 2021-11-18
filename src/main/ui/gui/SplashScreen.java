@@ -118,6 +118,9 @@ public class SplashScreen extends JFrame implements ActionListener {
         getContentPane().add(splashLabel);
     }
 
+    // MODIFIES: this
+    // EFFECTS: Creates the buttonsPanel and adds buttons to it.
+    //          Sets the ActionListeners of the buttons.
     private void initButtons() {
         JPanel buttonsPanel = new JPanel();
         buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.X_AXIS));
