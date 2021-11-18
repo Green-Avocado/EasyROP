@@ -4,7 +4,7 @@ import javafx.util.Pair;
 import model.ExploitObject;
 import model.GadgetCollection;
 import model.RopChain;
-import model.gadgets.Padding;
+import model.gadgets.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -114,20 +114,15 @@ public class RopChainEditorGui extends CollectionEditorGui {
         Object source = e.getSource();
 
         if (source.equals(insertPaddingItem)) {
-            new NewExploitElementDialog(
-                    this,
-                    new Padding(),
-                    "New Padding",
-                    Collections.singletonList(new Pair<>("Length", "8"))
-            );
+            newPadding();
         } else if (source.equals(insertAddressItem)) {
-            return;
+            newAddressGadget();
         } else if (source.equals(insertInstructionsItem)) {
-            return;
+            newInstructionsGadget();
         } else if (source.equals(insertStringItem)) {
-            return;
+            newStringGadget();
         } else if (source.equals(insertSymbolItem)) {
-            return;
+            newSymbolGadget();
         } else {
             super.actionPerformed(e);
         }
@@ -146,5 +141,45 @@ public class RopChainEditorGui extends CollectionEditorGui {
         insertMenu.add(insertInstructionsItem);
         insertMenu.add(insertStringItem);
         insertMenu.add(insertSymbolItem);
+    }
+
+    private void newPadding() {
+        new NewExploitElementDialog(
+                this,
+                new Padding(),
+                "New Padding",
+                Collections.singletonList(new Pair<>("Length", "8"))
+        );
+    }
+
+    private void newAddressGadget() {
+        new NewExploitElementDialog(
+                this,
+                new AddressGadget(),
+                "New Address Gadget",
+                Arrays.asList(new Pair<>("Base", "exe.address"), new Pair<>("Offset", "0"))
+        );
+    }
+
+    private void newInstructionsGadget() {
+        // TODO
+    }
+
+    private void newStringGadget() {
+        new NewExploitElementDialog(
+                this,
+                new StringGadget(),
+                "New String Gadget",
+                Arrays.asList(new Pair<>("Base", "exe"), new Pair<>("String", "/bin/sh\\x00"))
+        );
+    }
+
+    private void newSymbolGadget() {
+        new NewExploitElementDialog(
+                this,
+                new SymbolGadget(),
+                "New Symbol Gadget",
+                Arrays.asList(new Pair<>("Base", "exe"), new Pair<>("Type", "sym"), new Pair<>("Symbol", "main"))
+        );
     }
 }
