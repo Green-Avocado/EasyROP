@@ -5,6 +5,7 @@ import persistence.JsonReader;
 import ui.gui.editors.PayloadEditorGui;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -80,6 +81,7 @@ public class SplashScreen extends JFrame implements ActionListener {
     //          starts the main application using the Payload from the given file.
     private void startFromFile() {
         JFileChooser fileChooser = new JFileChooser("./data/");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
         Payload payload = new Payload();
 
         if (fileChooser.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
