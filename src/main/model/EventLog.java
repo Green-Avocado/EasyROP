@@ -1,3 +1,6 @@
+// Author: Ali Madooei <alimadooei@gmail.com>
+// Upstream: https://github.students.cs.ubc.ca/CPSC210/AlarmSystem.git
+
 package model;
 
 import java.util.ArrayList;
