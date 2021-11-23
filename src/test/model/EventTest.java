@@ -10,12 +10,15 @@ import java.util.Calendar;
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * Unit tests for the Event class
  */
 public class EventTest {
-    private Event e;
+    private Event event0;
+    private Event event1;
+    private Event event2;
     private Date d;
 
     //NOTE: these tests might fail if time at which line (2) below is executed
@@ -24,18 +27,30 @@ public class EventTest {
 
     @BeforeEach
     public void runBefore() {
-        e = new Event("Sensor open at door");   // (1)
+        event0 = new Event("Sensor open at door");   // (1)
+        event1 = new Event("Sensor open at door");
+        event2 = new Event("Other event");
         d = Calendar.getInstance().getTime();   // (2)
     }
 
     @Test
     public void testEvent() {
-        assertEquals("Sensor open at door", e.getDescription());
-        assertEquals(d, e.getDate());
+        assertEquals("Sensor open at door", event0.getDescription());
+        assertEquals(d, event0.getDate());
     }
 
     @Test
     public void testToString() {
-        assertEquals(d.toString() + "\n" + "Sensor open at door", e.toString());
+        assertEquals(d.toString() + "\n" + "Sensor open at door", event0.toString());
+    }
+
+    @Test
+    public void testHashCode() throws InterruptedException {
+        assertEquals(event1.hashCode(), event0.hashCode());
+
+        assertNotEquals(event2.hashCode(), event0.hashCode());
+
+        Thread.sleep(1);
+        assertNotEquals(new Event("Sensor open at door").hashCode(), event0.hashCode());
     }
 }
