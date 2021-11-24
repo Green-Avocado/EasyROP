@@ -1,15 +1,14 @@
 package ui.gui.editors;
 
-import model.ExploitObject;
-import model.GadgetCollection;
-import model.Payload;
-import model.RopChain;
+import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 import ui.gui.listitems.RopChainListItem;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 // Represents a window where a user can edit a Payload.
 public class PayloadEditorGui extends CollectionEditorGui {
@@ -20,6 +19,15 @@ public class PayloadEditorGui extends CollectionEditorGui {
     public PayloadEditorGui(Payload payload) {
         this.payload = payload;
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                for (Event event : EventLog.getInstance()) {
+                    System.out.println(event.toString());
+                }
+            }
+        });
 
         super.init();
     }

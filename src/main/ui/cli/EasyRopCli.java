@@ -1,5 +1,7 @@
 package ui.cli;
 
+import model.Event;
+import model.EventLog;
 import ui.cli.prompts.PayloadCreator;
 
 import java.util.Scanner;
@@ -28,6 +30,10 @@ public class EasyRopCli {
         while (context != null) {
             System.out.print(context.getContextString());
             context = context.handleInput(scanner.nextLine());
+        }
+
+        for (Event event : EventLog.getInstance()) {
+            System.out.println(event.toString());
         }
     }
 }
