@@ -92,7 +92,10 @@ public abstract class GadgetCollection implements ExploitObject {
     public void setName(String name) {
         String oldName = this.name;
         this.name = name;
-        EventLog.getInstance().logEvent(new Event("Changed name of " + oldName + " to " + name));
+
+        if (oldName != null) {
+            EventLog.getInstance().logEvent(new Event("Changed name of " + oldName + " to " + name));
+        }
     }
 
     // EFFECTS: Returns the list of ExploitObject.
