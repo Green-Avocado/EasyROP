@@ -29,14 +29,12 @@ public abstract class GadgetCollection implements ExploitObject {
         if (index <= exploitObjectList.size()) {
             exploitObjectList.add(index, exploitObject);
 
-            EventLog.getInstance().logEvent(new Event(
-                    "Added "
-                            + exploitObject.getName()
-                            + " to "
-                            + getName()
-                            + " at index "
-                            + index
-            ));
+            EventLog.getInstance().logEvent(
+                    new Event(
+                    "Added (" + exploitObject.getExploitObjectType() + ") " + exploitObject.getName()
+                            + " to (" + getExploitObjectType() + ") " + getName() + " at index " + index
+                    )
+            );
             return true;
         } else {
             return false;
@@ -50,14 +48,12 @@ public abstract class GadgetCollection implements ExploitObject {
         if (index < exploitObjectList.size()) {
             ExploitObject exploitObject = exploitObjectList.remove(index);
 
-            EventLog.getInstance().logEvent(new Event(
-                    "Removed "
-                            + exploitObject.getName()
-                            + " from "
-                            + getName()
-                            + " at index "
-                            + index
-            ));
+            EventLog.getInstance().logEvent(
+                    new Event(
+                            "Removed (" + exploitObject.getExploitObjectType() + ") " + exploitObject.getName()
+                                    + " from (" + getExploitObjectType() + ") " + getName() + " at index " + index
+                    )
+            );
             return true;
         } else {
             return false;
@@ -68,7 +64,7 @@ public abstract class GadgetCollection implements ExploitObject {
     // EFFECTS: removes all elements from the exploitObjectList.
     public void clear() {
         exploitObjectList.clear();
-        EventLog.getInstance().logEvent(new Event("Cleared " + getName()));
+        EventLog.getInstance().logEvent(new Event("Cleared (" + getExploitObjectType() + ") " + getName()));
     }
 
     // REQUIRES index >= 0
@@ -93,8 +89,12 @@ public abstract class GadgetCollection implements ExploitObject {
         String oldName = this.name;
         this.name = name;
 
-        if (oldName != null) {
-            EventLog.getInstance().logEvent(new Event("Changed name of " + oldName + " to " + name));
+        if (oldName == null) {
+            EventLog.getInstance().logEvent(new Event("Created new (" + getExploitObjectType() + ") " + name));
+        } else {
+            EventLog.getInstance().logEvent(
+                    new Event("Renamed (" + getExploitObjectType() + ") " + oldName + " to " + name)
+            );
         }
     }
 
