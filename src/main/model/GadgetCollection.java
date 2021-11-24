@@ -28,6 +28,15 @@ public abstract class GadgetCollection implements ExploitObject {
     public boolean add(ExploitObject exploitObject, int index) {
         if (index <= exploitObjectList.size()) {
             exploitObjectList.add(index, exploitObject);
+
+            EventLog.getInstance().logEvent(new Event(
+                    "Added "
+                            + exploitObject.getName()
+                            + " to "
+                            + getName()
+                            + " at index "
+                            + index
+            ));
             return true;
         } else {
             return false;
@@ -39,7 +48,16 @@ public abstract class GadgetCollection implements ExploitObject {
     // EFFECTS: Removes the ExploitObject at specified index, returns true if successful, otherwise returns false.
     public boolean remove(int index) {
         if (index < exploitObjectList.size()) {
-            exploitObjectList.remove(index);
+            ExploitObject exploitObject = exploitObjectList.remove(index);
+
+            EventLog.getInstance().logEvent(new Event(
+                    "Removed "
+                            + exploitObject.getName()
+                            + " from "
+                            + getName()
+                            + " at index "
+                            + index
+            ));
             return true;
         } else {
             return false;
@@ -50,6 +68,7 @@ public abstract class GadgetCollection implements ExploitObject {
     // EFFECTS: removes all elements from the exploitObjectList.
     public void clear() {
         exploitObjectList.clear();
+        EventLog.getInstance().logEvent(new Event("Cleared " + getName()));
     }
 
     // REQUIRES index >= 0
@@ -71,7 +90,9 @@ public abstract class GadgetCollection implements ExploitObject {
     // MODIFIES: this
     // EFFECTS: Sets the name of the GadgetCollection.
     public void setName(String name) {
+        String oldName = this.name;
         this.name = name;
+        EventLog.getInstance().logEvent(new Event("Changed name of " + oldName + " to " + name));
     }
 
     // EFFECTS: Returns the list of ExploitObject.
