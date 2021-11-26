@@ -44,6 +44,8 @@ The goal of EasyROP is to simplify the learning process by making it easier to s
 
 ## Phase 4: Task 2
 
+Sample log:
+
 ```
 Wed Nov 24 14:27:05 PST 2021
 Created new (PAYLOAD) Ret2Libc
@@ -76,3 +78,10 @@ Added (SYMBOL_GADGET) SymbolGadget (libc.sym.system) to (ROP_CHAIN) callSystemBi
 Wed Nov 24 14:27:06 PST 2021
 Added (ROP_CHAIN) callSystemBinSh to (PAYLOAD) Ret2Libc at index 1
 ```
+
+## Phase 4: Task 3
+
+Potential improvements:
+
+- Enforce typesafety by making Payloads, RopChains, and their respective UI elements generic types.
+- Add helper methods to reduce repetitive code in GUI functions for saving and loading from disk.
