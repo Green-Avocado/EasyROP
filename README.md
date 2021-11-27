@@ -47,36 +47,51 @@ The goal of EasyROP is to simplify the learning process by making it easier to s
 Sample log:
 
 ```
-Wed Nov 24 14:27:05 PST 2021
+Fri Nov 26 16:04:00 PST 2021
 Created new (PAYLOAD) Ret2Libc
-Wed Nov 24 14:27:05 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Cleared (PAYLOAD) Ret2Libc
-Wed Nov 24 14:27:05 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Created new (ROP_CHAIN) leakLibc
-Wed Nov 24 14:27:05 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Cleared (ROP_CHAIN) leakLibc
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (INSTRUCTIONS_GADGET) InstructionsGadget (ret;) to (ROP_CHAIN) leakLibc at index 0
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (INSTRUCTIONS_GADGET) InstructionsGadget (pop rdi; ret;) to (ROP_CHAIN) leakLibc at index 1
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (SYMBOL_GADGET) SymbolGadget (exe.got.puts) to (ROP_CHAIN) leakLibc at index 2
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (SYMBOL_GADGET) SymbolGadget (exe.plt.printf) to (ROP_CHAIN) leakLibc at index 3
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (ROP_CHAIN) leakLibc to (PAYLOAD) Ret2Libc at index 0
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Created new (ROP_CHAIN) callSystemBinSh
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Cleared (ROP_CHAIN) callSystemBinSh
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (INSTRUCTIONS_GADGET) InstructionsGadget (pop rdi; ret;) to (ROP_CHAIN) callSystemBinSh at index 0
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (STRING_GADGET) StringGadget (/bin/sh\x00) to (ROP_CHAIN) callSystemBinSh at index 1
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (SYMBOL_GADGET) SymbolGadget (libc.sym.system) to (ROP_CHAIN) callSystemBinSh at index 2
-Wed Nov 24 14:27:06 PST 2021
+
+Fri Nov 26 16:04:00 PST 2021
 Added (ROP_CHAIN) callSystemBinSh to (PAYLOAD) Ret2Libc at index 1
+
 ```
 
 ## Phase 4: Task 3

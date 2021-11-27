@@ -33,7 +33,7 @@ public class EasyRopCli {
         }
 
         for (Event event : EventLog.getInstance()) {
-            System.out.println(event.toString());
+            System.out.println(event.toString() + "\n");
         }
     }
 }

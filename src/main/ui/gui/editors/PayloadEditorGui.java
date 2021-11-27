@@ -24,7 +24,7 @@ public class PayloadEditorGui extends CollectionEditorGui {
             @Override
             public void windowClosing(WindowEvent e) {
                 for (Event event : EventLog.getInstance()) {
-                    System.out.println(event.toString());
+                    System.out.println(event.toString() + "\n");
                 }
             }
         });
