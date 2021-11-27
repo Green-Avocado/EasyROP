@@ -83,5 +83,7 @@ Added (ROP_CHAIN) callSystemBinSh to (PAYLOAD) Ret2Libc at index 1
 
 Potential improvements:
 
-- Enforce typesafety by making Payloads, RopChains, and their respective UI elements generic types.
 - Add helper methods to reduce repetitive code in GUI functions for saving and loading from disk.
+- Add helper methods for creating UI elements to reduce repetitive code when adding elements and assigning listeners.
+- Extract methods from the constructor of CollectionEditorGui to capture the behaviour of its parts.
+- Enforce typesafety by making Payloads, RopChains, and their respective UI elements generic types.
