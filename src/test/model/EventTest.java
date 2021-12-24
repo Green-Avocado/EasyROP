@@ -19,18 +19,18 @@ public class EventTest {
     private Event event1;
     private Event event2;
     private Event event3;
-    private Date d;
-
-    //NOTE: these tests might fail if time at which line (2) below is executed
-    //is different from time that line (1) is executed.  Lines (1) and (2) must
-    //run in same millisecond for this test to make sense and pass.
+    private Date d0;
+    private Date d1;
 
     @BeforeEach
     public void runBefore() throws InterruptedException {
-        event0 = new Event("Sensor open at door");   // (1)
+        d0 = Calendar.getInstance().getTime();
+
+        event0 = new Event("Sensor open at door");
         event1 = new Event("Sensor open at door");
         event2 = new Event("Other event");
-        d = Calendar.getInstance().getTime();   // (2)
+
+        d1 = Calendar.getInstance().getTime();
 
         Thread.sleep(1);
         event3 = new Event("Sensor open at door");
@@ -39,12 +39,17 @@ public class EventTest {
     @Test
     public void testEvent() {
         assertEquals("Sensor open at door", event0.getDescription());
-        assertEquals(d, event0.getDate());
+
+        if (d0 == d1) {
+            assertEquals(d0, event0.getDate());
+        }
     }
 
     @Test
     public void testToString() {
-        assertEquals(d.toString() + "\n" + "Sensor open at door", event0.toString());
+        if (d0 == d1) {
+            assertEquals(d0.toString() + "\n" + "Sensor open at door", event0.toString());
+        }
     }
 
     @Test
@@ -52,14 +57,20 @@ public class EventTest {
         assertNotEquals(event0, null);
         assertNotEquals(event0, EventLog.getInstance());
 
-        assertEquals(event1, event0);
+        if (d0 == d1) {
+            assertEquals(event1, event0);
+        }
+
         assertNotEquals(event2, event0);
         assertNotEquals(event3, event0);
     }
 
     @Test
     public void testHashCode() {
-        assertEquals(event1.hashCode(), event0.hashCode());
+        if (d0 == d1) {
+            assertEquals(event1.hashCode(), event0.hashCode());
+        }
+
         assertNotEquals(event2.hashCode(), event0.hashCode());
         assertNotEquals(event3.hashCode(), event0.hashCode());
     }
