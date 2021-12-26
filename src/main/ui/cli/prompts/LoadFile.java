@@ -21,7 +21,7 @@ public class LoadFile extends PromptContext {
         super(
                 parentContext,
                 "File name",
-                "./data/" + ((CollectionEditor) parentContext).getCollection().getName() + ".json"
+                ((CollectionEditor) parentContext).getCollection().getName() + ".json"
         );
     }
 
@@ -31,13 +31,13 @@ public class LoadFile extends PromptContext {
     @Override
     ConsoleContext handleInputInternal(String input) {
         try {
-            JsonReader jsonReader = new JsonReader(input);
-
             GadgetCollection gadgetCollection = ((CollectionEditor) getParentContext()).getCollection();
 
             if (getParentContext().getClass() == PayloadEditor.class) {
+                JsonReader jsonReader = new JsonReader("./data/payloads/" + input);
                 jsonReader.payloadFromFile((Payload) gadgetCollection);
             } else {
+                JsonReader jsonReader = new JsonReader("./data/ropchains/" + input);
                 jsonReader.ropChainFromFile((RopChain) gadgetCollection);
             }
 

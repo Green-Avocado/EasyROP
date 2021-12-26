@@ -22,9 +22,9 @@ public class JsonReaderTest {
 
     @BeforeEach
     void runBefore() {
-        jsonReaderPayload = new JsonReader("./data/testReadPayload.json");
-        jsonReaderRopChain = new JsonReader("./data/testReadRopChain.json");
-        jsonReaderRopChainMalformed = new JsonReader("./data/testReadRopChainMalformed.json");
+        jsonReaderPayload = new JsonReader("./data/payloads/testReadPayload.json");
+        jsonReaderRopChain = new JsonReader("./data/ropchains/testReadRopChain.json");
+        jsonReaderRopChainMalformed = new JsonReader("./data/ropchains/testReadRopChainMalformed.json");
         jsonReaderNoFile = new JsonReader("FileDoesNotExist");
     }
 
