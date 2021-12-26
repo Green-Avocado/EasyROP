@@ -36,30 +36,30 @@ public class SaveFileTest {
 
     @Test
     void testGetContextString() {
-        assertEquals("File name (default ./data/testSavePayload.json): ", saveFilePayload.getContextString());
-        assertEquals("File name (default ./data/testSaveRopChain.json): ", saveFileRopChain.getContextString());
+        assertEquals("File name (default testSavePayload.json): ", saveFilePayload.getContextString());
+        assertEquals("File name (default testSaveRopChain.json): ", saveFileRopChain.getContextString());
     }
 
     @Test
     void testHandleInput() {
         // payload fail
-        assertEquals(payloadEditor, saveFilePayload.handleInput("./data").handleInput(""));
-        assertEquals(TextViewer.class, saveFilePayload.handleInput("./data").getClass());
+        assertEquals(payloadEditor, saveFilePayload.handleInput("../").handleInput(""));
+        assertEquals(TextViewer.class, saveFilePayload.handleInput("../").getClass());
         assertEquals(
-                "Error: could not save to file ./data (Is a directory)\n",
-                saveFilePayload.handleInput("./data").getContextString()
+                "Error: could not save to file ./data/payloads/.. (Is a directory)\n",
+                saveFilePayload.handleInput("../").getContextString()
         );
 
         // ropChain fail
-        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data").handleInput(""));
-        assertEquals(TextViewer.class, saveFileRopChain.handleInput("./data").getClass());
+        assertEquals(ropChainEditor, saveFileRopChain.handleInput("../").handleInput(""));
+        assertEquals(TextViewer.class, saveFileRopChain.handleInput("../").getClass());
         assertEquals(
-                "Error: could not save to file ./data (Is a directory)\n",
-                saveFileRopChain.handleInput("./data").getContextString()
+                "Error: could not save to file ./data/ropchains/.. (Is a directory)\n",
+                saveFileRopChain.handleInput("../").getContextString()
         );
 
         // success
-        assertEquals(payloadEditor, saveFilePayload.handleInput("./data/testSavePayload.json"));
-        assertEquals(ropChainEditor, saveFileRopChain.handleInput("./data/testSaveRopChain.json"));
+        assertEquals(payloadEditor, saveFilePayload.handleInput("testSavePayload.json"));
+        assertEquals(ropChainEditor, saveFileRopChain.handleInput("testSaveRopChain.json"));
     }
 }

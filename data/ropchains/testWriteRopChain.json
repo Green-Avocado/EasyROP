@@ -1,0 +1,59 @@
+{
+    "name": "testReadRopChain",
+    "type": "ROP_CHAIN",
+    "exploitObjectList": [
+        {
+            "length": "8",
+            "type": "PADDING"
+        },
+        {
+            "length": "0x16",
+            "type": "PADDING"
+        },
+        {
+            "offset": "0",
+            "type": "ADDRESS_GADGET",
+            "base": "exe.address"
+        },
+        {
+            "offset": "0x1e6",
+            "type": "ADDRESS_GADGET",
+            "base": "libc.address"
+        },
+        {
+            "instructions": ["ret"],
+            "type": "INSTRUCTIONS_GADGET",
+            "base": "exe"
+        },
+        {
+            "instructions": [
+                "pop rdi",
+                "ret"
+            ],
+            "type": "INSTRUCTIONS_GADGET",
+            "base": "libc"
+        },
+        {
+            "string": "/bin/sh\\x00",
+            "type": "STRING_GADGET",
+            "base": "exe"
+        },
+        {
+            "string": "cat flag.txt",
+            "type": "STRING_GADGET",
+            "base": "libc"
+        },
+        {
+            "symbol": "main",
+            "type": "SYMBOL_GADGET",
+            "symbolType": "sym",
+            "base": "exe"
+        },
+        {
+            "symbol": "puts",
+            "type": "SYMBOL_GADGET",
+            "symbolType": "plt",
+            "base": "libc"
+        }
+    ]
+}

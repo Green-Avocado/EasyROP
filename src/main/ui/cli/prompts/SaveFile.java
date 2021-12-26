@@ -4,6 +4,7 @@ import persistence.JsonWriter;
 import ui.cli.ConsoleContext;
 import ui.cli.TextViewer;
 import ui.cli.menus.CollectionEditor;
+import ui.cli.menus.PayloadEditor;
 
 // Represents a context where the user can select a file to save to.
 public class SaveFile extends PromptContext {
@@ -14,7 +15,7 @@ public class SaveFile extends PromptContext {
         super(
                 parentContext,
                 "File name",
-                "./data/" + ((CollectionEditor) parentContext).getCollection().getName() + ".json"
+                ((CollectionEditor) parentContext).getCollection().getName() + ".json"
         );
     }
 
@@ -23,7 +24,14 @@ public class SaveFile extends PromptContext {
     @Override
     ConsoleContext handleInputInternal(String input) {
         try {
-            JsonWriter jsonWriter = new JsonWriter(input);
+            JsonWriter jsonWriter;
+
+            if (getParentContext().getClass() == PayloadEditor.class) {
+                jsonWriter = new JsonWriter("./data/payloads/" + input);
+            } else {
+                jsonWriter = new JsonWriter("./data/ropchains/" + input);
+            }
+
             jsonWriter.writeObject(((CollectionEditor) getParentContext()).getCollection());
             return getParentContext();
         } catch (Exception e) {

@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoadFileTest {
     private static final String DOES_NOT_EXIST = "File Does Not Exist";
-    private static final String PAYLOAD_FILE = "./data/testReadPayload.json";
-    private static final String ROPCHAIN_FILE = "./data/testReadRopChain.json";
+    private static final String PAYLOAD_FILE = "testReadPayload.json";
+    private static final String ROPCHAIN_FILE = "testReadRopChain.json";
 
     private LoadFile loadFilePayload;
     private LoadFile loadFileRopChain;
@@ -52,23 +52,23 @@ public class LoadFileTest {
         assertEquals(payloadEditor, loadFilePayload.handleInput(DOES_NOT_EXIST).handleInput(""));
         assertEquals(payloadEditor, loadFilePayload.handleInput(ROPCHAIN_FILE).handleInput(""));
         assertEquals(
-                "Error: could not read file File Does Not Exist\n",
+                "Error: could not read file ./data/payloads/File Does Not Exist\n",
                 loadFilePayload.handleInput(DOES_NOT_EXIST).getContextString()
         );
         assertEquals(
                 "Error: Payload cannot be of type ROP_CHAIN\n",
-                loadFilePayload.handleInput(ROPCHAIN_FILE).getContextString()
+                loadFilePayload.handleInput("../ropchains/" + ROPCHAIN_FILE).getContextString()
         );
 
         assertEquals(ropChainEditor, loadFileRopChain.handleInput(DOES_NOT_EXIST).handleInput(""));
         assertEquals(ropChainEditor, loadFileRopChain.handleInput(PAYLOAD_FILE).handleInput(""));
         assertEquals(
-                "Error: could not read file File Does Not Exist\n",
+                "Error: could not read file ./data/ropchains/File Does Not Exist\n",
                 loadFileRopChain.handleInput(DOES_NOT_EXIST).getContextString()
         );
         assertEquals(
                 "Error: RopChain cannot be of type PAYLOAD\n",
-                loadFileRopChain.handleInput(PAYLOAD_FILE).getContextString()
+                loadFileRopChain.handleInput("../payloads/" + PAYLOAD_FILE).getContextString()
         );
 
         oldCollection = payloadEditor.getCollection();
