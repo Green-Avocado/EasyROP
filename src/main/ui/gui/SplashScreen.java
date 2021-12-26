@@ -80,7 +80,7 @@ public class SplashScreen extends JFrame implements ActionListener {
     //          If a valid file is given, disposes of this frame and
     //          starts the main application using the Payload from the given file.
     private void startFromFile() {
-        JFileChooser fileChooser = new JFileChooser("./data/");
+        JFileChooser fileChooser = new JFileChooser("./data/payloads");
         fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
         Payload payload = new Payload();
 

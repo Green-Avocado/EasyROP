@@ -13,7 +13,6 @@ import java.awt.event.WindowEvent;
 
 // Represents a window where a user can edit a Payload or RopChain.
 public abstract class CollectionEditorGui extends JFrame implements ActionListener {
-    private final JFileChooser fileChooser;
     private final JPanel collectionViewer;
     private final JLabel titleLabel;
     private final JMenuItem loadMenuItem = new JMenuItem("Open");
@@ -21,6 +20,7 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
     private final JMenuItem viewScriptMenuItem = new JMenuItem("View script");
     private final JMenuItem exitMenuItem = new JMenuItem("Exit");
     private final JMenuItem renameMenuItem = new JMenuItem("Rename");
+    JFileChooser fileChooser;
 
     // EFFECTS: Creates a new CollectionEditorGui.
     public CollectionEditorGui() {
@@ -29,9 +29,6 @@ public abstract class CollectionEditorGui extends JFrame implements ActionListen
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
         setContentPane(content);
-
-        fileChooser = new JFileChooser("./data/");
-        fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
 
         getContentPane().add(Box.createRigidArea(new Dimension(0, 8)));
 

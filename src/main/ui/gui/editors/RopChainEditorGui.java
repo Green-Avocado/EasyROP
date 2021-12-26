@@ -12,6 +12,7 @@ import ui.gui.dialogs.NewInstructionsGadgetDialog;
 import ui.gui.listitems.ExploitObjectListItem;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Collections;
@@ -31,6 +32,9 @@ public class RopChainEditorGui extends CollectionEditorGui {
         this.parentFrame = parentFrame;
         this.ropChain = ropChain;
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        fileChooser = new JFileChooser("./data/ropchains");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
 
         super.init();
     }

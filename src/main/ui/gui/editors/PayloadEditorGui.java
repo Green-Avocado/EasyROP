@@ -6,6 +6,7 @@ import persistence.JsonWriter;
 import ui.gui.listitems.RopChainListItem;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -28,6 +29,9 @@ public class PayloadEditorGui extends CollectionEditorGui {
                 }
             }
         });
+
+        fileChooser = new JFileChooser("./data/payloads");
+        fileChooser.setFileFilter(new FileNameExtensionFilter("JavaScript Object Notation data files", "json"));
 
         super.init();
     }
